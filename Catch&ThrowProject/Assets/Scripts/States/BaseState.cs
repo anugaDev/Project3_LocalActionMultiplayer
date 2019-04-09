@@ -4,10 +4,14 @@ using UnityEngine;
 
 public abstract class BaseState : MonoBehaviour
 {
-    public PlayerController playerController;
-
+    [SerializeField] protected PlayerController playerController;
+    [SerializeField] protected string animationTrigger;
  
     public virtual void Enter() { }
     public virtual void Execute() { }
     public virtual void Exit() { }
+    protected void GetController()
+    {
+        if (ReferenceEquals(playerController, null)) playerController = GetComponent<PlayerController>();
+    }
 }

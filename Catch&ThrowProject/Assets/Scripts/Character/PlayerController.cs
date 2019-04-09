@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     
     [Header("Classes")]
     
-    [HideInInspector] public StateMachine stateMachine = new StateMachine();
+    [HideInInspector] private StateMachine stateMachine = new StateMachine();
     public Shield shield;
     public InputController inputControl;
     
@@ -32,4 +32,10 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.ExecuteState();
     }
+
+    public void ChangeState()
+    {
+        
+    }
+    
 }
