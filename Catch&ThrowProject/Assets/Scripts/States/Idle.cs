@@ -20,8 +20,11 @@ public class Idle : BaseState
         if (Math.Abs(playerController.inputControl.Horizontal) > 0)
             playerController.ChangeState(playerController.walkState);
 
-        if(!playerController.surfaceColliding)
+        if(!playerController.CheckForGround())
             playerController.ChangeState(playerController.fallState);
+        
+        if(playerController.inputControl.Vertical > 0 && !playerController.jumpMade)
+            playerController.ChangeState(playerController.jumpState);
     }
 
     public override void Exit()

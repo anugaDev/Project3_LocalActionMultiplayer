@@ -8,20 +8,24 @@ public class Walk : BaseState
 
     public override void Enter()
     {
-        
+        GetController();
     }
 
     public override void Execute()
     {
         playerController.HorizontalMove(walkSpeed);
         
+        
 //        playerController.ChangeState(playerController.jumpState);
         
-        if(Mathf.Abs(playerController.inputControl.Horizontal) == 0 )
+        if(playerController.rigidbody.velocity.magnitude <=0.1f)
             playerController.ChangeState(playerController.idleState);
         
-        if(!playerController.surfaceColliding)
+        if(!playerController.CheckForGround())
             playerController.ChangeState(playerController.fallState);
+        
+        if(playerController.inputControl.Vertical > 0 && !playerController.jumpMade)
+            playerController.ChangeState(playerController.jumpState);
         
     }
     public override void Exit() { }

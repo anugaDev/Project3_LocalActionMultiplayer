@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool jumpMade;
     public bool surfaceColliding { get; private set; }
+    [SerializeField] private float distanceToGround;
 
     private void Start()
     {
@@ -37,7 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine.ExecuteState();
 
-        surfaceColliding = false;
     }
 
     public void ChangeState(BaseState newState)
@@ -48,11 +48,20 @@ public class PlayerController : MonoBehaviour
 
     public void HorizontalMove(float speed)
     {
-        rigidbody.velocity = Vector3.right * (inputControl.Horizontal * speed);
+        var velocity = rigidbody.velocity;
+
+        velocity.x = speed * inputControl.Horizontal;
+        
+        rigidbody.velocity = velocity;
     }
     private void OnCollisionStay(Collision other)
     {
         surfaceColliding = true;
+    }
+
+    public bool CheckForGround()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
     }
     
 }

@@ -21,16 +21,15 @@ public class Fall : BaseState
     {
         #region StateUpdate
 
-        var originalVelocity = playerController.rigidbody.velocity;
-        var velocity = originalVelocity;
+
         
-        velocity -= Vector3.up  *(fallingSpeed * fallMultiply);
 
 //        velocity = velocity.y < -fallingSpeedThreshold ? originalVelocity : velocity;
-        
-        playerController.rigidbody.velocity -= Vector3.up  *(fallingSpeed * fallMultiply);
+
+
+        playerController.rigidbody.AddForce(fallingSpeed * Vector3.down,ForceMode.Acceleration); 
        
-        print(playerController.rigidbody.velocity);
+//        print(playerController.rigidbody.velocity);
         
         playerController.HorizontalMove(glideSpeed);
 
@@ -43,6 +42,8 @@ public class Fall : BaseState
        if(playerController.inputControl.Vertical > 0  && !playerController.jumpMade)
            playerController.ChangeState(playerController.jumpState);
        
+       if(playerController.CheckForGround())
+           playerController.ChangeState(playerController.idleState);
 
        #endregion
        
