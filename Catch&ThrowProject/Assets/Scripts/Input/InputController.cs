@@ -51,7 +51,7 @@ public class InputController : MonoBehaviour
 
     public void AssignButtons()
     {
-        horizontalAxis = "Horziontal" + controllerNumber;
+        horizontalAxis = "Horizontal" + controllerNumber;
         verticalAxis = "Vertical" + controllerNumber;
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;

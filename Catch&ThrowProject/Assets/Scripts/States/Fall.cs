@@ -21,20 +21,12 @@ public class Fall : BaseState
     {
         #region StateUpdate
 
-
-        
-
-//        velocity = velocity.y < -fallingSpeedThreshold ? originalVelocity : velocity;
-
-
-        playerController.rigidbody.AddForce(fallingSpeed * Vector3.down,ForceMode.Acceleration); 
-       
-//        print(playerController.rigidbody.velocity);
-        
-        playerController.HorizontalMove(glideSpeed);
-
         fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
-
+        
+        playerController.rigidbody.AddForce(fallingSpeed * Vector3.down *  fallMultiply,ForceMode.Acceleration); 
+              
+        playerController.HorizontalMove(glideSpeed);
+     
         #endregion
      
        #region ChangeConditions
@@ -51,7 +43,9 @@ public class Fall : BaseState
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity = Vector3.zero;
+        var velocity = playerController.rigidbody.velocity;
+        velocity.y = 0;
+        playerController.rigidbody.velocity = velocity;
     }
 
     private void OnCollisionEnter(Collision other)

@@ -11,7 +11,6 @@ public class Idle : BaseState
 
         playerController.jumpMade = false;
         
-        playerController.rigidbody.velocity = Vector3.zero;
 //        playerController.animator.SetTrigger(animationTrigger);
     }
 

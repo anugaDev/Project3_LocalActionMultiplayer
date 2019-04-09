@@ -13,10 +13,13 @@ public class Walk : BaseState
 
     public override void Execute()
     {
+        #region Stateupdate
+        
         playerController.HorizontalMove(walkSpeed);
         
+        #endregion
         
-//        playerController.ChangeState(playerController.jumpState);
+        #region ChangeConditions
         
         if(playerController.rigidbody.velocity.magnitude <=0.1f)
             playerController.ChangeState(playerController.idleState);
@@ -26,6 +29,8 @@ public class Walk : BaseState
         
         if(playerController.inputControl.Vertical > 0 && !playerController.jumpMade)
             playerController.ChangeState(playerController.jumpState);
+        
+        #endregion
         
     }
     public override void Exit() { }
