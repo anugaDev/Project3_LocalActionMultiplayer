@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class Idle : BaseState
 {
-    public override void Enter() { }
-    public override void Execute() { }
-    public override void Exit() { }
+    
+    public override void Enter()
+    {
+        GetController();
+        
+        playerController.animator.SetTrigger(animationTrigger);
+    }
+
+    public override void Execute()
+    {
+        
+    }
+
+    public override void Exit()
+    {
+        
+    }
 }

@@ -5,7 +5,21 @@ using UnityEngine;
 public class Jump : BaseState
 {
     [SerializeField] private float jumpingSpeed;
-    public override void Enter() { }
+
+    public override void Enter()
+    {
+        GetController();
+
+    }
     public override void Execute() { }
-    public override void Exit() { }
+
+    public override void Exit()
+    {
+        
+    }
+
+    public void SetJumpForce()
+    {
+        playerController.rigidbody.velocity = Vector3.up * jumpingSpeed;
+    }
 }

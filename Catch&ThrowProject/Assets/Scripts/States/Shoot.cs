@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Shoot : BaseState
 {
-    public override void Enter() { }
+    public override void Enter()
+    {
+        GetController();
+    }
     public override void Execute() { }
     public override void Exit() { }
 }
