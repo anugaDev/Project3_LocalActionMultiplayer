@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Walk : BaseState
 {
-    public override void Enter() { }
+    [SerializeField] private float walkSpeed;
+
+    public override void Enter()
+    {
+        
+    }
 
     public override void Execute()
     {
+        playerController.HorizontalMove(walkSpeed);
+        
+        playerController.ChangeState(playerController.jumpState);
         
     }
     public override void Exit() { }

@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody rigidbody;
-    public Collider skillCollider;
+    public Transform skillObject;
+    [HideInInspector]public Collider skillCollider;
     
     [Header("Classes")]
-    private readonly StateMachine stateMachine = new StateMachine();
     public Shield shield;
     public InputController inputControl;
+    private readonly StateMachine stateMachine = new StateMachine();
+    
     
     [Header("States")]
     public Idle idleState;
@@ -22,9 +24,12 @@ public class PlayerController : MonoBehaviour
     public Fall fallState;
     public Shoot shootState;
 
+    [HideInInspector] public bool jumpMade;
+
     private void Start()
     {
         stateMachine.ChangeState(idleState);
+        skillCollider = skillObject.GetComponent<Collider>();
     }
 
     private void Update()
@@ -34,7 +39,13 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(BaseState newState)
     {
+        print("Switch state to: "+ newState);
         stateMachine.ChangeState(newState);
+    }
+
+    public void HorizontalMove(float speed)
+    {
+        rigidbody.velocity = Vector3.right * (inputControl.Horizontal * speed);
     }
     
 }
