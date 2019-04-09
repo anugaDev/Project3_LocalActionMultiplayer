@@ -8,15 +8,14 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody rigidbody;
+    public Collider skillCollider;
     
     [Header("Classes")]
-    
-    [HideInInspector] private StateMachine stateMachine = new StateMachine();
+    private readonly StateMachine stateMachine = new StateMachine();
     public Shield shield;
     public InputController inputControl;
     
     [Header("States")]
-    
     public Idle idleState;
     public Walk walkState;
     public Jump jumpState;
@@ -33,9 +32,9 @@ public class PlayerController : MonoBehaviour
         stateMachine.ExecuteState();
     }
 
-    public void ChangeState()
+    public void ChangeState(BaseState newState)
     {
-        
+        stateMachine.ChangeState(newState);
     }
     
 }
