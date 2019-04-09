@@ -15,7 +15,13 @@ public class Walk : BaseState
     {
         playerController.HorizontalMove(walkSpeed);
         
-        playerController.ChangeState(playerController.jumpState);
+//        playerController.ChangeState(playerController.jumpState);
+        
+        if(Mathf.Abs(playerController.inputControl.Horizontal) == 0 )
+            playerController.ChangeState(playerController.idleState);
+        
+        if(!playerController.surfaceColliding)
+            playerController.ChangeState(playerController.fallState);
         
     }
     public override void Exit() { }

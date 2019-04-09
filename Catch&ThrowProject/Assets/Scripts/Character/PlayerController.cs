@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody rigidbody;
     public Transform skillObject;
-    [HideInInspector]public Collider skillCollider;
+    public Collider skillCollider;
     
     [Header("Classes")]
     public Shield shield;
@@ -25,16 +25,19 @@ public class PlayerController : MonoBehaviour
     public Shoot shootState;
 
     [HideInInspector] public bool jumpMade;
+    public bool surfaceColliding { get; private set; }
 
     private void Start()
     {
         stateMachine.ChangeState(idleState);
-        skillCollider = skillObject.GetComponent<Collider>();
+//        skillCollider = skillObject.GetComponent<Collider>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         stateMachine.ExecuteState();
+
+        surfaceColliding = false;
     }
 
     public void ChangeState(BaseState newState)
@@ -46,6 +49,10 @@ public class PlayerController : MonoBehaviour
     public void HorizontalMove(float speed)
     {
         rigidbody.velocity = Vector3.right * (inputControl.Horizontal * speed);
+    }
+    private void OnCollisionStay(Collision other)
+    {
+        surfaceColliding = true;
     }
     
 }

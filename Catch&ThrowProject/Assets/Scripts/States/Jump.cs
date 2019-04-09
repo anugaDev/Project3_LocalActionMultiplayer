@@ -23,6 +23,8 @@ public class Jump : BaseState
     public void SetJumpForce()
     {
         playerController.rigidbody.velocity = Vector3.up * jumpingSpeed;
+
+        playerController.jumpMade = true;
         
         playerController.ChangeState(playerController.fallState);
     }

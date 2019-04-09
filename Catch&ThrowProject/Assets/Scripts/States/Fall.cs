@@ -24,12 +24,14 @@ public class Fall : BaseState
         var originalVelocity = playerController.rigidbody.velocity;
         var velocity = originalVelocity;
         
-        velocity -= Vector3.up  *(fallingSpeed * fallMultiply);;
+        velocity -= Vector3.up  *(fallingSpeed * fallMultiply);
 
-        velocity = velocity.y < -fallingSpeedThreshold ? originalVelocity : velocity;
+//        velocity = velocity.y < -fallingSpeedThreshold ? originalVelocity : velocity;
         
-        playerController.rigidbody.velocity = velocity;
+        playerController.rigidbody.velocity -= Vector3.up  *(fallingSpeed * fallMultiply);
        
+        print(playerController.rigidbody.velocity);
+        
         playerController.HorizontalMove(glideSpeed);
 
         fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
@@ -40,7 +42,6 @@ public class Fall : BaseState
 
        if(playerController.inputControl.Vertical > 0  && !playerController.jumpMade)
            playerController.ChangeState(playerController.jumpState);
-//       if(playerController.inputControl.) playerController.ChangeState(playerController.shootState);
        
 
        #endregion
@@ -49,5 +50,11 @@ public class Fall : BaseState
 
     public override void Exit()
     {
+        playerController.rigidbody.velocity = Vector3.zero;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        
     }
 }
