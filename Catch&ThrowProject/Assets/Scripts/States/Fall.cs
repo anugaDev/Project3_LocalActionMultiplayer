@@ -28,12 +28,15 @@ public class Fall : BaseState
         #region StateUpdate
 
         actualFallingSpeed = ManageFallSpeed();
-        
+
+        var velocity = playerController.rigidbody.velocity;
+
         fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
+        velocity += Vector3.down * actualFallingSpeed * fallMultiply;
+
+        velocity.y = velocity.y >= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
-//        playerController.rigidbody.AddForce(fallingSpeed * Vector3.down *  fallMultiply,ForceMode.Acceleration); 
-        
-        playerController.rigidbody.velocity += Vector3.down * actualFallingSpeed * fallMultiply; 
+        playerController.rigidbody.velocity = velocity;
 
         
               
