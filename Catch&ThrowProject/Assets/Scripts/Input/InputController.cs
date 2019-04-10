@@ -51,7 +51,7 @@ public class InputController : MonoBehaviour
 
     public void AssignButtons()
     {
-        horizontalAxis = "Horziontal" + controllerNumber;
+        horizontalAxis = "Horizontal" + controllerNumber;
         verticalAxis = "Vertical" + controllerNumber;
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;
@@ -65,6 +65,18 @@ public class InputController : MonoBehaviour
             case Button.JUMP: return Input.GetButtonDown(jumpButton);
             case Button.DASH: return Input.GetButtonDown(dashButton);
             case Button.FIRE: return Input.GetButtonDown(fireButton);
+        }
+
+        return false;
+    }
+
+    public bool ButtonIsPressed(Button button)
+    {
+        switch (button)
+        {
+            case Button.JUMP: return Input.GetButton(jumpButton);
+            case Button.DASH: return Input.GetButton(dashButton);
+            case Button.FIRE: return Input.GetButton(fireButton);
         }
 
         return false;

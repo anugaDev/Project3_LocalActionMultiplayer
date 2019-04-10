@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] private int defaultHealth;
-
     private int actualHealth;
 
     public void Hit()

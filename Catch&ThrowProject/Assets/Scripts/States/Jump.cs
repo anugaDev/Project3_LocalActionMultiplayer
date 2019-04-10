@@ -9,6 +9,8 @@ public class Jump : BaseState
     public override void Enter()
     {
         GetController();
+        
+        SetJumpForce();
 
     }
     public override void Execute() { }
@@ -20,6 +22,13 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
-        playerController.rigidbody.velocity = Vector3.up * jumpingSpeed;
+//        playerController.rigidbody.AddForce(Vector3.up * jumpingSpeed,ForceMode.Impulse); 
+
+        playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
+
+
+        playerController.jumpMade = true;
+        
+        playerController.ChangeState(playerController.fallState);
     }
 }
