@@ -10,8 +10,9 @@ public abstract class BaseState : MonoBehaviour
     public virtual void Enter() { }
     public virtual void Execute() { }
     public virtual void Exit() { }
+
     protected void GetController()
     {
-        if (ReferenceEquals(playerController, null)) playerController = GetComponent<PlayerController>();
+        if (!playerController) playerController = GetComponent<PlayerController>();
     }
 }
