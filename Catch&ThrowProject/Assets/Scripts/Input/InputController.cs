@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
-    [SerializeField] private int controllerNumber;
+    [SerializeField] private int controllerNumber = 1;
 
     [Header("Assigned Buttons")]
 
