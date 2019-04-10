@@ -9,16 +9,15 @@ public class Idle : BaseState
     {
         GetController();
 
-        playerController.jumpMade = false;
         
 //        playerController.animator.SetTrigger(animationTrigger);
     }
 
     public override void Execute()
     {
-        
-        if(!playerController.CheckForGround())
+        if (!playerController.CheckForGround())
             playerController.ChangeState(playerController.fallState);
+        else playerController.jumpMade = false;
         
         if (Math.Abs(playerController.inputControl.Horizontal) > 0)
             playerController.ChangeState(playerController.walkState);

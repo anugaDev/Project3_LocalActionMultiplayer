@@ -178,9 +178,9 @@ MonoBehaviour:
   controllerNumber: 1
   horizontalAxis: 
   verticalAxis: 
-  jumpButton: 
-  dashButton: 
-  fireButton: 
+  jumpButton: Jump
+  dashButton: Dash
+  fireButton: Fire
 --- !u!114 &4205472215443825077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   animationTrigger: 
-  walkSpeed: 12
+  walkSpeed: 15
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   animationTrigger: 
-  jumpingSpeed: 50
+  jumpingSpeed: 60
 --- !u!114 &4205472215443825078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,9 +240,9 @@ MonoBehaviour:
   playerController: {fileID: 0}
   animationTrigger: 
   pressingFallingSpeed: 3
-  notPressingFallingSpeed: 20
-  fallingSpeedThreshold: 100
-  glideSpeed: 10
+  notPressingFallingSpeed: 7
+  fallingSpeedThreshold: 40
+  glideSpeed: 15
 --- !u!114 &4205472215443825073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,9 +257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   animationTrigger: 
-  projectile: {fileID: 0}
-  projectileSpeed: 0
-  shootOffset: 0
+  projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
+    type: 3}
+  projectileSpeed: 10
+  shootOffset: 1
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0

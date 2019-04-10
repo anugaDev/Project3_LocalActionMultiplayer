@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool jumpMade;
     [SerializeField] private float distanceToGround;
+    [SerializeField] private LayerMask groundDetectionCollisions;
 
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
@@ -42,31 +43,25 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //print("ActualState : "+ stateMachine.currentState);
-
         stateMachine.ExecuteState();
-
     }
 
     public void ChangeState(BaseState newState)
     {
-        //print("Switch state to: "+ newState);
         stateMachine.ChangeState(newState);
     }
 
     public void HorizontalMove(float speed)
     {
         var velocity = rigidbody.velocity;
-
         velocity.x = speed * inputControl.Horizontal;
-
         rigidbody.velocity = velocity;
     }
 
 
     public bool CheckForGround()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
     }
 
 }

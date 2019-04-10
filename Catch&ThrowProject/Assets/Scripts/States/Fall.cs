@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Fall : BaseState
 {
-    [SerializeField] private float pressingFallingSpeed;
+    [SerializeField] private  float pressingFallingSpeed;
     [SerializeField] private float notPressingFallingSpeed;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
     private bool stopPressing;
+    private bool groundHit;
     private float actualFallingSpeed;
     private int fallMultiply;
 
@@ -16,6 +17,8 @@ public class Fall : BaseState
     {
         
         GetController();
+
+        groundHit = false;
         
         if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))stopPressing = false;
         
@@ -28,18 +31,12 @@ public class Fall : BaseState
         #region StateUpdate
 
         actualFallingSpeed = ManageFallSpeed();
-
         var velocity = playerController.rigidbody.velocity;
-
-        fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
+//        fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
         velocity += Vector3.down * actualFallingSpeed * fallMultiply;
-
-        velocity.y = velocity.y >= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
+//        velocity.y = velocity.y >= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
         playerController.rigidbody.velocity = velocity;
-
-        
-              
         playerController.HorizontalMove(glideSpeed);
      
         #endregion
@@ -51,9 +48,10 @@ public class Fall : BaseState
        
        if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
            playerController.ChangeState(playerController.shootState);
-       
-       if(playerController.CheckForGround())
+
+       if (!playerController.CheckForGround()) return;
            playerController.ChangeState(playerController.idleState);
+           groundHit = true;
 
        #endregion
        
@@ -61,21 +59,25 @@ public class Fall : BaseState
 
     public override void Exit()
     {
+        if (!groundHit) return;
         var velocity = playerController.rigidbody.velocity;
         velocity.y = 0;
         playerController.rigidbody.velocity = velocity;
+        playerController.jumpMade = true;
+
     }
 
     private float ManageFallSpeed()
     {
-        print(playerController.inputControl.Vertical);
 
+        print(stopPressing);
         
         var speed = notPressingFallingSpeed;
 
         if (stopPressing) return speed;
         
-        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))
+        
+        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP)) //&& playerController.rigidbody.velocity.y > 0)
         {
             speed = pressingFallingSpeed;
         }

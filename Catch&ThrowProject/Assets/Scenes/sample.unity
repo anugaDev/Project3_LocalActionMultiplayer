@@ -694,35 +694,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: jumpButton
-      value: Jump
+      propertyPath: grounDetectionCollisions.m_Bits
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215443825079, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: dashButton
-      value: Dash
+      propertyPath: jumpingSpeed
+      value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: fireButton
-      value: Fire
+      propertyPath: shootOffset
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825076, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: walkSpeed
-      value: 15
+      propertyPath: projectileSpeed
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: notPressingFallingSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: glideSpeed
-      value: 15
+      propertyPath: reloadTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}

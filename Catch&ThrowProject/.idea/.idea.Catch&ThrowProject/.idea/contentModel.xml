@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Character" t="Include">
+            <e p="PlayerController.cs" t="Include" />
             <e p="Shield.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
@@ -16,6 +17,9 @@
           <e p="Projectile.cs" t="Include" />
           <e p="States" t="Include">
             <e p="BaseState.cs" t="Include" />
+            <e p="Catch.cs" t="Include" />
+            <e p="Caught.cs" t="Include" />
+            <e p="Dash.cs" t="Include" />
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
