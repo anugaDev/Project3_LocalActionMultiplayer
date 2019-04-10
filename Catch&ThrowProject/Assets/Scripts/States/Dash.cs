@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Dash : BaseState
 {
-    public float speed;
-    public float duration;
+    [SerializeField] private readonly float speed;
+    [SerializeField] private readonly float duration;
 
-    public Collider playerTrigger;
+    [SerializeField] private Collider playerTrigger;
 
     private bool catched = false;
 
@@ -26,17 +26,7 @@ public class Dash : BaseState
     {
         //TODO: Stop animation
         playerController.rigidbody.velocity = Vector3.zero;
-
-        if (catched)
-        {
-            catched = false;
-
-        }
-        else
-        {
-            playerTrigger.isTrigger = false;
-
-        }
+        playerTrigger.isTrigger = !catched;
     }
 
     private IEnumerator StopDash()
@@ -48,13 +38,20 @@ public class Dash : BaseState
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerController>())
-        {
-            catched = true;
+        var enemy = other.GetComponent<PlayerController>();
 
-            StopCoroutine(StopDash());
+        if (enemy && !enemy.Invulnerable) CatchPlayer(enemy);
+    }
 
-            //ChangeState to grab
-        }
+    private void CatchPlayer(PlayerController enemy)
+    {
+        StopCoroutine(StopDash());
+
+        catched = true;
+
+        enemy.ChangeState(enemy.caughtState);
+
+        playerController.caughtPlayer = enemy;
+        playerController.ChangeState(playerController.catchState);
     }
 }

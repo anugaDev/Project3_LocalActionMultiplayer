@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rigidbody;
     public Transform skillObject;
     public Collider skillCollider;
-    
+
     [Header("Classes")]
     public Shield shield;
     public InputController inputControl;
     private readonly StateMachine stateMachine = new StateMachine();
-    
-    
+
+
     [Header("States")]
     public Idle idleState;
     public Walk walkState;
@@ -24,8 +24,16 @@ public class PlayerController : MonoBehaviour
     public Fall fallState;
     public Shoot shootState;
 
+    public Catch catchState;
+    public Caught caughtState;
+
     [HideInInspector] public bool jumpMade;
     [SerializeField] private float distanceToGround;
+
+    public bool Invulnerable { get; set; }
+    public bool CanMove { get; set; }
+
+    public PlayerController caughtPlayer;
 
     private void Start()
     {
@@ -34,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-//        print("ActualState : "+ stateMachine.currentState);
+        //print("ActualState : "+ stateMachine.currentState);
 
         stateMachine.ExecuteState();
 
@@ -42,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(BaseState newState)
     {
-//        print("Switch state to: "+ newState);
+        //print("Switch state to: "+ newState);
         stateMachine.ChangeState(newState);
     }
 
@@ -51,14 +59,14 @@ public class PlayerController : MonoBehaviour
         var velocity = rigidbody.velocity;
 
         velocity.x = speed * inputControl.Horizontal;
-        
+
         rigidbody.velocity = velocity;
     }
-  
+
 
     public bool CheckForGround()
     {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
     }
-    
+
 }
