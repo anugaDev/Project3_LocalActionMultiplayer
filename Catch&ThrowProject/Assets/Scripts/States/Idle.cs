@@ -16,13 +16,17 @@ public class Idle : BaseState
 
     public override void Execute()
     {
-        if (Math.Abs(playerController.inputControl.Horizontal) > 0)
-            playerController.ChangeState(playerController.walkState);
-
+        
         if(!playerController.CheckForGround())
             playerController.ChangeState(playerController.fallState);
         
-        if(playerController.inputControl.Vertical > 0 && !playerController.jumpMade)
+        if (Math.Abs(playerController.inputControl.Horizontal) > 0)
+            playerController.ChangeState(playerController.walkState);
+        
+        if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
+            playerController.ChangeState(playerController.shootState);
+        
+        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP))
             playerController.ChangeState(playerController.jumpState);
     }
 

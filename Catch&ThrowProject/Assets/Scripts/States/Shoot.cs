@@ -35,5 +35,7 @@ public class Shoot : BaseState
         var projectileClass = projectileInstance.GetComponent<Projectile>();
         
         projectileClass.SetBullet(direction,projectileSpeed);
+        
+        playerController.ChangeState(playerController.idleState);
     }
 }

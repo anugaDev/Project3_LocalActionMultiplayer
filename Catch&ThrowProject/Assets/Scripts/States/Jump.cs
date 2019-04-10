@@ -22,7 +22,10 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
-        playerController.rigidbody.AddForce(Vector3.up * jumpingSpeed,ForceMode.Impulse); 
+//        playerController.rigidbody.AddForce(Vector3.up * jumpingSpeed,ForceMode.Impulse); 
+
+        playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
+
 
         playerController.jumpMade = true;
         

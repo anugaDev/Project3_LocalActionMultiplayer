@@ -69,4 +69,16 @@ public class InputController : MonoBehaviour
 
         return false;
     }
+
+    public bool ButtonIsPressed(Button button)
+    {
+        switch (button)
+        {
+            case Button.JUMP: return Input.GetButton(jumpButton);
+            case Button.DASH: return Input.GetButton(dashButton);
+            case Button.FIRE: return Input.GetButton(fireButton);
+        }
+
+        return false;
+    }
 }

@@ -25,24 +25,24 @@ public class PlayerController : MonoBehaviour
     public Shoot shootState;
 
     [HideInInspector] public bool jumpMade;
-    public bool surfaceColliding { get; private set; }
     [SerializeField] private float distanceToGround;
 
     private void Start()
     {
         stateMachine.ChangeState(idleState);
-//        skillCollider = skillObject.GetComponent<Collider>();
     }
 
     private void FixedUpdate()
     {
+//        print("ActualState : "+ stateMachine.currentState);
+
         stateMachine.ExecuteState();
 
     }
 
     public void ChangeState(BaseState newState)
     {
-        print("Switch state to: "+ newState);
+//        print("Switch state to: "+ newState);
         stateMachine.ChangeState(newState);
     }
 
@@ -54,10 +54,7 @@ public class PlayerController : MonoBehaviour
         
         rigidbody.velocity = velocity;
     }
-    private void OnCollisionStay(Collision other)
-    {
-        surfaceColliding = true;
-    }
+  
 
     public bool CheckForGround()
     {

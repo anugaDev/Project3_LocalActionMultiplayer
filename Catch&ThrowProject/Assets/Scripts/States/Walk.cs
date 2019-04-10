@@ -21,13 +21,16 @@ public class Walk : BaseState
         
         #region ChangeConditions
         
-        if(playerController.rigidbody.velocity.magnitude <=0.1f)
-            playerController.ChangeState(playerController.idleState);
-        
         if(!playerController.CheckForGround())
             playerController.ChangeState(playerController.fallState);
         
-        if(playerController.inputControl.Vertical > 0 && !playerController.jumpMade)
+        if(playerController.rigidbody.velocity.magnitude <=0.1f)
+            playerController.ChangeState(playerController.idleState);
+        
+        if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
+            playerController.ChangeState(playerController.shootState);
+
+        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP))
             playerController.ChangeState(playerController.jumpState);
         
         #endregion
