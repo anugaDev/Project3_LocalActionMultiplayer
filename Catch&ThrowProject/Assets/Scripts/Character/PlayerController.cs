@@ -41,13 +41,15 @@ public class PlayerController : MonoBehaviour
         stateMachine.ChangeState(idleState);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         stateMachine.ExecuteState();
     }
 
     public void ChangeState(BaseState newState)
     {
+        print("State :" + newState);
+        
         stateMachine.ChangeState(newState);
     }
 

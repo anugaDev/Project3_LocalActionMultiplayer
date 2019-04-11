@@ -18,7 +18,7 @@ InputManager:
     sensitivity: 3
     snap: 1
     invert: 0
-    type: 0
+    type: 2
     axis: 0
     joyNum: 0
   - serializedVersion: 3
@@ -34,7 +34,7 @@ InputManager:
     sensitivity: 3
     snap: 1
     invert: 0
-    type: 0
+    type: 2
     axis: 0
     joyNum: 0
   - serializedVersion: 3
@@ -42,9 +42,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left ctrl
+    positiveButton: x
     altNegativeButton: 
-    altPositiveButton: mouse 0
+    altPositiveButton: joystick 1 button 0
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -90,9 +90,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: space
+    positiveButton: c
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: joystick 1 button 1
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

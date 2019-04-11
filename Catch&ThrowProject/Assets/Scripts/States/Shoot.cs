@@ -8,6 +8,7 @@ public class Shoot : BaseState
     [SerializeField] private float reloadTime;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float shootOffset;
+    [SerializeField] private float shootRecoilForce;
     private bool reloaded = true;
     public override void Enter()
     {
@@ -43,7 +44,9 @@ public class Shoot : BaseState
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction),rotation);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
         projectileClass.SetBullet(direction,speed);
-        
+
+        var force = Vector3.up * shootRecoilForce;
+        if(force.magnitude > 0) playerController.rigidbody.velocity = force;
         StartCoroutine(Reload(reloadTime));
         playerController.ChangeState(playerController.idleState);
 

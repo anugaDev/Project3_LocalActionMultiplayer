@@ -694,10 +694,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: notPressingFallingSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: pressingFallingSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: grounDetectionCollisions.m_Bits
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: groundDetectionCollisions.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: distanceToGround
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825079, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}

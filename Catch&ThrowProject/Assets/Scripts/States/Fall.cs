@@ -15,7 +15,6 @@ public class Fall : BaseState
 
     public override void Enter()
     {
-        
         GetController();
 
         groundHit = false;
@@ -49,13 +48,15 @@ public class Fall : BaseState
        if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
            playerController.ChangeState(playerController.shootState);
 
-       if (!playerController.CheckForGround()) return;
+       if (playerController.CheckForGround())
+       {
            playerController.ChangeState(playerController.idleState);
            groundHit = true;
 
+       }
+           
        #endregion
-       
-    }
+       }
 
     public override void Exit()
     {
@@ -64,20 +65,15 @@ public class Fall : BaseState
         velocity.y = 0;
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = true;
-
     }
 
     private float ManageFallSpeed()
     {
-
-        print(stopPressing);
-        
         var speed = notPressingFallingSpeed;
 
         if (stopPressing) return speed;
         
-        
-        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP)) //&& playerController.rigidbody.velocity.y > 0)
+        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) ) // && playerController.rigidbody.velocity.y > 0)
         {
             speed = pressingFallingSpeed;
         }
