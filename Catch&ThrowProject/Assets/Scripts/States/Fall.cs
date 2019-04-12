@@ -17,6 +17,7 @@ public class Fall : BaseState
     public override void Enter()
     {
 
+        gameObject.layer = playerController.jumpLayer;
         groundHit = false;
 
         if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))
@@ -33,6 +34,11 @@ public class Fall : BaseState
     {
         #region StateUpdate
 
+        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
+//            && Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+//                LayerMask.GetMask(LayerMask.LayerToName(playerController.jumpLayer))).Length <= 0)
+            gameObject.layer = playerController.normalLayer;
+        
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
         fallMultiply = playerController.inputControl.Vertical < 0 ? fallPressedMultiply : 1;

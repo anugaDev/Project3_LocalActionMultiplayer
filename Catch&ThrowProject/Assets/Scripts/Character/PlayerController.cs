@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody rigidbody;
     public Transform skillObject;
-    public Collider skillCollider;
+    public Collider normalCollider;
 
     [Header("Classes")]
     public Shield shield;
@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public Catch catchState;
     public Caught caughtState;
 
+    public int jumpLayer;
+    public int normalLayer;
+    public float sphereCollisionRadius;
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
     [SerializeField] private float distanceToGround;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 636614215799889609}
   - component: {fileID: 636614215799889602}
   - component: {fileID: 636614215799889606}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636614215799889603}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
