@@ -2756,6 +2756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825064, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2833,11 +2838,6 @@ PrefabInstance:
       objectReference: {fileID: 1119697856}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
       propertyPath: controllerNumber
       value: 2
       objectReference: {fileID: 0}
@@ -2859,15 +2859,27 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1119697849}
+    - target: {fileID: 309804495, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 309804495, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 309804495, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2846430671447116553, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: breakSpeed
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2846430671447116553, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: threshHoldSpeed
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}

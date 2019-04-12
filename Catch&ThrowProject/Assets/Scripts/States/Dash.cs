@@ -9,7 +9,7 @@ public class Dash : BaseState
     [SerializeField] private float duration;
     [SerializeField] private float exitSpeedMultiplier = 0.10f;
 
-    [SerializeField] private Collider playerTrigger;
+    [SerializeField] public Collider playerTrigger;
 
     [SerializeField] private bool catched = false;
 

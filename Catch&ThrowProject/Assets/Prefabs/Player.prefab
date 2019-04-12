@@ -78,10 +78,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &4205472215443825064
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   animationTrigger: 
   timeBeforeThrow: 1.5
   throwForce: 50
+  reactionForceMultiplier: 0.25
 --- !u!114 &3966379602459133179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +393,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  direction: {x: 0, y: 0, z: 0}
 --- !u!114 &2846430671447116553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  threshHoldSpeed: 20
-  breakSpeed: 10
+  threshHoldSpeed: 25
+  breakSpeed: 100
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0

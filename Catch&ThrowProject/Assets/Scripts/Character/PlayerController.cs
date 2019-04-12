@@ -52,9 +52,6 @@ public class PlayerController : MonoBehaviour
     {
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
-            if (!CheckForGround()) ChangeState(fallState);
-            else jumpMade = false;
-
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
             if (inputControl.ButtonDown(InputController.Button.DASH)) ChangeState(dashState);

@@ -10,9 +10,8 @@ public class Stun : BaseState
 
     public override void Execute()
     {
-        playerController.rigidbody.velocity += -playerController.rigidbody.velocity.normalized * breakSpeed * Time.deltaTime;
-
         if (playerController.rigidbody.velocity.magnitude <= threshHoldSpeed) playerController.ChangeState(playerController.fallState);
+        else playerController.rigidbody.velocity += -playerController.rigidbody.velocity.normalized * breakSpeed * Time.deltaTime;
     }
 
     public override void Exit()

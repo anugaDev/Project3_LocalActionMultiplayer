@@ -14,4 +14,9 @@ public class Caught : BaseState
     {
         playerController.rigidbody.velocity = Vector3.zero;
     }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
 }

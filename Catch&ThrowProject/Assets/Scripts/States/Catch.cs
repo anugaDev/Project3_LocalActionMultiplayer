@@ -31,6 +31,7 @@ public class Catch : BaseState
         playerController.Invulnerable = false;
         playerController.CanMove = true;
         playerController.caughtPlayer = null;
+        playerController.dashState.playerTrigger.isTrigger = false;
     }
 
     private void ThrowPlayer(PlayerController caughtPlayer)

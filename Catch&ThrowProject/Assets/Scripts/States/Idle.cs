@@ -16,6 +16,9 @@ public class Idle : BaseState
     {
         if (Mathf.Abs(playerController.inputControl.Horizontal) > 0) playerController.ChangeState(playerController.walkState);
 
+        if (!playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
+        else playerController.jumpMade = false;
+
     }
 
     public override void Exit()
