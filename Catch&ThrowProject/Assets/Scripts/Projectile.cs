@@ -27,8 +27,15 @@ public class Projectile : MonoBehaviour
         projectileSpeed = speed;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        
+        var tag = other.transform.tag;
+
+        if (tag == "Wall")
+        {
+            
+        }
     }
+
+ 
 }
