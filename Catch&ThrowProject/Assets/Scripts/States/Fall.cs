@@ -62,9 +62,6 @@ public class Fall : BaseState
         if (playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade)
             playerController.ChangeState(playerController.jumpState);
 
-        if (playerController.inputControl.ButtonDown(InputController.Button.FIRE))
-            playerController.ChangeState(playerController.shootState);
-
         #endregion
     }
 

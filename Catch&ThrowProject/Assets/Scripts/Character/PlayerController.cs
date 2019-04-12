@@ -49,14 +49,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
-            if (inputControl.ButtonDown(InputController.Button.JUMP)) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
-            if (inputControl.ButtonDown(InputController.Button.DASH)) ChangeState(dashState);
-
             if (!CheckForGround()) ChangeState(fallState);
             else jumpMade = false;
+
+            if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
+            if (inputControl.ButtonDown(InputController.Button.DASH)) ChangeState(dashState);
         }
 
         stateMachine.ExecuteState();

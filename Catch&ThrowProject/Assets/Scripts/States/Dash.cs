@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Dash : BaseState
 {
-    [SerializeField] private readonly float speed;
-    [SerializeField] private readonly float duration;
+    [SerializeField] private float speed;
+    [SerializeField] private float duration;
+    [SerializeField] private float exitSpeedMultiplier = 0.10f;
 
     [SerializeField] private Collider playerTrigger;
 
@@ -17,7 +18,9 @@ public class Dash : BaseState
         //TODO: Animation, rotation and particles
 
         playerTrigger.isTrigger = true;
+        print(playerController.rigidbody.velocity);
         playerController.rigidbody.velocity = playerController.inputControl.Direction * speed;
+        print(playerController.rigidbody.velocity);
 
         StartCoroutine(StopDash());
     }
@@ -25,7 +28,7 @@ public class Dash : BaseState
     public override void Exit()
     {
         //TODO: Stop animation
-        playerController.rigidbody.velocity = Vector3.zero;
+        playerController.rigidbody.velocity *= exitSpeedMultiplier;
         playerTrigger.isTrigger = !catched;
     }
 
