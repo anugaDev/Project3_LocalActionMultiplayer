@@ -8,10 +8,11 @@ public class Fall : BaseState
     [SerializeField] private float notPressingFallingSpeed;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
+    [SerializeField] private float fallPressedMultiply;
     private bool stopPressing;
     private bool groundHit;
     private float actualFallingSpeed;
-    private int fallMultiply;
+    private float fallMultiply;
 
     public override void Enter()
     {
@@ -34,9 +35,9 @@ public class Fall : BaseState
 
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
-//        fallMultiply = playerController.inputControl.Vertical < 0 ? 2 : 1;
+        fallMultiply = playerController.inputControl.Vertical < 0 ? fallPressedMultiply : 1;
         velocity += Vector3.down * actualFallingSpeed * fallMultiply;
-//        velocity.y = velocity.y >= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
+        velocity.y = velocity.y <= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
         playerController.rigidbody.velocity = velocity;
         playerController.HorizontalMove(glideSpeed);
