@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Classes")]
     public Shield shield;
     public InputController inputControl;
-    private readonly StateMachine stateMachine = new StateMachine();
+    public readonly StateMachine stateMachine = new StateMachine();
 
 
     [Header("States")]

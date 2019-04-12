@@ -21,6 +21,11 @@ public class Dash : BaseState
         StartCoroutine(StopDash());
     }
 
+    private void Update()
+    {
+
+    }
+
     public override void Exit()
     {
         playerController.rigidbody.velocity *= exitSpeedMultiplier;
@@ -38,9 +43,11 @@ public class Dash : BaseState
 
     private void OnTriggerEnter(Collider other)
     {
+        if (playerController.stateMachine.currentState != playerController.dashState) return;
+            
         var enemy = other.GetComponentInParent<PlayerController>();
 
-        if (enemy && !enemy.Invulnerable) CatchPlayer(enemy);
+        if (enemy) CatchPlayer(enemy);
     }
 
     private void CatchPlayer(PlayerController enemy)

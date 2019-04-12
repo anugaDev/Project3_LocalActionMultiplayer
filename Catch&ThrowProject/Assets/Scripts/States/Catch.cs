@@ -23,7 +23,12 @@ public class Catch : BaseState
     {
         playerController.rigidbody.velocity = Vector3.zero;
 
-        if (playerController.inputControl.ButtonDown(InputController.Button.DASH)) ThrowPlayer(playerController.caughtPlayer);
+        if (playerController.inputControl.ButtonDown(InputController.Button.DASH))
+        {
+            StopAllCoroutines();
+
+            ThrowPlayer(playerController.caughtPlayer);
+        }
     }
 
     public override void Exit()
@@ -36,8 +41,6 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
-        StopAllCoroutines();
-
         Vector3 direction = playerController.inputControl.Direction;
 
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
@@ -52,6 +55,6 @@ public class Catch : BaseState
         yield return new WaitForSeconds(timeBeforeThrow);
 
         playerController.ChangeState(playerController.fallState);
-        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
+        if (playerController.caughtPlayer) playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
     }
 }
