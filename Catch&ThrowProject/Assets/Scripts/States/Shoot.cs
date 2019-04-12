@@ -42,6 +42,7 @@ public class Shoot : BaseState
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction),rotation);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
+        projectileClass.SetBullet(direction , projectileSpeed);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(),projectileInstance.GetComponent<Collider>(),true); 
         
         var force = Vector3.up * shootRecoilForce;
