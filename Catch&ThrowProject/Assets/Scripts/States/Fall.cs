@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fall : BaseState
 {
-    [SerializeField] private  float pressingFallingSpeed;
+    [SerializeField] private float pressingFallingSpeed;
     [SerializeField] private float notPressingFallingSpeed;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
@@ -22,9 +22,9 @@ public class Fall : BaseState
         if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))
         {
             stopPressing = false;
-            
+
         }
-        
+
         fallMultiply = 1;
 
     }
@@ -36,33 +36,33 @@ public class Fall : BaseState
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
         fallMultiply = playerController.inputControl.Vertical < 0 ? fallPressedMultiply : 1;
-        velocity += Vector3.down * actualFallingSpeed * fallMultiply;
+        velocity += Vector3.down * actualFallingSpeed * fallMultiply * Time.deltaTime;
         velocity.y = velocity.y <= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
-        
+
         playerController.rigidbody.velocity = velocity;
         playerController.HorizontalMove(glideSpeed);
-     
+
         #endregion
-     
-       #region ChangeConditions
 
-       if (playerController.CheckForGround())
-       {
-           playerController.ChangeState(playerController.idleState);
-           groundHit = true;
+        #region ChangeConditions
 
-       }
-       
-       if(playerController.inputControl.ButtonDown(InputController.Button.JUMP)  && !playerController.jumpMade)
-           playerController.ChangeState(playerController.jumpState);
-       
-       if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
-           playerController.ChangeState(playerController.shootState);
+        if (playerController.CheckForGround())
+        {
+            playerController.ChangeState(playerController.idleState);
+            groundHit = true;
 
-     
-           
-       #endregion
-       }
+        }
+
+        if (playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade)
+            playerController.ChangeState(playerController.jumpState);
+
+        if (playerController.inputControl.ButtonDown(InputController.Button.FIRE))
+            playerController.ChangeState(playerController.shootState);
+
+
+
+        #endregion
+    }
 
     public override void Exit()
     {
@@ -79,7 +79,7 @@ public class Fall : BaseState
         var speed = notPressingFallingSpeed;
 
         if (stopPressing) return speed;
-        
+
         if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) && playerController.rigidbody.velocity.y > 0)
         {
             speed = pressingFallingSpeed;

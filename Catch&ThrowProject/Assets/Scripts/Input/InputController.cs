@@ -44,7 +44,7 @@ public class InputController : MonoBehaviour
         if (controllerNumber > 0)
         {
             Horizontal = Input.GetAxis(horizontalAxis);
-            Vertical = Input.GetAxis(verticalAxis);
+            Vertical = -Input.GetAxis(verticalAxis);
             Direction = new Vector2(Horizontal, Vertical);
         }
     }
