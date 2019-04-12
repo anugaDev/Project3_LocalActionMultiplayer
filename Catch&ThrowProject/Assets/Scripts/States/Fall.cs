@@ -65,8 +65,6 @@ public class Fall : BaseState
         if (playerController.inputControl.ButtonDown(InputController.Button.FIRE))
             playerController.ChangeState(playerController.shootState);
 
-
-
         #endregion
     }
 

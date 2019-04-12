@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
     public Fall fallState;
     public Shoot shootState;
 
+    public Dash dashState;
     public Catch catchState;
     public Caught caughtState;
+
 
     public int jumpLayer;
     public int normalLayer;
@@ -47,13 +49,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
+        {
+            if (inputControl.ButtonDown(InputController.Button.JUMP)) ChangeState(jumpState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
+            if (inputControl.ButtonDown(InputController.Button.DASH)) ChangeState(dashState);
+
+            if (!CheckForGround()) ChangeState(fallState);
+            else jumpMade = false;
+        }
+
         stateMachine.ExecuteState();
     }
 
     public void ChangeState(BaseState newState)
     {
         print("State :" + newState);
-        
+
         stateMachine.ChangeState(newState);
     }
 
@@ -73,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         switch (other.transform.tag)
         {
-            
+
         }
     }
 }

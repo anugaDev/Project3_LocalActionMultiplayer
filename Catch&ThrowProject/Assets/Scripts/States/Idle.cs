@@ -9,29 +9,19 @@ public class Idle : BaseState
     {
 
 
-//        playerController.animator.SetTrigger(animationTrigger);
+        //        playerController.animator.SetTrigger(animationTrigger);
     }
 
     public override void Execute()
     {
-        if (!playerController.CheckForGround())
-            playerController.ChangeState(playerController.fallState);
-        else playerController.jumpMade = false;
-        
-        if (Math.Abs(playerController.inputControl.Horizontal) > 0)
-            playerController.ChangeState(playerController.walkState);
-        
-        if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
-            playerController.ChangeState(playerController.shootState);
-        
-        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP))
-            playerController.ChangeState(playerController.jumpState);
+        if (Mathf.Abs(playerController.inputControl.Horizontal) > 0) playerController.ChangeState(playerController.walkState);
+
     }
 
     public override void Exit()
     {
-        
+
     }
 
-  
+
 }
