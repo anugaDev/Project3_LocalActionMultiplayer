@@ -11,8 +11,5 @@ public abstract class BaseState : MonoBehaviour
     public virtual void Execute() { }
     public virtual void Exit() { }
 
-    protected void GetController()
-    {
-        if (!playerController) playerController = GetComponent<PlayerController>();
-    }
+
 }

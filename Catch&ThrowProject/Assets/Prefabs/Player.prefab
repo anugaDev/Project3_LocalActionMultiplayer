@@ -160,8 +160,15 @@ MonoBehaviour:
   jumpState: {fileID: 4205472215443825079}
   fallState: {fileID: 4205472215443825078}
   shootState: {fileID: 4205472215443825073}
+  catchState: {fileID: 0}
+  caughtState: {fileID: 0}
   jumpMade: 0
-  distanceToGround: 1
+  onGround: 0
+  distanceToGround: 1.5
+  groundDetectionCollisions:
+    serializedVersion: 2
+    m_Bits: 1
+  caughtPlayer: {fileID: 0}
 --- !u!114 &4205472215443825075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61eabb5e2316860418bda427ee215e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 4205472215443825065}
   animationTrigger: 
 --- !u!114 &4205472215443825076
 MonoBehaviour:
@@ -207,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b472a5148422064798e015e24949f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 4205472215443825065}
   animationTrigger: 
   walkSpeed: 15
 --- !u!114 &4205472215443825079
@@ -222,9 +229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6323337dca2c32849ad85aff387be426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  jumpingSpeed: 60
+  jumpingSpeed: 30
 --- !u!114 &4205472215443825078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,10 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbec7bae72695e4409ec49bd1f8f9476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  pressingFallingSpeed: 3
-  notPressingFallingSpeed: 7
+  pressingFallingSpeed: 2
+  notPressingFallingSpeed: 3
   fallingSpeedThreshold: 40
   glideSpeed: 15
 --- !u!114 &4205472215443825073
@@ -255,12 +262,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb06d430eb068c48af5266f8426874d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 4205472215443825065}
   animationTrigger: 
   projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
     type: 3}
-  projectileSpeed: 10
+  reloadTime: 0.2
+  projectileSpeed: 30
   shootOffset: 1
+  shootRecoilForce: 0
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0

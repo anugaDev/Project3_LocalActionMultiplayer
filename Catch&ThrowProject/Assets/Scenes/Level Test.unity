@@ -740,6 +740,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &503868234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205472214643449410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14aeb682476a3f34c8919813a3275a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &538417692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,16 +2981,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825076, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 503868234}
     - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: notPressingFallingSpeed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: pressingFallingSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 503868234}
     - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: grounDetectionCollisions.m_Bits
@@ -2994,11 +3016,21 @@ PrefabInstance:
       propertyPath: distanceToGround
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825077, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 503868234}
     - target: {fileID: 4205472215443825079, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: jumpingSpeed
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825079, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 503868234}
     - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: shootOffset
@@ -3014,5 +3046,10 @@ PrefabInstance:
       propertyPath: reloadTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 503868234}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}

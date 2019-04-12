@@ -7,9 +7,8 @@ public class Idle : BaseState
 {
     public override void Enter()
     {
-        GetController();
 
-        
+
 //        playerController.animator.SetTrigger(animationTrigger);
     }
 
@@ -25,7 +24,7 @@ public class Idle : BaseState
         if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
             playerController.ChangeState(playerController.shootState);
         
-        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade )
+        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP))
             playerController.ChangeState(playerController.jumpState);
     }
 

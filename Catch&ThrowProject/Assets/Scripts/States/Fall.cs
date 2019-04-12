@@ -15,11 +15,14 @@ public class Fall : BaseState
 
     public override void Enter()
     {
-        GetController();
 
         groundHit = false;
-        
-        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))stopPressing = false;
+
+        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))
+        {
+            stopPressing = false;
+            
+        }
         
         fallMultiply = 1;
 
@@ -42,18 +45,20 @@ public class Fall : BaseState
      
        #region ChangeConditions
 
-       if(playerController.inputControl.ButtonDown(InputController.Button.JUMP)  && !playerController.jumpMade)
-           playerController.ChangeState(playerController.jumpState);
-       
-       if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
-           playerController.ChangeState(playerController.shootState);
-
        if (playerController.CheckForGround())
        {
            playerController.ChangeState(playerController.idleState);
            groundHit = true;
 
        }
+       
+       if(playerController.inputControl.ButtonDown(InputController.Button.JUMP)  && !playerController.jumpMade)
+           playerController.ChangeState(playerController.jumpState);
+       
+       if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
+           playerController.ChangeState(playerController.shootState);
+
+     
            
        #endregion
        }
@@ -64,7 +69,8 @@ public class Fall : BaseState
         var velocity = playerController.rigidbody.velocity;
         velocity.y = 0;
         playerController.rigidbody.velocity = velocity;
-        playerController.jumpMade = true;
+        playerController.jumpMade = false;
+
     }
 
     private float ManageFallSpeed()
@@ -73,7 +79,7 @@ public class Fall : BaseState
 
         if (stopPressing) return speed;
         
-        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) ) // && playerController.rigidbody.velocity.y > 0)
+        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) && playerController.rigidbody.velocity.y > 0)
         {
             speed = pressingFallingSpeed;
         }

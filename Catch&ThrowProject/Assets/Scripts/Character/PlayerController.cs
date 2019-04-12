@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public Caught caughtState;
 
     [HideInInspector] public bool jumpMade;
+    [HideInInspector] public bool onGround;
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
 
@@ -59,11 +60,17 @@ public class PlayerController : MonoBehaviour
         velocity.x = speed * inputControl.Horizontal;
         rigidbody.velocity = velocity;
     }
-
-
     public bool CheckForGround()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
-    }
+        onGround = Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
 
+        return onGround;
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        switch (other.transform.tag)
+        {
+            
+        }
+    }
 }

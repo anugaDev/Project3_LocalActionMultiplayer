@@ -8,7 +8,6 @@ public class Walk : BaseState
 
     public override void Enter()
     {
-        GetController();
     }
 
     public override void Execute()
@@ -30,7 +29,7 @@ public class Walk : BaseState
         if(playerController.inputControl.ButtonDown(InputController.Button.FIRE))
             playerController.ChangeState(playerController.shootState);
 
-        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade)
+        if(playerController.inputControl.ButtonDown(InputController.Button.JUMP))
             playerController.ChangeState(playerController.jumpState);
         
         #endregion

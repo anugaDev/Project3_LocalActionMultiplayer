@@ -12,7 +12,6 @@ public class Shoot : BaseState
     private bool reloaded = true;
     public override void Enter()
     {
-        GetController();
         
         if(reloaded) ShootProjectile();
         else playerController.ChangeState(playerController.idleState);
@@ -46,7 +45,7 @@ public class Shoot : BaseState
         projectileClass.SetBullet(direction,speed);
 
         var force = Vector3.up * shootRecoilForce;
-        if(force.magnitude > 0) playerController.rigidbody.velocity = force;
+        if(force.magnitude > 0 && direction.y <= 0 && !playerController.onGround) playerController.rigidbody.velocity = force;
         StartCoroutine(Reload(reloadTime));
         playerController.ChangeState(playerController.idleState);
 
