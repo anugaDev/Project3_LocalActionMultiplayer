@@ -1,5 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &309804491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309804492}
+  - component: {fileID: 309804494}
+  - component: {fileID: 309804493}
+  - component: {fileID: 309804495}
+  m_Layer: 9
+  m_Name: DashCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &309804492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309804491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4205472215443825069}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &309804494
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309804491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &309804493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309804491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541c565866163e8469b26aaefa22c963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  speed: 50
+  duration: 0.1
+  exitSpeedMultiplier: 0.1
+  playerTrigger: {fileID: 309804494}
+  catched: 0
+--- !u!54 &309804495
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309804491}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4205472215443825064
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +103,9 @@ GameObject:
   - component: {fileID: 4205472215443825079}
   - component: {fileID: 4205472215443825078}
   - component: {fileID: 4205472215443825073}
+  - component: {fileID: 8854126468993262086}
+  - component: {fileID: 3966379602459133179}
+  - component: {fileID: 2846430671447116553}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -40,6 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4205472215937556505}
+  - {fileID: 309804492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +238,7 @@ MonoBehaviour:
   animator: {fileID: 4205472215443825082}
   rigidbody: {fileID: 4205472215443825074}
   skillObject: {fileID: 0}
-  skillCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
   idleState: {fileID: 4205472215443825077}
@@ -160,8 +246,13 @@ MonoBehaviour:
   jumpState: {fileID: 4205472215443825079}
   fallState: {fileID: 4205472215443825078}
   shootState: {fileID: 4205472215443825073}
-  catchState: {fileID: 0}
-  caughtState: {fileID: 0}
+  dashState: {fileID: 309804493}
+  catchState: {fileID: 8854126468993262086}
+  caughtState: {fileID: 3966379602459133179}
+  stunState: {fileID: 2846430671447116553}
+  jumpLayer: 11
+  normalLayer: 10
+  sphereCollisionRadius: 0
   jumpMade: 0
   onGround: 0
   distanceToGround: 1.5
@@ -250,7 +341,7 @@ MonoBehaviour:
   notPressingFallingSpeed: 150
   fallingSpeedThreshold: 200
   glideSpeed: 15
-  fallPressedMultiply: 1.5
+  fallPressedMultiply: 1.1
 --- !u!114 &4205472215443825073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +362,53 @@ MonoBehaviour:
   projectileSpeed: 30
   shootOffset: 1
   shootRecoilForce: 0
+--- !u!114 &8854126468993262086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7528aa5b4839324683b5e8ddcf17f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  timeBeforeThrow: 1.5
+  throwForce: 50
+--- !u!114 &3966379602459133179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a18c8ee705b234ebf082af606edac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  direction: {x: 0, y: 0, z: 0}
+--- !u!114 &2846430671447116553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaa05857acdeba4fb64abfbdde794fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  threshHoldSpeed: 20
+  breakSpeed: 10
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0

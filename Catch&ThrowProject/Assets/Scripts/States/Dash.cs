@@ -11,25 +11,22 @@ public class Dash : BaseState
 
     [SerializeField] private Collider playerTrigger;
 
-    private bool catched = false;
+    [SerializeField] private bool catched = false;
 
     public override void Enter()
     {
-        //TODO: Animation, rotation and particles
-
         playerTrigger.isTrigger = true;
-        print(playerController.rigidbody.velocity);
         playerController.rigidbody.velocity = playerController.inputControl.Direction * speed;
-        print(playerController.rigidbody.velocity);
 
         StartCoroutine(StopDash());
     }
 
     public override void Exit()
     {
-        //TODO: Stop animation
         playerController.rigidbody.velocity *= exitSpeedMultiplier;
-        playerTrigger.isTrigger = !catched;
+        playerTrigger.isTrigger = catched ? true : false;
+
+        catched = false;
     }
 
     private IEnumerator StopDash()
@@ -41,15 +38,14 @@ public class Dash : BaseState
 
     private void OnTriggerEnter(Collider other)
     {
-        var enemy = other.GetComponent<PlayerController>();
+        var enemy = other.GetComponentInParent<PlayerController>();
 
         if (enemy && !enemy.Invulnerable) CatchPlayer(enemy);
     }
 
     private void CatchPlayer(PlayerController enemy)
     {
-        StopCoroutine(StopDash());
-
+        StopAllCoroutines();
         catched = true;
 
         enemy.ChangeState(enemy.caughtState);

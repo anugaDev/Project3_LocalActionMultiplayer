@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Dash dashState;
     public Catch catchState;
     public Caught caughtState;
+    public Stun stunState;
 
 
     public int jumpLayer;

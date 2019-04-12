@@ -12,12 +12,6 @@ public class Caught : BaseState
 
     public override void Execute()
     {
-
-    }
-
-    public override void Exit()
-    {
-        playerController.Invulnerable = false;
-        playerController.CanMove = true;
+        playerController.rigidbody.velocity = Vector3.zero;
     }
 }

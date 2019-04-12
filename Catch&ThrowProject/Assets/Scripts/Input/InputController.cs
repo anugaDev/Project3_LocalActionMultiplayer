@@ -81,6 +81,4 @@ public class InputController : MonoBehaviour
 
         return false;
     }
-
-
 }

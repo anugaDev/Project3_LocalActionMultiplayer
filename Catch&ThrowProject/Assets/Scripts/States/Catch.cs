@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Catch : BaseState
 {
-    [SerializeField] private readonly float timeBeforeThrow = 1.5f;
-    [SerializeField] private readonly float throwForce = 10f;
+    [SerializeField] private float timeBeforeThrow = 1.5f;
+    [SerializeField] private float throwForce = 10f;
+    [SerializeField] private float reactionForceMultiplier = 0.25f;
 
     public override void Enter()
     {
+        playerController.rigidbody.velocity = Vector3.zero;
+
         playerController.Invulnerable = true;
         playerController.CanMove = false;
 
@@ -18,6 +21,8 @@ public class Catch : BaseState
 
     public override void Execute()
     {
+        playerController.rigidbody.velocity = Vector3.zero;
+
         if (playerController.inputControl.ButtonDown(InputController.Button.DASH)) ThrowPlayer(playerController.caughtPlayer);
     }
 
@@ -25,26 +30,27 @@ public class Catch : BaseState
     {
         playerController.Invulnerable = false;
         playerController.CanMove = true;
+        playerController.caughtPlayer = null;
     }
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
-        StopCoroutine(StopCatch());
+        StopAllCoroutines();
 
         Vector3 direction = playerController.inputControl.Direction;
 
-        //Apply force to Enemy
-        //Change Enemy State to Stun (?)
+        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
+        playerController.caughtPlayer.rigidbody.velocity = direction * throwForce;
 
-        //Apply inverse force to Player
-        //Change Player State to Stun (?)
+        playerController.ChangeState(playerController.stunState);
+        playerController.rigidbody.velocity = -direction * throwForce * reactionForceMultiplier;
     }
 
     private IEnumerator StopCatch()
     {
         yield return new WaitForSeconds(timeBeforeThrow);
 
-        //Change Enemy State to Fall (?)
-        //Change Player State to Fall (?)
+        playerController.ChangeState(playerController.fallState);
+        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
     }
 }
