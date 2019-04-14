@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public Stun stunState;
 
 
+    //public int facing { private set; get; } = 1;
     public int jumpLayer;
     public int normalLayer;
     public float sphereCollisionRadius;
@@ -63,15 +64,22 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(BaseState newState)
     {
-        print("State :" + newState);
+//        print("State :" + newState);
 
         stateMachine.ChangeState(newState);
     }
 
     public void HorizontalMove(float speed)
     {
+        var horizontal = inputControl.Horizontal;
+
+        if (Mathf.Abs(horizontal) > 0)
+        {
+            var rotation = Quaternion.Euler(0,  Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+            transform.rotation = rotation;
+        }
         var velocity = rigidbody.velocity;
-        velocity.x = speed * inputControl.Horizontal;
+        velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
     }
     public bool CheckForGround()

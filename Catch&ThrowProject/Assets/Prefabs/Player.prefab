@@ -377,9 +377,9 @@ MonoBehaviour:
     type: 3}
   reloadTime: 0.2
   projectileSpeed: 30
-  shootOffset: 1
+  shootOffset: 2
   shootRecoilForce: 0
-  shootDirectionThreshold: 0
+  shootDirectionThreshold: 0.25
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,13 +30,18 @@ public class Shoot : BaseState
 
     public void ShootProjectile()
     {
-        print(playerController.inputControl.Horizontal);
+//        print(playerController.inputControl.Horizontal);
         var direction = playerController.inputControl.Direction;
 //        direction.x = Mathf.Sign(direction.x) * Mathf.Ceil(Mathf.Abs(direction.x));
 //        direction.y = Mathf.Sign(direction.y) * Mathf.Ceil(Mathf.Abs(direction.y));
-        direction.x =     Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0;
-        direction.y =     Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0;
-        
+
+
+        print(Mathf.Sign(direction.y));
+        var sign = Mathf.Sign(direction.x);
+        direction.x = sign * ( Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0 );
+        sign = Mathf.Sign(direction.y);
+        direction.y = sign * ( Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0 );
+
         if (direction == Vector2.zero) direction = transform.right;
 
         var rotationZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

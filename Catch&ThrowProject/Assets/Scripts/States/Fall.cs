@@ -36,8 +36,8 @@ public class Fall : BaseState
     {
         #region StateUpdate
       
-        print(Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
-                  LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length);
+//        print(Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+//                  LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length);
         
         if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer
             && Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
