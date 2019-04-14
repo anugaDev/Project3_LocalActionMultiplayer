@@ -9,6 +9,7 @@ public class Shoot : BaseState
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float shootOffset;
     [SerializeField] private float shootRecoilForce;
+    [SerializeField] private float shootDirectionThreshold;
     private bool reloaded = true;
     public override void Enter()
     {
@@ -31,8 +32,11 @@ public class Shoot : BaseState
     {
         print(playerController.inputControl.Horizontal);
         var direction = playerController.inputControl.Direction;
-        direction.x = Mathf.Sign(direction.x) * Mathf.Ceil(Mathf.Abs(direction.x));
-        direction.y = Mathf.Sign(direction.y) * Mathf.Ceil(Mathf.Abs(direction.y));
+//        direction.x = Mathf.Sign(direction.x) * Mathf.Ceil(Mathf.Abs(direction.x));
+//        direction.y = Mathf.Sign(direction.y) * Mathf.Ceil(Mathf.Abs(direction.y));
+        direction.x =     Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0;
+        direction.y =     Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0;
+        
         if (direction == Vector2.zero) direction = transform.right;
 
         var rotationZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Idle idleState;
     public Walk walkState;
     public Jump jumpState;
+    public DoubleJump doubleJumpState;
     public Fall fallState;
     public Shoot shootState;
 
@@ -81,9 +82,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        switch (other.transform.tag)
-        {
-
-        }
+    
     }
 }

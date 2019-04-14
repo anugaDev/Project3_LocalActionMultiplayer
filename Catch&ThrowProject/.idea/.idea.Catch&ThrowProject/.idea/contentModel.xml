@@ -20,11 +20,13 @@
             <e p="Catch.cs" t="Include" />
             <e p="Caught.cs" t="Include" />
             <e p="Dash.cs" t="Include" />
+            <e p="DoubleJump.cs" t="Include" />
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
             <e p="Shoot.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
+            <e p="Stun.cs" t="Include" />
             <e p="Walk.cs" t="Include" />
           </e>
         </e>

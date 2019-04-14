@@ -29,12 +29,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var tag = other.transform.tag;
+//        var tag = other.transform.tag;
 
-        if (tag == "Wall")
-        {
-            
-        }
+        Destroy(gameObject);
     }
 
  

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 4205472215443825077}
   - component: {fileID: 4205472215443825076}
   - component: {fileID: 4205472215443825079}
+  - component: {fileID: 5970475171054597876}
   - component: {fileID: 4205472215443825078}
   - component: {fileID: 4205472215443825073}
   - component: {fileID: 8854126468993262086}
@@ -244,6 +245,7 @@ MonoBehaviour:
   idleState: {fileID: 4205472215443825077}
   walkState: {fileID: 4205472215443825076}
   jumpState: {fileID: 4205472215443825079}
+  doubleJumpState: {fileID: 5970475171054597876}
   fallState: {fileID: 4205472215443825078}
   shootState: {fileID: 4205472215443825073}
   dashState: {fileID: 309804493}
@@ -252,7 +254,7 @@ MonoBehaviour:
   stunState: {fileID: 2846430671447116553}
   jumpLayer: 11
   normalLayer: 10
-  sphereCollisionRadius: 0
+  sphereCollisionRadius: 0.87
   jumpMade: 0
   onGround: 0
   distanceToGround: 1.5
@@ -323,6 +325,21 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
   jumpingSpeed: 32
+--- !u!114 &5970475171054597876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8325ad8140848c459d7a7e25174cc09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  jumpingSpeed: 30
 --- !u!114 &4205472215443825078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +379,7 @@ MonoBehaviour:
   projectileSpeed: 30
   shootOffset: 1
   shootRecoilForce: 0
+  shootDirectionThreshold: 0
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0

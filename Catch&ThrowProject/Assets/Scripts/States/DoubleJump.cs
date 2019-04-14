@@ -2,24 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : BaseState
+public class DoubleJump : BaseState
 {
     [SerializeField] private float jumpingSpeed;
-
+    // Start is called before the first frame update
     public override void Enter()
     {
-        if(playerController.onGround)
+        if(!playerController.jumpMade)
             SetJumpForce();
 
         else
         {
             playerController.ChangeState(playerController.fallState);
         }
-//        else if (!playerController.jumpMade)
-//        {
-//            SetJumpForce();
-//            playerController.jumpMade = true;
-//        }
 
     }
     public override void Execute() { }
@@ -31,8 +26,8 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
-//        playerController.jumpMade = true;
         playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
         playerController.ChangeState(playerController.fallState);
+        playerController.jumpMade = true;
     }
 }

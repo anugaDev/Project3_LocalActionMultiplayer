@@ -14,9 +14,11 @@ public class Fall : BaseState
     private float actualFallingSpeed;
     private float fallMultiply;
 
+    private float firstEnter;
     public override void Enter()
     {
 
+        firstEnter = Time.frameCount;
         gameObject.layer = playerController.jumpLayer;
         groundHit = false;
 
@@ -33,10 +35,14 @@ public class Fall : BaseState
     public override void Execute()
     {
         #region StateUpdate
-
-        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
-//            && Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
-//                LayerMask.GetMask(LayerMask.LayerToName(playerController.jumpLayer))).Length <= 0)
+      
+        print(Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+                  LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length);
+        
+        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer
+            && Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+                LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length <= 0
+            )
             gameObject.layer = playerController.normalLayer;
         
         actualFallingSpeed = ManageFallSpeed();
@@ -52,15 +58,14 @@ public class Fall : BaseState
 
         #region ChangeConditions
 
-        if (playerController.CheckForGround())
+        if (playerController.CheckForGround())// && gameObject.layer  == LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer)))
         {
             playerController.ChangeState(playerController.idleState);
             groundHit = true;
-
         }
 
-        if (playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade)
-            playerController.ChangeState(playerController.jumpState);
+        if (playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade && Time.frameCount != firstEnter)
+            playerController.ChangeState(playerController.doubleJumpState);
 
         #endregion
     }
@@ -94,6 +99,12 @@ public class Fall : BaseState
 
 
         return speed;
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position,playerController.sphereCollisionRadius);
 
     }
 }
