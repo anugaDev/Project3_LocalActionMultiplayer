@@ -13,8 +13,14 @@ public class Dash : BaseState
 
     [SerializeField] private bool catched = false;
 
+    public bool available = true;
+
+    public float cooldown = 1.5f;
+
     public override void Enter()
     {
+        available = false;
+
         playerTrigger.isTrigger = true;
         playerController.rigidbody.velocity = playerController.inputControl.Direction * speed;
 
@@ -32,6 +38,8 @@ public class Dash : BaseState
         playerTrigger.isTrigger = catched ? true : false;
 
         catched = false;
+
+        StartCoroutine(Cooldown());
     }
 
     private IEnumerator StopDash()
@@ -41,10 +49,17 @@ public class Dash : BaseState
         playerController.ChangeState(playerController.idleState);
     }
 
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
+
+        available = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (playerController.stateMachine.currentState != playerController.dashState) return;
-            
+
         var enemy = other.GetComponentInParent<PlayerController>();
 
         if (enemy) CatchPlayer(enemy);

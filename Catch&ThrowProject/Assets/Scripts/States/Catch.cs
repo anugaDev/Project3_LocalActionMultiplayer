@@ -9,8 +9,14 @@ public class Catch : BaseState
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private float reactionForceMultiplier = 0.25f;
 
+    [SerializeField] private GameObject directionMarker;
+    [SerializeField] private float directionMarkerDistance = 5f;
+
+
     public override void Enter()
     {
+        directionMarker.SetActive(true);
+
         playerController.rigidbody.velocity = Vector3.zero;
 
         playerController.Invulnerable = true;
@@ -21,6 +27,8 @@ public class Catch : BaseState
 
     public override void Execute()
     {
+        PositionateMarker();
+
         playerController.rigidbody.velocity = Vector3.zero;
 
         if (playerController.inputControl.ButtonDown(InputController.Button.DASH))
@@ -37,6 +45,8 @@ public class Catch : BaseState
         playerController.CanMove = true;
         playerController.caughtPlayer = null;
         playerController.dashState.playerTrigger.isTrigger = false;
+
+        directionMarker.SetActive(false);
     }
 
     private void ThrowPlayer(PlayerController caughtPlayer)
@@ -48,6 +58,13 @@ public class Catch : BaseState
 
         playerController.ChangeState(playerController.stunState);
         playerController.rigidbody.velocity = -direction * throwForce * reactionForceMultiplier;
+    }
+
+    private void PositionateMarker()
+    {
+        Vector3 direction = new Vector3(playerController.inputControl.Direction.x, playerController.inputControl.Direction.y, 0).normalized;
+
+        directionMarker.transform.position = transform.position + direction * directionMarkerDistance;
     }
 
     private IEnumerator StopCatch()

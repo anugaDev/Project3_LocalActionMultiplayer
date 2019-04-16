@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
-            if (inputControl.ButtonDown(InputController.Button.DASH)) ChangeState(dashState);
+            if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
 
         stateMachine.ExecuteState();
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(BaseState newState)
     {
-//        print("State :" + newState);
+        //        print("State :" + newState);
 
         stateMachine.ChangeState(newState);
     }
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(horizontal) > 0)
         {
-            var rotation = Quaternion.Euler(0,  Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+            var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
             transform.rotation = rotation;
         }
         var velocity = rigidbody.velocity;
@@ -90,6 +90,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-    
+
     }
 }
