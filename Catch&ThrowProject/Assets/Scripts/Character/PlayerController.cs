@@ -86,6 +86,10 @@ public class PlayerController : MonoBehaviour
     {
         onGround = Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
 
+        if (gameObject.layer != normalLayer) onGround = false;
+
+        print(gameObject.layer.ToString());
+        
         return onGround;
     }
     private void OnCollisionEnter(Collision other)

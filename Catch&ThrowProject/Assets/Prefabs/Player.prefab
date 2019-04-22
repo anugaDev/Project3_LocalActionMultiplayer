@@ -66,6 +66,8 @@ MonoBehaviour:
   exitSpeedMultiplier: 0.1
   playerTrigger: {fileID: 309804494}
   catched: 0
+  available: 1
+  cooldown: 1.5
 --- !u!54 &309804495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -254,7 +256,7 @@ MonoBehaviour:
   stunState: {fileID: 2846430671447116553}
   jumpLayer: 11
   normalLayer: 10
-  sphereCollisionRadius: 0.87
+  sphereCollisionRadius: 1.37
   jumpMade: 0
   onGround: 0
   distanceToGround: 1.5
@@ -359,6 +361,9 @@ MonoBehaviour:
   fallingSpeedThreshold: 200
   glideSpeed: 15
   fallPressedMultiply: 1.1
+  checkPlatformsLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &4205472215443825073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +402,8 @@ MonoBehaviour:
   timeBeforeThrow: 1.5
   throwForce: 50
   reactionForceMultiplier: 0.25
+  directionMarker: {fileID: 0}
+  directionMarkerDistance: 5
 --- !u!114 &3966379602459133179
 MonoBehaviour:
   m_ObjectHideFlags: 0

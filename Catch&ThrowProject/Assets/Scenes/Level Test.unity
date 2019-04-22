@@ -2972,7 +2972,17 @@ PrefabInstance:
     - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: sphereCollisionRadius
-      value: 0.87
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: groundDetectionCollisions.m_Bits
+      value: 4097
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825078, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: checkPlatformsLayerMask.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}

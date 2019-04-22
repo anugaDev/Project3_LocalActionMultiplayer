@@ -9,6 +9,7 @@ public class Fall : BaseState
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
     [SerializeField] private float fallPressedMultiply;
+    [SerializeField] private LayerMask checkPlatformsLayerMask;
     private bool stopPressing;
     private bool groundHit;
     private float actualFallingSpeed;
@@ -35,15 +36,15 @@ public class Fall : BaseState
     public override void Execute()
     {
         #region StateUpdate
-      
-//        print(Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
-//                  LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length);
-        
-        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer
-            && Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
-                LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer))).Length <= 0
-            )
-            gameObject.layer = playerController.normalLayer;
+
+        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
+        {
+            if (Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+                    checkPlatformsLayerMask).Length <= 0)
+                gameObject.layer = playerController.normalLayer;
+            else print("colliding");
+
+        }
         
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
