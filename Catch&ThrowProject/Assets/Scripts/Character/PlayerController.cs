@@ -99,6 +99,17 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Death Zone")
             ChangeState(dieState);
+        if (other.gameObject.tag == "Projectile")
+        {
+            var proj = other.transform.GetComponent<Projectile>();
+            shield.Hit(proj.damage);
+            if (shield.shieldDestroyed)
+            {
+                ChangeState(stunState); 
+            }
+            
+        }
+            
 
     }
 }

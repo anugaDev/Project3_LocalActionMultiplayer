@@ -29,6 +29,7 @@ public class Die : BaseState
         }
         playerController.rigidbody.isKinematic = false;
         playerController.normalCollider.enabled = true;
+        playerController.shield.ResetShield();
     }
 
     public void GetKilled()
@@ -36,12 +37,7 @@ public class Die : BaseState
         playerRenderer.enabled = false;
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);
-       
-
-        
-
-
-    }
+       }
 
     IEnumerator GetRespawn(float time)
     {

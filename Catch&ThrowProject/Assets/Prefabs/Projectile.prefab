@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 5
   rigidbody: {fileID: 636614215799889609}
+  damage: 25

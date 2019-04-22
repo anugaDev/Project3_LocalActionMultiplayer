@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField]private Rigidbody rigidbody;
     private Vector2 direction;
+    public float damage;
+
     
     void Start()
     {

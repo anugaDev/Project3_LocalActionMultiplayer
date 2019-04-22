@@ -294,12 +294,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
---- !u!136 &85762704 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 4205472215443825070, guid: 21263b536f790fe4dbbc6a033a3011a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4205472214643449410}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &121773574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,10 +2969,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: normalCollider
-      value: 
-      objectReference: {fileID: 85762704}
+      propertyPath: defaultHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: lowHealthThreshold
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
