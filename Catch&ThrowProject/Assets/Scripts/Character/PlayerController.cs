@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public Caught caughtState;
     public Stun stunState;
 
+    public Die dieState;
+
 
     //public int facing { private set; get; } = 1;
     public int jumpLayer;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public float sphereCollisionRadius;
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
+    [HideInInspector] public bool isDead;
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
 
@@ -94,6 +97,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
+        if(other.gameObject.tag == "Death Zone")
+            ChangeState(dieState);
 
     }
 }

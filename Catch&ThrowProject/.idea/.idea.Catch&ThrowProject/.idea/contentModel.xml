@@ -20,6 +20,7 @@
             <e p="Catch.cs" t="Include" />
             <e p="Caught.cs" t="Include" />
             <e p="Dash.cs" t="Include" />
+            <e p="Die.cs" t="Include" />
             <e p="DoubleJump.cs" t="Include" />
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />

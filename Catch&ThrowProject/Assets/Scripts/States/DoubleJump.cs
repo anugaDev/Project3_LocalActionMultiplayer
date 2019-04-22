@@ -5,7 +5,6 @@ using UnityEngine;
 public class DoubleJump : BaseState
 {
     [SerializeField] private float jumpingSpeed;
-    // Start is called before the first frame update
     public override void Enter()
     {
         if(!playerController.jumpMade)

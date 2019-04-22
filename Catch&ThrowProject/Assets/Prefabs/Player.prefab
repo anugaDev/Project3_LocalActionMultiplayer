@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8854126468993262086}
   - component: {fileID: 3966379602459133179}
   - component: {fileID: 2846430671447116553}
+  - component: {fileID: 85762693}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -241,7 +242,7 @@ MonoBehaviour:
   animator: {fileID: 4205472215443825082}
   rigidbody: {fileID: 4205472215443825074}
   skillObject: {fileID: 0}
-  normalCollider: {fileID: 0}
+  normalCollider: {fileID: 4205472215443825070}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
   idleState: {fileID: 4205472215443825077}
@@ -254,11 +255,13 @@ MonoBehaviour:
   catchState: {fileID: 8854126468993262086}
   caughtState: {fileID: 3966379602459133179}
   stunState: {fileID: 2846430671447116553}
+  dieState: {fileID: 85762693}
   jumpLayer: 11
   normalLayer: 10
   sphereCollisionRadius: 1.37
   jumpMade: 0
   onGround: 0
+  isDead: 0
   distanceToGround: 1.5
   groundDetectionCollisions:
     serializedVersion: 2
@@ -434,6 +437,21 @@ MonoBehaviour:
   animationTrigger: 
   threshHoldSpeed: 25
   breakSpeed: 100
+--- !u!114 &85762693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb6595c8447a384fbd2f34f5af4dd4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  playerRenderer: {fileID: 4205472215443825071}
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ public class Fall : BaseState
 
         #region ChangeConditions
 
-        if (playerController.CheckForGround())// && gameObject.layer  == LayerMask.GetMask(LayerMask.LayerToName(playerController.normalLayer)))
+        if (playerController.CheckForGround())
         {
             playerController.ChangeState(playerController.idleState);
             groundHit = true;

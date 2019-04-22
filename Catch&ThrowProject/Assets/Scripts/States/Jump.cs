@@ -15,11 +15,6 @@ public class Jump : BaseState
         {
             playerController.ChangeState(playerController.fallState);
         }
-//        else if (!playerController.jumpMade)
-//        {
-//            SetJumpForce();
-//            playerController.jumpMade = true;
-//        }
 
     }
     public override void Execute() { }
@@ -31,7 +26,6 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
-//        playerController.jumpMade = true;
         playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
         playerController.ChangeState(playerController.fallState);
     }
