@@ -42,7 +42,6 @@ public class Fall : BaseState
             if (Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
                     checkPlatformsLayerMask).Length <= 0)
                 gameObject.layer = playerController.normalLayer;
-            else print("colliding");
 
         }
         

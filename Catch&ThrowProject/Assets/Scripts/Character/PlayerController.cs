@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
 
         if (gameObject.layer != normalLayer) onGround = false;
 
-        print(gameObject.layer.ToString());
         
         return onGround;
     }
