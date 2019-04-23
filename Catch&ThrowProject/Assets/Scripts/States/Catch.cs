@@ -7,11 +7,19 @@ public class Catch : BaseState
 {
     [SerializeField] private float timeBeforeThrow = 1.5f;
     [SerializeField] private float throwForce = 10f;
+    [SerializeField] private float minThrowForce = 1f;
     [SerializeField] private float reactionForceMultiplier = 0.25f;
 
     [SerializeField] private GameObject directionMarker;
     [SerializeField] private float directionMarkerDistance = 5f;
 
+    private float timer = 0f;
+
+    private float maxSizeX = 4.5f;
+    private float minSizeX = 1f;
+
+    private float maxSizeY = 1.5f;
+    private float minSizeY = 1f;
 
     public override void Enter()
     {
@@ -21,13 +29,12 @@ public class Catch : BaseState
 
         playerController.Invulnerable = true;
         playerController.CanMove = false;
-
-        StartCoroutine(StopCatch());
     }
 
     public override void Execute()
     {
         PositionateMarker();
+        StopCatch();
 
         playerController.rigidbody.velocity = Vector3.zero;
 
@@ -41,6 +48,8 @@ public class Catch : BaseState
 
     public override void Exit()
     {
+        timer = 0;
+
         playerController.Invulnerable = false;
         playerController.CanMove = true;
         playerController.caughtPlayer = null;
@@ -53,30 +62,49 @@ public class Catch : BaseState
     {
         Vector3 direction = playerController.inputControl.Direction;
 
+        float force = Mathf.Max(throwForce * 1 - (timer / timeBeforeThrow), minThrowForce);
+
         if (direction == Vector3.zero) direction = transform.right;
 
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-        playerController.caughtPlayer.rigidbody.velocity = direction * throwForce;
+        playerController.caughtPlayer.rigidbody.velocity = direction * force;
 
         playerController.ChangeState(playerController.stunState);
-        playerController.rigidbody.velocity = -direction * throwForce * reactionForceMultiplier;
+        playerController.rigidbody.velocity = -direction * force * reactionForceMultiplier;
     }
 
     private void PositionateMarker()
     {
-        Vector3 direction = new Vector3(playerController.inputControl.Direction.x, 
-                                        playerController.inputControl.Direction.y, 
+        Vector3 direction = new Vector3(-playerController.inputControl.Direction.x,
+                                        playerController.inputControl.Direction.y,
                                         0).normalized;
 
-        directionMarker.transform.position = transform.position + direction * directionMarkerDistance;
+        float playerRotation = transform.rotation.eulerAngles.y == 0 ? 1 : -1;
+
+        float angle = Vector3.SignedAngle(playerRotation * transform.right, direction, Vector3.back);
+
+        directionMarker.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    private IEnumerator StopCatch()
+    private void StopCatch()
     {
-        yield return new WaitForSeconds(timeBeforeThrow);
+        timer += Time.deltaTime;
 
-        if (playerController.caughtPlayer) playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
+        ResizeArrow();
 
-        playerController.ChangeState(playerController.fallState);
+        if (timer >= timeBeforeThrow)
+        {
+            if (playerController.caughtPlayer) playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
+
+            playerController.ChangeState(playerController.fallState);
+        }
+    }
+
+    private void ResizeArrow()
+    {
+        float xSize = maxSizeX - ((maxSizeX - minSizeX) * (timer / timeBeforeThrow));
+        float ySize = maxSizeY - ((maxSizeY - minSizeY) * (timer / timeBeforeThrow));
+
+        directionMarker.transform.localScale = new Vector3(xSize, ySize, directionMarker.transform.localScale.z);
     }
 }

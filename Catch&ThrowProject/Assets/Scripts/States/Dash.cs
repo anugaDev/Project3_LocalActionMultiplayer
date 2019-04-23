@@ -22,7 +22,9 @@ public class Dash : BaseState
         available = false;
 
         playerTrigger.isTrigger = true;
-        playerController.rigidbody.velocity = playerController.inputControl.Direction * speed;
+
+        Vector3 direction = playerController.inputControl.Direction;
+        playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
         StartCoroutine(StopDash());
     }
@@ -64,6 +66,8 @@ public class Dash : BaseState
 
     private void CatchPlayer(PlayerController enemy)
     {
+        RepositionEnemy(enemy);
+
         StopAllCoroutines();
 
         catched = true;
@@ -72,5 +76,12 @@ public class Dash : BaseState
 
         playerController.caughtPlayer = enemy;
         playerController.ChangeState(playerController.catchState);
+    }
+
+    private void RepositionEnemy(PlayerController enemy)
+    {
+        Vector3 directionBetweenPlayers = (transform.position - enemy.transform.position).normalized;
+
+        enemy.transform.position = transform.position + (directionBetweenPlayers * .5f);
     }
 }

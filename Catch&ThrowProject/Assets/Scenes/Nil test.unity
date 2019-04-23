@@ -3146,8 +3146,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: directionMarker
-      value: 
-      objectReference: {fileID: 1033086325}
+      propertyPath: timeBeforeThrow
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
