@@ -14,7 +14,6 @@ public class Fall : BaseState
     private bool groundHit;
     private float actualFallingSpeed;
     private float fallMultiply;
-
     private float firstEnter;
     public override void Enter()
     {
