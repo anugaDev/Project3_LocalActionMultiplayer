@@ -71,7 +71,8 @@ public class Catch : BaseState
     {
         yield return new WaitForSeconds(timeBeforeThrow);
 
-        playerController.ChangeState(playerController.fallState);
         if (playerController.caughtPlayer) playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
+
+        playerController.ChangeState(playerController.fallState);
     }
 }

@@ -81,9 +81,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!1 &366840162
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cd766f9d130f60d4cbe99b23abf71438, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -515,8 +515,8 @@ MonoBehaviour:
   animationTrigger: 
   timeBeforeThrow: 1.5
   throwForce: 50
-  reactionForceMultiplier: 0.25
-  directionMarker: {fileID: 1547837348}
+  reactionForceMultiplier: 0.75
+  directionMarker: {fileID: 0}
   directionMarkerDistance: 4
 --- !u!114 &3966379602459133179
 MonoBehaviour:
