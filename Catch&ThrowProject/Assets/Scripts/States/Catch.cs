@@ -53,6 +53,8 @@ public class Catch : BaseState
     {
         Vector3 direction = playerController.inputControl.Direction;
 
+        if (direction == Vector3.zero) direction = transform.right;
+
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
         playerController.caughtPlayer.rigidbody.velocity = direction * throwForce;
 
