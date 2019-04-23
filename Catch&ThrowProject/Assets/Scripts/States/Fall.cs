@@ -49,8 +49,8 @@ public class Fall : BaseState
         var velocity = playerController.rigidbody.velocity;
         fallMultiply = playerController.inputControl.Vertical < 0 ? fallPressedMultiply : 1;
         velocity += Vector3.down * actualFallingSpeed * fallMultiply * Time.deltaTime;
-        velocity.y = velocity.y <= fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
-
+        velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
+        
         playerController.rigidbody.velocity = velocity;
         playerController.HorizontalMove(glideSpeed);
 
