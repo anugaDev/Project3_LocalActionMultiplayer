@@ -27,10 +27,7 @@ public class Dash : BaseState
         StartCoroutine(StopDash());
     }
 
-    private void Update()
-    {
-
-    }
+    private void Update() { }
 
     public override void Exit()
     {
@@ -68,6 +65,7 @@ public class Dash : BaseState
     private void CatchPlayer(PlayerController enemy)
     {
         StopAllCoroutines();
+
         catched = true;
 
         enemy.ChangeState(enemy.caughtState);

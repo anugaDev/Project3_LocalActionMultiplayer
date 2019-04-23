@@ -64,7 +64,9 @@ public class Catch : BaseState
 
     private void PositionateMarker()
     {
-        Vector3 direction = new Vector3(playerController.inputControl.Direction.x, playerController.inputControl.Direction.y, 0).normalized;
+        Vector3 direction = new Vector3(playerController.inputControl.Direction.x, 
+                                        playerController.inputControl.Direction.y, 
+                                        0).normalized;
 
         directionMarker.transform.position = transform.position + direction * directionMarkerDistance;
     }
