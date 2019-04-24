@@ -10,7 +10,7 @@ public class Shoot : BaseState
     [SerializeField] private float shootOffset;
     [SerializeField] private float shootRecoilForce;
     [SerializeField] private float shootDirectionThreshold;
-    private bool reloaded = true;
+    public bool reloaded = true;
     public override void Enter()
     {
 

@@ -33,15 +33,15 @@ public class PlayerController : MonoBehaviour
     public Die dieState;
 
 
-    //public int facing { private set; get; } = 1;
+    [Header( ("Other data"))]
     public int jumpLayer;
     public int normalLayer;
     public float sphereCollisionRadius;
+    [SerializeField] private float distanceToGround;
+    [SerializeField] private LayerMask groundDetectionCollisions;
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
-    [SerializeField] private float distanceToGround;
-    [SerializeField] private LayerMask groundDetectionCollisions;
 
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE)) ChangeState(shootState);
+            if (inputControl.ButtonIsPressed(InputController.Button.FIRE) && shootState.reloaded) ChangeState(shootState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
 

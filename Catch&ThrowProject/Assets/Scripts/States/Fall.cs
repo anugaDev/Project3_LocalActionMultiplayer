@@ -9,6 +9,7 @@ public class Fall : BaseState
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
     [SerializeField] private float fallPressedMultiply;
+    [SerializeField] private float multiplyFallThreshold;
     [SerializeField] private LayerMask checkPlatformsLayerMask;
     private bool stopPressing;
     private bool groundHit;
@@ -46,7 +47,7 @@ public class Fall : BaseState
         
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
-        fallMultiply = playerController.inputControl.Vertical < 0 ? fallPressedMultiply : 1;
+        fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
         velocity += Vector3.down * actualFallingSpeed * fallMultiply * Time.deltaTime;
         velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
@@ -93,12 +94,7 @@ public class Fall : BaseState
         {
             stopPressing = true;
         }
-
-
-
-
         return speed;
-
     }
 
     private void OnDrawGizmos()

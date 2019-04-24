@@ -6,8 +6,11 @@ public class Shield : MonoBehaviour
 {
     [SerializeField] private float defaultHealth;
     [SerializeField] private float lowHealthThreshold;
+    [SerializeField] private float regenerationSpeed;
     private float actualHealth;
     public bool shieldDestroyed;
+    
+    
 
     private void Start()
     {
@@ -17,20 +20,24 @@ public class Shield : MonoBehaviour
     public void Hit(float damage)
     {
         actualHealth -= damage;
-        UpdateShieldUI();
         
         if (actualHealth <= 0)
         {
             actualHealth = 0;
             if(!shieldDestroyed)
                 DestroyShield();
-            }
+        }
            
     }
 
     public void ResetShield()
     {
         actualHealth = defaultHealth;
+        shieldDestroyed = false;
+    }
+
+    public void ShieldRegenerate()
+    {
         shieldDestroyed = false;
     }
   
@@ -40,15 +47,14 @@ public class Shield : MonoBehaviour
         shieldDestroyed = true;
     }
 
-    private void UpdateShieldUI()
+   
+    private void Update()
     {
-        if (actualHealth <= 0 && !shieldDestroyed)
-        {
-            
-        }
-        else
-        {
-            
-        }
+        Mathf.Clamp(actualHealth, 0,regenerationSpeed);
+
+         actualHealth += regenerationSpeed * Time.deltaTime;
+
+        if (shieldDestroyed && actualHealth > lowHealthThreshold) 
+            ShieldRegenerate();
     }
 }
