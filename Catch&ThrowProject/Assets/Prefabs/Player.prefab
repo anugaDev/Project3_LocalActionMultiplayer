@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 355854187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.428, y: 0, z: 0}
-  m_LocalScale: {x: 0.55704314, y: 0.3382, z: 0.32944}
+  m_LocalScale: {x: 0.52528, y: 0.52528, z: 0.52528}
   m_Children: []
   m_Father: {fileID: 4205472215443825069}
   m_RootOrder: 3
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: abc47986e35d28a4180730accc50863a, type: 3}
-  m_Color: {r: 0.882353, g: 0.5294118, b: 0.54901963, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9b152ca3a0013a74983cfc50ef2c10ad, type: 3}
+  m_Color: {r: 0.42352945, g: 0.8470589, b: 0.89019614, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -244,7 +244,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
+  - {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4205472215443825065}
-  controllerNumber: 1
+  controllerNumber: 2
   horizontalAxis: 
   verticalAxis: 
   rightHorizontalAxis: 

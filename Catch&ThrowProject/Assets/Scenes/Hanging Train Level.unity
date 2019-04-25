@@ -1029,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.86000013
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
@@ -1076,10 +1076,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: controllerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 
       objectReference: {fileID: 1327599538}
+    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &910927794
@@ -1912,48 +1927,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
-    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: controllerNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825076, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 
       objectReference: {fileID: 1194014444}
-    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: exitSpeedMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 355854190, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
-    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.42352945
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8470589
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.89019614
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &1480305426
