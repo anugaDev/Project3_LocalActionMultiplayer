@@ -6,6 +6,9 @@ public class InputController : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private int controllerNumber = 1;
+    [SerializeField] private float triggerDownThreshold;
+    private bool jumpInUse;
+    private bool first;
 
     [Header("Assigned Buttons")]
 
@@ -56,7 +59,34 @@ public class InputController : MonoBehaviour
             RightHorizontal = Input.GetAxis(rightHorizontalAxis);
             RightVertical = -Input.GetAxis(rightVerticalAxis);
             RightDirection = new Vector2(RightHorizontal, RightVertical);
+            
+            TriggerToButton();
+          
+
         }
+    }
+
+    private void TriggerToButton()
+    {
+        if(Input.GetAxis(jumpButton) > triggerDownThreshold)
+        {
+            print("axis");
+            if(jumpInUse == false)
+            {
+                print("first");
+                first = true;
+                jumpInUse = true;
+            }
+            else
+            {
+                first = false;
+            }
+        }
+
+        if (!(Input.GetAxis(jumpButton) < triggerDownThreshold)) return;
+        print("leaveAxis");
+        first = false;
+        jumpInUse = false;
     }
 
     public void AssignButtons()
@@ -74,7 +104,7 @@ public class InputController : MonoBehaviour
     {
         switch (button)
         {
-            case Button.JUMP: return Input.GetButtonDown(jumpButton);
+            case Button.JUMP: return jumpInUse && first;
             case Button.DASH: return Input.GetButtonDown(dashButton);
             case Button.FIRE: return Input.GetButtonDown(fireButton);
         }
@@ -86,7 +116,7 @@ public class InputController : MonoBehaviour
     {
         switch (button)
         {
-            case Button.JUMP: return Input.GetButton(jumpButton);
+            case Button.JUMP: return jumpInUse;
             case Button.DASH: return Input.GetButton(dashButton);
             case Button.FIRE: return Input.GetButton(fireButton);
         }
