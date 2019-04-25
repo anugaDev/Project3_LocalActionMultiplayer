@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("Bounce Zone"))
         {
-            other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody);
+            other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody,this);
         }
         else if (other.gameObject.CompareTag("Cross Zone"))
         {

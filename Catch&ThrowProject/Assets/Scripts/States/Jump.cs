@@ -5,6 +5,7 @@ using UnityEngine;
 public class Jump : BaseState
 {
     [SerializeField] private float jumpingSpeed;
+    [HideInInspector] public bool commingFromJump;
 
     public override void Enter()
     {
@@ -27,6 +28,7 @@ public class Jump : BaseState
     public void SetJumpForce()
     {
         playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
+        commingFromJump = true;
         playerController.ChangeState(playerController.fallState);
     }
 }

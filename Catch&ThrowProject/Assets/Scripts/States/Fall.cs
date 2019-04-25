@@ -23,10 +23,16 @@ public class Fall : BaseState
         gameObject.layer = playerController.jumpLayer;
         groundHit = false;
 
-        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP))
+        if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) && (playerController.jumpState.commingFromJump || playerController.doubleJumpState.commingFromJump))
         {
             stopPressing = false;
+            playerController.jumpState.commingFromJump = false;
+            playerController.doubleJumpState.commingFromJump = false;
 
+        }
+        else
+        {
+            stopPressing = true;
         }
 
         fallMultiply = 1;

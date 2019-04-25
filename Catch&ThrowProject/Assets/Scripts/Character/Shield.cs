@@ -29,8 +29,6 @@ public class Shield : MonoBehaviour
 
         if (playerShieldOutline.enabled)
             playerShieldOutline.OutlineColor = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
-
-        
     }
 
     public void Hit(float damage)
