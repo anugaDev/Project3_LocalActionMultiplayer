@@ -36,28 +36,41 @@ public class CameraUtilities : MonoBehaviour
         StartCoroutine(CameraShake(shakeTime, shakeForce));
     }
 
+    public void MoveCamera(Vector3 direction, float force,float time)
+    {
+        StartCoroutine(MoveTowardsDirection(direction, force, time));
+    }
+
     private IEnumerator CameraShake(float time, float force)
     {
         var actualTime = 0f;
+        
 
         while (actualTime < time)
         {
-            sceneCamera.transform.position = estimatedCameraCenter + (Vector3)(Random.insideUnitCircle * force);
+            print("shake");
+
+            var randomUnity = Random.insideUnitSphere;
+            randomUnity.z = 0;
+            sceneCamera.transform.position = estimatedCameraCenter + (randomUnity * force);
             yield return null;
-            actualTime++;
+            actualTime+= Time.deltaTime;
         }
 
         sceneCamera.transform.position = estimatedCameraCenter;
     }
 
-    private IEnumerator MoveTowardsDirection(Vector2 direction, float force)
+    private IEnumerator MoveTowardsDirection(Vector3 direction, float force, float time)
     {
-       
-        var actualTime = 0f;
-        var pathMade = false;
+       var actualTime = 0;
+       var dir = direction;
 
-        while (!pathMade)
+        while (actualTime < time)
         {
+            if (actualTime > time / 2)
+                dir = -direction;
+            estimatedCameraCenter += dir * force * Time.deltaTime;
+            
             yield return null;
         }
 

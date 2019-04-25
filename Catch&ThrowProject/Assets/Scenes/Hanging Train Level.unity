@@ -982,6 +982,14 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: cameraShakeForce
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: cameraShakeTime
+      value: 0.33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &910927794
@@ -1581,6 +1589,14 @@ PrefabInstance:
         type: 3}
       propertyPath: controllerNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: cameraShakeForce
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: cameraShakeTime
+      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}

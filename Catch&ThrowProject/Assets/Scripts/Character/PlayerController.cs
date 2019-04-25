@@ -98,12 +98,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Death Zone"))
+        if (other.gameObject.CompareTag("Death Zone"))
+        {
             ChangeState(dieState);
+//            CameraUtilities.instance.MoveCamera(transform.position - other.contacts[0].point); 
+        }
         else if(other.gameObject.CompareTag("Bounce Zone"))
         {
             other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody);
-
         }
         else if (other.gameObject.CompareTag("Cross Zone"))
         {
