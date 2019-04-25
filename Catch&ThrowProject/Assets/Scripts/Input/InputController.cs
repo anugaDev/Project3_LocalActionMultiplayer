@@ -67,12 +67,10 @@ public class InputController : MonoBehaviour
     }
     private void TriggerToButton()
     {
-        if(Input.GetAxis(fireButton) > triggerDownThreshold)
+        if(Input.GetAxis(dashButton) > triggerDownThreshold)
         {
-            print("axis");
             if(triggerInUse == false)
             {
-                print("first");
                 first = true;
                 triggerInUse = true;
             }
@@ -82,8 +80,7 @@ public class InputController : MonoBehaviour
             }
         }
 
-        if (!(Input.GetAxis(fireButton) < triggerDownThreshold)) return;
-        print("leaveAxis");
+        if (!(Input.GetAxis(dashButton) < triggerDownThreshold)) return;
         first = false;
         triggerInUse = false;
     }
@@ -104,8 +101,8 @@ public class InputController : MonoBehaviour
         switch (button)
         {
             case Button.JUMP: return Input.GetButtonDown(jumpButton) ;
-            case Button.DASH: return Input.GetButtonDown(dashButton);
-            case Button.FIRE: return  triggerInUse && first;
+            case Button.DASH: return triggerInUse && first;
+            case Button.FIRE: return Input.GetButtonDown(fireButton) ;
         }
 
         return false;
@@ -116,8 +113,8 @@ public class InputController : MonoBehaviour
         switch (button)
         {
             case Button.JUMP: return Input.GetButton(jumpButton);
-            case Button.DASH: return Input.GetButton(dashButton);
-            case Button.FIRE: return triggerInUse;
+            case Button.DASH: return triggerInUse;
+            case Button.FIRE: return Input.GetButton(fireButton) ;
         }
 
         return false;
