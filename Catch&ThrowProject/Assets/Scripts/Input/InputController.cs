@@ -11,6 +11,8 @@ public class InputController : MonoBehaviour
 
     [SerializeField] private string horizontalAxis;
     [SerializeField] private string verticalAxis;
+    [SerializeField] private string rightHorizontalAxis;
+    [SerializeField] private string rightVerticalAxis;
     [SerializeField] private string jumpButton;
     [SerializeField] private string dashButton;
     [SerializeField] private string fireButton;
@@ -18,7 +20,11 @@ public class InputController : MonoBehaviour
     public float Horizontal { get; private set; }
     public float Vertical { get; private set; }
 
+    public float RightHorizontal { get; private set; }
+    public float RightVertical { get; private set; }
+
     public Vector2 Direction { get; private set; }
+    public Vector2 RightDirection { get; private set; }
 
     public enum Button
     {
@@ -46,6 +52,10 @@ public class InputController : MonoBehaviour
             Horizontal = Input.GetAxis(horizontalAxis);
             Vertical = -Input.GetAxis(verticalAxis);
             Direction = new Vector2(Horizontal, Vertical);
+
+            RightHorizontal = Input.GetAxis(rightHorizontalAxis);
+            RightVertical = -Input.GetAxis(rightVerticalAxis);
+            RightDirection = new Vector2(RightHorizontal, RightVertical);
         }
     }
 
@@ -53,6 +63,8 @@ public class InputController : MonoBehaviour
     {
         horizontalAxis = "Horizontal" + controllerNumber;
         verticalAxis = "Vertical" + controllerNumber;
+        rightHorizontalAxis = "RHorizontal" + controllerNumber;
+        rightVerticalAxis = "RVertical" + controllerNumber;
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;
         fireButton = "Fire" + controllerNumber;

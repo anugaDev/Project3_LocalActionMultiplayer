@@ -28,7 +28,7 @@ public class Shoot : BaseState
 
     public void ShootProjectile()
     {
-        var direction = playerController.inputControl.Direction;
+        var direction = playerController.inputControl.RightDirection;
 
         direction = direction.normalized;
         

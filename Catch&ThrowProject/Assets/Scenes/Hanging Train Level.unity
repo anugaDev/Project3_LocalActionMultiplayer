@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44777048, g: 0.4977513, b: 0.57542086, a: 1}
+  m_IndirectSpecularColor: {r: 0.4477712, g: 0.4977517, b: 0.5754214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1230,6 +1230,10 @@ PrefabInstance:
       propertyPath: cooldownVisual
       value: 
       objectReference: {fileID: 1327599538}
+    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: exitSpeedMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &910927794
@@ -2062,6 +2066,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: cooldownVisual
+      value: 
+      objectReference: {fileID: 1194014444}
+    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: exitSpeedMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2077,10 +2089,6 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: cooldownVisual
-      value: 
-      objectReference: {fileID: 1194014444}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &1480305426

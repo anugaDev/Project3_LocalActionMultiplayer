@@ -29,7 +29,7 @@ public class Dash : BaseState
 
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.Direction.normalized;
+        Vector3 direction = playerController.inputControl.RightDirection.normalized;
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
         dashParticles.Play();
@@ -52,7 +52,6 @@ public class Dash : BaseState
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity *= exitSpeedMultiplier;
         playerTrigger.isTrigger = catched ? true : false;
         dashParticles.Stop();
 
