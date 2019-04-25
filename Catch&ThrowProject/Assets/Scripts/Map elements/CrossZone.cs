@@ -26,7 +26,6 @@ public class CrossZone : MonoBehaviour
         {
             if ((lastObjectCrossed.transform.position - transform.position).magnitude > verifiedCrossedDistance)
             {
-                print("CROSSED");
                 crossed = false;
                 lastObjectCrossed = null;
 
