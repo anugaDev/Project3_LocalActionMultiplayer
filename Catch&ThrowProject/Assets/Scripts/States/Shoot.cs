@@ -10,22 +10,20 @@ public class Shoot : BaseState
     [SerializeField] private float shootOffset;
     [SerializeField] private float shootRecoilForce;
     [SerializeField] private float shootDirectionThreshold;
-    public bool reloaded = true;
+    [HideInInspector] public bool reloaded = true;
+
     public override void Enter()
     {
-
         if (reloaded) ShootProjectile();
         else playerController.ChangeState(playerController.idleState);
     }
 
     public override void Execute()
     {
-
     }
 
     public override void Exit()
     {
-
     }
 
     public void ShootProjectile()
@@ -33,9 +31,9 @@ public class Shoot : BaseState
         var direction = playerController.inputControl.Direction;
 
         var sign = Mathf.Sign(direction.x);
-        direction.x = sign * ( Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0 );
+        direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
         sign = Mathf.Sign(direction.y);
-        direction.y = sign * ( Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0 );
+        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);
 
         if (direction == Vector2.zero) direction = transform.right;
 
@@ -45,16 +43,17 @@ public class Shoot : BaseState
         var speed = projectileSpeed;
 //        if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
 
-        var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), rotation);
+        var projectileInstance =
+            Instantiate(projectile, transform.position + (shootOffset * (Vector3) direction), rotation);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
         projectileClass.SetBullet(direction, speed);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);
 
         var force = Vector3.up * shootRecoilForce;
-        if (force.magnitude > 0 && direction.y <= 0 && !playerController.onGround) playerController.rigidbody.velocity = force;
+        if (force.magnitude > 0 && direction.y <= 0 && !playerController.onGround)
+            playerController.rigidbody.velocity = force;
         StartCoroutine(Reload(reloadTime));
         playerController.ChangeState(playerController.idleState);
-
     }
 
     private IEnumerator Reload(float time)

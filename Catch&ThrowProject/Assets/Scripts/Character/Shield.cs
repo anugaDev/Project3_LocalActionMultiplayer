@@ -10,9 +10,9 @@ public class Shield : MonoBehaviour
     [SerializeField] private Outline playerShieldOutline;
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
+    [HideInInspector] public bool shieldDestroyed;
     private float actualHealth;
-    public bool shieldDestroyed;
-    
+
     
 
     private void Start()
