@@ -31,6 +31,8 @@ public class Shoot : BaseState
         var direction = playerController.inputControl.Direction;
 
         direction = direction.normalized;
+        
+        print(direction);
 
 //        var sign = Mathf.Sign(direction.x);
 //        direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);

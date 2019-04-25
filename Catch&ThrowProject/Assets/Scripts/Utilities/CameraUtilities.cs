@@ -48,8 +48,6 @@ public class CameraUtilities : MonoBehaviour
 
         while (actualTime < time)
         {
-            print("shake");
-
             var randomUnity = Random.insideUnitSphere;
             randomUnity.z = 0;
             sceneCamera.transform.position = estimatedCameraCenter + (randomUnity * force);
@@ -77,7 +75,6 @@ public class CameraUtilities : MonoBehaviour
         estimatedCameraCenter = originalCameraPosition;
         
         sceneCamera.transform.position = estimatedCameraCenter;
-
     }
 
     public void StopCameraMovement()
