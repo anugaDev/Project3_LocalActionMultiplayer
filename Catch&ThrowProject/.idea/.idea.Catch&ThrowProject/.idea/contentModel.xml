@@ -33,6 +33,7 @@
           </e>
           <e p="Map elements" t="Include">
             <e p="BounceZone.cs" t="Include" />
+            <e p="CrossZone.cs" t="Include" />
           </e>
           <e p="Projectile.cs" t="Include" />
           <e p="States" t="Include">

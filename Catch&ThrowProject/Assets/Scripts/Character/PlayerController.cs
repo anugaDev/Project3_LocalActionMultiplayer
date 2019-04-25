@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Cross Zone"))
         {
+            other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
         }
             
             

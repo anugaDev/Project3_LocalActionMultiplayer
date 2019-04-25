@@ -124,8 +124,9 @@ GameObject:
   - component: {fileID: 12436229}
   - component: {fileID: 12436228}
   - component: {fileID: 12436227}
+  - component: {fileID: 12436231}
   m_Layer: 0
-  m_Name: Cube (15)
+  m_Name: CrossZone
   m_TagString: Cross Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,13 +197,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12436226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.16, y: 2.118, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 22.45, y: 2.118, z: 0}
   m_LocalScale: {x: 0.5, y: 3.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &12436231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12436226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64152f492c3e03c4098f91e5d913f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitingZone: {fileID: 678370481}
+  verifiedCrossedDistance: 2
 --- !u!1 &58836707
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +651,9 @@ GameObject:
   - component: {fileID: 678370479}
   - component: {fileID: 678370478}
   - component: {fileID: 678370477}
+  - component: {fileID: 678370481}
   m_Layer: 0
-  m_Name: Cube (12)
+  m_Name: CrossZone
   m_TagString: Cross Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,12 +725,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678370476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.202, y: 2.118, z: 0}
+  m_LocalPosition: {x: -22.71, y: 2.118, z: 0}
   m_LocalScale: {x: 0.5, y: 3.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &678370481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678370476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64152f492c3e03c4098f91e5d913f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitingZone: {fileID: 12436231}
+  verifiedCrossedDistance: 2
 --- !u!1 &782871969
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,8 +830,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782871969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.48, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 0.5, z: 2}
+  m_LocalPosition: {x: 19.05, y: 0, z: 0}
+  m_LocalScale: {x: 7.5744, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1469,8 +1499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160074009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.48, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 0.5, z: 2}
+  m_LocalPosition: {x: -19.05, y: 0, z: 0}
+  m_LocalScale: {x: 7.5744, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
