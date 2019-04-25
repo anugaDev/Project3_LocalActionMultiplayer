@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidbody.velocity = direction * projectileSpeed;
+        rigidbody.velocity = direction * projectileSpeed * Time.fixedDeltaTime;
     }
 
     
@@ -31,7 +31,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-//        var tag = other.transform.tag;
+
+        if (other.gameObject.CompareTag("Player"))
+            other.GetComponent<PlayerController>().ProjectileHit(this);
 
         Destroy(gameObject);
     }

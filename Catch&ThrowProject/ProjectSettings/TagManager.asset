@@ -7,6 +7,7 @@ TagManager:
   - Death Zone
   - Bounce Zone
   - Cross Zone
+  - Projectile
   layers:
   - Default
   - TransparentFX

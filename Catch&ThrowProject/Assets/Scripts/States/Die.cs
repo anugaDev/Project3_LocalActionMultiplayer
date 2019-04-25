@@ -5,10 +5,13 @@ using UnityEngine;
 public class Die : BaseState
 {
     [SerializeField] private Renderer playerRenderer;
+    [SerializeField] private float cameraShakeForce;
+    [SerializeField] private float cameraShakeTime;
     private IEnumerator delegateRespawn;
     
     public override void Enter()
     {
+        CameraUtilities.instance.ShakeCamera(cameraShakeTime,cameraShakeForce);
         GetKilled();
         playerController.isDead = true;
         playerController.rigidbody.isKinematic = true;
@@ -52,6 +55,7 @@ public class Die : BaseState
         transform.position = Vector3.zero;
         playerRenderer.enabled = true;
         playerController.gameObject.layer = playerController.normalLayer;
+        playerController.shield.ResetShield();
         
         playerController.ChangeState(playerController.idleState);
     }

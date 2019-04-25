@@ -63,7 +63,7 @@ MonoBehaviour:
   animationTrigger: 
   speed: 50
   duration: 0.1
-  exitSpeedMultiplier: 0.1
+  exitSpeedMultiplier: 1.2
   playerTrigger: {fileID: 309804494}
   catched: 0
   available: 1
@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 3966379602459133179}
   - component: {fileID: 2846430671447116553}
   - component: {fileID: 85762693}
+  - component: {fileID: 1489658593}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,14 +260,14 @@ MonoBehaviour:
   dieState: {fileID: 85762693}
   jumpLayer: 11
   normalLayer: 10
-  sphereCollisionRadius: 1.37
-  jumpMade: 0
-  onGround: 0
-  isDead: 0
+  sphereCollisionRadius: 0.92
   distanceToGround: 1.5
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
+  jumpMade: 0
+  onGround: 0
+  isDead: 0
   caughtPlayer: {fileID: 0}
 --- !u!114 &4205472215443825075
 MonoBehaviour:
@@ -362,9 +363,10 @@ MonoBehaviour:
   animationTrigger: 
   pressingFallingSpeed: 100
   notPressingFallingSpeed: 200
-  fallingSpeedThreshold: 200
+  fallingSpeedThreshold: 50
   glideSpeed: 15
   fallPressedMultiply: 2
+  multiplyFallThreshold: 1.1
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -389,6 +391,7 @@ MonoBehaviour:
   shootOffset: 2
   shootRecoilForce: 0
   shootDirectionThreshold: 0.25
+  reloaded: 1
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +457,26 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
   playerRenderer: {fileID: 4205472215443825071}
+  cameraShakeForce: 0.25
+  cameraShakeTime: 1
+--- !u!114 &1489658593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2b34a832ff63548a16e7c38b500f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultHealth: 75
   lowHealthThreshold: 25
+  regenerationSpeed: 5
+  playerShieldOutline: {fileID: 1489658593}
+  lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
+  shieldStableColor: {r: 1, g: 1, b: 1, a: 1}
   shieldDestroyed: 0
 --- !u!1 &4233683649420559247
 GameObject:

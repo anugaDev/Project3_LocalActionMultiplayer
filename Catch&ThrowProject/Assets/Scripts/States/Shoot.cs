@@ -43,7 +43,7 @@ public class Shoot : BaseState
         var rotation = Quaternion.Euler(0, 0, rotationZ);
 
         var speed = projectileSpeed;
-        if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
+//        if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), rotation);
         var projectileClass = projectileInstance.GetComponent<Projectile>();

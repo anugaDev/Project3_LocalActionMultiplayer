@@ -61,7 +61,7 @@ public class Dash : BaseState
 
         var enemy = other.GetComponentInParent<PlayerController>();
 
-        if (enemy) CatchPlayer(enemy);
+        if (enemy && enemy.shield.shieldDestroyed) CatchPlayer(enemy);
     }
 
     private void CatchPlayer(PlayerController enemy)

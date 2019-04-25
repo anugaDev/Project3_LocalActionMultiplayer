@@ -96,19 +96,22 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Death Zone")
+        print(other.gameObject.tag);
+        if(other.gameObject.CompareTag("Death Zone"))
             ChangeState(dieState);
-        if (other.gameObject.tag == "Projectile")
-        {
-            var proj = other.transform.GetComponent<Projectile>();
-            shield.Hit(proj.damage);
-            if (shield.shieldDestroyed)
-            {
-                ChangeState(stunState); 
-            }
-            
-        }
             
 
+    }
+
+    public void ProjectileHit(Projectile projectile)
+    {
+        var proj = projectile.transform.GetComponent<Projectile>();
+        if(!shield.shieldDestroyed) 
+            shield.Hit(proj.damage);
+        else
+        {
+            ChangeState(stunState); 
+        }
+        
     }
 }

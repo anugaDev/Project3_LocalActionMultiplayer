@@ -47,7 +47,7 @@ public class Fall : BaseState
         
         actualFallingSpeed = ManageFallSpeed();
         var velocity = playerController.rigidbody.velocity;
-        fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
+//        fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
         velocity += Vector3.down * actualFallingSpeed * fallMultiply * Time.deltaTime;
         velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
