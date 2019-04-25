@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody rigidbody;
-    public Transform skillObject;
+    public Transform directionAffordance;
     public Collider normalCollider;
 
     [Header("Classes")]
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public float sphereCollisionRadius;
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
+    [SerializeField] private float directionAffordanceDistance;
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
@@ -63,6 +64,15 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonIsPressed(InputController.Button.FIRE) && shootState.reloaded) ChangeState(shootState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
+
+      
+    }
+
+    private void FixedUpdate()
+    {
+        var direction = (Vector3) inputControl.RightDirection;
+        if (direction == Vector3.zero) direction =  transform.right;
+        directionAffordance.position = transform.position +( direction * directionAffordanceDistance);
 
         stateMachine.ExecuteState();
     }
