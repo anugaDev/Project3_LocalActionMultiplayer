@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd766f9d130f60d4cbe99b23abf71438, type: 2}
+  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   jumpMade: 0
   onGround: 0
   isDead: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
   caughtPlayer: {fileID: 0}
 --- !u!114 &4205472215443825075
 MonoBehaviour:
@@ -386,10 +387,10 @@ MonoBehaviour:
   animationTrigger: 
   projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
     type: 3}
-  reloadTime: 0.2
-  projectileSpeed: 30
+  reloadTime: 0.5
+  projectileSpeed: 2000
   shootOffset: 2
-  shootRecoilForce: 0
+  shootRecoilForce: 5
   shootDirectionThreshold: 0.25
   reloaded: 1
 --- !u!114 &8854126468993262086
@@ -457,8 +458,8 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
   playerRenderer: {fileID: 4205472215443825071}
-  cameraShakeForce: 0.25
-  cameraShakeTime: 1
+  cameraShakeForce: 0.46
+  cameraShakeTime: 0.33
 --- !u!114 &1489658593
 MonoBehaviour:
   m_ObjectHideFlags: 0

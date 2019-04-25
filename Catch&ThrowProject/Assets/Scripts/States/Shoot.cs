@@ -30,10 +30,10 @@ public class Shoot : BaseState
     {
         var direction = playerController.inputControl.Direction;
 
-        var sign = Mathf.Sign(direction.x);
+       /* var sign = Mathf.Sign(direction.x);
         direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
         sign = Mathf.Sign(direction.y);
-        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);
+        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);*/
 
         if (direction == Vector2.zero) direction = transform.right;
 
