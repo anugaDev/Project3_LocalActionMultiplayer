@@ -7,6 +7,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float defaultHealth;
     [SerializeField] private float lowHealthThreshold;
     [SerializeField] private float regenerationSpeed;
+    [SerializeField] private float regenerationDelay;
     [SerializeField] private Outline playerShieldOutline;
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
