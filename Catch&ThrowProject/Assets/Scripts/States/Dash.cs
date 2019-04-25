@@ -21,6 +21,7 @@ public class Dash : BaseState
     private float timer;
 
     [SerializeField] private Image cooldownVisual;
+    [SerializeField] private ParticleSystem dashParticles;
 
     public override void Enter()
     {
@@ -28,9 +29,10 @@ public class Dash : BaseState
 
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.Direction;
+        Vector3 direction = playerController.inputControl.Direction.normalized;
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
+        dashParticles.Play();
         StartCoroutine(StopDash());
     }
 
@@ -52,6 +54,7 @@ public class Dash : BaseState
     {
         playerController.rigidbody.velocity *= exitSpeedMultiplier;
         playerTrigger.isTrigger = catched ? true : false;
+        dashParticles.Stop();
 
         catched = false;
     }
