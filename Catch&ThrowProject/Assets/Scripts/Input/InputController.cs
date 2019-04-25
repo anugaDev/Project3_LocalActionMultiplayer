@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private int controllerNumber = 1;
     [SerializeField] private float triggerDownThreshold;
-    private bool jumpInUse;
+    private bool triggerInUse;
     private bool first;
 
     [Header("Assigned Buttons")]
@@ -65,17 +65,16 @@ public class InputController : MonoBehaviour
 
         }
     }
-
     private void TriggerToButton()
     {
-        if(Input.GetAxis(jumpButton) > triggerDownThreshold)
+        if(Input.GetAxis(fireButton) > triggerDownThreshold)
         {
             print("axis");
-            if(jumpInUse == false)
+            if(triggerInUse == false)
             {
                 print("first");
                 first = true;
-                jumpInUse = true;
+                triggerInUse = true;
             }
             else
             {
@@ -83,10 +82,10 @@ public class InputController : MonoBehaviour
             }
         }
 
-        if (!(Input.GetAxis(jumpButton) < triggerDownThreshold)) return;
+        if (!(Input.GetAxis(fireButton) < triggerDownThreshold)) return;
         print("leaveAxis");
         first = false;
-        jumpInUse = false;
+        triggerInUse = false;
     }
 
     public void AssignButtons()
@@ -104,9 +103,9 @@ public class InputController : MonoBehaviour
     {
         switch (button)
         {
-            case Button.JUMP: return jumpInUse && first;
+            case Button.JUMP: return Input.GetButtonDown(jumpButton) ;
             case Button.DASH: return Input.GetButtonDown(dashButton);
-            case Button.FIRE: return Input.GetButtonDown(fireButton);
+            case Button.FIRE: return  triggerInUse && first;
         }
 
         return false;
@@ -116,9 +115,9 @@ public class InputController : MonoBehaviour
     {
         switch (button)
         {
-            case Button.JUMP: return jumpInUse;
+            case Button.JUMP: return Input.GetButton(jumpButton);
             case Button.DASH: return Input.GetButton(dashButton);
-            case Button.FIRE: return Input.GetButton(fireButton);
+            case Button.FIRE: return triggerInUse;
         }
 
         return false;
