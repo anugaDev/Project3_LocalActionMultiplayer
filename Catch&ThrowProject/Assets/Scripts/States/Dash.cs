@@ -25,6 +25,7 @@ public class Dash : BaseState
 
     public override void Enter()
     {
+//        playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
         playerTrigger.isTrigger = true;
@@ -52,6 +53,8 @@ public class Dash : BaseState
 
     public override void Exit()
     {
+//        playerController.gameObject.layer = playerController.normalLayer;
+
         playerTrigger.isTrigger = catched ? true : false;
         dashParticles.Stop();
 

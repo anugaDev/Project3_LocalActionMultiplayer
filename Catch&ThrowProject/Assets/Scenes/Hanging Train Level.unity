@@ -1086,6 +1086,21 @@ PrefabInstance:
       propertyPath: controllerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerPortrait
+      value: 
+      objectReference: {fileID: 1726170438}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: shakePortraitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: shakePortraitForce
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 
@@ -1927,6 +1942,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: shakePortraitForce
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: shakePortraitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: playerPortrait
+      value: 
+      objectReference: {fileID: 501802643}
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 

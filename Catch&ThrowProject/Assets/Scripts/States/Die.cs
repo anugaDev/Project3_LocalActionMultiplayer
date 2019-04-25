@@ -35,7 +35,6 @@ public class Die : BaseState
         playerController.normalCollider.enabled = true;
         playerController.shield.ResetShield();
         playerController.directionAffordance.gameObject.SetActive(true);
-
     }
 
     public void GetKilled()

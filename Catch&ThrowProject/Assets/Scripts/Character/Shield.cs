@@ -8,12 +8,16 @@ public class Shield : MonoBehaviour
     [SerializeField] private float lowHealthThreshold;
     [SerializeField] private float regenerationSpeed;
     [SerializeField] private float regenerationDelay;
+    [SerializeField] private float shakePortraitForce;
+    [SerializeField] private float shakePortraitTime;
     [SerializeField] private Outline playerShieldOutline;
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
     [HideInInspector] public bool shieldDestroyed;
+    [SerializeField] private Transform playerPortrait;
     private float actualHealth;
 
+    private GameUtilities gameUtilities = new GameUtilities();
     
 
     private void Start()
@@ -62,6 +66,7 @@ public class Shield : MonoBehaviour
   
     public void DestroyShield()
     {
+        StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerPortrait, shakePortraitForce));
         actualHealth = 0;
         shieldDestroyed = true;
         var destroyShield = new Color(0, 0, 0);
