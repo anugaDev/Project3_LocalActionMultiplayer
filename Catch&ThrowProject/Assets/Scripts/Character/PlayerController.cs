@@ -65,22 +65,15 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
 
-      
-    }
-
-    private void FixedUpdate()
-    {
         var direction = (Vector3) inputControl.RightDirection;
         if (direction == Vector3.zero) direction =  transform.right;
-        directionAffordance.position = transform.position +( direction * directionAffordanceDistance);
+        directionAffordance.position = transform.position + direction * directionAffordanceDistance;
 
         stateMachine.ExecuteState();
     }
 
     public void ChangeState(BaseState newState)
     {
-        //        print("State :" + newState);
-
         stateMachine.ChangeState(newState);
     }
 
@@ -92,7 +85,17 @@ public class PlayerController : MonoBehaviour
         {
             var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
             transform.rotation = rotation;
+            
+            var direction = (Vector3) inputControl.RightDirection;
+            if (direction == Vector3.zero) direction =  transform.right;
+            directionAffordance.position = transform.position +( direction * directionAffordanceDistance);
+       
+            var rotationAffordanceZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
+//            var rotationAffordance = Quaternion.LookRotation(direction, Vector3.up);
+            directionAffordance.rotation = rotationAffordance;
         }
+        
         var velocity = rigidbody.velocity;
         velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
