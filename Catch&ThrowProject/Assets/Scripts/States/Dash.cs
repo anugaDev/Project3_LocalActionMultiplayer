@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : BaseState
 {
@@ -17,6 +18,10 @@ public class Dash : BaseState
 
     public float cooldown = 1.5f;
 
+    private float timer;
+
+    [SerializeField] private Image cooldownVisual;
+
     public override void Enter()
     {
         available = false;
@@ -29,7 +34,19 @@ public class Dash : BaseState
         StartCoroutine(StopDash());
     }
 
-    private void Update() { }
+    private void Update()
+    {
+        if (available || playerController.stateMachine.currentState == this) return;
+
+        timer += Time.deltaTime;
+        cooldownVisual.fillAmount = timer / cooldown;
+
+        if (timer >= cooldown)
+        {
+            available = true;
+            timer = 0;
+        }
+    }
 
     public override void Exit()
     {
@@ -37,8 +54,6 @@ public class Dash : BaseState
         playerTrigger.isTrigger = catched ? true : false;
 
         catched = false;
-
-        StartCoroutine(Cooldown());
     }
 
     private IEnumerator StopDash()
@@ -46,13 +61,6 @@ public class Dash : BaseState
         yield return new WaitForSeconds(duration);
 
         playerController.ChangeState(playerController.idleState);
-    }
-
-    private IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(cooldown);
-
-        available = true;
     }
 
     private void OnTriggerEnter(Collider other)
