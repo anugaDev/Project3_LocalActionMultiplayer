@@ -52,7 +52,10 @@ public class Die : BaseState
     public void Respawn()
     {
         playerController.isDead = false;
-        transform.position = Vector3.zero;
+        transform.position = playerController.spawnPosition;
+        var rotation = Vector3.zero;
+        rotation.y = transform.position.x > 0 ? 180 : 0;
+        transform.rotation = Quaternion.Euler(rotation);
         playerRenderer.enabled = true;
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.shield.ResetShield();

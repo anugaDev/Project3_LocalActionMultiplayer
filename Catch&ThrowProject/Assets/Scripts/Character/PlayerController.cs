@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
+    [HideInInspector] public Vector3 spawnPosition;
 
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(idleState);
+        spawnPosition = transform.position;
     }
 
     private void Update()
@@ -96,9 +98,17 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        print(other.gameObject.tag);
         if(other.gameObject.CompareTag("Death Zone"))
             ChangeState(dieState);
+        else if(other.gameObject.CompareTag("Bounce Zone"))
+        {
+            
+        }
+        else if (other.gameObject.CompareTag("Cross Zone"))
+        {
+            
+        }
+            
             
 
     }
