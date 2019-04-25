@@ -30,10 +30,12 @@ public class Shoot : BaseState
     {
         var direction = playerController.inputControl.Direction;
 
-        var sign = Mathf.Sign(direction.x);
-        direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
-        sign = Mathf.Sign(direction.y);
-        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);
+        direction = direction.normalized;
+
+//        var sign = Mathf.Sign(direction.x);
+//        direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
+//        sign = Mathf.Sign(direction.y);
+//        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);
 
         if (direction == Vector2.zero) direction = transform.right;
 
@@ -41,6 +43,9 @@ public class Shoot : BaseState
         var rotation = Quaternion.Euler(0, 0, rotationZ);
 
         var speed = projectileSpeed;
+
+//        speed = (projectileSpeed * direction.magnitude) / Vector2.one.magnitude;
+        
 //        if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
 
         var projectileInstance =
