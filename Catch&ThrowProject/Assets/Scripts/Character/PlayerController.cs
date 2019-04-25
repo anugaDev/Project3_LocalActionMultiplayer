@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
             var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
             transform.rotation = rotation;
             
-            var direction = (Vector3) inputControl.RightDirection;
+            var direction = (Vector3) inputControl.RightDirection.normalized;
             if (direction == Vector3.zero) direction =  transform.right;
             directionAffordance.position = transform.position +( direction * directionAffordanceDistance);
        
