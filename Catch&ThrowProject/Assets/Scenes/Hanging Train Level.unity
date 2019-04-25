@@ -972,29 +972,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: shootDirectionThreshold
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: cameraShakeForce
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: cameraShakeTime
-      value: 0.33
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!1 &910927794
@@ -1034,7 +1011,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+  m_BackGroundColor: {r: 0.36952654, g: 0.4528302, b: 0.4528302, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1590,19 +1567,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: cameraShakeForce
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 85762693, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: cameraShakeTime
-      value: 0.33
-      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: controllerNumber
