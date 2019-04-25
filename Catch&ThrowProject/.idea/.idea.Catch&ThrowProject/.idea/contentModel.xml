@@ -31,6 +31,9 @@
           <e p="Input" t="Include">
             <e p="InputController.cs" t="Include" />
           </e>
+          <e p="Map elements" t="Include">
+            <e p="BounceZone.cs" t="Include" />
+          </e>
           <e p="Projectile.cs" t="Include" />
           <e p="States" t="Include">
             <e p="BaseState.cs" t="Include" />
