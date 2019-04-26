@@ -9,6 +9,8 @@ public class Dash : BaseState
     [SerializeField] private float speed;
     [SerializeField] private float duration;
     [SerializeField] private float exitSpeedMultiplier = 0.10f;
+    [SerializeField] private float imageShakeForce;
+    [SerializeField] private float imageShakeTime;
 
     [SerializeField] public Collider playerTrigger;
 
@@ -19,18 +21,20 @@ public class Dash : BaseState
     public float cooldown = 1.5f;
 
     private float timer;
+    private GameUtilities gameUtils = new GameUtilities();
 
     [SerializeField] private Image cooldownVisual;
     [SerializeField] private ParticleSystem dashParticles;
 
     public override void Enter()
     {
-//        playerController.gameObject.layer = playerController.jumpLayer;
+        playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
+//        playerTrigger.enabled = true;
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.Direction.normalized;
+        Vector3 direction = playerController.inputControl.RightDirection.normalized;
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
         dashParticles.Play();
@@ -46,6 +50,7 @@ public class Dash : BaseState
 
         if (timer >= cooldown)
         {
+            StartCoroutine(gameUtils.ShakeObject(imageShakeTime,cooldownVisual.transform,imageShakeForce ));
             available = true;
             timer = 0;
         }
@@ -53,9 +58,11 @@ public class Dash : BaseState
 
     public override void Exit()
     {
-//        playerController.gameObject.layer = playerController.normalLayer;
+        playerController.gameObject.layer = playerController.normalLayer;
 
+//        playerTrigger.enabled = false;
         playerTrigger.isTrigger = catched ? true : false;
+
         dashParticles.Stop();
 
         catched = false;
