@@ -24,4 +24,20 @@ public class GameUtilities
     {
         yield return null;
     }
+
+    public IEnumerator Blink(Renderer objectRenderer, float timeBetweenBlink, float totalTime)
+    {
+        var actualTime = 0f;
+
+        while (actualTime < totalTime)
+        {
+            objectRenderer.enabled = objectRenderer.enabled ? false : true;
+            yield return new WaitForSeconds(timeBetweenBlink);
+            actualTime += timeBetweenBlink;
+
+        }
+
+        objectRenderer.enabled = true;
+    }
+    
 }

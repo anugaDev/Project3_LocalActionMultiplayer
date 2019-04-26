@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
             shield.Hit(proj.damage);
         else
         {
+            shield.ImpactBlink();
             ChangeState(stunState); 
         }
         

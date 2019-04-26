@@ -75,7 +75,7 @@ public class Dash : BaseState
         playerController.ChangeState(playerController.idleState);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (playerController.stateMachine.currentState != playerController.dashState) return;
 
