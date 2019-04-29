@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]private Rigidbody rigidbody;
     private Vector2 direction;
     public float damage;
+    public bool nailed = false;
 
     
     void Start()
@@ -19,10 +20,8 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidbody.velocity = direction * projectileSpeed * Time.fixedDeltaTime;
+        if(!nailed) rigidbody.velocity = direction * projectileSpeed * Time.fixedDeltaTime;
     }
-
-    
     public void SetBullet(Vector2 newDirection, float speed)
     {
         direction = newDirection;
@@ -31,11 +30,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("Player"))
-            other.GetComponent<PlayerController>().ProjectileHit(this);
+        {
+            var player = other.GetComponent<PlayerController>();
+            if(!nailed) player.ProjectileHit(this);
+            else player.ResupplyAmmo(1f);
+            Destroy(gameObject);
+            return;
 
-        Destroy(gameObject);
+        }
+
+        rigidbody.velocity = UnityEngine.Vector3.zero;
+        nailed = true;
     }
 
  

@@ -141,4 +141,9 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    public void ResupplyAmmo(float ammo)
+    {
+        
+    }
 }
