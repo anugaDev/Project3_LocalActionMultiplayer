@@ -61,26 +61,19 @@ public class InputController : MonoBehaviour
             RightDirection = new Vector2(RightHorizontal, RightVertical);
             
             TriggerToButton();
-          
-
         }
     }
+
     private void TriggerToButton()
     {
         if(Input.GetAxis(dashButton) > triggerDownThreshold)
         {
-            if(triggerInUse == false)
-            {
-                first = true;
-                triggerInUse = true;
-            }
-            else
-            {
-                first = false;
-            }
+            first = !triggerInUse;
+            triggerInUse = !triggerInUse ? true : triggerInUse;
         }
 
         if (!(Input.GetAxis(dashButton) < triggerDownThreshold)) return;
+
         first = false;
         triggerInUse = false;
     }
@@ -89,8 +82,10 @@ public class InputController : MonoBehaviour
     {
         horizontalAxis = "Horizontal" + controllerNumber;
         verticalAxis = "Vertical" + controllerNumber;
+
         rightHorizontalAxis = "RHorizontal" + controllerNumber;
         rightVerticalAxis = "RVertical" + controllerNumber;
+
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;
         fireButton = "Fire" + controllerNumber;

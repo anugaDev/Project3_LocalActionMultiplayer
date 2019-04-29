@@ -6,9 +6,7 @@ public class Walk : BaseState
 {
     [SerializeField] private float walkSpeed;
 
-    public override void Enter()
-    {
-    }
+    public override void Enter() { }
 
     public override void Execute()
     {
@@ -20,14 +18,11 @@ public class Walk : BaseState
 
         #region ChangeConditions
 
-        if (!playerController.CheckForGround())
-            playerController.ChangeState(playerController.fallState);
-
-        if (playerController.rigidbody.velocity.magnitude <= 0.1f)
-            playerController.ChangeState(playerController.idleState);
+        if (!playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
+        if (playerController.rigidbody.velocity.magnitude <= 0.1f) playerController.ChangeState(playerController.idleState);
 
         #endregion
-
     }
+
     public override void Exit() { }
 }

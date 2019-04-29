@@ -31,7 +31,6 @@ public class Dash : BaseState
         playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
-//        playerTrigger.enabled = true;
         playerTrigger.isTrigger = true;
 
         Vector3 direction = playerController.inputControl.RightDirection.normalized;
@@ -59,8 +58,6 @@ public class Dash : BaseState
     public override void Exit()
     {
         playerController.gameObject.layer = playerController.normalLayer;
-
-//        playerTrigger.enabled = false;
         playerTrigger.isTrigger = catched ? true : false;
 
         dashParticles.Stop();
