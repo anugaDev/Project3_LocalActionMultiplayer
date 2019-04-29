@@ -17,6 +17,7 @@ public class GameUtilities
             yield return null;
             actualTime+= Time.deltaTime;
         }
+
         objectToShake.position = originalPos;
     }
 
@@ -34,10 +35,8 @@ public class GameUtilities
             objectRenderer.enabled = objectRenderer.enabled ? false : true;
             yield return new WaitForSeconds(timeBetweenBlink);
             actualTime += timeBetweenBlink;
-
         }
 
         objectRenderer.enabled = true;
-    }
-    
+    }    
 }

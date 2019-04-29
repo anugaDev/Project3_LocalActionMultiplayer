@@ -11,25 +11,22 @@ public class CrossZone : MonoBehaviour
 
     public void ObjectCross(Transform objectTransform)
     {
-        if (!crossed)
-        {
-            var localPos = transform.InverseTransformPoint(objectTransform.position);
-            exitingZone.crossed = true;
-            objectTransform.position = exitingZone.transform.TransformPoint(localPos);
-            exitingZone.lastObjectCrossed = objectTransform;
-        }
+        if (crossed) return;
+
+        var localPos = transform.InverseTransformPoint(objectTransform.position);
+        exitingZone.crossed = true;
+        objectTransform.position = exitingZone.transform.TransformPoint(localPos);
+        exitingZone.lastObjectCrossed = objectTransform;
     }
 
     private void Update()
     {
-        if (lastObjectCrossed != null)
-        {
-            if ((lastObjectCrossed.transform.position - transform.position).magnitude > verifiedCrossedDistance)
-            {
-                crossed = false;
-                lastObjectCrossed = null;
+        if (!lastObjectCrossed) return;
 
-            }
+        if ((lastObjectCrossed.transform.position - transform.position).magnitude > verifiedCrossedDistance)
+        {
+            crossed = false;
+            lastObjectCrossed = null;
         }
     }
 }

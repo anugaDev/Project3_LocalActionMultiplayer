@@ -6,43 +6,42 @@ public class Shield : MonoBehaviour
 {
     [SerializeField] private float defaultHealth;
     [SerializeField] private float lowHealthThreshold;
-    
+
     [SerializeField] private float regenerationSpeed;
     [SerializeField] private float regenerationDelay;
-    
+
     [SerializeField] private float shakePortraitForce;
     [SerializeField] private float shakePortraitTime;
 
     [SerializeField] private float blinkingTime;
     [SerializeField] private float timeBetweenBlinking;
-    
+
     [SerializeField] private Outline playerShieldOutline;
     [SerializeField] private Renderer objectRenderer;
-    
+
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
-    
-    [HideInInspector] public bool shieldDestroyed;
+
     [SerializeField] private Transform playerPortrait;
-    
+    [HideInInspector] public bool shieldDestroyed;
+
     private float actualHealth;
 
     public IEnumerator actualBlinking;
 
     private GameUtilities gameUtilities = new GameUtilities();
-    
 
     private void Start()
-    {       
+    {
         ResetShield();
     }
+
     private void Update()
-    {       
-        actualHealth = Mathf.Clamp(actualHealth, 0,defaultHealth);
+    {
+        actualHealth = Mathf.Clamp(actualHealth, 0, defaultHealth);
         actualHealth += regenerationSpeed * Time.deltaTime;
-        
-        if (shieldDestroyed && actualHealth > lowHealthThreshold) 
-            ShieldRegenerate();
+
+        if (shieldDestroyed && actualHealth > lowHealthThreshold) ShieldRegenerate();
 
         if (playerShieldOutline.enabled)
             playerShieldOutline.OutlineColor = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
@@ -52,19 +51,12 @@ public class Shield : MonoBehaviour
     {
         actualHealth -= damage;
 
-        if (actualHealth <= 0)
-        DestroyShield();
-        
-        else
-            playerShieldOutline.OutlineColor = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
-        
-        
-        if(actualBlinking != null)
-            StopCoroutine(actualBlinking);
+        if (actualHealth <= 0) DestroyShield();
+        else playerShieldOutline.OutlineColor = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
 
-       ImpactBlink();
+        if (actualBlinking != null) StopCoroutine(actualBlinking);
 
-
+        ImpactBlink();
     }
 
     public void ResetShield()
@@ -81,15 +73,15 @@ public class Shield : MonoBehaviour
         playerShieldOutline.enabled = true;
         playerShieldOutline.OutlineColor = lowShieldColor;
     }
-  
+
     public void DestroyShield()
     {
         StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerPortrait, shakePortraitForce));
+
         actualHealth = 0;
         shieldDestroyed = true;
-        var destroyShield = new Color(0, 0, 0);
+
         playerShieldOutline.enabled = false;
-        playerShieldOutline.OutlineColor = destroyShield;
     }
 
     public void ImpactBlink()
@@ -98,7 +90,4 @@ public class Shield : MonoBehaviour
 
         StartCoroutine(actualBlinking);
     }
-
-   
-   
 }
