@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Hanging Train Level.unity
+    guid: a807e78416d806e41a6209fcb379f992
   m_configObjects: {}

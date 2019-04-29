@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : BaseState
 {
     [SerializeField] private float speed;
     [SerializeField] private float duration;
     [SerializeField] private float exitSpeedMultiplier = 0.10f;
+    [SerializeField] private float imageShakeForce;
+    [SerializeField] private float imageShakeTime;
 
     [SerializeField] public Collider playerTrigger;
 
@@ -17,28 +20,49 @@ public class Dash : BaseState
 
     public float cooldown = 1.5f;
 
+    private float timer;
+    private GameUtilities gameUtils = new GameUtilities();
+
+    [SerializeField] private Image cooldownVisual;
+    [SerializeField] private ParticleSystem dashParticles;
+
     public override void Enter()
     {
+        playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.Direction;
+        Vector3 direction = playerController.inputControl.RightDirection.normalized;
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
+        dashParticles.Play();
         StartCoroutine(StopDash());
     }
 
-    private void Update() { }
+    private void Update()
+    {
+        if (available || playerController.stateMachine.currentState == this) return;
+
+        timer += Time.deltaTime;
+        cooldownVisual.fillAmount = timer / cooldown;
+
+        if (timer >= cooldown)
+        {
+            StartCoroutine(gameUtils.ShakeObject(imageShakeTime,cooldownVisual.transform,imageShakeForce ));
+            available = true;
+            timer = 0;
+        }
+    }
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity *= exitSpeedMultiplier;
+        playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
-        catched = false;
+        dashParticles.Stop();
 
-        StartCoroutine(Cooldown());
+        catched = false;
     }
 
     private IEnumerator StopDash()
@@ -48,14 +72,7 @@ public class Dash : BaseState
         playerController.ChangeState(playerController.idleState);
     }
 
-    private IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(cooldown);
-
-        available = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (playerController.stateMachine.currentState != playerController.dashState) return;
 

@@ -5,11 +5,13 @@ using UnityEngine;
 public class Shoot : BaseState
 {
     [SerializeField] private GameObject projectile;
+
     [SerializeField] private float reloadTime;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float shootOffset;
     [SerializeField] private float shootRecoilForce;
     [SerializeField] private float shootDirectionThreshold;
+
     [HideInInspector] public bool reloaded = true;
 
     public override void Enter()
@@ -18,22 +20,18 @@ public class Shoot : BaseState
         else playerController.ChangeState(playerController.idleState);
     }
 
-    public override void Execute()
-    {
-    }
+    public override void Execute() { }
 
-    public override void Exit()
-    {
-    }
+    public override void Exit() { }
 
     public void ShootProjectile()
     {
-        var direction = playerController.inputControl.Direction;
+        var direction = playerController.inputControl.RightDirection.normalized;
 
-       /* var sign = Mathf.Sign(direction.x);
-        direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
-        sign = Mathf.Sign(direction.y);
-        direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);*/
+        //var sign = Mathf.Sign(direction.x);
+        //direction.x = sign * (Mathf.Abs(direction.x) >= shootDirectionThreshold ? 1 : 0);
+        //sign = Mathf.Sign(direction.y);
+        //direction.y = sign * (Mathf.Abs(direction.y) >= shootDirectionThreshold ? 1 : 0);
 
         if (direction == Vector2.zero) direction = transform.right;
 
@@ -41,17 +39,18 @@ public class Shoot : BaseState
         var rotation = Quaternion.Euler(0, 0, rotationZ);
 
         var speed = projectileSpeed;
-//        if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
 
-        var projectileInstance =
-            Instantiate(projectile, transform.position + (shootOffset * (Vector3) direction), rotation);
+        //speed = (projectileSpeed * direction.magnitude) / Vector2.one.magnitude;      
+        //if (Mathf.Abs(direction.x) + Mathf.Abs(direction.y) > 1) speed /= 2;
+
+        var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), rotation);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
         projectileClass.SetBullet(direction, speed);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);
 
         var force = Vector3.up * shootRecoilForce;
-        if (force.magnitude > 0 && direction.y <= 0 && !playerController.onGround)
-            playerController.rigidbody.velocity = force;
+        if (force.magnitude > 0 && direction.y <= 0 && !playerController.onGround) playerController.rigidbody.velocity = force;
+
         StartCoroutine(Reload(reloadTime));
         playerController.ChangeState(playerController.idleState);
     }

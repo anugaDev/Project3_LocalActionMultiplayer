@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class Idle : BaseState
 {
-    public override void Enter()
-    {
-
-
-        //        playerController.animator.SetTrigger(animationTrigger);
-    }
+    public override void Enter() { }
 
     public override void Execute()
     {
@@ -18,13 +13,7 @@ public class Idle : BaseState
 
         if (!playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
         else playerController.jumpMade = false;
-
     }
 
-    public override void Exit()
-    {
-
-    }
-
-
+    public override void Exit() { }
 }
