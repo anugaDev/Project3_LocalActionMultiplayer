@@ -12,6 +12,8 @@ public class Dash : BaseState
     [SerializeField] private float imageShakeForce;
     [SerializeField] private float imageShakeTime;
 
+    [SerializeField] private float verticalSpeedDecayMultiplier = 0.75f;
+
     [SerializeField] public Collider playerTrigger;
 
     [SerializeField] private bool catched = false;
@@ -49,7 +51,7 @@ public class Dash : BaseState
 
         if (timer >= cooldown)
         {
-            StartCoroutine(gameUtils.ShakeObject(imageShakeTime,cooldownVisual.transform,imageShakeForce ));
+            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
             available = true;
             timer = 0;
         }
@@ -57,6 +59,10 @@ public class Dash : BaseState
 
     public override void Exit()
     {
+        playerController.rigidbody.velocity = new Vector3(playerController.rigidbody.velocity.x,
+                                                          playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
+                                                          0);
+
         playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 

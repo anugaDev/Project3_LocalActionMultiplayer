@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
-    [SerializeField] private int controllerNumber = 1;
+    public int controllerNumber = 1;
     [SerializeField] private float triggerDownThreshold;
     private bool triggerInUse;
     private bool first;
@@ -59,14 +59,14 @@ public class InputController : MonoBehaviour
             RightHorizontal = Input.GetAxis(rightHorizontalAxis);
             RightVertical = -Input.GetAxis(rightVerticalAxis);
             RightDirection = new Vector2(RightHorizontal, RightVertical);
-            
+
             TriggerToButton();
         }
     }
 
     private void TriggerToButton()
     {
-        if(Input.GetAxis(dashButton) > triggerDownThreshold)
+        if (Input.GetAxis(dashButton) > triggerDownThreshold)
         {
             first = !triggerInUse;
             triggerInUse = !triggerInUse ? true : triggerInUse;
@@ -95,9 +95,9 @@ public class InputController : MonoBehaviour
     {
         switch (button)
         {
-            case Button.JUMP: return Input.GetButtonDown(jumpButton) ;
+            case Button.JUMP: return Input.GetButtonDown(jumpButton);
             case Button.DASH: return triggerInUse && first;
-            case Button.FIRE: return Input.GetButtonDown(fireButton) ;
+            case Button.FIRE: return Input.GetButtonDown(fireButton);
         }
 
         return false;
@@ -109,7 +109,7 @@ public class InputController : MonoBehaviour
         {
             case Button.JUMP: return Input.GetButton(jumpButton);
             case Button.DASH: return triggerInUse;
-            case Button.FIRE: return Input.GetButton(fireButton) ;
+            case Button.FIRE: return Input.GetButton(fireButton);
         }
 
         return false;
