@@ -12,7 +12,6 @@ public class Die : BaseState
     public override void Enter()
     {
         CameraUtilities.instance.ShakeCamera(cameraShakeTime,cameraShakeForce);
-        playerController.directionAffordance.gameObject.SetActive(false);
         GetKilled();
         playerController.isDead = true;
         playerController.rigidbody.isKinematic = true;
@@ -26,7 +25,7 @@ public class Die : BaseState
 
     public override void Exit()
     {
-        if (ReferenceEquals(delegateRespawn, null))
+        if (delegateRespawn == null)
         {
             StopCoroutine(delegateRespawn);
             playerRenderer.enabled = true;
@@ -34,7 +33,6 @@ public class Die : BaseState
         playerController.rigidbody.isKinematic = false;
         playerController.normalCollider.enabled = true;
         playerController.shield.ResetShield();
-        playerController.directionAffordance.gameObject.SetActive(true);
     }
 
     public void GetKilled()

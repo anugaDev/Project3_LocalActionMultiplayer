@@ -35,7 +35,7 @@ public class Dash : BaseState
 
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.RightDirection.normalized;
+        Vector3 direction = playerController.inputControl.Direction.normalized;
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
         dashParticles.Play();

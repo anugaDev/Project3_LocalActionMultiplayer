@@ -28,13 +28,29 @@ public class Projectile : MonoBehaviour
             var player = other.GetComponent<PlayerController>();
 
             if (!nailed) player.ProjectileHit(this);
-            else player.ResupplyAmmo(1f);
+            else
+            {
+                player.ResupplyAmmo(1);
+            }
 
             Destroy(gameObject);
+
+
             return;
         }
+        else if(other.gameObject.CompareTag("Death Zone")) Destroy(gameObject);
+        
+        else if(other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(transform);
 
+
+        rigidbody.isKinematic = true;
+        
         rigidbody.velocity = UnityEngine.Vector3.zero;
         nailed = true;
+    }
+
+    private void OnDestroy()
+    {
+        //Game manager erase.
     }
 }

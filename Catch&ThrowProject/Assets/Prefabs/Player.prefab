@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 309804493}
   - component: {fileID: 309804495}
   - component: {fileID: 101204162}
+  - component: {fileID: 1761732036}
   m_Layer: 9
   m_Name: DashCollider
   m_TagString: Untagged
@@ -52,7 +53,8 @@ MonoBehaviour:
   exitSpeedMultiplier: 0.5
   imageShakeForce: 0
   imageShakeTime: 0
-  playerTrigger: {fileID: 101204162}
+  verticalSpeedDecayMultiplier: 0.75
+  playerTrigger: {fileID: 1761732036}
   catched: 0
   available: 1
   cooldown: 1.5
@@ -87,6 +89,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &1761732036
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309804491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &355854187
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,12 +113,12 @@ GameObject:
   - component: {fileID: 355854188}
   - component: {fileID: 3590749851191819291}
   m_Layer: 10
-  m_Name: Cube
+  m_Name: ShootDirectionMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &355854188
 Transform:
   m_ObjectHideFlags: 0
@@ -135,7 +150,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
+  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -328,7 +343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4205472215443825082}
   rigidbody: {fileID: 4205472215443825074}
-  directionAffordance: {fileID: 355854188}
   normalCollider: {fileID: 4205472215443825070}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
@@ -350,7 +364,9 @@ MonoBehaviour:
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
-  directionAffordanceDistance: 2
+  airFriction: 0
+  airGroundFriction: 0
+  maxAmmo: 0
   jumpMade: 0
   onGround: 0
   isDead: 0
@@ -369,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4205472215443825065}
-  controllerNumber: 2
+  controllerNumber: 1
   triggerDownThreshold: 0.5
   horizontalAxis: 
   verticalAxis: 
@@ -484,6 +500,12 @@ MonoBehaviour:
   shootRecoilForce: 5
   shootDirectionThreshold: 0.25
   reloaded: 1
+  directionAffordance: {fileID: 355854188}
+  directionAffordanceDistance: 3
+  meleeDetectionDistance: 2
+  meleeDetectionMask:
+    serializedVersion: 2
+    m_Bits: 3072
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +522,7 @@ MonoBehaviour:
   animationTrigger: 
   timeBeforeThrow: 3
   throwForce: 75
-  minThrowForce: 50
+  minThrowForce: 25
   reactionForceMultiplier: 0.5
   directionMarker: {fileID: 4233683649420559247}
   directionMarkerDistance: 4

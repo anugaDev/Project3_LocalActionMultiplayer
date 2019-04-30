@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody rigidbody;
-    public Transform directionAffordance;
     public Collider normalCollider;
 
     [Header("Classes")]
@@ -35,10 +34,13 @@ public class PlayerController : MonoBehaviour
     public int normalLayer;
 
     public float sphereCollisionRadius;
+    public int actualAmmo { get; private set; } = 3;
 
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
-    [SerializeField] private float directionAffordanceDistance;
+    [SerializeField] private float airFriction;
+    [SerializeField] private float airGroundFriction;
+    [SerializeField] private int maxAmmo;
 
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool onGround;
@@ -62,15 +64,14 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonIsPressed(InputController.Button.FIRE) && shootState.reloaded) ChangeState(shootState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootState.reloaded) ChangeState(shootState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
-
-        var direction = (Vector3)inputControl.RightDirection;
-        if (direction == Vector3.zero) direction = transform.right;
-        directionAffordance.position = transform.position + direction * directionAffordanceDistance;
-
+        
         stateMachine.ExecuteState();
+
+
+        
     }
 
     public void ChangeState(BaseState newState)
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
     public void HorizontalMove(float speed)
     {
         var horizontal = inputControl.Horizontal;
+        var velocity = rigidbody.velocity;
 
         if (Mathf.Abs(horizontal) > 0)
         {
@@ -89,15 +91,18 @@ public class PlayerController : MonoBehaviour
 
             var direction = (Vector3)inputControl.RightDirection.normalized;
             if (direction == Vector3.zero) direction = transform.right;
-            directionAffordance.position = transform.position + (direction * directionAffordanceDistance);
-
-            var rotationAffordanceZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
-            //            var rotationAffordance = Quaternion.LookRotation(direction, Vector3.up);
-            directionAffordance.rotation = rotationAffordance;
+         
+            
+//            velocity.x = speed * horizontal;
         }
-
-        var velocity = rigidbody.velocity;
+        else
+        {
+//            if (!onGround)
+//                velocity.x -= (airFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
+//            else
+////                velocity.x -= (airGroundFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
+//                velocity.x = 0;
+        }
         velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
     }
@@ -105,7 +110,6 @@ public class PlayerController : MonoBehaviour
     public bool CheckForGround()
     {
         onGround = Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
-
         if (gameObject.layer != normalLayer) onGround = false;
 
         return onGround;
@@ -140,8 +144,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ResupplyAmmo(float ammo)
+    public void ResupplyAmmo(int ammo)
     {
+        if (actualAmmo >= maxAmmo) return;
+        actualAmmo += ammo;
+        Mathf.Clamp(actualAmmo, 0, maxAmmo);
 
     }
 }

@@ -32,7 +32,7 @@ public class GameUtilities
 
         while (actualTime < totalTime)
         {
-            objectRenderer.enabled = objectRenderer.enabled ? false : true;
+            objectRenderer.enabled = !objectRenderer.enabled;
             yield return new WaitForSeconds(timeBetweenBlink);
             actualTime += timeBetweenBlink;
         }

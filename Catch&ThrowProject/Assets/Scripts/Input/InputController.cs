@@ -60,7 +60,7 @@ public class InputController : MonoBehaviour
             RightVertical = -Input.GetAxis(rightVerticalAxis);
             RightDirection = new Vector2(RightHorizontal, RightVertical);
 
-            TriggerToButton();
+//            TriggerToButton();
         }
     }
 
@@ -96,7 +96,7 @@ public class InputController : MonoBehaviour
         switch (button)
         {
             case Button.JUMP: return Input.GetButtonDown(jumpButton);
-            case Button.DASH: return triggerInUse && first;
+            case Button.DASH: return Input.GetButtonDown(dashButton);
             case Button.FIRE: return Input.GetButtonDown(fireButton);
         }
 
@@ -110,6 +110,17 @@ public class InputController : MonoBehaviour
             case Button.JUMP: return Input.GetButton(jumpButton);
             case Button.DASH: return triggerInUse;
             case Button.FIRE: return Input.GetButton(fireButton);
+        }
+
+        return false;
+    }
+    public bool ButtonIsUp(Button button)
+    {
+        switch (button)
+        {
+            case Button.JUMP: return Input.GetButtonUp(jumpButton);
+            case Button.DASH: return Input.GetButtonUp(dashButton);
+            case Button.FIRE: return Input.GetButtonUp(fireButton);
         }
 
         return false;

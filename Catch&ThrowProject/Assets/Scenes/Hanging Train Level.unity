@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -88,6 +95,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -882,124 +890,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: controllerNumber
-      value: 1
+      propertyPath: horizontalAxis
+      value: Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: jumpTriggerThreshold
-      value: 0.2
+      propertyPath: verticalAxis
+      value: Vertical
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: triggerPressedThreshold
-      value: 0.1
+      propertyPath: rightHorizontalAxis
+      value: RHorizontal
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
-      propertyPath: triggerDownThreshold
-      value: 0.5
+      propertyPath: rightVerticalAxis
+      value: RVertical
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: playerPortrait
       value: 
       objectReference: {fileID: 1726170438}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: shakePortraitTime
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: shakePortraitForce
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: regenerationSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: defaultHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: objectRenderer
-      value: 
-      objectReference: {fileID: 2064503032}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: blinkingTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: timeBetweenBlinking
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 
       objectReference: {fileID: 1327599538}
-    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: imageShakeForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: imageShakeTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
-      propertyPath: playerTrigger
-      value: 
-      objectReference: {fileID: 1761732036}
-    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: shootOffset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 2500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: reloadTime
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: minThrowForce
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: throwForce
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: reactionForceMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 309804494, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
 --- !u!20 &910927796 stripped
 Camera:
@@ -1423,10 +1343,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: triggerDownThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: controllerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: horizontalAxis
+      value: Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: verticalAxis
+      value: Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: rightHorizontalAxis
+      value: RHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: rightVerticalAxis
+      value: RVertical
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
@@ -1484,6 +1434,11 @@ PrefabInstance:
       propertyPath: playerTrigger
       value: 
       objectReference: {fileID: 101204162}
+    - target: {fileID: 3590749851191819291, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
     - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: shootOffset
@@ -1513,6 +1468,10 @@ PrefabInstance:
         type: 3}
       propertyPath: reactionForceMultiplier
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 355854187, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 309804494, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
@@ -1796,25 +1755,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9056322990193350809}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1761732034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 309804491, guid: 21263b536f790fe4dbbc6a033a3011a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 860981700}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1761732036
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761732034}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1787945454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,12 +2210,6 @@ Transform:
   m_Father: {fileID: 1262987573}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &2064503032 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 860981700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1498466841069860704
 PrefabInstance:
   m_ObjectHideFlags: 0

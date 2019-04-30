@@ -29,7 +29,9 @@
             <e p="Shield.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
+            <e p="AssignGamepadToPlayer.cs" t="Include" />
             <e p="InputController.cs" t="Include" />
+            <e p="PlayerSelectionPanel.cs" t="Include" />
           </e>
           <e p="Map elements" t="Include">
             <e p="BounceZone.cs" t="Include" />

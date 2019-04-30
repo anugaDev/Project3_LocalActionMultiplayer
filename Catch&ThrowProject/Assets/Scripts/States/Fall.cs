@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Fall : BaseState
@@ -47,7 +48,7 @@ public class Fall : BaseState
 
         if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
         {
-            if (Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius, checkPlatformsLayerMask).Length <= 0)
+            if (!Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius, checkPlatformsLayerMask).Any())
                 gameObject.layer = playerController.normalLayer;
         }
 
