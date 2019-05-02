@@ -1,60 +1,60 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DynamicCamera : MonoBehaviour
 {
-    //CONSTRUCTION PROCESS. NOT WORKING RIGHT NOW, DON'T TEST
     public List<Transform> objectsToShow;
 
     private Vector3 desiredPosition;
     private Vector3 desiredZoom;
 
     public float positionDamping;
-    public float zoomDamping;
 
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
+    public float minZoom = 20f;
+    public float maxZoom = 45f;
+    public float zoomLimiter = 50f;
 
     private Vector3 velocity;
 
-    void Start()
-    {
+    private Bounds bounds;
+    private Camera myCamera;
 
+    private void Start()
+    {
+        myCamera = GetComponent<Camera>();
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        GetDesiredPosition();
+        Move();
+        Zoom();
+    }
 
+    private void Move()
+    {
+        desiredPosition = CenterOfMass(objectsToShow);
+        desiredPosition.z = transform.position.z;
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, positionDamping);
     }
 
-    private void GetDesiredPosition()
+    private void Zoom()
     {
-        desiredPosition = CenterOfMass(objectsToShow);
+        float desiredZoom = Mathf.Lerp(minZoom, maxZoom, bounds.size.x / zoomLimiter);
 
-        desiredPosition.x = Mathf.Clamp(transform.position.x, minX, maxX);
-        desiredPosition.y = Mathf.Clamp(transform.position.y, minY, maxY);
-        desiredPosition.z = transform.position.z;
+        myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, desiredZoom, Time.deltaTime);
     }
 
-    private void GetDesiredZoom()
+    private Vector3 CenterOfMass(List<Transform> objects)
     {
+        bounds = new Bounds(objects[0].position, Vector3.zero);
 
-    }
-
-    public Vector3 CenterOfMass(List<Transform> positions)
-    {
-        Vector3 centerOfMass = new Vector3();
-
-        for (int i = 0; i < positions.Count; i++)
+        foreach (Transform obj in objects)
         {
-            centerOfMass += positions[i].position;
+            bounds.Encapsulate(obj.position);
         }
 
-        return centerOfMass / (positions.Count);
+        return bounds.center;
     }
 }

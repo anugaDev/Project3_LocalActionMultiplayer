@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 4
-  joinButton: Jumo
+  joinButton: Jump
   playerSelectionPanels:
   - {fileID: 520291836}
   - {fileID: 1090632548}
