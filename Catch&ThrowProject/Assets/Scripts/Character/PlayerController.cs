@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Jump jumpState;
     public DoubleJump doubleJumpState;
     public Fall fallState;
-    public Shoot shootState;
+    public Attack attackState;
 
     public Dash dashState;
     public Catch catchState;
@@ -39,10 +39,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float airFriction;
+    [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float airGroundFriction;
     [SerializeField] private int maxAmmo;
+    private float lastAirImpulseX;
 
     [HideInInspector] public bool jumpMade;
+    [HideInInspector] public bool exitFromCaught;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
 
@@ -64,18 +67,18 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootState.reloaded) ChangeState(shootState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
         
         stateMachine.ExecuteState();
-
-
-        
+      
     }
 
     public void ChangeState(BaseState newState)
     {
+        print("New State :"+ newState);
+        
         stateMachine.ChangeState(newState);
     }
 
@@ -88,29 +91,68 @@ public class PlayerController : MonoBehaviour
         {
             var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
             transform.rotation = rotation;
-
-            var direction = (Vector3)inputControl.RightDirection.normalized;
-            if (direction == Vector3.zero) direction = transform.right;
-         
             
-//            velocity.x = speed * horizontal;
+            velocity.x = speed * horizontal;
         }
+        
         else
         {
-//            if (!onGround)
-//                velocity.x -= (airFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
-//            else
-////                velocity.x -= (airGroundFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
-//                velocity.x = 0;
+            if (!onGround)
+            {
+                var absVelocity = Mathf.Abs(velocity.x);
+                absVelocity-= (airFriction * Mathf.Sign(lastAirImpulseX)) * Time.deltaTime;
+                if (absVelocity < 0f)
+                    absVelocity = 0;
+
+                velocity.x = absVelocity;
+            }
+
+            else
+            {
+                if (exitFromCaught)
+                    exitFromCaught = false;
+                velocity.x = speed * horizontal;
+
+            }
+//                velocity.x -= (airGroundFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
+
         }
+
         velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
+        print(horizontal);
+    }
+
+    public void VerticalMove(Vector3 direction, float force)
+    {
+        var velocity = rigidbody.velocity;
+        
+        velocity += direction * force * Time.deltaTime;
+        velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
+        
+        rigidbody.velocity = velocity;
+
+
+
+
+    }
+
+    public void Impulse( Vector3 direction,float impulseForce)
+    {
+        rigidbody.velocity = direction * impulseForce;
+        lastAirImpulseX = rigidbody.velocity.x;
     }
 
     public bool CheckForGround()
     {
-        onGround = Physics.Raycast(transform.position, -Vector3.up, distanceToGround, groundDetectionCollisions);
-        if (gameObject.layer != normalLayer) onGround = false;
+        if (gameObject.layer != normalLayer) return onGround = false;
+
+//        var startingPos = new Vector3(0,normalCollider.bounds.min.y,0);
+        var startingPos = transform.position;
+        onGround = Physics.Raycast(startingPos, -Vector3.up, distanceToGround, groundDetectionCollisions);
+//        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.right, distanceToGround, groundDetectionCollisions): onGround;
+//        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.left, distanceToGround, groundDetectionCollisions): onGround;
+
 
         return onGround;
     }
@@ -120,7 +162,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Death Zone"))
         {
             ChangeState(dieState);
-            //            CameraUtilities.instance.MoveCamera(transform.position - other.contacts[0].point); 
         }
         else if (other.gameObject.CompareTag("Bounce Zone"))
         {

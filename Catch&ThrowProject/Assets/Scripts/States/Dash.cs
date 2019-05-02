@@ -59,7 +59,7 @@ public class Dash : BaseState
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity = new Vector3(playerController.rigidbody.velocity.x,
+        playerController.rigidbody.velocity = new Vector3 (playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 

@@ -7,7 +7,6 @@ public class Fall : BaseState
 {
     [SerializeField] private float pressingFallingSpeed;
     [SerializeField] private float notPressingFallingSpeed;
-    [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float glideSpeed;
     [SerializeField] private float fallPressedMultiply;
     [SerializeField] private float multiplyFallThreshold;
@@ -42,6 +41,7 @@ public class Fall : BaseState
         fallMultiply = 1;
     }
 
+    
     public override void Execute()
     {
         #region StateUpdate
@@ -57,10 +57,7 @@ public class Fall : BaseState
         var velocity = playerController.rigidbody.velocity;
         fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
 
-        velocity += Vector3.down * actualFallingSpeed * fallMultiply * Time.deltaTime;
-        velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
-
-        playerController.rigidbody.velocity = velocity;
+        playerController.VerticalMove(Vector3.down, actualFallingSpeed * fallMultiply);
         playerController.HorizontalMove(glideSpeed);
 
         #endregion
@@ -89,7 +86,6 @@ public class Fall : BaseState
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = false;
     }
-
     private float ManageFallSpeed()
     {
         var speed = notPressingFallingSpeed;
