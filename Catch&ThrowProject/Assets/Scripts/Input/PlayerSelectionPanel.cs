@@ -17,6 +17,47 @@ public class PlayerSelectionPanel : MonoBehaviour
     public Image parentPanel;
     public Text pressToAssignText;
 
+    public MeshRenderer meshRenderer;
+
+    public int[] materialPositions;
+
+    public GameObject buttonPanel;
+    public GameObject readyPanel;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown(panelInput.cancelButton)) ReadyCheck(false);
+    }
+
+    private void SetPanelInput(int playerNumber)
+    {
+        panelInput.horizontalAxis = "Horizontal" + playerNumber;
+        panelInput.verticalAxis = "Vertical" + playerNumber;
+        panelInput.submitButton = "Fire" + playerNumber;
+        panelInput.cancelButton = "Jump" + playerNumber;
+
+        panelInput.enabled = true;
+    }
+
+    private void CreatePlayer(int playerNumber)
+    {
+        PlayerController newPlayer = Instantiate(playerPrefab.gameObject).GetComponent<PlayerController>();
+
+        newPlayer.inputControl.controllerNumber = playerNumber;
+    }
+
+    private void ChangeColor(Material newMaterial)
+    {
+        var actualMaterials = meshRenderer.materials;
+
+        for (int i = 0; i < materialPositions.Length; i++)
+        {
+            actualMaterials[materialPositions[0]] = newMaterial;
+        }
+
+        meshRenderer.materials = actualMaterials;
+    }
+
     public void AssignController(int controllerNumber)
     {
         parentPanel.enabled = false;
@@ -30,20 +71,9 @@ public class PlayerSelectionPanel : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void CreatePlayer(int playerNumber)
+    public void ReadyCheck(bool ready)
     {
-        PlayerController newPlayer = Instantiate(playerPrefab.gameObject).GetComponent<PlayerController>();
-
-        newPlayer.inputControl.controllerNumber = playerNumber;
-    }
-
-    private void SetPanelInput(int playerNumber)
-    {
-        panelInput.horizontalAxis = "Horizontal" + playerNumber;
-        panelInput.verticalAxis = "Vertical" + playerNumber;
-        panelInput.submitButton = "Fire" + playerNumber;
-        panelInput.cancelButton = "Jump" + playerNumber;
-
-        panelInput.enabled = true;
+        buttonPanel.SetActive(!ready);
+        readyPanel.SetActive(ready);
     }
 }
