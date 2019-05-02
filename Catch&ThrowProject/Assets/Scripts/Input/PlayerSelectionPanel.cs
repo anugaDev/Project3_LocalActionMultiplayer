@@ -12,9 +12,8 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public int controllerNumber;
 
-    public StandaloneInputModule panelInput;
-
     public Image parentPanel;
+    public Image selectionImage;
     public Text pressToAssignText;
 
     public MeshRenderer meshRenderer;
@@ -24,21 +23,6 @@ public class PlayerSelectionPanel : MonoBehaviour
     public GameObject buttonPanel;
     public GameObject readyPanel;
 
-    private void Update()
-    {
-        if (Input.GetButtonDown(panelInput.cancelButton)) ReadyCheck(false);
-    }
-
-    private void SetPanelInput(int playerNumber)
-    {
-        panelInput.horizontalAxis = "Horizontal" + playerNumber;
-        panelInput.verticalAxis = "Vertical" + playerNumber;
-        panelInput.submitButton = "Fire" + playerNumber;
-        panelInput.cancelButton = "Jump" + playerNumber;
-
-        panelInput.enabled = true;
-    }
-
     private void CreatePlayer(int playerNumber)
     {
         PlayerController newPlayer = Instantiate(playerPrefab.gameObject).GetComponent<PlayerController>();
@@ -46,7 +30,7 @@ public class PlayerSelectionPanel : MonoBehaviour
         newPlayer.inputControl.controllerNumber = playerNumber;
     }
 
-    private void ChangeColor(Material newMaterial)
+    public void ChangeColor(Material newMaterial)
     {
         var actualMaterials = meshRenderer.materials;
 
@@ -66,8 +50,6 @@ public class PlayerSelectionPanel : MonoBehaviour
         HasPlayer = true;
         this.controllerNumber = controllerNumber;
 
-        SetPanelInput(controllerNumber);
-
         gameObject.SetActive(true);
     }
 
@@ -75,5 +57,6 @@ public class PlayerSelectionPanel : MonoBehaviour
     {
         buttonPanel.SetActive(!ready);
         readyPanel.SetActive(ready);
+        selectionImage.enabled = !ready;
     }
 }
