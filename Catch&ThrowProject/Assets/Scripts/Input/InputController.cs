@@ -53,11 +53,11 @@ public class InputController : MonoBehaviour
         if (controllerNumber > 0)
         {
             Horizontal = Input.GetAxis(horizontalAxis);
-            Vertical = -Input.GetAxis(verticalAxis);
+            Vertical = Input.GetAxis(verticalAxis);
             Direction = new Vector2(Horizontal, Vertical);
 
             RightHorizontal = Input.GetAxis(rightHorizontalAxis);
-            RightVertical = -Input.GetAxis(rightVerticalAxis);
+            RightVertical = Input.GetAxis(rightVerticalAxis);
             RightDirection = new Vector2(RightHorizontal, RightVertical);
 
 //            TriggerToButton();
