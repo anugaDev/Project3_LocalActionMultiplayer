@@ -26,7 +26,7 @@ public class DoubleJump : BaseState
 
     public void SetJumpForce()
     {
-        playerController.rigidbody.velocity = Vector3.up * jumpingSpeed; 
+        playerController.Impulse(Vector3.up,jumpingSpeed);
         playerController.jumpMade = true;
         commingFromJump = true;
         playerController.ChangeState(playerController.fallState);
