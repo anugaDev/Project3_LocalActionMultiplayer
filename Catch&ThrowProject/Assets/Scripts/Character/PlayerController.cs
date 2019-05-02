@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Jump jumpState;
     public DoubleJump doubleJumpState;
     public Fall fallState;
-    public Attack attackState;
+    public ShootAttack shootAttackState;
 
     public Dash dashState;
     public Catch catchState;
@@ -67,17 +67,18 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded) ChangeState(attackState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootAttackState.reloaded) ChangeState(shootAttackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
         
         stateMachine.ExecuteState();
       
+//        print(stateMachine.currentState +" IS ACTUAL STATE");
     }
 
     public void ChangeState(BaseState newState)
     {
-        print("New State :"+ newState);
+//        print("New State :"+ newState);
         
         stateMachine.ChangeState(newState);
     }
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
         velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
-        print(horizontal);
+//        print(horizontal);
     }
 
     public void VerticalMove(Vector3 direction, float force)
@@ -131,10 +132,8 @@ public class PlayerController : MonoBehaviour
         velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
         
         rigidbody.velocity = velocity;
-
-
-
-
+        
+//        print(rigidbody.velocity);
     }
 
     public void Impulse( Vector3 direction,float impulseForce)
@@ -152,7 +151,7 @@ public class PlayerController : MonoBehaviour
         onGround = Physics.Raycast(startingPos, -Vector3.up, distanceToGround, groundDetectionCollisions);
 //        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.right, distanceToGround, groundDetectionCollisions): onGround;
 //        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.left, distanceToGround, groundDetectionCollisions): onGround;
-
+//        print(stateMachine.currentState+" : " + onGround);
 
         return onGround;
     }

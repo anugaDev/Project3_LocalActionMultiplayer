@@ -46,19 +46,11 @@ public class Fall : BaseState
     {
         #region StateUpdate
 
-        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
-        {
-            if (!Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius, checkPlatformsLayerMask).Any())
-                gameObject.layer = playerController.normalLayer;
-        }
-
-        actualFallingSpeed = ManageFallSpeed();
-
-        var velocity = playerController.rigidbody.velocity;
-        fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
-
-        playerController.VerticalMove(Vector3.down, actualFallingSpeed * fallMultiply);
+        CheckForCrossingPlatforms();
+        
+        ExecuteFallSpeed();
         playerController.HorizontalMove(glideSpeed);
+
 
         #endregion
 
@@ -74,6 +66,26 @@ public class Fall : BaseState
             playerController.ChangeState(playerController.doubleJumpState);
 
         #endregion
+    }
+
+    public void CheckForCrossingPlatforms()
+    {
+        if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
+        {
+            if (!Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius, checkPlatformsLayerMask)
+                .Any())
+                gameObject.layer = playerController.normalLayer;
+        }
+    }
+
+    public void ExecuteFallSpeed()
+    {
+        actualFallingSpeed = ManageFallSpeed();
+
+        fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
+
+        playerController.VerticalMove(Vector3.down, actualFallingSpeed * fallMultiply);
+        
     }
 
     public override void Exit()
@@ -104,8 +116,8 @@ public class Fall : BaseState
         return speed;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, playerController.sphereCollisionRadius);
-    }
+//    private void OnDrawGizmos()
+//    {
+//        Gizmos.DrawSphere(transform.position, playerController.sphereCollisionRadius);
+//    }
 }

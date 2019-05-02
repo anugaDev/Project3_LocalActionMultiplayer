@@ -63,7 +63,7 @@ public class Catch : BaseState
         Vector3 direction = playerController.inputControl.Direction;
 
         float force = Mathf.Max(throwForce * (1 - (timer / timeBeforeThrow)), minThrowForce);
-        print(force);
+//        print(force);
 
         if (direction == Vector3.zero) direction = transform.right;
 

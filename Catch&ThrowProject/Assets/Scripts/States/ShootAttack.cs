@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : BaseState
+public class ShootAttack : BaseState
 {
     [SerializeField] private GameObject projectile;
 
@@ -44,11 +44,17 @@ public class Attack : BaseState
 
     public override void Execute()
     {
-        if (!playerController.CheckForGround()) 
-            playerController.VerticalMove(Vector3.down, shootFallingSpeed);
+        if (!playerController.CheckForGround())
+        {
+            playerController.fallState.CheckForCrossingPlatforms();
+            playerController.fallState.ExecuteFallSpeed();
+
+        }
         else
         {
-            playerController.rigidbody.velocity = Vector3.zero;
+            var velocity = playerController.rigidbody.velocity;
+            velocity.x = 0;
+            playerController.rigidbody.velocity = velocity;
         }
         
         var actualDirection = (Vector3) playerController.inputControl.Direction.normalized;       
@@ -120,7 +126,6 @@ public class Attack : BaseState
     }
     public void ShootProjectile(Vector2 direction)
     {
-        print("Shoot");
 //        var direction = playerController.inputControl.Direction.normalized;
 
   
