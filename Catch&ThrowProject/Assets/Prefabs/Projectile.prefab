@@ -110,7 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 5
   rigidbody: {fileID: 636614215799889609}
-  direction: {x: 0, y: 0}
   damage: 25
   hitForce: 20
 --- !u!135 &4665147726333283526
@@ -120,7 +119,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636614215799889603}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 278fa948f9a5f6048bf0165e406d4d3c, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2

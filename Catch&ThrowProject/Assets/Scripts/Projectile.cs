@@ -43,7 +43,6 @@ public class Projectile : MonoBehaviour
         
         else if(other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(transform);
 
-        rigidbody.isKinematic = true;
         
         rigidbody.velocity = UnityEngine.Vector3.zero;
         nailed = true;

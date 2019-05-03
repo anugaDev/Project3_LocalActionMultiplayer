@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {      
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == shootAttackState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
@@ -205,10 +205,5 @@ public class PlayerController : MonoBehaviour
         actualAmmo += ammo;
         Mathf.Clamp(actualAmmo, 0, maxAmmo);
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Debug.DrawLine(transform.position, Vector3.down * distanceToGround,Color.green);
     }
 }

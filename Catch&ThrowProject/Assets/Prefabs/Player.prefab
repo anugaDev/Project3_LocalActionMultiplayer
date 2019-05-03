@@ -53,7 +53,7 @@ MonoBehaviour:
   imageShakeForce: 0
   imageShakeTime: 0
   verticalSpeedDecayMultiplier: 0.75
-  playerTrigger: {fileID: 0}
+  playerTrigger: {fileID: 101204162}
   catched: 0
   available: 1
   cooldown: 1.5
