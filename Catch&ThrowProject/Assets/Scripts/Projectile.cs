@@ -7,9 +7,11 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed;
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField]  private float damage;
+    [SerializeField]  private float hitForce;
     private Vector2 direction;
-    public float damage;
-    public bool nailed = false;
+
+    private bool nailed = false;
 
     private void FixedUpdate()
     {
@@ -27,21 +29,19 @@ public class Projectile : MonoBehaviour
         {
             var player = other.GetComponent<PlayerController>();
 
-            if (!nailed) player.ProjectileHit(this);
+            if (!nailed) player.ProjectileHit(direction,hitForce,damage);
             else
             {
                 player.ResupplyAmmo(1);
             }
 
             Destroy(gameObject);
-
-
             return;
         }
+        
         else if(other.gameObject.CompareTag("Death Zone")) Destroy(gameObject);
         
         else if(other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(transform);
-
 
         rigidbody.isKinematic = true;
         

@@ -110,8 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 5
   rigidbody: {fileID: 636614215799889609}
+  direction: {x: 0, y: 0}
   damage: 25
-  nailed: 0
+  hitForce: 20
 --- !u!135 &4665147726333283526
 SphereCollider:
   m_ObjectHideFlags: 0

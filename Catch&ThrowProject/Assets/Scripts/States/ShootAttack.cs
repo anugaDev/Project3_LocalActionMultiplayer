@@ -6,6 +6,8 @@ public class ShootAttack : BaseState
 {
     [SerializeField] private GameObject projectile;
 
+    [Header("Shoot: ")]
+
     [SerializeField] private float reloadTime;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float shootOffset;
@@ -14,31 +16,30 @@ public class ShootAttack : BaseState
 
     [HideInInspector] public bool reloaded = true;
     
+    [Header("Direction: ")]
+
+    
     public Transform directionAffordance;
     [SerializeField] private float directionAffordanceDistance;
-    [SerializeField] private float meleeDetectionDistance;
-    [SerializeField] private float shootFallingSpeed;
     [SerializeField] private LayerMask meleeDetectionMask;
 
     private Vector3 lastDir;
+    
+    [Header("Melee: ")]
 
     [SerializeField] private Transform meleeTrigger;
-    [SerializeField] private float meleeAttackThreshold;
+    [SerializeField] private float meleeDetectionDistance;
+    [SerializeField] private float meleeHitDamage;
     [SerializeField] private float hitForce;
-    [SerializeField] private float hitFriction;
-    [SerializeField] private bool isPastMelee;
-    private IEnumerator countMeleeFunction;
+    [SerializeField] private float hitbackForce;
     
     public override void Enter()
     {
-        countMeleeFunction = CountMeleeTime();
-        StartCoroutine(countMeleeFunction);
-        
+        directionAffordance.gameObject.SetActive(true);
         lastDir = transform.right;
         
 //        if (playerController.onGround) playerController.rigidbody.velocity = Vector3.zero;
 //        playerController.rigidbody.velocity = Vector3.zero;
-//        if (reloaded) ShootProjectile();
 //        else playerController.ChangeState(playerController.idleState);
     }
 
@@ -71,40 +72,15 @@ public class ShootAttack : BaseState
         var rotationAffordanceZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
         directionAffordance.rotation = rotationAffordance;
-        
+
         if (playerController.inputControl.ButtonIsUp(InputController.Button.FIRE))
         {
-//            PlayerController enemyPlayer = null; // IsMelee(playerController.inputControl.Direction);
-//            
-//            if(enemyPlayer) HitMelee(enemyPlayer);
-//            else ShootProjectile(direction);
-            if (!isPastMelee)
-            {
-                HitMelee();
-            }
-            else
-            {
-                ShootProjectile(direction);
-            }
-        }        
-    }
+            PlayerController enemyPlayer = IsMelee(playerController.inputControl.Direction);
 
-    private IEnumerator CountMeleeTime()
-    {
-        var actualFrameTime = 0f;
-        isPastMelee = false;
-        while (actualFrameTime <= meleeAttackThreshold)
-        {
-            
-            yield return new WaitForEndOfFrame();
-            actualFrameTime++;
+            if (enemyPlayer) HitMelee(enemyPlayer,direction);
+            else ShootProjectile(direction);
         }
-        
-        directionAffordance.gameObject.SetActive(true);
-
-        isPastMelee = true;
-    }
-
+    }  
     private PlayerController IsMelee(Vector3 direction)
     {
         PlayerController player = null;
@@ -119,9 +95,6 @@ public class ShootAttack : BaseState
 
     public override void Exit()
     {
-        if(countMeleeFunction != null) 
-            StopCoroutine(countMeleeFunction);
-        
         directionAffordance.gameObject.SetActive(false);
     }
     public void ShootProjectile(Vector2 direction)
@@ -148,41 +121,16 @@ public class ShootAttack : BaseState
         AttackFinished();
     }
 
-    public void HitMelee()
+    public void HitMelee(PlayerController enemyPlayer , Vector3 direction)
     {
         print("Melee");
 
-        StartCoroutine(ApplyHitForce());
+//        StartCoroutine(ApplyHitForce());
+        enemyPlayer.MeleeHit(meleeHitDamage,direction,hitForce);
         
         AttackFinished();
-
     }
-    private IEnumerator ApplyHitForce()
-    {
-        meleeTrigger.gameObject.SetActive(true);
-        var playerRb = playerController.rigidbody;
-        var hitDir = transform.right.x;
-        playerRb.velocity += Vector3.right * hitForce * Mathf.Sign(hitDir);
-        var velocity = playerRb.velocity;
-        
-        while (playerRb.velocity.x > 0)
-        {
-            velocity = playerRb.velocity;
-
-            yield return new WaitForEndOfFrame();
-
-            velocity.x -= hitFriction * Mathf.Sign(hitDir) * Time.deltaTime;
-
-            playerRb.velocity = velocity;
-
-        }
-
-        velocity.x = 0;
-        playerRb.velocity = velocity;
-        meleeTrigger.gameObject.SetActive(false);
-
-        AttackFinished();
-    }
+    
 
     public void AttackFinished()
     {

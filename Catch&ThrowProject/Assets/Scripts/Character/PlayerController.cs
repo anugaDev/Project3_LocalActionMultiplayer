@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private float lastAirImpulseX;
 
     [HideInInspector] public bool jumpMade;
-    [HideInInspector] public bool exitFromCaught;
+    [HideInInspector] public bool impulseImpacts;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
 
@@ -64,10 +64,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState)
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == shootAttackState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootAttackState.reloaded) ChangeState(shootAttackState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootAttackState.reloaded && stateMachine.currentState != shootAttackState) ChangeState(shootAttackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
         
@@ -93,33 +93,34 @@ public class PlayerController : MonoBehaviour
             var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
             transform.rotation = rotation;
             
-            velocity.x = speed * horizontal;
+            if(!impulseImpacts) velocity.x = speed * horizontal;
+            
+            else velocity.x += horizontal  * speed * Time.deltaTime;
+
         }
         
         else
         {
-            if (!onGround)
-            {
-                var absVelocity = Mathf.Abs(velocity.x);
-                absVelocity-= (airFriction * Mathf.Sign(lastAirImpulseX)) * Time.deltaTime;
-                if (absVelocity < 0f)
-                    absVelocity = 0;
+            print("thrown " +inputControl.controllerNumber);
 
-                velocity.x = absVelocity;
+            if (!CheckForGround() && impulseImpacts)
+            {
+                print("impulsed");
+//                var absVelocity = Mathf.Abs(velocity.x);
+//                absVelocity-= (airFriction * Mathf.Sign(lastAirImpulseX)) * Time.deltaTime;
+//                if (absVelocity < 0f)
+//                    absVelocity = 0;
+//
+//                velocity.x = absVelocity *  Mathf.Sign(lastAirImpulseX);
             }
 
             else
             {
-                if (exitFromCaught)
-                    exitFromCaught = false;
                 velocity.x = speed * horizontal;
-
             }
 //                velocity.x -= (airGroundFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
-
         }
-
-        velocity.x = speed * horizontal;
+//        velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
 //        print(horizontal);
     }
@@ -133,13 +134,13 @@ public class PlayerController : MonoBehaviour
         
         rigidbody.velocity = velocity;
         
-//        print(rigidbody.velocity);
     }
 
-    public void Impulse( Vector3 direction,float impulseForce)
+    public void Impulse( Vector3 direction,float impulseForce, bool impulseIsImpacting)
     {
         rigidbody.velocity = direction * impulseForce;
         lastAirImpulseX = rigidbody.velocity.x;
+        impulseImpacts = impulseIsImpacting;
     }
 
     public bool CheckForGround()
@@ -153,6 +154,7 @@ public class PlayerController : MonoBehaviour
 //        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.left, distanceToGround, groundDetectionCollisions): onGround;
 //        print(stateMachine.currentState+" : " + onGround);
 
+        if (onGround) impulseImpacts = false;
         return onGround;
     }
 
@@ -172,14 +174,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ProjectileHit(Projectile projectile)
+    public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
     {
-        var proj = projectile.transform.GetComponent<Projectile>();
 
-        if (!shield.shieldDestroyed) shield.Hit(proj.damage);
+        if (!shield.shieldDestroyed) shield.Hit(damage);
         else
         {
             shield.ImpactBlink();
+            Impulse(hitDirection,hitForce,true);
+            ChangeState(stunState);
+        }
+    }
+
+    public void MeleeHit(float meleeDamage, Vector3 hitDirection, float hitForce)
+    {
+        shield.Hit(meleeDamage);
+        shield.ImpactBlink();
+
+
+        if (stateMachine.currentState == dashState)
+        {
+            Impulse(hitDirection,hitForce,true);
             ChangeState(stunState);
         }
     }
@@ -190,5 +205,10 @@ public class PlayerController : MonoBehaviour
         actualAmmo += ammo;
         Mathf.Clamp(actualAmmo, 0, maxAmmo);
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(transform.position, Vector3.down * distanceToGround,Color.green);
     }
 }

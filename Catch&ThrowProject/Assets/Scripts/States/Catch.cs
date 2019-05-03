@@ -68,10 +68,10 @@ public class Catch : BaseState
         if (direction == Vector3.zero) direction = transform.right;
 
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-        playerController.caughtPlayer.Impulse(direction, force);
+        playerController.caughtPlayer.Impulse(direction, force,true);
 
         playerController.ChangeState(playerController.stunState);
-        playerController.Impulse(-direction,  force * reactionForceMultiplier);
+        playerController.Impulse(-direction,  force * reactionForceMultiplier,false);
     }
 
     private void PositionateMarker()

@@ -19,7 +19,7 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
-        playerController.Impulse(Vector3.up,jumpingSpeed);
+        playerController.Impulse(Vector3.up,jumpingSpeed,false);
         commingFromJump = true;
         playerController.ChangeState(playerController.fallState);
     }
