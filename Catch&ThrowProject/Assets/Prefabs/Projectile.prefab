@@ -112,6 +112,9 @@ MonoBehaviour:
   rigidbody: {fileID: 636614215799889609}
   damage: 25
   hitForce: 20
+  impactCollider: {fileID: 4665147726333283526}
+  pickUpRadius: 1
+  nailed: 0
 --- !u!135 &4665147726333283526
 SphereCollider:
   m_ObjectHideFlags: 0
