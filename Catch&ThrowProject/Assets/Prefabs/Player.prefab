@@ -352,9 +352,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4097
   fallingSpeedThreshold: 50
-  initialAmmo: 0
-  timeForAmmo: 0
-  maxAmmo: 0
+  initialAmmo: 999
+  timeForAmmo: 1
+  maxAmmo: 999
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  walkSpeed: 20
+  walkSpeed: 15
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  jumpingSpeed: 32
+  jumpingSpeed: 25
   commingFromJump: 0
 --- !u!114 &4205472215443825078
 MonoBehaviour:
@@ -490,12 +490,12 @@ MonoBehaviour:
   reloaded: 1
   directionAffordance: {fileID: 355854188}
   directionAffordanceDistance: 3
-  meleeDetectionMask:
-    serializedVersion: 2
-    m_Bits: 3072
   meleeDetectionAngle: 90
   detectionRaysPerAttack: 0
   meleeDetectionDistance: 2
+  meleeDetectionMask:
+    serializedVersion: 2
+    m_Bits: 3072
   meleeHitDamage: 100
   hitForce: 50
 --- !u!114 &8854126468993262086
@@ -512,9 +512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  timeBeforeThrow: 3
+  timeBeforeThrow: 2
   throwForce: 75
-  minThrowForce: 25
+  minThrowForce: 0
   reactionForceMultiplier: 0.5
   directionMarker: {fileID: 4233683649420559247}
   directionMarkerDistance: 4
