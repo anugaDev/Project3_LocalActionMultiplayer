@@ -338,7 +338,7 @@ MonoBehaviour:
   jumpState: {fileID: 4205472215443825079}
   doubleJumpState: {fileID: 5970475171054597876}
   fallState: {fileID: 4205472215443825078}
-  shootAttackState: {fileID: 4205472215443825073}
+  attackState: {fileID: 4205472215443825073}
   dashState: {fileID: 309804493}
   catchState: {fileID: 8854126468993262086}
   caughtState: {fileID: 3966379602459133179}
@@ -351,9 +351,9 @@ MonoBehaviour:
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
-  airFriction: 100
   fallingSpeedThreshold: 50
-  airGroundFriction: 0
+  initialAmmo: 0
+  timeForAmmo: 0
   maxAmmo: 0
   jumpMade: 0
   impulseImpacts: 0
@@ -493,11 +493,11 @@ MonoBehaviour:
   meleeDetectionMask:
     serializedVersion: 2
     m_Bits: 3072
-  meleeTrigger: {fileID: 0}
+  meleeDetectionAngle: 90
+  detectionRaysPerAttack: 0
   meleeDetectionDistance: 2
   meleeHitDamage: 100
   hitForce: 50
-  hitbackForce: 30
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0
