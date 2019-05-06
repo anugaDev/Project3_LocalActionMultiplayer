@@ -51,6 +51,7 @@ public class Die : BaseState
 
     public void Respawn()
     {
+        playerController.RespawnAmmo();
         playerController.isDead = false;
         transform.position = playerController.spawnPosition;
         var rotation = Vector3.zero;

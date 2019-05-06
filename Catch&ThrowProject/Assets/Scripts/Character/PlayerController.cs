@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Jump jumpState;
     public DoubleJump doubleJumpState;
     public Fall fallState;
-    public ShootAttack shootAttackState;
+    public Attack attackState;
 
     public Dash dashState;
     public Catch catchState;
@@ -34,15 +34,17 @@ public class PlayerController : MonoBehaviour
     public int normalLayer;
 
     public float sphereCollisionRadius;
-    public int actualAmmo { get; private set; } = 3;
 
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
-    [SerializeField] private float airFriction;
     [SerializeField] private float fallingSpeedThreshold;
-    [SerializeField] private float airGroundFriction;
-    [SerializeField] private int maxAmmo;
-    private float lastAirImpulseX;
+    
+    public int actualAmmo { get; private set; } = 3;
+    [SerializeField] private int initialAmmo;
+    [SerializeField] private float timeForAmmo;
+    public int maxAmmo;
+    private IEnumerator recoverAmmo;
+
 
     [HideInInspector] public bool jumpMade;
     [HideInInspector] public bool impulseImpacts;
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Vector3 spawnPosition;
 
+    
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
 
@@ -58,28 +61,26 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
+        actualAmmo = initialAmmo;
         stateMachine.ChangeState(idleState);
         spawnPosition = transform.position;
     }
 
     private void Update()
-    {      
-        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == shootAttackState)
+    {       
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
-            if (inputControl.ButtonDown(InputController.Button.FIRE) && shootAttackState.reloaded && stateMachine.currentState != shootAttackState) ChangeState(shootAttackState);
+            if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded && stateMachine.currentState != attackState) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
         
-        stateMachine.ExecuteState();
-      
-//        print(stateMachine.currentState +" IS ACTUAL STATE");
+        stateMachine.ExecuteState();      
     }
 
     public void ChangeState(BaseState newState)
-    {
-//        print("New State :"+ newState);
-        
+    {        
         stateMachine.ChangeState(newState);
     }
 
@@ -101,28 +102,17 @@ public class PlayerController : MonoBehaviour
         
         else
         {
-            print("thrown " +inputControl.controllerNumber);
 
             if (!CheckForGround() && impulseImpacts)
             {
-                print("impulsed");
-//                var absVelocity = Mathf.Abs(velocity.x);
-//                absVelocity-= (airFriction * Mathf.Sign(lastAirImpulseX)) * Time.deltaTime;
-//                if (absVelocity < 0f)
-//                    absVelocity = 0;
-//
-//                velocity.x = absVelocity *  Mathf.Sign(lastAirImpulseX);
             }
 
             else
             {
                 velocity.x = speed * horizontal;
             }
-//                velocity.x -= (airGroundFriction * Mathf.Sign(transform.right.x)) * Time.deltaTime;
         }
-//        velocity.x = speed * horizontal;
         rigidbody.velocity = velocity;
-//        print(horizontal);
     }
 
     public void VerticalMove(Vector3 direction, float force)
@@ -139,7 +129,6 @@ public class PlayerController : MonoBehaviour
     public void Impulse( Vector3 direction,float impulseForce, bool impulseIsImpacting)
     {
         rigidbody.velocity = direction * impulseForce;
-        lastAirImpulseX = rigidbody.velocity.x;
         impulseImpacts = impulseIsImpacting;
     }
 
@@ -176,7 +165,6 @@ public class PlayerController : MonoBehaviour
 
     public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
     {
-
         if (!shield.shieldDestroyed) shield.Hit(damage);
         else
         {
@@ -199,11 +187,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool PlayerHasAmmo()
+    {
+        return actualAmmo > 0;
+    }
+
     public void ResupplyAmmo(int ammo)
     {
         if (actualAmmo >= maxAmmo) return;
         actualAmmo += ammo;
-        Mathf.Clamp(actualAmmo, 0, maxAmmo);
+        if (actualAmmo >=maxAmmo)
+        {
+            StopCoroutine(recoverAmmo);
+        }
+    }
 
+    public void ConsumeAmmo(int ammo)
+    {
+        actualAmmo -= ammo;
+        if (actualAmmo < 0) actualAmmo = 0;
+        
+    }
+
+    public void CheckForRecoverAmmo()
+    {
+        if (actualAmmo < maxAmmo)
+        {
+            StartCoroutine(recoverAmmo);
+        }
+    }
+
+    private IEnumerator RecoverAmmoOverTime(float time)
+    {
+        print("enterReload");
+        yield return new WaitForSeconds(time);
+        actualAmmo++;
+    }
+
+    public void RespawnAmmo()
+    {
+        actualAmmo = initialAmmo;
+       
+        StopCoroutine(recoverAmmo);
+        
     }
 }

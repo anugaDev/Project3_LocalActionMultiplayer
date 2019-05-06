@@ -31,17 +31,18 @@
             <e p="PlayerController.cs" t="Include" />
             <e p="Shield.cs" t="Include" />
           </e>
+          <e p="Game Elements" t="Include">
+            <e p="BounceZone.cs" t="Include" />
+            <e p="CrossZone.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+          </e>
           <e p="Input" t="Include">
             <e p="AssignGamepadToPlayer.cs" t="Include" />
             <e p="InputController.cs" t="Include" />
             <e p="PlayerSelectionPanel.cs" t="Include" />
           </e>
-          <e p="Map elements" t="Include">
-            <e p="BounceZone.cs" t="Include" />
-            <e p="CrossZone.cs" t="Include" />
-          </e>
-          <e p="Projectile.cs" t="Include" />
           <e p="States" t="Include">
+            <e p="Attack.cs" t="Include" />
             <e p="BaseState.cs" t="Include" />
             <e p="Catch.cs" t="Include" />
             <e p="Caught.cs" t="Include" />
@@ -51,13 +52,13 @@
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
-            <e p="ShootAttack.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
             <e p="Stun.cs" t="Include" />
             <e p="Walk.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="LevelNavigation.cs" t="Include" />
+            <e p="UpdatePlayerPanel.cs" t="Include" />
           </e>
           <e p="Utilities" t="Include">
             <e p="CameraUtilities.cs" t="Include" />
