@@ -8,6 +8,7 @@ public class AssignGamepadToPlayer : MonoBehaviour
     public int maxPlayers = 4;
 
     public string joinButton = "Fire";
+    public string startGameButton = "Start";
 
     public PlayerSelectionPanel[] playerSelectionPanels;
 
@@ -24,7 +25,44 @@ public class AssignGamepadToPlayer : MonoBehaviour
             {
                 AddPlayerController(i);
             }
+
+            if (Input.GetButtonDown(startGameButton + i))
+            {
+                if (CanStartGame())
+                {
+                    _GameManager.instance.SceneToLoadNumber = 1;
+                    _GameManager.instance.LoadNewGame();
+                }
+            }
         }
+    }
+
+    public bool CanStartGame()
+    {
+        _GameManager.instance.players.Clear();
+
+        int amountOfPlayers = 0;
+        int amountOfControllersConnected = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (playerSelectionPanels[i].HasPlayer)
+            {
+                if (playerSelectionPanels[i].readyPanel.gameObject.activeSelf)
+                {
+                    print("Added");
+                    _GameManager.instance.players.Add(playerSelectionPanels[i]);
+
+                    amountOfPlayers++;
+                }
+
+                amountOfControllersConnected++;
+            }
+        }
+
+        if (amountOfPlayers < 1 || amountOfPlayers != amountOfControllersConnected) return false;
+
+        return true;
     }
 
     private void AddPlayerController(int controller)

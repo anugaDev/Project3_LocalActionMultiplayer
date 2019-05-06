@@ -357,6 +357,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
+--- !u!1 &735813167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735813169}
+  - component: {fileID: 735813168}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735813168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735813167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd4ae60fdf8c9c49bacb18662096c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  playerBasicPrefab: {fileID: 4205472215443825064, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    type: 3}
+  SceneToLoadNumber: -1
+  lastScene: 0
+--- !u!4 &735813169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735813167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4883084, y: 4.080065, z: -3.1835938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748958097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4674392306541373116, guid: a9120fb95b8057248b5029848f17c397,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539379954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bd83ace5cc48c4882e1028f2fdb23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &756558324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -867,10 +927,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 4
   joinButton: Jump
+  startGameButton: Start
   playerSelectionPanels:
   - {fileID: 520291836}
   - {fileID: 1090632548}
-  - {fileID: 1090632548}
+  - {fileID: 748958097}
   - {fileID: 1389808847}
 --- !u!1001 &4674392306658616128
 PrefabInstance:

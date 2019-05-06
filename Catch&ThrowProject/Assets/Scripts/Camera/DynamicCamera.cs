@@ -16,10 +16,20 @@ public class DynamicCamera : MonoBehaviour
     public float maxZoom = 45f;
     public float zoomLimiter = 50f;
 
+    public Vector3 offset;
+
+    public Transform downLeftBound;
+    public Transform upRightBound;
+
+    public float horizontalBoundryThreshold = 5;
+    public float verticalBoundryThreshold = 5;
+
     private Vector3 velocity;
 
     private Bounds bounds;
     private Camera myCamera;
+
+    public bool CatchMode = false;
 
     private void Start()
     {
@@ -28,6 +38,12 @@ public class DynamicCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if(CatchMode)
+        {
+            myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, maxZoom, Time.deltaTime);
+            return;
+        }
+
         Move();
         Zoom();
     }
@@ -36,6 +52,8 @@ public class DynamicCamera : MonoBehaviour
     {
         desiredPosition = CenterOfMass(objectsToShow);
         desiredPosition.z = transform.position.z;
+        desiredPosition += offset;
+
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, positionDamping);
     }
 
