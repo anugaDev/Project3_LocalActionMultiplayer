@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObject.layer != normalLayer) return onGround = false;
 
-//        var startingPos = new Vector3(0,normalCollider.bounds.min.y,0);
+//        var startingPos = new Vector3( transform.position.x,normalCollider.bounds.min.y,transform.position.z);
         var startingPos = transform.position;
         onGround = Physics.Raycast(startingPos, -Vector3.up, distanceToGround, groundDetectionCollisions);
 //        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.right, distanceToGround, groundDetectionCollisions): onGround;
@@ -169,7 +169,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             shield.ImpactBlink();
-            Impulse(hitDirection,hitForce,true);
             ChangeState(stunState);
         }
     }
