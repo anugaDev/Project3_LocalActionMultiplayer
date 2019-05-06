@@ -111,9 +111,13 @@ public class PlayerController : MonoBehaviour
         else
         {
 
-            if (CheckForGround() && !impulseImpacts)
+            if (!CheckForGround() && impulseImpacts)
+            {
+            }
+            else
             {
                 velocity.x = speed * horizontal;
+
             }
             
         }
@@ -140,17 +144,29 @@ public class PlayerController : MonoBehaviour
     public bool CheckForGround()
     {
         if (gameObject.layer != normalLayer) return onGround = false;
-
-//        var startingPos = new Vector3( transform.position.x,normalCollider.bounds.min.y,transform.position.z);
+        
+        print(normalCollider.bounds.min.y);
+        
         var startingPos = transform.position;
-        onGround = Physics.Raycast(startingPos, -Vector3.up, distanceToGround, groundDetectionCollisions);
-//        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.right, distanceToGround, groundDetectionCollisions): onGround;
-//        onGround = !onGround ? Physics.Raycast(startingPos, -Vector3.up + Vector3.left, distanceToGround, groundDetectionCollisions): onGround;
-//        print(stateMachine.currentState+" : " + onGround);
+        onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
+        onGround = !onGround ? Physics.Raycast(startingPos + Vector3.right  * (transform.position.x - normalCollider.bounds.min.x), Vector3.down, distanceToGround, groundDetectionCollisions): onGround;
+        onGround = !onGround ? Physics.Raycast(startingPos + Vector3.right * (transform.position.x - normalCollider.bounds.max.x), Vector3.down , distanceToGround, groundDetectionCollisions): onGround;
 
         if (onGround) impulseImpacts = false;
         return onGround;
     }
+
+//    private void OnDrawGizmos()
+//    {
+//        var checkVector = transform.position;
+////        checkVector.y = normalCollider.bounds.min.y;
+////        Gizmos.DrawIcon( checkVector,"Light Gizmo.tiff", true);
+//        Gizmos.DrawRay(checkVector, Vector3.down);
+//        Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x - normalCollider.bounds.min.x)),Vector3.down);
+//        Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x-normalCollider.bounds.max.x)),Vector3.down);
+//
+//    }
+    
 
     private void OnCollisionEnter(Collision other)
     {
@@ -229,7 +245,6 @@ public class PlayerController : MonoBehaviour
     {
         if (reloadAmmoinCourse) return false;
         return actualAmmo < maxAmmo;
-
     }
 
     private IEnumerator RecoverAmmoOverTime(float time)
@@ -242,7 +257,6 @@ public class PlayerController : MonoBehaviour
     public void RespawnAmmo()
     {
         actualAmmo = initialAmmo;
-       
         StopReloading();
         
     }
