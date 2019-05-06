@@ -9,11 +9,11 @@ public class PlayerSelectionPanel : MonoBehaviour
     public GameObject playerPrefab;
 
     public bool HasPlayer = false;
+    public bool GameStarting = false;
 
     public int controllerNumber;
 
     public Image parentPanel;
-    public Image selectionImage;
     public Text pressToAssignText;
 
     public MeshRenderer meshRenderer;
@@ -23,20 +23,15 @@ public class PlayerSelectionPanel : MonoBehaviour
     public GameObject buttonPanel;
     public GameObject readyPanel;
 
-    private void CreatePlayer(int playerNumber)
-    {
-        PlayerController newPlayer = Instantiate(playerPrefab.gameObject).GetComponent<PlayerController>();
-
-        newPlayer.inputControl.controllerNumber = playerNumber;
-    }
+    public GameObject playerVisualComponent;
 
     public void ChangeColor(Material newMaterial)
     {
         var actualMaterials = meshRenderer.materials;
 
-        for (int i = 0; i < materialPositions.Length; i++)
+        for (int i = 0; i < actualMaterials.Length; i++)
         {
-            actualMaterials[materialPositions[0]] = newMaterial;
+            actualMaterials[i] = newMaterial;
         }
 
         meshRenderer.materials = actualMaterials;
@@ -57,6 +52,5 @@ public class PlayerSelectionPanel : MonoBehaviour
     {
         buttonPanel.SetActive(!ready);
         readyPanel.SetActive(ready);
-        selectionImage.enabled = !ready;
     }
 }

@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool impulseImpacts;
     [HideInInspector] public bool onGround;
     [HideInInspector] public bool isDead;
+    private bool reloadAmmoinCourse;
 
     [HideInInspector] public Vector3 spawnPosition;
-
-    
+   
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
 
@@ -76,7 +76,15 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
         }
         
-        stateMachine.ExecuteState();      
+        stateMachine.ExecuteState();
+
+       
+    }
+
+    private void FixedUpdate()
+    {
+       if (!CheckForRecoverAmmo()) return;
+       CallForReload();
     }
 
     public void ChangeState(BaseState newState)
@@ -103,14 +111,11 @@ public class PlayerController : MonoBehaviour
         else
         {
 
-            if (!CheckForGround() && impulseImpacts)
-            {
-            }
-
-            else
+            if (CheckForGround() && !impulseImpacts)
             {
                 velocity.x = speed * horizontal;
             }
+            
         }
         rigidbody.velocity = velocity;
     }
@@ -197,37 +202,48 @@ public class PlayerController : MonoBehaviour
         actualAmmo += ammo;
         if (actualAmmo >=maxAmmo)
         {
-            StopCoroutine(recoverAmmo);
+            StopReloading();
         }
+    }
+
+    private void CallForReload()
+    {
+        reloadAmmoinCourse = true;
+        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
+        StartCoroutine(recoverAmmo);
+    }
+    private void StopReloading()
+    {
+        StopCoroutine(recoverAmmo);
+        reloadAmmoinCourse = false;
     }
 
     public void ConsumeAmmo(int ammo)
     {
         actualAmmo -= ammo;
         if (actualAmmo < 0) actualAmmo = 0;
-        
+                
     }
 
-    public void CheckForRecoverAmmo()
+    public bool CheckForRecoverAmmo()
     {
-        if (actualAmmo < maxAmmo)
-        {
-            StartCoroutine(recoverAmmo);
-        }
+        if (reloadAmmoinCourse) return false;
+        return actualAmmo < maxAmmo;
+
     }
 
     private IEnumerator RecoverAmmoOverTime(float time)
     {
-        print("enterReload");
         yield return new WaitForSeconds(time);
         actualAmmo++;
+        reloadAmmoinCourse = false;
     }
 
     public void RespawnAmmo()
     {
         actualAmmo = initialAmmo;
        
-        StopCoroutine(recoverAmmo);
+        StopReloading();
         
     }
 }
