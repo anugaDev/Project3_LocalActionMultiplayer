@@ -29,6 +29,8 @@ public class Catch : BaseState
 
         playerController.Invulnerable = true;
         playerController.CanMove = false;
+
+        _LevelManager.instance.cameraFollow.CatchMode = true;
     }
 
     public override void Execute()
@@ -56,6 +58,8 @@ public class Catch : BaseState
         playerController.dashState.playerTrigger.isTrigger = false;
 
         directionMarker.SetActive(false);
+
+        _LevelManager.instance.cameraFollow.CatchMode = false;
     }
 
     private void ThrowPlayer(PlayerController caughtPlayer)
@@ -63,15 +67,15 @@ public class Catch : BaseState
         Vector3 direction = playerController.inputControl.Direction;
 
         float force = Mathf.Max(throwForce * (1 - (timer / timeBeforeThrow)), minThrowForce);
-//        print(force);
+        //        print(force);
 
         if (direction == Vector3.zero) direction = transform.right;
 
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-        playerController.caughtPlayer.Impulse(direction, force,true);
+        playerController.caughtPlayer.Impulse(direction, force, true);
 
         playerController.ChangeState(playerController.stunState);
-        playerController.Impulse(-direction,  force * reactionForceMultiplier,false);
+        playerController.Impulse(-direction, force * reactionForceMultiplier, false);
     }
 
     private void PositionateMarker()
