@@ -352,9 +352,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4097
   fallingSpeedThreshold: 50
-  initialAmmo: 0
-  timeForAmmo: 0
-  maxAmmo: 0
+  initialAmmo: 3
+  timeForAmmo: 1
+  maxAmmo: 5
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0
@@ -490,12 +490,12 @@ MonoBehaviour:
   reloaded: 1
   directionAffordance: {fileID: 355854188}
   directionAffordanceDistance: 3
+  meleeDetectionAngle: 90
+  detectionRaysPerAttack: 0
+  meleeDetectionDistance: 1
   meleeDetectionMask:
     serializedVersion: 2
     m_Bits: 3072
-  meleeDetectionAngle: 90
-  detectionRaysPerAttack: 0
-  meleeDetectionDistance: 2
   meleeHitDamage: 100
   hitForce: 50
 --- !u!114 &8854126468993262086
