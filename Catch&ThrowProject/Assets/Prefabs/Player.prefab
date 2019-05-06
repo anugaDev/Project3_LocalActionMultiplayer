@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4205472215443825071}
   - component: {fileID: 4205472215443825082}
   - component: {fileID: 4205472215443825074}
+  - component: {fileID: 6393677190574558765}
   - component: {fileID: 4205472215443825065}
   - component: {fileID: 4205472215443825075}
   - component: {fileID: 4205472215443825077}
@@ -195,7 +196,6 @@ GameObject:
   - component: {fileID: 1489658593}
   - component: {fileID: 101858864}
   - component: {fileID: 101858863}
-  - component: {fileID: 3870150056229164362}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -302,6 +302,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 2
+--- !u!136 &6393677190574558765
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4205472215443825065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4205472215443825082}
   rigidbody: {fileID: 4205472215443825074}
-  normalCollider: {fileID: 3870150056229164362}
+  normalCollider: {fileID: 6393677190574558765}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
   idleState: {fileID: 4205472215443825077}
@@ -397,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  walkSpeed: 20
+  walkSpeed: 15
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  jumpingSpeed: 32
+  jumpingSpeed: 25
   commingFromJump: 0
 --- !u!114 &4205472215443825078
 MonoBehaviour:
@@ -469,7 +483,7 @@ MonoBehaviour:
   projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
     type: 3}
   reloadTime: 0.6
-  projectileSpeed: 2500
+  projectileSpeed: 3000
   shootOffset: 1
   shootRecoilForce: 5
   shootDirectionThreshold: 0.25
@@ -5289,19 +5303,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!65 &3870150056229164362
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205472215443825064}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0
