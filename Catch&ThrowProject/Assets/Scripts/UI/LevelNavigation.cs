@@ -59,7 +59,5 @@ public class LevelNavigation : MonoBehaviour
         }
 
         currentButton.onClick.Invoke();
-
-        playerPanel.selectionImage.rectTransform.position = currentButton.transform.position;
     }
 }
