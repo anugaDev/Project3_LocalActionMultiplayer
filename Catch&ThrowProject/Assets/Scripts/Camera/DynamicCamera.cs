@@ -29,6 +29,8 @@ public class DynamicCamera : MonoBehaviour
     private Bounds bounds;
     private Camera myCamera;
 
+    public bool CatchMode = false;
+
     private void Start()
     {
         myCamera = GetComponent<Camera>();
@@ -36,7 +38,12 @@ public class DynamicCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        CheckBoundaries();
+        if(CatchMode)
+        {
+            myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, maxZoom, Time.deltaTime);
+            return;
+        }
+
         Move();
         Zoom();
     }
@@ -48,14 +55,6 @@ public class DynamicCamera : MonoBehaviour
         desiredPosition += offset;
 
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, positionDamping);
-    }
-
-    private void CheckBoundaries()
-    {
-        Vector3 downLeft = myCamera.ViewportToWorldPoint(new Vector3(0, 0, -transform.position.z));
-        Vector3 upRight = myCamera.ViewportToWorldPoint(new Vector3(1, 1, -transform.position.z));
-
-
     }
 
     private void Zoom()
