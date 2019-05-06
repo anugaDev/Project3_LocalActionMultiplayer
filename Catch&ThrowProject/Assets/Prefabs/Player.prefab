@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 4205472215443825071}
   - component: {fileID: 4205472215443825082}
   - component: {fileID: 4205472215443825074}
-  - component: {fileID: 4205472215443825070}
   - component: {fileID: 4205472215443825065}
   - component: {fileID: 4205472215443825075}
   - component: {fileID: 4205472215443825077}
@@ -196,6 +195,7 @@ GameObject:
   - component: {fileID: 1489658593}
   - component: {fileID: 101858864}
   - component: {fileID: 101858863}
+  - component: {fileID: 3870150056229164362}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -302,20 +302,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 2
---- !u!136 &4205472215443825070
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205472215443825064}
-  m_Material: {fileID: 13400000, guid: 278fa948f9a5f6048bf0165e406d4d3c, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4205472215443825065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4205472215443825082}
   rigidbody: {fileID: 4205472215443825074}
-  normalCollider: {fileID: 4205472215443825070}
+  normalCollider: {fileID: 3870150056229164362}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
   idleState: {fileID: 4205472215443825077}
@@ -347,14 +333,14 @@ MonoBehaviour:
   jumpLayer: 11
   normalLayer: 10
   sphereCollisionRadius: 0.92
-  distanceToGround: 1.5
+  distanceToGround: 1
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
   fallingSpeedThreshold: 50
-  initialAmmo: 999
+  initialAmmo: 3
   timeForAmmo: 1
-  maxAmmo: 999
+  maxAmmo: 10
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0
@@ -411,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  walkSpeed: 15
+  walkSpeed: 20
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  jumpingSpeed: 25
+  jumpingSpeed: 32
   commingFromJump: 0
 --- !u!114 &4205472215443825078
 MonoBehaviour:
@@ -492,7 +478,7 @@ MonoBehaviour:
   directionAffordanceDistance: 3
   meleeDetectionAngle: 90
   detectionRaysPerAttack: 0
-  meleeDetectionDistance: 2
+  meleeDetectionDistance: 1
   meleeDetectionMask:
     serializedVersion: 2
     m_Bits: 3072
@@ -512,9 +498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  timeBeforeThrow: 2
+  timeBeforeThrow: 3
   throwForce: 75
-  minThrowForce: 0
+  minThrowForce: 25
   reactionForceMultiplier: 0.5
   directionMarker: {fileID: 4233683649420559247}
   directionMarkerDistance: 4
@@ -579,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 3.18
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -5303,6 +5289,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!65 &3870150056229164362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0
