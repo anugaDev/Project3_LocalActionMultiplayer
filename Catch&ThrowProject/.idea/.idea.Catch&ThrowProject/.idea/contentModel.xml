@@ -41,6 +41,10 @@
             <e p="InputController.cs" t="Include" />
             <e p="PlayerSelectionPanel.cs" t="Include" />
           </e>
+          <e p="Managers" t="Include">
+            <e p="_GameManager.cs" t="Include" />
+            <e p="_LevelManager.cs" t="Include" />
+          </e>
           <e p="States" t="Include">
             <e p="Attack.cs" t="Include" />
             <e p="BaseState.cs" t="Include" />
@@ -49,6 +53,7 @@
             <e p="Dash.cs" t="Include" />
             <e p="Die.cs" t="Include" />
             <e p="DoubleJump.cs" t="Include" />
+            <e p="DropOnPlatform.cs" t="Include" />
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
@@ -57,6 +62,7 @@
             <e p="Walk.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="ChangePlayerMaterial.cs" t="Include" />
             <e p="LevelNavigation.cs" t="Include" />
             <e p="UpdatePlayerPanel.cs" t="Include" />
           </e>

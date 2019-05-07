@@ -137,8 +137,12 @@ public class Attack : BaseState
             if (controller == null) continue;
             if (controller == playerController) continue;
             if(!(Vector3.Angle((controller.transform.position - transform.position).normalized,direction) < meleeDetectionAngle) ) continue;
-
-            playerReturn = controller;
+            
+            
+            if(playerReturn == null) playerReturn = controller;
+            else if ((controller.transform.position - transform.position).magnitude <
+                     (playerReturn.transform.position - transform.position).magnitude)
+                playerReturn = controller;
 
 
         }

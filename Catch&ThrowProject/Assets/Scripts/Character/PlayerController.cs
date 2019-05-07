@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public DoubleJump doubleJumpState;
     public Fall fallState;
     public Attack attackState;
+    public DropOnPlatform DropOnPlatformState;
 
     public Dash dashState;
     public Catch catchState;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float fallingSpeedThreshold;
+    [SerializeField] private float downPlatformThreshold;
     
     public int actualAmmo { get; private set; } = 3;
     [SerializeField] private int initialAmmo;
@@ -71,9 +73,17 @@ public class PlayerController : MonoBehaviour
     {       
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
+            if(stateMachine.currentState == idleState || stateMachine.currentState == walkState)
+                if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < -downPlatformThreshold)
+                {
+                    ChangeState(DropOnPlatformState);
+                    return;
+
+                }
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded && stateMachine.currentState != attackState) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
+            
         }
         
         stateMachine.ExecuteState();
@@ -117,7 +127,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 velocity.x = speed * horizontal;
-
             }
             
         }
@@ -145,7 +154,6 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObject.layer != normalLayer) return onGround = false;
         
-        print(normalCollider.bounds.min.y);
         
         var startingPos = transform.position;
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);

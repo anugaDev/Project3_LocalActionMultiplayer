@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4477712, g: 0.4977517, b: 0.5754214, a: 1}
+  m_IndirectSpecularColor: {r: 0.44777048, g: 0.4977513, b: 0.57542086, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,6 +245,52 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &204269431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 204269433}
+  - component: {fileID: 204269432}
+  m_Layer: 0
+  m_Name: levelmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &204269432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204269431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59351a7768ebfd24a912554d1125a0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  players: []
+  cameraFollow: {fileID: 910927799}
+--- !u!4 &204269433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204269431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.079547055, y: -6.379445, z: -17.622877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &244410301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1084,6 +1130,7 @@ GameObject:
   - component: {fileID: 910927796}
   - component: {fileID: 910927795}
   - component: {fileID: 910927798}
+  - component: {fileID: 910927799}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1170,6 +1217,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalShakeForce: 0
   sceneCamera: {fileID: 910927796}
+--- !u!114 &910927799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910927794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1fb8bc07df7354b890651208c9ce87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToShow: []
+  positionDamping: 0
+  minZoom: 20
+  maxZoom: 45
+  zoomLimiter: 50
+  offset: {x: 0, y: 0, z: 0}
+  downLeftBound: {fileID: 0}
+  upRightBound: {fileID: 0}
+  horizontalBoundryThreshold: 5
+  verticalBoundryThreshold: 5
+  CatchMode: 0
 --- !u!1 &951727019
 GameObject:
   m_ObjectHideFlags: 0

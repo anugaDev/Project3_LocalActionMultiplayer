@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 3966379602459133179}
   - component: {fileID: 2846430671447116553}
   - component: {fileID: 85762693}
+  - component: {fileID: -4765620264934939727}
   - component: {fileID: 1489658593}
   - component: {fileID: 101858864}
   - component: {fileID: 101858863}
@@ -339,6 +340,7 @@ MonoBehaviour:
   doubleJumpState: {fileID: 5970475171054597876}
   fallState: {fileID: 4205472215443825078}
   attackState: {fileID: 4205472215443825073}
+  DropOnPlatformState: {fileID: -4765620264934939727}
   dashState: {fileID: 309804493}
   catchState: {fileID: 8854126468993262086}
   caughtState: {fileID: 3966379602459133179}
@@ -565,6 +567,25 @@ MonoBehaviour:
   playerRenderer: {fileID: 4205472215443825071}
   cameraShakeForce: 0.46
   cameraShakeTime: 0.33
+--- !u!114 &-4765620264934939727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65296417e7df27142b16a83b9c28e301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationTrigger: 
+  checkPlatformDistance: 1
+  timeToSwitchFall: 0.05
+  checkPlatformMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1489658593
 MonoBehaviour:
   m_ObjectHideFlags: 0
