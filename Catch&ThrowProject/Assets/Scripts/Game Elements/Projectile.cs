@@ -61,7 +61,6 @@ public class Projectile : MonoBehaviour
         while (Physics.OverlapSphere(transform.position, impactCollider.radius,
             LayerMask.GetMask("Default")).Any())
         {
-            print(index++);
             transform.position -= direction;
         }
     }

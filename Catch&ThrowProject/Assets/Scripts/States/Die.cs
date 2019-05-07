@@ -37,6 +37,7 @@ public class Die : BaseState
 
     public void GetKilled()
     {
+        playerController.shield.DestroyShield();
         playerRenderer.enabled = false;
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);

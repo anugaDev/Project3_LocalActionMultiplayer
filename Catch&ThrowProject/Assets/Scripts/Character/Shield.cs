@@ -16,7 +16,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float blinkingTime;
     [SerializeField] private float timeBetweenBlinking;
 
-    [SerializeField] private Outline playerShieldOutline;
+    [SerializeField] private SpriteRenderer shieldSprite;
     [SerializeField] private Renderer objectRenderer;
 
     [SerializeField] private Color lowShieldColor;
@@ -43,8 +43,8 @@ public class Shield : MonoBehaviour
 
         if (shieldDestroyed && actualHealth > lowHealthThreshold) ShieldRegenerate();
 
-        if (playerShieldOutline.enabled)
-            playerShieldOutline.OutlineColor = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
+        if (shieldSprite.enabled)
+            shieldSprite.color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
     }
 
     public void Hit(float damage)
@@ -52,7 +52,7 @@ public class Shield : MonoBehaviour
         actualHealth -= damage;
 
         if (actualHealth <= 0) DestroyShield();
-        else playerShieldOutline.OutlineColor = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
+        else shieldSprite.color = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
 
         if (actualBlinking != null) StopCoroutine(actualBlinking);
 
@@ -61,17 +61,18 @@ public class Shield : MonoBehaviour
 
     public void ResetShield()
     {
+        
         actualHealth = defaultHealth;
-        playerShieldOutline.enabled = true;
-        playerShieldOutline.OutlineColor = shieldStableColor;
+        shieldSprite.enabled = true;
+        shieldSprite.color = shieldStableColor;
         shieldDestroyed = false;
     }
 
     public void ShieldRegenerate()
     {
         shieldDestroyed = false;
-        playerShieldOutline.enabled = true;
-        playerShieldOutline.OutlineColor = lowShieldColor;
+        shieldSprite.enabled = true;
+        shieldSprite.color = lowShieldColor;
     }
 
     public void DestroyShield()
@@ -81,7 +82,7 @@ public class Shield : MonoBehaviour
         actualHealth = 0;
         shieldDestroyed = true;
 
-        playerShieldOutline.enabled = false;
+        shieldSprite.enabled = false;
     }
 
     public void ImpactBlink()
