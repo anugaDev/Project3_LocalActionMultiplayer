@@ -8,6 +8,7 @@ TagManager:
   - Bounce Zone
   - Cross Zone
   - Projectile
+  - ShieldItem
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PlayerJumping
   - Platform
   - Projectile
-  - 
+  - CollectableItem
   - 
   - 
   - 

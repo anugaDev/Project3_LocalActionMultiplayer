@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
             if(stateMachine.currentState == idleState || stateMachine.currentState == walkState)
-                if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < -downPlatformThreshold)
+                if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < downPlatformThreshold)
                 {
                     ChangeState(DropOnPlatformState);
                     return;
@@ -189,7 +189,8 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("Cross Zone"))
         {
             other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
-        }
+        }     
+        
     }
 
     public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
@@ -205,7 +206,6 @@ public class PlayerController : MonoBehaviour
     public void MeleeHit(float meleeDamage, Vector3 hitDirection, float hitForce)
     {
         shield.Hit(meleeDamage);
-        shield.ImpactBlink();
 
 
         if (stateMachine.currentState == dashState)

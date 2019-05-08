@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    [SerializeField] private float maxHealth;
     [SerializeField] private float defaultHealth;
     [SerializeField] private float lowHealthThreshold;
 
@@ -38,7 +39,7 @@ public class Shield : MonoBehaviour
 
     private void Update()
     {
-        actualHealth = Mathf.Clamp(actualHealth, 0, defaultHealth);
+        actualHealth = Mathf.Clamp(actualHealth, 0, maxHealth);
         actualHealth += regenerationSpeed * Time.deltaTime;
 
         if (shieldDestroyed && actualHealth > lowHealthThreshold) ShieldRegenerate();
@@ -73,6 +74,17 @@ public class Shield : MonoBehaviour
         shieldDestroyed = false;
         shieldSprite.enabled = true;
         shieldSprite.color = lowShieldColor;
+    }
+
+    public void ShieldResupply(float quantity)
+    {
+        actualHealth += quantity;
+        actualHealth = Mathf.Clamp(actualHealth, 0, maxHealth);
+    }
+
+    public bool ShieldIsNotFull()
+    {
+        return actualHealth < maxHealth;
     }
 
     public void DestroyShield()

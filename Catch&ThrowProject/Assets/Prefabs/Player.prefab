@@ -306,7 +306,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4097
   fallingSpeedThreshold: 50
-  downPlatformThreshold: 0
+  downPlatformThreshold: -0.3
   initialAmmo: 3
   timeForAmmo: 1
   maxAmmo: 10
@@ -441,12 +441,10 @@ MonoBehaviour:
   projectileSpeed: 3000
   shootOffset: 1
   shootRecoilForce: 5
-  shootDirectionThreshold: 0.25
   reloaded: 1
   directionAffordance: {fileID: 355854188}
   directionAffordanceDistance: 3
   meleeDetectionAngle: 90
-  detectionRaysPerAttack: 0
   meleeDetectionDistance: 1
   meleeDetectionMask:
     serializedVersion: 2
@@ -5303,6 +5301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78df29866b91e8b468f6b12ac193f448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
   defaultHealth: 50
   lowHealthThreshold: 25
   regenerationSpeed: 0.1
