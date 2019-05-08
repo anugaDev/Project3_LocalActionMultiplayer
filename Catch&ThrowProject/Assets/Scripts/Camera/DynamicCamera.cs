@@ -66,6 +66,8 @@ public class DynamicCamera : MonoBehaviour
 
     private Vector3 CenterOfMass(List<Transform> objects)
     {
+        if (!objects[0]) return transform.position;
+
         bounds = new Bounds(objects[0].position, Vector3.zero);
 
         foreach (Transform obj in objects)

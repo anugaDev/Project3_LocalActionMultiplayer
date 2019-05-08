@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Shield shield;
     public InputController inputControl;
     public UpdatePlayerPanel uiPanel;
+    private _LevelManager levelManager;
     public readonly StateMachine stateMachine = new StateMachine();
 
     [Header("States")]
@@ -68,11 +69,15 @@ public class PlayerController : MonoBehaviour
         actualAmmo = initialAmmo;
         stateMachine.ChangeState(idleState);
         spawnPosition = transform.position;
+        levelManager = _LevelManager.instance;
     }
 
     private void Update()
-    {       
-        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || stateMachine.currentState == fallState || stateMachine.currentState == attackState)
+    {
+        if (levelManager.matchState != _LevelManager.MatchState.Playing) return;
+
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || 
+            stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
             if(stateMachine.currentState == idleState || stateMachine.currentState == walkState)
                 if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < downPlatformThreshold)
@@ -86,10 +91,10 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
             
         }
-        
-        stateMachine.ExecuteState();
 
-       
+        if (inputControl.ButtonDown(InputController.Button.PAUSE)) levelManager.PauseGame(inputControl.controllerNumber);
+        
+        stateMachine.ExecuteState(); 
     }
 
     private void FixedUpdate()

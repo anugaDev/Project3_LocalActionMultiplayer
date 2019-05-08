@@ -13,31 +13,20 @@ public class UpdatePlayerPanel : MonoBehaviour
     [Header("Text")]
     [SerializeField] private Text ammo;
     [SerializeField] private Text remainingLives;
-    
-    void Start()
+
+    public void UpdateDashFill(float actual, float max)
     {
-        
+        UpdateFill(DashFill, actual, max);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateShieldFill(float actual, float max)
     {
-        
+        UpdateFill(shieldBar, actual, max);
     }
 
-    public void UpdateDashFill(float actual,float max)
+    public void UpdateAmmoFill(float actual, float max)
     {
-        UpdateFill(DashFill,actual,max);
-    }
-    
-    public void UpdateShieldFill(float actual,float max)
-    {
-        UpdateFill(shieldBar,actual,max);
-    }
-    
-    public void UpdateAmmoFill(float actual,float max)
-    {
-        UpdateFill(AmmoFill,actual,max);
+        UpdateFill(AmmoFill, actual, max);
     }
 
     public void SetAmmoFillActive(bool isActive)
@@ -57,6 +46,6 @@ public class UpdatePlayerPanel : MonoBehaviour
 
     private void UpdateFill(Image fillImage, float actual, float max)
     {
-        fillImage. fillAmount = actual / max;
+        if (fillImage) fillImage.fillAmount = actual / max;
     }
 }

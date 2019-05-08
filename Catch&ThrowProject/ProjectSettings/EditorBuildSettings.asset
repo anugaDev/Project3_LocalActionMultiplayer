@@ -5,16 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Hanging Train Level.unity
-    guid: a807e78416d806e41a6209fcb379f992
-  - enabled: 0
-    path: Assets/Scenes/GameSelection.unity
-    guid: a78df2dc78127124689804255c94a98c
-  - enabled: 0
-    path: Assets/Scenes/CameraTest.unity
-    guid: 2adab162a09a3d540bfa74b583a87f13
   - enabled: 1
-    path: Assets/Scenes/Train Station Level Small.unity
-    guid: 03e098b319dd3d740aa93474f16328fd
+    path: Assets/Scenes/Final Scenes For Alpha/GameSelectionAlpha.unity
+    guid: 3a79b0f06a0ecfc4bae7557471f01b4a
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes For Alpha/Train Station Level Small Alpha.unity
+    guid: 2273518a7816a0f468da39ebb9b80cfe
   m_configObjects: {}

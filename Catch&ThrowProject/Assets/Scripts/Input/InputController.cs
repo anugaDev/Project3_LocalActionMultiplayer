@@ -19,6 +19,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private string jumpButton;
     [SerializeField] private string dashButton;
     [SerializeField] private string fireButton;
+    [SerializeField] private string pauseButton;
 
     public float Horizontal { get; private set; }
     public float Vertical { get; private set; }
@@ -33,7 +34,8 @@ public class InputController : MonoBehaviour
     {
         JUMP,
         DASH,
-        FIRE
+        FIRE,
+        PAUSE
     }
 
     private void Start()
@@ -89,6 +91,7 @@ public class InputController : MonoBehaviour
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;
         fireButton = "Fire" + controllerNumber;
+        pauseButton = "Start" + controllerNumber;
     }
 
     public bool ButtonDown(Button button)
@@ -98,6 +101,7 @@ public class InputController : MonoBehaviour
             case Button.JUMP: return Input.GetButtonDown(jumpButton);
             case Button.DASH: return Input.GetButtonDown(dashButton);
             case Button.FIRE: return Input.GetButtonDown(fireButton);
+            case Button.PAUSE: return Input.GetButtonDown(pauseButton);
         }
 
         return false;
