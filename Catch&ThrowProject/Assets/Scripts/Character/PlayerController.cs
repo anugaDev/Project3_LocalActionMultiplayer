@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float downPlatformThreshold;
-    
+
     public int actualAmmo { get; private set; } = 3;
     [SerializeField] private int initialAmmo;
     [SerializeField] private float timeForAmmo;
@@ -57,7 +57,9 @@ public class PlayerController : MonoBehaviour
     private bool reloadAmmoinCourse;
 
     [HideInInspector] public Vector3 spawnPosition;
-   
+
+    public int health;
+
     public bool Invulnerable { get; set; }
     public bool CanMove { get; set; }
 
@@ -76,36 +78,35 @@ public class PlayerController : MonoBehaviour
     {
         if (levelManager.matchState != _LevelManager.MatchState.Playing) return;
 
-        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState || 
+        if (stateMachine.currentState == idleState || stateMachine.currentState == walkState ||
             stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
-            if(stateMachine.currentState == idleState || stateMachine.currentState == walkState)
+            if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
                 if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < downPlatformThreshold)
                 {
                     ChangeState(DropOnPlatformState);
                     return;
-
                 }
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded && stateMachine.currentState != attackState) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
-            
+
         }
 
         if (inputControl.ButtonDown(InputController.Button.PAUSE)) levelManager.PauseGame(inputControl.controllerNumber);
-        
-        stateMachine.ExecuteState(); 
+
+        stateMachine.ExecuteState();
     }
 
     private void FixedUpdate()
     {
-       uiPanel.UpdateAmmoText(actualAmmo);
-       if (!CheckForRecoverAmmo()) return;
-       CallForReload();
+        uiPanel.UpdateAmmoText(actualAmmo);
+        if (!CheckForRecoverAmmo()) return;
+        CallForReload();
     }
 
     public void ChangeState(BaseState newState)
-    {        
+    {
         stateMachine.ChangeState(newState);
     }
 
@@ -116,42 +117,31 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(horizontal) > 0)
         {
-            var rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
-            transform.rotation = rotation;
-            
-            if(!impulseImpacts) velocity.x = speed * horizontal;
-            
-            else velocity.x += horizontal  * speed * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
 
+            if (!impulseImpacts) velocity.x = speed * horizontal;
+            else velocity.x += horizontal * speed * Time.deltaTime;
         }
-        
         else
         {
-
-            if (!CheckForGround() && impulseImpacts)
-            {
-            }
-            else
-            {
-                velocity.x = speed * horizontal;
-            }
-            
+            if (!CheckForGround() && impulseImpacts) { }
+            else { velocity.x = speed * horizontal; }
         }
+
         rigidbody.velocity = velocity;
     }
 
     public void VerticalMove(Vector3 direction, float force)
     {
         var velocity = rigidbody.velocity;
-        
+
         velocity += direction * force * Time.deltaTime;
         velocity.y = velocity.y >= -fallingSpeedThreshold ? velocity.y : -fallingSpeedThreshold;
-        
+
         rigidbody.velocity = velocity;
-        
     }
 
-    public void Impulse( Vector3 direction,float impulseForce, bool impulseIsImpacting)
+    public void Impulse(Vector3 direction, float impulseForce, bool impulseIsImpacting)
     {
         rigidbody.velocity = direction * impulseForce;
         impulseImpacts = impulseIsImpacting;
@@ -160,44 +150,36 @@ public class PlayerController : MonoBehaviour
     public bool CheckForGround()
     {
         if (gameObject.layer != normalLayer) return onGround = false;
-        
-        
+
         var startingPos = transform.position;
+
+        Vector3 leftRayPosition = startingPos + Vector3.right * (transform.position.x - normalCollider.bounds.min.x);
+        Vector3 rightRayPosition = startingPos + Vector3.right * (transform.position.x - normalCollider.bounds.max.x);
+
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
-        onGround = !onGround ? Physics.Raycast(startingPos + Vector3.right  * (transform.position.x - normalCollider.bounds.min.x), Vector3.down, distanceToGround, groundDetectionCollisions): onGround;
-        onGround = !onGround ? Physics.Raycast(startingPos + Vector3.right * (transform.position.x - normalCollider.bounds.max.x), Vector3.down , distanceToGround, groundDetectionCollisions): onGround;
+        onGround = !onGround ? Physics.Raycast(leftRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
+        onGround = !onGround ? Physics.Raycast(rightRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
 
         if (onGround) impulseImpacts = false;
+
         return onGround;
     }
 
-//    private void OnDrawGizmos()
-//    {
-//        var checkVector = transform.position;
-////        checkVector.y = normalCollider.bounds.min.y;
-////        Gizmos.DrawIcon( checkVector,"Light Gizmo.tiff", true);
-//        Gizmos.DrawRay(checkVector, Vector3.down);
-//        Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x - normalCollider.bounds.min.x)),Vector3.down);
-//        Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x-normalCollider.bounds.max.x)),Vector3.down);
-//
-//    }
-    
+    //private void OnDrawGizmos()
+    //{
+    //    var checkVector = transform.position;
+    //    checkVector.y = normalCollider.bounds.min.y;
+    //    Gizmos.DrawIcon( checkVector,"Light Gizmo.tiff", true);
+    //    Gizmos.DrawRay(checkVector, Vector3.down);
+    //    Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x - normalCollider.bounds.min.x)),Vector3.down);
+    //    Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x-normalCollider.bounds.max.x)),Vector3.down);
+    //}
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Death Zone"))
-        {
-            ChangeState(dieState);
-        }
-        else if (other.gameObject.CompareTag("Bounce Zone"))
-        {
-            other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
-        }
-        else if (other.gameObject.CompareTag("Cross Zone"))
-        {
-            other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
-        }     
-        
+        if (other.gameObject.CompareTag("Death Zone")) ChangeState(dieState);
+        else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
+        else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
     }
 
     public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
@@ -214,10 +196,9 @@ public class PlayerController : MonoBehaviour
     {
         shield.Hit(meleeDamage);
 
-
         if (stateMachine.currentState == dashState)
         {
-            Impulse(hitDirection,hitForce,true);
+            Impulse(hitDirection, hitForce, true);
             ChangeState(stunState);
         }
     }
@@ -231,10 +212,7 @@ public class PlayerController : MonoBehaviour
     {
         if (actualAmmo >= maxAmmo) return;
         actualAmmo += ammo;
-        if (actualAmmo >=maxAmmo)
-        {
-            StopReloading();
-        }
+        if (actualAmmo >= maxAmmo) StopReloading();
     }
 
     private void CallForReload()
@@ -243,6 +221,7 @@ public class PlayerController : MonoBehaviour
         recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
         StartCoroutine(recoverAmmo);
     }
+
     private void StopReloading()
     {
         StopCoroutine(recoverAmmo);
@@ -253,7 +232,7 @@ public class PlayerController : MonoBehaviour
     public void ConsumeAmmo(int ammo)
     {
         actualAmmo -= ammo;
-        if (actualAmmo < 0) actualAmmo = 0;                
+        if (actualAmmo < 0) actualAmmo = 0;
     }
 
     public bool CheckForRecoverAmmo()
@@ -269,9 +248,9 @@ public class PlayerController : MonoBehaviour
         while (actualTime < time)
         {
             actualTime += Time.deltaTime;
-            uiPanel.UpdateAmmoFill(actualTime,time);
+            uiPanel.UpdateAmmoFill(actualTime, time);
             yield return null;
-            
+
         }
         uiPanel.SetAmmoFillActive(false);
         actualAmmo++;
@@ -282,6 +261,5 @@ public class PlayerController : MonoBehaviour
     {
         actualAmmo = initialAmmo;
         StopReloading();
-        
     }
 }

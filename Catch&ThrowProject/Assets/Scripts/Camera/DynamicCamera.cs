@@ -38,7 +38,7 @@ public class DynamicCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(CatchMode)
+        if (CatchMode)
         {
             myCamera.fieldOfView = Mathf.Lerp(myCamera.fieldOfView, maxZoom, Time.deltaTime);
             return;
@@ -66,7 +66,7 @@ public class DynamicCamera : MonoBehaviour
 
     private Vector3 CenterOfMass(List<Transform> objects)
     {
-        if (!objects[0]) return transform.position;
+        if (objects.Count == 0) return transform.position;
 
         bounds = new Bounds(objects[0].position, Vector3.zero);
 

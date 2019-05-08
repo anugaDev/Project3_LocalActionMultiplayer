@@ -15,6 +15,10 @@ public class _LevelManager : MonoBehaviour
 
     public DynamicCamera cameraFollow;
 
+    [Header("Match Settings")]
+    public int StartingLifes = 10;
+    public int MatchDuration = 120;
+
     [Header("UI Elements")]
     public GameObject UI_Parent;
     public GameObject PauseMenu;
@@ -36,6 +40,28 @@ public class _LevelManager : MonoBehaviour
         if (instance != this) Destroy(this);
     }
 
+    private void StartGame()
+    {
+        cameraFollow.enabled = true;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].uiPanel = Instantiate(playerPanelPrefab, parent: UI_Parent.transform).GetComponent<UpdatePlayerPanel>();
+            players[i].enabled = true;
+        }
+
+        matchState = MatchState.Playing;
+    }
+
+    private void SetInputUI(int playerNumber)
+    {
+        UI_Input.horizontalAxis = "Horizontal" + playerNumber;
+        UI_Input.verticalAxis = "Vertical" + playerNumber;
+
+        UI_Input.submitButton = "Jump" + playerNumber;
+        UI_Input.cancelButton = "Fire" + playerNumber;
+    }
+
     public void SetNewGame()
     {
         matchState = MatchState.Starting;
@@ -50,19 +76,6 @@ public class _LevelManager : MonoBehaviour
         //Here you would wait until counter goes down or some visual effect
 
         StartGame();
-    }
-
-    private void StartGame()
-    {
-        cameraFollow.enabled = true;
-
-        for (int i = 0; i < players.Count; i++)
-        {
-            players[i].uiPanel = Instantiate(playerPanelPrefab, parent: UI_Parent.transform).GetComponent<UpdatePlayerPanel>();
-            players[i].enabled = true;
-        }
-
-        matchState = MatchState.Playing;
     }
 
     public void SpawnPlayer(GameObject player, int? position)
@@ -95,12 +108,34 @@ public class _LevelManager : MonoBehaviour
         matchState = MatchState.Playing;
     }
 
-    private void SetInputUI(int playerNumber)
+    public void ResetGame()
     {
-        UI_Input.horizontalAxis = "Horizontal" + playerNumber;
-        UI_Input.verticalAxis = "Vertical" + playerNumber;
 
-        UI_Input.submitButton = "Jump" + playerNumber;
-        UI_Input.cancelButton = "Fire" + playerNumber;
+    }
+
+    public void OnPlayerKilled(PlayerController player)
+    {
+        if (player.health == 0) return;
+
+        player.health--;
+
+        if (player.health == 0)
+        {
+            int alivePlayers = 0;
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].health > 0) alivePlayers++;
+            }
+
+            if (alivePlayers == 1) EndMatch();
+        }
+    }
+
+    private void EndMatch()
+    {
+        matchState = MatchState.Ending;
+
+        //Implement the end of the game.
     }
 }

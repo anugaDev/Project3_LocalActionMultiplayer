@@ -8,19 +8,21 @@ public class Die : BaseState
     [SerializeField] private float cameraShakeForce;
     [SerializeField] private float cameraShakeTime;
     private IEnumerator delegateRespawn;
-    
+
     public override void Enter()
     {
-        CameraUtilities.instance.ShakeCamera(cameraShakeTime,cameraShakeForce);
+        CameraUtilities.instance.ShakeCamera(cameraShakeTime, cameraShakeForce);
         GetKilled();
         playerController.isDead = true;
         playerController.rigidbody.isKinematic = true;
         playerController.normalCollider.enabled = false;
 
+        _LevelManager.instance.OnPlayerKilled(playerController);
     }
+
     public override void Execute()
     {
-        
+
     }
 
     public override void Exit()
@@ -30,6 +32,7 @@ public class Die : BaseState
             StopCoroutine(delegateRespawn);
             playerRenderer.enabled = true;
         }
+
         playerController.rigidbody.isKinematic = false;
         playerController.normalCollider.enabled = true;
         playerController.shield.ResetShield();
@@ -41,12 +44,12 @@ public class Die : BaseState
         playerRenderer.enabled = false;
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);
-       }
+    }
 
     IEnumerator GetRespawn(float time)
     {
         yield return new WaitForSeconds(time);
-        
+
         Respawn();
     }
 
@@ -61,9 +64,7 @@ public class Die : BaseState
         playerRenderer.enabled = true;
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.shield.ResetShield();
-        
+
         playerController.ChangeState(playerController.idleState);
     }
-
-
 }
