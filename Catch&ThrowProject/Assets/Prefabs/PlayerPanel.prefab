@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b953b11baadb05549b648a545fd9f50d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldBar: {fileID: 0}
+  shieldBar: {fileID: 495759973193465949}
   DashFill: {fileID: 3629993852221568734}
   AmmoFill: {fileID: 6366624420156521718}
   ammo: {fileID: 774160799825331393}
