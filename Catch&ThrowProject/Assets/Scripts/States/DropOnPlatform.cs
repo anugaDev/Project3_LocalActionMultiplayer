@@ -41,7 +41,6 @@ public class DropOnPlatform : BaseState
         var startingPos = transform.position;
         bool found = Physics.Raycast(startingPos, Vector3.down, checkPlatformDistance,
             checkPlatformMask);
-        print(found);
         return found;
     }
 

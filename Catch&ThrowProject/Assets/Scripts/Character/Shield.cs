@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private float maxHealth;
     [SerializeField] private float defaultHealth;
     [SerializeField] private float lowHealthThreshold;
@@ -23,7 +24,6 @@ public class Shield : MonoBehaviour
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
 
-    [SerializeField] private Transform playerPortrait;
     [HideInInspector] public bool shieldDestroyed;
 
     private float actualHealth;
@@ -46,6 +46,9 @@ public class Shield : MonoBehaviour
 
         if (shieldSprite.enabled)
             shieldSprite.color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
+        
+        playerController.uiPanel.UpdateShieldFill(actualHealth,maxHealth);
+
     }
 
     public void Hit(float damage)
@@ -89,7 +92,7 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
-        StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerPortrait, shakePortraitForce));
+        StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerController.uiPanel.transform, shakePortraitForce));
 
         actualHealth = 0;
         shieldDestroyed = true;

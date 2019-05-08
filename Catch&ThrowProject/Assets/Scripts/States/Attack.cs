@@ -146,7 +146,6 @@ public class Attack : BaseState
 
     public void HitMelee(PlayerController enemyPlayer , Vector3 direction)
     {
-        print("Melee");
 
         enemyPlayer.MeleeHit(meleeHitDamage,direction,hitForce);
         

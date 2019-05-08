@@ -30,8 +30,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("enter");
-
         if (other.gameObject.CompareTag("Player"))
         {
             var player = other.GetComponent<PlayerController>();

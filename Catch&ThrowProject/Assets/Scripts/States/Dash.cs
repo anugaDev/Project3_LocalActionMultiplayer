@@ -25,7 +25,6 @@ public class Dash : BaseState
     private float timer;
     private GameUtilities gameUtils = new GameUtilities();
 
-    [SerializeField] private Image cooldownVisual;
     [SerializeField] private ParticleSystem dashParticles;
 
     public override void Enter()
@@ -47,11 +46,11 @@ public class Dash : BaseState
         if (available || playerController.stateMachine.currentState == this) return;
 
         timer += Time.deltaTime;
-        cooldownVisual.fillAmount = timer / cooldown;
+        playerController.uiPanel.UpdateDashFill(timer,cooldown);
 
         if (timer >= cooldown)
         {
-            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
+//            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
             available = true;
             timer = 0;
         }

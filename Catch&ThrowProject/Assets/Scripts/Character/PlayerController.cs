@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("Classes")]
     public Shield shield;
     public InputController inputControl;
+    public UpdatePlayerPanel uiPanel;
     public readonly StateMachine stateMachine = new StateMachine();
 
     [Header("States")]
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+       uiPanel.UpdateAmmoText(actualAmmo);
        if (!CheckForRecoverAmmo()) return;
        CallForReload();
     }
@@ -239,14 +241,14 @@ public class PlayerController : MonoBehaviour
     private void StopReloading()
     {
         StopCoroutine(recoverAmmo);
+        uiPanel.SetAmmoFillActive(false);
         reloadAmmoinCourse = false;
     }
 
     public void ConsumeAmmo(int ammo)
     {
         actualAmmo -= ammo;
-        if (actualAmmo < 0) actualAmmo = 0;
-                
+        if (actualAmmo < 0) actualAmmo = 0;                
     }
 
     public bool CheckForRecoverAmmo()
@@ -257,7 +259,16 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RecoverAmmoOverTime(float time)
     {
-        yield return new WaitForSeconds(time);
+        var actualTime = 0f;
+        uiPanel.SetAmmoFillActive(true);
+        while (actualTime < time)
+        {
+            actualTime += Time.deltaTime;
+            uiPanel.UpdateAmmoFill(actualTime,time);
+            yield return null;
+            
+        }
+        uiPanel.SetAmmoFillActive(false);
         actualAmmo++;
         reloadAmmoinCourse = false;
     }

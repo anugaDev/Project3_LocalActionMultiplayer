@@ -57,7 +57,6 @@ MonoBehaviour:
   catched: 0
   available: 1
   cooldown: 1.5
-  cooldownVisual: {fileID: 0}
   dashParticles: {fileID: 101858864}
 --- !u!54 &309804495
 Rigidbody:
@@ -286,6 +285,7 @@ MonoBehaviour:
   normalCollider: {fileID: 6393677190574558765}
   shield: {fileID: 4205472215937556504}
   inputControl: {fileID: 4205472215443825075}
+  uiPanel: {fileID: 0}
   idleState: {fileID: 4205472215443825077}
   walkState: {fileID: 4205472215443825076}
   jumpState: {fileID: 4205472215443825079}
@@ -308,8 +308,8 @@ MonoBehaviour:
   fallingSpeedThreshold: 50
   downPlatformThreshold: -0.3
   initialAmmo: 3
-  timeForAmmo: 1
-  maxAmmo: 10
+  timeForAmmo: 10
+  maxAmmo: 5
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0
@@ -5301,6 +5301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78df29866b91e8b468f6b12ac193f448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
   maxHealth: 50
   defaultHealth: 50
   lowHealthThreshold: 25
@@ -5314,7 +5315,6 @@ MonoBehaviour:
   objectRenderer: {fileID: 254031277723858431}
   lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.5882353}
   shieldStableColor: {r: 1, g: 1, b: 1, a: 0.5882353}
-  playerPortrait: {fileID: 0}
   shieldDestroyed: 0
 --- !u!212 &7007334774565343458
 SpriteRenderer:
