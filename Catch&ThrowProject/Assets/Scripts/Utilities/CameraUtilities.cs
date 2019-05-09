@@ -13,6 +13,8 @@ public class CameraUtilities : MonoBehaviour
     private float actualShakeForce;
     private Vector3 originalCameraPosition;
     private Vector2 moveDirection;
+    
+    
 
     private void Awake()
     {
@@ -44,14 +46,19 @@ public class CameraUtilities : MonoBehaviour
         {
             var randomUnity = Random.insideUnitSphere;
             randomUnity.z = 0;
-            sceneCamera.transform.position = estimatedCameraCenter + (randomUnity * force);
+            sceneCamera.transform.localPosition = estimatedCameraCenter + (randomUnity * force);
+            
             yield return null;
             actualTime += Time.deltaTime;
         }
 
-        sceneCamera.transform.position = estimatedCameraCenter;
+        sceneCamera.transform.localPosition = Vector3.zero;
     }
-
+//    var randomUnity = Random.insideUnitSphere;
+//    randomUnity.z = 0;
+//    var newPos = estimatedCameraCenter + (randomUnity * force);
+//    newPos.z = 0f;
+//    sceneCamera.transform.position = newPos;
     private IEnumerator MoveTowardsDirection(Vector3 direction, float force, float time)
     {
         var actualTime = 0;
