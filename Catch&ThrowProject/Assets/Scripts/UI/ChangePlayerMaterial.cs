@@ -6,8 +6,9 @@ public class ChangePlayerMaterial : MonoBehaviour
 {
     public PlayerSelectionPanel playerPanel;
 
-    public List<Material> materialPresets;
-    public int currentMaterial;
+    public List<MeshRenderer> dummyPresets;
+    public List<MeshRenderer> maskPresets;
+    public int currentIndex;
 
     public string SubmitButton;
     public string CancelButton;
@@ -23,7 +24,9 @@ public class ChangePlayerMaterial : MonoBehaviour
 
     private void Start()
     {
-        currentMaterial = 0;
+        currentIndex = 0;
+
+        playerPanel.Recolor(GetMesh(null));
     }
 
     private void Update()
@@ -35,24 +38,29 @@ public class ChangePlayerMaterial : MonoBehaviour
 
         if (playerPanel.readyPanel.gameObject.activeSelf) return;
 
-        if (Input.GetButtonDown(left + playerPanel.controllerNumber)) playerPanel.ChangeColor(GetMaterial(InputDirection.Left));
-        if (Input.GetButtonDown(right + playerPanel.controllerNumber)) playerPanel.ChangeColor(GetMaterial(InputDirection.Right));
+        if (Input.GetButtonDown(left + playerPanel.controllerNumber)) playerPanel.Recolor(GetMesh(InputDirection.Left));
+        if (Input.GetButtonDown(right + playerPanel.controllerNumber)) playerPanel.Recolor(GetMesh(InputDirection.Right));
     }
 
-    private Material GetMaterial(InputDirection direction)
+    private MeshRenderer[] GetMesh(InputDirection? direction)
     {
         switch (direction)
         {
             case InputDirection.Left:
-                if (currentMaterial == 0) currentMaterial = materialPresets.Count - 1;
-                else currentMaterial--;
+                if (currentIndex == 0) currentIndex = dummyPresets.Count - 1;
+                else currentIndex--;
                 break;
             case InputDirection.Right:
-                if (currentMaterial == materialPresets.Count - 1) currentMaterial = 0;
-                else currentMaterial++;
+                if (currentIndex == dummyPresets.Count - 1) currentIndex = 0;
+                else currentIndex++;
                 break;
         }
 
-        return materialPresets[currentMaterial];
+        MeshRenderer[] presets = new MeshRenderer[2];
+
+        presets[0] = dummyPresets[currentIndex];
+        presets[1] = maskPresets[currentIndex];
+
+        return presets;
     }
 }

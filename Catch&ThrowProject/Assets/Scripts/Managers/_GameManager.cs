@@ -38,8 +38,9 @@ public class _GameManager : MonoBehaviour
         GameObject player = Instantiate(playerBasicPrefab);
 
         player.GetComponent<InputController>().controllerNumber = playerInfo.controllerNumber;
+        player.GetComponent<PlayerController>().playerMesh.material = playerInfo.dummyMat;
+        player.GetComponent<PlayerController>().maskMesh.material = playerInfo.maskMat;
         player.GetComponent<PlayerController>().enabled = false;
-        //Here you change the mesh
 
         _LevelManager.instance.players.Add(player.GetComponent<PlayerController>());
     }
@@ -51,5 +52,10 @@ public class _GameManager : MonoBehaviour
         foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
