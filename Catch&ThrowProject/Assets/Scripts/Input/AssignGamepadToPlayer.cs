@@ -30,7 +30,7 @@ public class AssignGamepadToPlayer : MonoBehaviour
             {
                 if (CanStartGame())
                 {
-                    _GameManager.instance.SceneToLoadNumber = 1;
+                    _GameManager.instance.SceneToLoadNumber = 2;
                     _GameManager.instance.LoadNewGame();
                 }
             }
