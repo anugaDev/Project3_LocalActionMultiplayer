@@ -31,6 +31,8 @@ public class Attack : BaseState
     [SerializeField] private float meleeHitDamage;
     [SerializeField] private float hitForce;
 
+    [SerializeField] private Color playerColor;
+
     private Vector3 gizmosDir;
     
     public override void Enter()
@@ -132,7 +134,7 @@ public class Attack : BaseState
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), Quaternion.identity);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
-        projectileClass.SetBullet(direction, speed, playerController);
+        projectileClass.SetBullet(direction, speed, playerController,Color.red);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);
 
         var force = Vector3.up * shootRecoilForce;
