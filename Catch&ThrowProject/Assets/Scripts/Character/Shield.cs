@@ -19,7 +19,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float timeBetweenBlinking;
 
     [SerializeField] private SpriteRenderer shieldSprite;
-    [SerializeField] private Renderer objectRenderer;
+    [SerializeField] private Transform playerModel;
 
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
@@ -102,7 +102,7 @@ public class Shield : MonoBehaviour
 
     public void ImpactBlink()
     {
-        actualBlinking = gameUtilities.Blink(objectRenderer, timeBetweenBlinking, blinkingTime);
+        actualBlinking = gameUtilities.Blink(playerModel, timeBetweenBlinking, blinkingTime);
 
         StartCoroutine(actualBlinking);
     }

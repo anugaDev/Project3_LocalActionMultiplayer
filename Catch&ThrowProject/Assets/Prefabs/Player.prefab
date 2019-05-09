@@ -56,6 +56,7 @@ MonoBehaviour:
   playerTrigger: {fileID: 101204162}
   catched: 0
   available: 1
+  released: 1
   cooldown: 1.5
   dashParticles: {fileID: 101858864}
 --- !u!54 &309804495
@@ -519,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
   animationTrigger: 
-  playerRenderer: {fileID: 0}
+  playerModel: {fileID: 8573697787707362222}
   cameraShakeForce: 0.46
   cameraShakeTime: 0.33
 --- !u!114 &-4765620264934939727
@@ -5316,7 +5317,7 @@ MonoBehaviour:
   blinkingTime: 0.1
   timeBetweenBlinking: 0.02
   shieldSprite: {fileID: 7007334774565343458}
-  objectRenderer: {fileID: 0}
+  playerModel: {fileID: 4656930297132054973}
   lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.5882353}
   shieldStableColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   shieldDestroyed: 0
@@ -5546,6 +5547,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd49aa34988e954eb993104bbfd513c, type: 3}
+--- !u!1 &8573697787707362222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 711699262875437706, guid: edd49aa34988e954eb993104bbfd513c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9159074809060032804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4656930297132054973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4592316392800254105, guid: edd49aa34988e954eb993104bbfd513c,

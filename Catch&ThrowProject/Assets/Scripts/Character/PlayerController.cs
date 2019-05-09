@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
+        if(stateMachine.currentState.Equals(dieState)) return;
         if (other.gameObject.CompareTag("Death Zone")) ChangeState(dieState);
         else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);

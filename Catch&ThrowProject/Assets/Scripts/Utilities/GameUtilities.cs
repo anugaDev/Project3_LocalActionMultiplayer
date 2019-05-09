@@ -26,17 +26,17 @@ public class GameUtilities
         yield return null;
     }
 
-    public IEnumerator Blink(Renderer objectRenderer, float timeBetweenBlink, float totalTime)
+    public IEnumerator Blink(Transform objectModel, float timeBetweenBlink, float totalTime)
     {
         var actualTime = 0f;
 
         while (actualTime < totalTime)
         {
-            objectRenderer.enabled = !objectRenderer.enabled;
+            objectModel.gameObject.SetActive(!objectModel.gameObject.activeSelf);
             yield return new WaitForSeconds(timeBetweenBlink);
             actualTime += timeBetweenBlink;
         }
 
-        objectRenderer.enabled = true;
+        objectModel.gameObject.SetActive(true);
     }    
 }

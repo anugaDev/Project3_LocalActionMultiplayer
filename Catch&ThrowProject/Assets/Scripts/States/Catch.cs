@@ -53,6 +53,7 @@ public class Catch : BaseState
 
     public override void Exit()
     {
+        playerController.gameObject.layer = playerController.normalLayer;
         timer = 0;
         playerController.dashState.released = true;
         playerController.Invulnerable = false;

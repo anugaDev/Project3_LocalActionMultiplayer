@@ -17,6 +17,7 @@ public class Caught : BaseState
 
     public override void Exit()
     {
-        base.Exit();
+        gameObject.layer = playerController.normalLayer;
+
     }
 }

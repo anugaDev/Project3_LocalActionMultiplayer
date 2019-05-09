@@ -33,7 +33,7 @@ public class DynamicCamera : MonoBehaviour
 
     private void Start()
     {
-        myCamera = GetComponent<Camera>();
+        myCamera = Camera.main;
     }
 
     private void LateUpdate()

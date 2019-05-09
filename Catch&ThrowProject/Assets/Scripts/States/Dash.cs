@@ -65,7 +65,8 @@ public class Dash : BaseState
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 
-        playerController.gameObject.layer = playerController.normalLayer;
+        
+        if(!catched) playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
         dashParticles.Stop();
@@ -104,6 +105,8 @@ public class Dash : BaseState
         StopAllCoroutines();
 
         catched = true;
+
+        enemy.gameObject.layer = enemy.jumpLayer;
 
         enemy.ChangeState(enemy.caughtState);
 

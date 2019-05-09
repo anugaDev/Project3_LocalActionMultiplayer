@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Die : BaseState
 {
-    [SerializeField] private Renderer playerRenderer;
+    [SerializeField] private GameObject playerModel;
     [SerializeField] private float cameraShakeForce;
     [SerializeField] private float cameraShakeTime;
     private IEnumerator delegateRespawn;
 
     public override void Enter()
     {
-        playerRenderer = playerController.playerMesh;
         CameraUtilities.instance.ShakeCamera(cameraShakeTime, cameraShakeForce);
         GetKilled();
         playerController.isDead = true;
-        playerController.rigidbody.isKinematic = true;
+//        playerController.rigidbody.isKinematic = true;
         playerController.normalCollider.enabled = false;
 
         _LevelManager.instance.OnPlayerKilled(playerController);
@@ -31,18 +30,19 @@ public class Die : BaseState
         if (delegateRespawn == null)
         {
             StopCoroutine(delegateRespawn);
-            playerRenderer.enabled = true;
+            playerModel.SetActive(true);
         }
 
-        playerController.rigidbody.isKinematic = false;
+//        playerController.rigidbody.isKinematic = false;
         playerController.normalCollider.enabled = true;
         playerController.shield.ResetShield();
     }
 
     public void GetKilled()
     {
+        _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
         playerController.shield.DestroyShield();
-        playerRenderer.enabled = false;
+        playerModel.SetActive(false);
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);
     }
@@ -59,10 +59,11 @@ public class Die : BaseState
         playerController.RespawnAmmo();
         playerController.isDead = false;
         _LevelManager.instance.SpawnPlayer(gameObject, null);
+        _LevelManager.instance.cameraFollow.objectsToShow.Add(this.transform);
         var rotation = Vector3.zero;
         rotation.y = transform.position.x > 0 ? 180 : 0;
         transform.rotation = Quaternion.Euler(rotation);
-        playerRenderer.enabled = true;
+        playerModel.SetActive(true);
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.shield.ResetShield();
 
