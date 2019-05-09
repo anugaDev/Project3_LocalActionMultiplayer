@@ -46,7 +46,7 @@ public class CameraUtilities : MonoBehaviour
         {
             var randomUnity = Random.insideUnitSphere;
             randomUnity.z = 0;
-            sceneCamera.transform.localPosition = estimatedCameraCenter + (randomUnity * force);
+            sceneCamera.transform.localPosition = (randomUnity * force);
             
             yield return null;
             actualTime += Time.deltaTime;

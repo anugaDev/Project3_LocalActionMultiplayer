@@ -12,18 +12,18 @@ public class TrainTimeControl : MonoBehaviour
     [SerializeField] private Animation train;
     [SerializeField] private Animation affordance;
     [SerializeField] private bool playOnStart;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        if(playOnStart) StartCoroutine(CountTimeForTrain(0, 0));
+        if (playOnStart) StartCoroutine(CountTimeForTrain(0, 0));
         else PreparePass();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void PreparePass()
@@ -39,7 +39,7 @@ public class TrainTimeControl : MonoBehaviour
         while (actualPassTime < passTime)
         {
             yield return new WaitForEndOfFrame();
-            actualPassTime+= Time.deltaTime;
+            actualPassTime += Time.deltaTime;
             if (actualPassTime >= affordanceTime && !affordance.isPlaying)
             {
                 affordance.gameObject.SetActive(true);
@@ -49,7 +49,7 @@ public class TrainTimeControl : MonoBehaviour
         }
 
         train.Play();
-//        CameraUtilities.instance.ShakeCamera(train.clip.length ,passShakeForce);
+        CameraUtilities.instance.ShakeCamera(train.clip.length, passShakeForce);
 
         while (train.isPlaying)
         {
