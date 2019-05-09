@@ -37,6 +37,7 @@
             <e p="CrossZone.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
             <e p="ShieldItem.cs" t="Include" />
+            <e p="TrainTimeControl.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
             <e p="AssignGamepadToPlayer.cs" t="Include" />
