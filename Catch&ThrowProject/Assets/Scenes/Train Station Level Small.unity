@@ -2338,9 +2338,10 @@ GameObject:
   - component: {fileID: 937550616}
   - component: {fileID: 937550618}
   - component: {fileID: 937550617}
+  - component: {fileID: 937550619}
   m_Layer: 0
   m_Name: ElectricTrain (1)
-  m_TagString: Untagged
+  m_TagString: Death Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2404,6 +2405,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937550615}
   m_Mesh: {fileID: 9061155514807763997, guid: 1311ab43dc936134d8bfc06aba9d77d2, type: 3}
+--- !u!65 &937550619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937550615}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.751167, y: 77.48886, z: 705.60004}
+  m_Center: {x: 8.492091, y: 38.74443, z: -93.37087}
 --- !u!1 &951727019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2509,25 @@ Transform:
   m_Father: {fileID: 614236183}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &959970266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6996230606433060155, guid: 227a751f52a0b6943abfad11aaea5013,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087394108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &959970267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959970266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.751167, y: 77.48886, z: 705.60004}
+  m_Center: {x: 8.492091, y: 38.74443, z: -93.37075}
 --- !u!4 &1063118991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
@@ -4853,6 +4886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MovingTrainHang
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935989501909455227, guid: 227a751f52a0b6943abfad11aaea5013,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death Zone
       objectReference: {fileID: 0}
     - target: {fileID: 8935989501909455226, guid: 227a751f52a0b6943abfad11aaea5013,
         type: 3}
