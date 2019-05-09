@@ -22,6 +22,7 @@ public class _LevelManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject UI_Parent;
     public GameObject PauseMenu;
+    public GameObject EndMenu;
     public GameObject playerPanelPrefab;
 
     public enum MatchState
@@ -46,7 +47,9 @@ public class _LevelManager : MonoBehaviour
 
         for (int i = 0; i < players.Count; i++)
         {
+            players[i].health = StartingLifes;
             players[i].uiPanel = Instantiate(playerPanelPrefab, parent: UI_Parent.transform).GetComponent<UpdatePlayerPanel>();
+            players[i].uiPanel.RemoveLife(players[i].health);
             players[i].enabled = true;
         }
 
@@ -118,9 +121,13 @@ public class _LevelManager : MonoBehaviour
         if (player.health == 0) return;
 
         player.health--;
+        player.uiPanel.RemoveLife(player.health);
 
         if (player.health == 0)
         {
+            cameraFollow.objectsToShow.Remove(player.transform);
+            player.gameObject.SetActive(false);
+
             int alivePlayers = 0;
 
             for (int i = 0; i < players.Count; i++)
@@ -136,6 +143,7 @@ public class _LevelManager : MonoBehaviour
     {
         matchState = MatchState.Ending;
 
+        EndMenu.SetActive(true);
         //Implement the end of the game.
     }
 }

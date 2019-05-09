@@ -21,12 +21,15 @@ public class Catch : BaseState
     private float maxSizeY = 1.5f;
     private float minSizeY = 1f;
 
+    private Vector3 ThrowDirection;
+
     public override void Enter()
     {
         directionMarker.SetActive(true);
 
         playerController.rigidbody.velocity = Vector3.zero;
 
+        playerController.dashState.released = false;
         playerController.Invulnerable = true;
         playerController.CanMove = false;
 
@@ -51,7 +54,7 @@ public class Catch : BaseState
     public override void Exit()
     {
         timer = 0;
-
+        playerController.dashState.released = true;
         playerController.Invulnerable = false;
         playerController.CanMove = true;
         playerController.caughtPlayer = null;
@@ -64,25 +67,26 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
-        Vector3 direction = playerController.inputControl.Direction;
-
         float force = Mathf.Max(throwForce * (1 - (timer / timeBeforeThrow)), minThrowForce);
-        //        print(force);
 
-        if (direction == Vector3.zero) direction = transform.right;
+        if (ThrowDirection == Vector3.zero) ThrowDirection = transform.right;
 
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-        playerController.caughtPlayer.Impulse(direction, force, true);
+        playerController.caughtPlayer.Impulse(ThrowDirection, force, true);
 
         playerController.ChangeState(playerController.stunState);
-        playerController.Impulse(-direction, force * reactionForceMultiplier, false);
+        playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
     }
 
     private void PositionateMarker()
     {
+        if (playerController.inputControl.Direction.x == 0 && playerController.inputControl.Direction.y == 0) return;
+
         Vector3 direction = new Vector3(-playerController.inputControl.Direction.x,
                                         playerController.inputControl.Direction.y,
                                         0).normalized;
+
+        ThrowDirection = playerController.inputControl.Direction;
 
         float playerRotation = transform.rotation.eulerAngles.y == 0 ? 1 : -1;
 

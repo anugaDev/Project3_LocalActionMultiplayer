@@ -16,7 +16,11 @@ public class PlayerSelectionPanel : MonoBehaviour
     public Image parentPanel;
     public Text pressToAssignText;
 
-    public MeshRenderer meshRenderer;
+    public MeshRenderer dummyMesh;
+    public MeshRenderer maskMesh;
+
+    public Material dummyMat;
+    public Material maskMat;
 
     public int[] materialPositions;
 
@@ -25,16 +29,13 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public GameObject playerVisualComponent;
 
-    public void ChangeColor(Material newMaterial)
+    public void Recolor(MeshRenderer[] meshes)
     {
-        var actualMaterials = meshRenderer.materials;
+        dummyMesh.material = meshes[0].material;
+        maskMesh.material = meshes[1].material;
 
-        for (int i = 0; i < actualMaterials.Length; i++)
-        {
-            actualMaterials[i] = newMaterial;
-        }
-
-        meshRenderer.materials = actualMaterials;
+        dummyMat = meshes[0].material;
+        maskMat = meshes[1].material;
     }
 
     public void AssignController(int controllerNumber)

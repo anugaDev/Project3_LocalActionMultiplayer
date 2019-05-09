@@ -11,6 +11,7 @@ public class Die : BaseState
 
     public override void Enter()
     {
+        playerRenderer = playerController.playerMesh;
         CameraUtilities.instance.ShakeCamera(cameraShakeTime, cameraShakeForce);
         GetKilled();
         playerController.isDead = true;
@@ -57,7 +58,7 @@ public class Die : BaseState
     {
         playerController.RespawnAmmo();
         playerController.isDead = false;
-        transform.position = playerController.spawnPosition;
+        _LevelManager.instance.SpawnPlayer(gameObject, null);
         var rotation = Vector3.zero;
         rotation.y = transform.position.x > 0 ? 180 : 0;
         transform.rotation = Quaternion.Euler(rotation);

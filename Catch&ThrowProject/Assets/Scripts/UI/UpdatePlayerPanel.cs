@@ -9,6 +9,7 @@ public class UpdatePlayerPanel : MonoBehaviour
     [SerializeField] private Image shieldBar;
     [SerializeField] private Image DashFill;
     [SerializeField] private Image AmmoFill;
+    [SerializeField] private Image[] lifes;
 
     [Header("Text")]
     [SerializeField] private Text ammo;
@@ -47,5 +48,13 @@ public class UpdatePlayerPanel : MonoBehaviour
     private void UpdateFill(Image fillImage, float actual, float max)
     {
         if (fillImage) fillImage.fillAmount = actual / max;
+    }
+
+    public void RemoveLife(int actualHealth)
+    {
+        for (int i = lifes.Length - 1; i >= actualHealth; i--)
+        {
+            if (lifes[i]) lifes[i].enabled = false;
+        }
     }
 }

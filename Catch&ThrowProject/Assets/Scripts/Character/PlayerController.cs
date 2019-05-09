@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody rigidbody;
     public Collider normalCollider;
+    public MeshRenderer playerMesh;
+    public MeshRenderer maskMesh;
 
     [Header("Classes")]
     public Shield shield;
@@ -164,17 +166,6 @@ public class PlayerController : MonoBehaviour
 
         return onGround;
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    var checkVector = transform.position;
-    //    checkVector.y = normalCollider.bounds.min.y;
-    //    Gizmos.DrawIcon( checkVector,"Light Gizmo.tiff", true);
-    //    Gizmos.DrawRay(checkVector, Vector3.down);
-    //    Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x - normalCollider.bounds.min.x)),Vector3.down);
-    //    Gizmos.DrawRay(checkVector + (Vector3.right  * (transform.position.x-normalCollider.bounds.max.x)),Vector3.down);
-    //}
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Death Zone")) ChangeState(dieState);
