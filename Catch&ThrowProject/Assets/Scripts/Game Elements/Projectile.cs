@@ -15,6 +15,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float timeBeforeAutoDestroy;
     [SerializeField] private Animation animation;
     private UnityEngine.Vector3 direction;
+    [SerializeField] private Outline projectileOutline;
+
+    [SerializeField] private Color neutralTakeColor = Color.white;
 
     [SerializeField]private bool nailed = false;
 
@@ -22,11 +25,12 @@ public class Projectile : MonoBehaviour
     {
         if (!nailed) rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
     }
-    public void SetBullet( UnityEngine.Vector3  newDirection, float speed, PlayerController originplayer)
+    public void SetBullet( UnityEngine.Vector3  newDirection, float speed, PlayerController originplayer, Color playerColor)
     {
         direction = newDirection;
         projectileSpeed = speed;
         originPlayer = originplayer;
+        projectileOutline.OutlineColor = playerColor;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,7 +56,12 @@ public class Projectile : MonoBehaviour
         
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
-//        impactCollider.isTrigger = false;
+        Nail();
+    }
+
+    private void Nail()
+    {
+        projectileOutline.OutlineColor = neutralTakeColor;
         rigidbody.velocity = UnityEngine.Vector3.zero;
         nailed = true;
         animation.Stop();
@@ -64,7 +73,7 @@ public class Projectile : MonoBehaviour
             transform.position -= direction;
         }
     }
-    
+
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(timeBeforeAutoDestroy);
