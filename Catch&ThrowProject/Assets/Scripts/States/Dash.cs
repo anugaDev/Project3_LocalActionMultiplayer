@@ -43,14 +43,16 @@ public class Dash : BaseState
 
     private void Update()
     {
-        if (available || playerController.stateMachine.currentState == this) return;
+        if (available ||
+            playerController.stateMachine.currentState == this ||
+            playerController.stateMachine.currentState == playerController.catchState) return;
 
         timer += Time.deltaTime;
-        playerController.uiPanel.UpdateDashFill(timer,cooldown);
+        playerController.uiPanel.UpdateDashFill(timer, cooldown);
 
         if (timer >= cooldown)
         {
-//            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
+            //            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
             available = true;
             timer = 0;
         }
@@ -58,7 +60,7 @@ public class Dash : BaseState
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity = new Vector3 (playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
+        playerController.rigidbody.velocity = new Vector3(playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 

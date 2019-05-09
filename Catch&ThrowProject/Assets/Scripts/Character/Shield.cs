@@ -46,8 +46,8 @@ public class Shield : MonoBehaviour
 
         if (shieldSprite.enabled)
             shieldSprite.color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
-        
-        playerController.uiPanel.UpdateShieldFill(actualHealth,maxHealth);
+
+        playerController.uiPanel.UpdateShieldFill(actualHealth, maxHealth);
 
     }
 
@@ -65,7 +65,7 @@ public class Shield : MonoBehaviour
 
     public void ResetShield()
     {
-        
+
         actualHealth = defaultHealth;
         shieldSprite.enabled = true;
         shieldSprite.color = shieldStableColor;
@@ -92,7 +92,7 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
-        StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerController.uiPanel.transform, shakePortraitForce));
+        //StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerController.uiPanel.transform, shakePortraitForce));
 
         actualHealth = 0;
         shieldDestroyed = true;

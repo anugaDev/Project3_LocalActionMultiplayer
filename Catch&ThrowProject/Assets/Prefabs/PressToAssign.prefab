@@ -197,7 +197,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549283759749895107}
-  m_Mesh: {fileID: -3334933058281800568, guid: 77283fc7b5feb474e9f7240824a1a2f4, type: 3}
+  m_Mesh: {fileID: -3334933058281800568, guid: eab1c8739bc59f04ea16882f2938db42, type: 3}
 --- !u!23 &8056420718436111585
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -215,16 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
+  - {fileID: 2100000, guid: 0f7034c39c9eec04b8cf2c2c9d8f0f89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -329,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3025739130322003744}
   m_Layer: 0
-  m_Name: CharacterVer1
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,8 +334,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2280735033360733491}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -130, z: -100}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 0, y: -100, z: -50}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 5255845450311113016}
   - {fileID: 5236114823835725767}
@@ -531,13 +522,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3606889033414688719}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.000009155274, y: 1.2003344, z: -0.09789815}
-  m_LocalScale: {x: 1, y: 1, z: 0.9379359}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3025739130322003744}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2214795983701262923
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -545,7 +536,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3606889033414688719}
-  m_Mesh: {fileID: 2069926915203109171, guid: c9752d8fd7523cd47b90f995a51f56b0, type: 3}
+  m_Mesh: {fileID: 6690141603448424749, guid: eab1c8739bc59f04ea16882f2938db42, type: 3}
 --- !u!23 &8982633612940271153
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -563,7 +554,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 843225332508262642, guid: c9752d8fd7523cd47b90f995a51f56b0, type: 3}
+  - {fileID: 2100000, guid: 3ca62cfc605e68046afd654d3190f584, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -675,13 +666,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
   HasPlayer: 0
+  GameStarting: 0
   controllerNumber: 0
   parentPanel: {fileID: 5509221768381892564}
   pressToAssignText: {fileID: 8708954398068944221}
-  meshRenderer: {fileID: 8056420718436111585}
+  dummyMesh: {fileID: 8056420718436111585}
+  maskMesh: {fileID: 8982633612940271153}
   materialPositions: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
   buttonPanel: {fileID: 7162697793559449686}
   readyPanel: {fileID: 6465935035861437068}
+  playerVisualComponent: {fileID: 0}
 --- !u!114 &3550450693091035010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,13 +689,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPanel: {fileID: 4674392306541373116}
-  materialPresets:
-  - {fileID: 2100000, guid: 214a435fcda568547a707a211eb87ebf, type: 2}
-  - {fileID: 2100000, guid: 96700a7ee94540c47886a2051eff06dd, type: 2}
-  - {fileID: 2100000, guid: f764c2b9bcbab5340bba90827e6c94bb, type: 2}
-  - {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
-  - {fileID: 2100000, guid: 1c72989cc2aa23e4eb2a2e85c107894f, type: 2}
-  currentMaterial: 0
+  dummyPresets:
+  - {fileID: 0}
+  - {fileID: 0}
+  maskPresets:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentIndex: 0
   SubmitButton: Jump
   CancelButton: Dash
   left: LB
