@@ -27,6 +27,7 @@ public class Catch : BaseState
 
         playerController.rigidbody.velocity = Vector3.zero;
 
+        playerController.dashState.released = false;
         playerController.Invulnerable = true;
         playerController.CanMove = false;
 
@@ -51,7 +52,7 @@ public class Catch : BaseState
     public override void Exit()
     {
         timer = 0;
-
+        playerController.dashState.released = true;
         playerController.Invulnerable = false;
         playerController.CanMove = true;
         playerController.caughtPlayer = null;

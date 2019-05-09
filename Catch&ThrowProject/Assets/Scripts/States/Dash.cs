@@ -19,10 +19,11 @@ public class Dash : BaseState
     [SerializeField] private bool catched = false;
 
     public bool available = true;
+    public bool released = true;
 
     public float cooldown = 1.5f;
 
-    private float timer;
+    private float timer = 0;
     private GameUtilities gameUtils = new GameUtilities();
 
     [SerializeField] private ParticleSystem dashParticles;
@@ -45,7 +46,7 @@ public class Dash : BaseState
     {
         if (available || playerController.stateMachine.currentState == this) return;
 
-        timer += Time.deltaTime;
+        if(released)timer += Time.deltaTime;
         playerController.uiPanel.UpdateDashFill(timer,cooldown);
 
         if (timer >= cooldown)
@@ -55,6 +56,8 @@ public class Dash : BaseState
             timer = 0;
         }
     }
+
+    
 
     public override void Exit()
     {
@@ -68,6 +71,14 @@ public class Dash : BaseState
         dashParticles.Stop();
 
         catched = false;
+    }
+    public void InstantDashReload()
+    {
+        timer = cooldown;
+        available = true;
+        playerController.uiPanel.UpdateDashFill(timer,cooldown);
+
+
     }
 
     private IEnumerator StopDash()
