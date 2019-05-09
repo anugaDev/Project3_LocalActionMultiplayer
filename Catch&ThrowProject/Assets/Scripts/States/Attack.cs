@@ -126,12 +126,11 @@ public class Attack : BaseState
     }
     public void ShootProjectile(Vector2 direction)
     {
-        var rotationZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        var rotation = Quaternion.Euler(0, 0, rotationZ);
+      
 
         var speed = projectileSpeed;
 
-        var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), rotation);
+        var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), Quaternion.identity);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
         projectileClass.SetBullet(direction, speed, playerController);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);

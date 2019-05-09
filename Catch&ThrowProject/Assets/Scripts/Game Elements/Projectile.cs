@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private SphereCollider impactCollider;
     [SerializeField] private PlayerController originPlayer;
     [SerializeField] private float timeBeforeAutoDestroy;
+    [SerializeField] private Animation animation;
     private UnityEngine.Vector3 direction;
 
     [SerializeField]private bool nailed = false;
@@ -54,6 +55,7 @@ public class Projectile : MonoBehaviour
 //        impactCollider.isTrigger = false;
         rigidbody.velocity = UnityEngine.Vector3.zero;
         nailed = true;
+        animation.Stop();
 
         var index = 0;
         while (Physics.OverlapSphere(transform.position, impactCollider.radius,
