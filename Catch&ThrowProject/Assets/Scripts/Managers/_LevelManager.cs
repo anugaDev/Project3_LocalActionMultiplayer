@@ -53,6 +53,8 @@ public class _LevelManager : MonoBehaviour
             players[i].enabled = true;
         }
 
+        Time.timeScale = 1;
+
         matchState = MatchState.Playing;
     }
 

@@ -368,7 +368,7 @@ MonoBehaviour:
   trainPassMinTime: 10
   trainPassMaxTime: 30
   beforeTrainAffordance: 5
-  passShakeForce: 0.15
+  passShakeForce: 0.1
   train: {fileID: 8935989500186555841}
   affordance: {fileID: 2391124674136214253}
   playOnStart: 1
@@ -383,6 +383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Train(Ground)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807345833633584381, guid: 8bc7cb182da654b4db9b8804632e7ca5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death Zone
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8bc7cb182da654b4db9b8804632e7ca5,
         type: 3}
@@ -453,11 +458,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807345833633584381, guid: 8bc7cb182da654b4db9b8804632e7ca5,
-        type: 3}
-      propertyPath: m_TagString
-      value: Death Zone
       objectReference: {fileID: 0}
     - target: {fileID: -2890211241611076168, guid: 8bc7cb182da654b4db9b8804632e7ca5,
         type: 3}

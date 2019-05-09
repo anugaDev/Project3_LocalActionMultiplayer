@@ -368,7 +368,7 @@ MonoBehaviour:
   trainPassMinTime: 20
   trainPassMaxTime: 40
   beforeTrainAffordance: 5
-  passShakeForce: 0.15
+  passShakeForce: 0.1
   train: {fileID: 1707461328}
   affordance: {fileID: 6859211613500938273}
   playOnStart: 1
@@ -379,6 +379,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8935989501909455226}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 1311ab43dc936134d8bfc06aba9d77d2,
+        type: 3}
+      propertyPath: m_Name
+      value: ElectricTrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807345833633584381, guid: 1311ab43dc936134d8bfc06aba9d77d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death Zone
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1311ab43dc936134d8bfc06aba9d77d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,16 +458,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 1311ab43dc936134d8bfc06aba9d77d2,
-        type: 3}
-      propertyPath: m_Name
-      value: ElectricTrain
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807345833633584381, guid: 1311ab43dc936134d8bfc06aba9d77d2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Death Zone
       objectReference: {fileID: 0}
     - target: {fileID: 2667401066379202258, guid: 1311ab43dc936134d8bfc06aba9d77d2,
         type: 3}

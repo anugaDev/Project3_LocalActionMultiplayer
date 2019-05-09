@@ -7,6 +7,7 @@ public class EndGame : MonoBehaviour
 {
     public void GoEnd()
     {
+        Time.timeScale = 1;
         _GameManager.instance.GoToMainMenu();
     }
 }

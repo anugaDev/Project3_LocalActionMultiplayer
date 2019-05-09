@@ -118,7 +118,7 @@ MonoBehaviour:
   originPlayer: {fileID: 0}
   timeBeforeAutoDestroy: 0
   animation: {fileID: 7398689144624960443}
-  projectileOutline: {fileID: 0}
+  projectileOutline: {fileID: 5665831157426599893}
   neutralTakeColor: {r: 0, g: 0, b: 0, a: 0}
   nailed: 0
 --- !u!135 &4665147726333283526
