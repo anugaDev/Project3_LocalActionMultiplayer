@@ -49,9 +49,6 @@ public class _GameManager : MonoBehaviour
     {
         if (scene.buildIndex != SceneToLoadNumber) return;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         _LevelManager.instance.testingScene = false;
 
         foreach (PlayerController player in _LevelManager.instance.players)
@@ -61,8 +58,6 @@ public class _GameManager : MonoBehaviour
 
         _LevelManager.instance.players.Clear();
 
->>>>>>> parent of acf150d... Test without character selection & shield spawner class created
-=======
         _LevelManager.instance.testingScene = false;
         _LevelManager.instance.CheckTest();
 
@@ -70,7 +65,6 @@ public class _GameManager : MonoBehaviour
 
         _LevelManager.instance.players.Clear();
 
->>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
         foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();

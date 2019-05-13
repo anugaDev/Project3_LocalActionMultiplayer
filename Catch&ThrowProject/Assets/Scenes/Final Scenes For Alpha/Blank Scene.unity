@@ -483,6 +483,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: uiPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: initialAmmo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: timeForAmmo
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -537,26 +557,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: uiPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: initialAmmo
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: maxAmmo
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: timeForAmmo
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
@@ -1066,6 +1066,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: uiPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: timeForAmmo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825069, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,21 +1136,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: uiPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: timeForAmmo
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: maxAmmo
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4205472215443825075, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: triggerDownThreshold
@@ -1185,21 +1185,6 @@ PrefabInstance:
         type: 3}
       propertyPath: reloadTime
       value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: minThrowForce
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: throwForce
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
-        type: 3}
-      propertyPath: reactionForceMultiplier
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4205472215937556504, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
@@ -1257,6 +1242,21 @@ PrefabInstance:
       propertyPath: playerTrigger
       value: 
       objectReference: {fileID: 101204162}
+    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: minThrowForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: throwForce
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: reactionForceMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 355854187, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1697,6 +1697,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraFather
       objectReference: {fileID: 0}
+    - target: {fileID: 4849470132035230233, guid: b4eca68219b00d248aa1ee5e7afa99c5,
+        type: 3}
+      propertyPath: downLeftBound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849470132035230233, guid: b4eca68219b00d248aa1ee5e7afa99c5,
+        type: 3}
+      propertyPath: upRightBound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4849470132035230234, guid: b4eca68219b00d248aa1ee5e7afa99c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1751,16 +1761,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4849470132035230233, guid: b4eca68219b00d248aa1ee5e7afa99c5,
-        type: 3}
-      propertyPath: downLeftBound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4849470132035230233, guid: b4eca68219b00d248aa1ee5e7afa99c5,
-        type: 3}
-      propertyPath: upRightBound
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4eca68219b00d248aa1ee5e7afa99c5, type: 3}

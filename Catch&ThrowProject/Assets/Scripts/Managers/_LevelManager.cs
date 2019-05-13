@@ -43,16 +43,10 @@ public class _LevelManager : MonoBehaviour
         if (instance != this) Destroy(this);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     private void Start()
     {
         if (testingScene)
         {
-<<<<<<< HEAD
             var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
 
             foreach (GameObject player in playerPrefs)
@@ -61,17 +55,11 @@ public class _LevelManager : MonoBehaviour
                 if (!player.activeSelf) player.SetActive(true);
             }
 
-=======
             CheckTest();
->>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
             SetNewGame();
         }
     }
 
-<<<<<<< HEAD
->>>>>>> parent of acf150d... Test without character selection & shield spawner class created
-=======
->>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     private void StartGame()
     {
         cameraFollow.enabled = true;
