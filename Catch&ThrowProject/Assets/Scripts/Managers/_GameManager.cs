@@ -50,11 +50,9 @@ public class _GameManager : MonoBehaviour
         if (scene.buildIndex != SceneToLoadNumber) return;
 
         _LevelManager.instance.testingScene = false;
+        _LevelManager.instance.CheckTest();
 
-        foreach (PlayerController player in _LevelManager.instance.players)
-        {
-            player.gameObject.SetActive(false);
-        }
+        foreach (PlayerController player in _LevelManager.instance.players) { player.gameObject.SetActive(false); }
 
         _LevelManager.instance.players.Clear();
 
