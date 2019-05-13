@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
             if (timer >= timeToSpawn)
             {
-                lastSpawnedObject = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+                lastSpawnedObject = Instantiate(objectToSpawn);
 
                 timer = 0f;
             }
