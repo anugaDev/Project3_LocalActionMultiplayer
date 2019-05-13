@@ -25,6 +25,8 @@ public class _LevelManager : MonoBehaviour
     public GameObject EndMenu;
     public GameObject playerPanelPrefab;
 
+    public bool testingScene;
+
     public enum MatchState
     {
         Starting,
@@ -39,6 +41,22 @@ public class _LevelManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         if (instance != this) Destroy(this);
+    }
+
+    private void Start()
+    {
+        if (testingScene)
+        {
+            var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
+
+            foreach (GameObject player in playerPrefs)
+            {
+                players.Add(player.GetComponent<PlayerController>());
+                if (!player.activeSelf) player.SetActive(true);
+            }
+
+            SetNewGame();
+        }
     }
 
     private void StartGame()
@@ -85,6 +103,8 @@ public class _LevelManager : MonoBehaviour
 
     public void SpawnPlayer(GameObject player, int? position)
     {
+        if (spawnPoints.Count == 0) return;
+
         Vector3 spawnPosition;
 
         spawnPosition = position.HasValue ? spawnPoints[position.Value].position :
