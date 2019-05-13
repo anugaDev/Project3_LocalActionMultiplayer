@@ -91,7 +91,11 @@ public class PlayerController : MonoBehaviour
                 }
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded && stateMachine.currentState != attackState) ChangeState(attackState);
-            if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available) ChangeState(dashState);
+            if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available)
+            {
+                if(!CheckForGround()) ChangeState(dashState);
+                else if (inputControl.Vertical > downPlatformThreshold) ChangeState(dashState);
+            }
 
         }
 

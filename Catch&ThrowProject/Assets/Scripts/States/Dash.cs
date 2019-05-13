@@ -30,12 +30,14 @@ public class Dash : BaseState
 
     public override void Enter()
     {
+        Vector3 direction = playerController.inputControl.Direction.normalized;
+        
         playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
         playerTrigger.isTrigger = true;
 
-        Vector3 direction = playerController.inputControl.Direction.normalized;
+       
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
 
         dashParticles.Play();

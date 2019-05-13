@@ -25,6 +25,8 @@ public class _LevelManager : MonoBehaviour
     public GameObject EndMenu;
     public GameObject playerPanelPrefab;
 
+    public bool testingScene;
+
     public enum MatchState
     {
         Starting,
@@ -42,11 +44,15 @@ public class _LevelManager : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     private void Start()
     {
         if (testingScene)
         {
+<<<<<<< HEAD
             var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
 
             foreach (GameObject player in playerPrefs)
@@ -55,11 +61,17 @@ public class _LevelManager : MonoBehaviour
                 if (!player.activeSelf) player.SetActive(true);
             }
 
+=======
+            CheckTest();
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
             SetNewGame();
         }
     }
 
+<<<<<<< HEAD
 >>>>>>> parent of acf150d... Test without character selection & shield spawner class created
+=======
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     private void StartGame()
     {
         cameraFollow.enabled = true;
@@ -104,6 +116,8 @@ public class _LevelManager : MonoBehaviour
 
     public void SpawnPlayer(GameObject player, int? position)
     {
+        if (spawnPoints.Count == 0) return;
+
         Vector3 spawnPosition;
 
         spawnPosition = position.HasValue ? spawnPoints[position.Value].position :
@@ -166,5 +180,18 @@ public class _LevelManager : MonoBehaviour
 
         EndMenu.SetActive(true);
         //Implement the end of the game.
+    }
+
+    public void CheckTest()
+    {
+        players.Clear();
+
+        var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in playerPrefs)
+        {
+            players.Add(player.GetComponent<PlayerController>());
+            if (!player.activeSelf) player.SetActive(true);
+        }
     }
 }
