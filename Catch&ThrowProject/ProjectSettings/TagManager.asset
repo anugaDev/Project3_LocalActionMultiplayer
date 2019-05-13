@@ -23,9 +23,9 @@ TagManager:
   - Player
   - PlayerJumping
   - Platform
-  - Projectile
+  - ProjectileUp
   - CollectableItem
-  - 
+  - ProjectileDown
   - 
   - 
   - 
