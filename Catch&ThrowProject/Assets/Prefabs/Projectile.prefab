@@ -121,6 +121,8 @@ MonoBehaviour:
   projectileOutline: {fileID: 5665831157426599893}
   neutralTakeColor: {r: 0, g: 0, b: 0, a: 0}
   nailed: 0
+  UpLayer: 13
+  downLayer: 15
 --- !u!135 &4665147726333283526
 SphereCollider:
   m_ObjectHideFlags: 0
