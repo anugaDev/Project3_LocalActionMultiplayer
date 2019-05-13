@@ -30,13 +30,21 @@ public class Attack : BaseState
     [SerializeField] private LayerMask meleeDetectionMask;
     [SerializeField] private float meleeHitDamage;
     [SerializeField] private float hitForce;
+    [SerializeField] private GameObject meleeAffordance;
+
 
     [SerializeField] private Color playerColor;
-
     private Vector3 gizmosDir;
-    
+
+    private void Start()
+    {
+        meleeAffordance.transform.localScale = Vector3.one * meleeDetectionDistance;
+        meleeAffordance.SetActive(false);
+    }
+
     public override void Enter()
     {
+        meleeAffordance.SetActive(true);
         directionAffordance.gameObject.SetActive(true);
         lastDir = transform.right.normalized;
         
@@ -124,6 +132,7 @@ public class Attack : BaseState
     }
     public override void Exit()
     {
+        meleeAffordance.SetActive(false);
         directionAffordance.gameObject.SetActive(false);
     }
     public void ShootProjectile(Vector2 direction)
