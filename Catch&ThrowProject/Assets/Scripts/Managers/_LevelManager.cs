@@ -55,6 +55,7 @@ public class _LevelManager : MonoBehaviour
                 if (!player.activeSelf) player.SetActive(true);
             }
 
+            CheckTest();
             SetNewGame();
         }
     }
@@ -167,5 +168,18 @@ public class _LevelManager : MonoBehaviour
 
         EndMenu.SetActive(true);
         //Implement the end of the game.
+    }
+
+    public void CheckTest()
+    {
+        players.Clear();
+
+        var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in playerPrefs)
+        {
+            players.Add(player.GetComponent<PlayerController>());
+            if (!player.activeSelf) player.SetActive(true);
+        }
     }
 }

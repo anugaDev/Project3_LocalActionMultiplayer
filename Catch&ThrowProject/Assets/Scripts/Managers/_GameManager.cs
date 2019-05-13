@@ -58,6 +58,13 @@ public class _GameManager : MonoBehaviour
 
         _LevelManager.instance.players.Clear();
 
+        _LevelManager.instance.testingScene = false;
+        _LevelManager.instance.CheckTest();
+
+        foreach (PlayerController player in _LevelManager.instance.players) { player.gameObject.SetActive(false); }
+
+        _LevelManager.instance.players.Clear();
+
         foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();

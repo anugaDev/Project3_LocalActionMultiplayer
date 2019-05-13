@@ -3615,12 +3615,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
+        type: 3}
+      propertyPath: shootOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
+=======
+=======
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+=======
     - target: {fileID: 4205472215443825071, guid: 21263b536f790fe4dbbc6a033a3011a7,
+>>>>>>> parent of a1c12ba... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+<<<<<<< HEAD
+      objectReference: {fileID: 654882844}
+    - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
+<<<<<<< HEAD
+>>>>>>> 03e5c8c0ee3fed2f2a3d35d55d5b011c6bba21f6
+=======
       objectReference: {fileID: 2100000, guid: 200610bd9a83b02439edc6c040ccbff7, type: 2}
     - target: {fileID: 4205472215443825073, guid: 21263b536f790fe4dbbc6a033a3011a7,
+>>>>>>> parent of a1c12ba... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
+=======
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
         type: 3}
       propertyPath: shootOffset
       value: 1
@@ -3705,6 +3729,11 @@ PrefabInstance:
       propertyPath: timeBetweenBlinking
       value: 0.02
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of a1c12ba... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     - target: {fileID: 4205472215443825065, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: uiPanel
@@ -3725,6 +3754,10 @@ PrefabInstance:
       propertyPath: jumpingSpeed
       value: 36
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+>>>>>>> 03e5c8c0ee3fed2f2a3d35d55d5b011c6bba21f6
+=======
     - target: {fileID: 8854126468993262086, guid: 21263b536f790fe4dbbc6a033a3011a7,
         type: 3}
       propertyPath: minThrowForce
@@ -3740,6 +3773,9 @@ PrefabInstance:
       propertyPath: reactionForceMultiplier
       value: 0.5
       objectReference: {fileID: 0}
+>>>>>>> parent of a1c12ba... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
+=======
+>>>>>>> parent of 186468a... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer
     - target: {fileID: 309804493, guid: 21263b536f790fe4dbbc6a033a3011a7, type: 3}
       propertyPath: cooldownVisual
       value: 
