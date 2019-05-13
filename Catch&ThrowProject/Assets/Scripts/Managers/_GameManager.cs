@@ -49,6 +49,15 @@ public class _GameManager : MonoBehaviour
     {
         if (scene.buildIndex != SceneToLoadNumber) return;
 
+        _LevelManager.instance.testingScene = false;
+
+        foreach (PlayerController player in _LevelManager.instance.players)
+        {
+            player.gameObject.SetActive(false);
+        }
+
+        _LevelManager.instance.players.Clear();
+
         foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();
