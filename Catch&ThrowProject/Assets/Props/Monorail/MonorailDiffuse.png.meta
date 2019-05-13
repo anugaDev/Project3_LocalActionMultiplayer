@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Catch&ThrowProject/Assets/Props/Background/Texture/background test1.png.meta
-guid: 6a35d5bce89f129478774e0d8a8b21a2
-=======
-guid: 74b406a7efd13f94381bfa45133cf13b
->>>>>>> parent of a1c12ba... Merge branch 'master' of https://github.com/anugaDev/Project3_LocalActionMultiplayer:Catch&ThrowProject/Assets/Props/Monorail/MonorailDiffuse.png.meta
+guid: 9625a1743a5ee0e48bdc80a27b52abca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
