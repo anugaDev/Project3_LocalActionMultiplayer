@@ -49,6 +49,18 @@ public class _GameManager : MonoBehaviour
     {
         if (scene.buildIndex != SceneToLoadNumber) return;
 
+<<<<<<< HEAD
+=======
+        _LevelManager.instance.testingScene = false;
+
+        foreach (PlayerController player in _LevelManager.instance.players)
+        {
+            player.gameObject.SetActive(false);
+        }
+
+        _LevelManager.instance.players.Clear();
+
+>>>>>>> parent of acf150d... Test without character selection & shield spawner class created
         foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();

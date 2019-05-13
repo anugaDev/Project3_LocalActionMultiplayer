@@ -41,6 +41,25 @@ public class _LevelManager : MonoBehaviour
         if (instance != this) Destroy(this);
     }
 
+<<<<<<< HEAD
+=======
+    private void Start()
+    {
+        if (testingScene)
+        {
+            var playerPrefs = GameObject.FindGameObjectsWithTag("Player");
+
+            foreach (GameObject player in playerPrefs)
+            {
+                players.Add(player.GetComponent<PlayerController>());
+                if (!player.activeSelf) player.SetActive(true);
+            }
+
+            SetNewGame();
+        }
+    }
+
+>>>>>>> parent of acf150d... Test without character selection & shield spawner class created
     private void StartGame()
     {
         cameraFollow.enabled = true;
