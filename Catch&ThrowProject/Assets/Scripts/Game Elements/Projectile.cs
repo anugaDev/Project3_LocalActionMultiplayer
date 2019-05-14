@@ -21,7 +21,11 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]private bool nailed = false;
 
-    private void FixedUpdate()
+    [SerializeField] private float projectileDownThreshold = -0.1f;
+    [SerializeField] private int UpLayer;
+    [SerializeField] private int downLayer;
+    
+    private void Update()
     {
         if (!nailed) rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
     }
@@ -31,6 +35,9 @@ public class Projectile : MonoBehaviour
         projectileSpeed = speed;
         originPlayer = originplayer;
         projectileOutline.OutlineColor = playerColor;
+
+        if (direction.y >= projectileDownThreshold) gameObject.layer = UpLayer;
+        else gameObject.layer = downLayer;
     }
 
     private void OnTriggerEnter(Collider other)

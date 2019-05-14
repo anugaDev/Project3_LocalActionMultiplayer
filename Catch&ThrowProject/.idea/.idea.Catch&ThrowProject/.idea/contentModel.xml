@@ -23,6 +23,7 @@
             </e>
           </e>
         </e>
+        <e p="MainMenu.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
             <e p="DynamicCamera.cs" t="Include" />
