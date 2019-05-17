@@ -6,7 +6,11 @@ public class Walk : BaseState
 {
     [SerializeField] private float walkSpeed;
 
-    public override void Enter() { }
+    public override void Enter()
+    {
+        if (animationBool != "") playerController.animator.SetBool(animationBool, true);
+        if (animationTrigger != "") playerController.animator.SetTrigger(animationTrigger);
+    }
 
     public override void Execute()
     {
@@ -24,5 +28,8 @@ public class Walk : BaseState
         #endregion
     }
 
-    public override void Exit() { }
+    public override void Exit()
+    {
+        if (animationBool != "") playerController.animator.SetBool(animationBool, false);
+    }
 }
