@@ -310,7 +310,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4097
   fallingSpeedThreshold: 50
-  downPlatformThreshold: -0.3
+  downPlatformThreshold: -0.5
   initialAmmo: 5
   timeForAmmo: 5
   maxAmmo: 5
