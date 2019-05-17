@@ -8,8 +8,7 @@ public class Walk : BaseState
 
     public override void Enter()
     {
-        if (animationBool != "") playerController.animator.SetBool(animationBool, true);
-        if (animationTrigger != "") playerController.animator.SetTrigger(animationTrigger);
+        base.Enter();
     }
 
     public override void Execute()
@@ -30,6 +29,6 @@ public class Walk : BaseState
 
     public override void Exit()
     {
-        if (animationBool != "") playerController.animator.SetBool(animationBool, false);
+        base.Exit();
     }
 }

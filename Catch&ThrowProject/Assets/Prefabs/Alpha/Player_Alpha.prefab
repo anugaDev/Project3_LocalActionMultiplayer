@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4205472215443825065}
-  controllerNumber: 1
+  controllerNumber: 2
   triggerDownThreshold: 0.5
   horizontalAxis: Horizontal
   verticalAxis: Vertical
@@ -517,6 +517,8 @@ MonoBehaviour:
   animationTrigger: 
   threshHoldSpeed: 25
   breakSpeed: 100
+  stunByTime: 0
+  stunTime: 1.5
 --- !u!114 &85762693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5330,7 +5332,7 @@ MonoBehaviour:
   blinkingTime: 0.1
   timeBetweenBlinking: 0.02
   shieldSprite: {fileID: 7007334774565343458}
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 3517728461437153857}
   lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.5882353}
   shieldStableColor: {r: 1, g: 1, b: 1, a: 0.5882353}
   shieldDestroyed: 0
@@ -5533,6 +5535,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5847889728140883532, guid: eefda62cf1023ec4db821f77bee171c9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefda62cf1023ec4db821f77bee171c9, type: 3}
 --- !u!1 &471227306420518994 stripped
