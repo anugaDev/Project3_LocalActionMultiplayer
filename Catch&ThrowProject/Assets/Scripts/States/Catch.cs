@@ -72,8 +72,12 @@ public class Catch : BaseState
 
         if (ThrowDirection == Vector3.zero) ThrowDirection = transform.right;
 
-        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-        playerController.caughtPlayer.Impulse(ThrowDirection, force, true);
+        if (ThrowDirection.y >= 0) playerController.gameObject.layer = caughtPlayer.jumpLayer;
+        else playerController.gameObject.layer = caughtPlayer.normalLayer;
+
+        
+        caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
+        caughtPlayer.Impulse(ThrowDirection, force, true);
 
         playerController.ChangeState(playerController.stunState);
         playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
