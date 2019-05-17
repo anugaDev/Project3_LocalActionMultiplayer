@@ -23,7 +23,6 @@
             </e>
           </e>
         </e>
-        <e p="MainMenu.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
             <e p="DynamicCamera.cs" t="Include" />
@@ -48,9 +47,6 @@
           <e p="Managers" t="Include">
             <e p="_GameManager.cs" t="Include" />
             <e p="_LevelManager.cs" t="Include" />
-          </e>
-          <e p="Spawner" t="Include">
-            <e p="Spawner.cs" t="Include" />
           </e>
           <e p="States" t="Include">
             <e p="Attack.cs" t="Include" />
