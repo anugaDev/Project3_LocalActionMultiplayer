@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 8935989501909455226}
   - component: {fileID: 329889195023050794}
   m_Layer: 0
-  m_Name: MovingTrainHang
+  m_Name: Hazard_MovingTrainHang_Alpha
   m_TagString: Death Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

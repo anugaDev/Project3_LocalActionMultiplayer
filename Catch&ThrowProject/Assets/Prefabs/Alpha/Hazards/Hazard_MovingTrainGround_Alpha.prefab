@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 8935989501909455226}
   - component: {fileID: 4313090518788800239}
   m_Layer: 0
-  m_Name: MovingTrainGround
+  m_Name: Hazard_MovingTrainGround_Alpha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
