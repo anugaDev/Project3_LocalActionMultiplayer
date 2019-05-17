@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody rigidbody;
     public Collider normalCollider;
-    public SkinnedMeshRenderer playerMesh;
-    public SkinnedMeshRenderer maskMesh;
+    public MeshRenderer playerMesh;
+    public MeshRenderer maskMesh;
 
     [Header("Classes")]
     public Shield shield;
