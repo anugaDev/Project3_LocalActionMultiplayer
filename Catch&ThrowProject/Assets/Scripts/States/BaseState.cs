@@ -8,7 +8,15 @@ public abstract class BaseState : MonoBehaviour
     [SerializeField] protected string animationBool;
     [SerializeField] protected string animationTrigger;
 
-    public virtual void Enter() { }
+    public virtual void Enter()
+    {
+        if (animationBool != "") playerController.animator.SetBool(animationBool, true);
+        if (animationTrigger != "") playerController.animator.SetTrigger(animationTrigger);
+    }
     public virtual void Execute() { }
-    public virtual void Exit() { }
+
+    public virtual void Exit()
+    {
+        if (animationBool != "") playerController.animator.SetBool(animationBool, false);
+    }
 }
