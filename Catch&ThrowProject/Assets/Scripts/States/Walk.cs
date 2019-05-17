@@ -6,7 +6,10 @@ public class Walk : BaseState
 {
     [SerializeField] private float walkSpeed;
 
-    public override void Enter() { }
+    public override void Enter()
+    {
+        base.Enter();
+    }
 
     public override void Execute()
     {
@@ -24,5 +27,8 @@ public class Walk : BaseState
         #endregion
     }
 
-    public override void Exit() { }
+    public override void Exit()
+    {
+        base.Exit();
+    }
 }
