@@ -33,7 +33,6 @@ public class Attack : BaseState
 
     [SerializeField] private Color playerColor;
 
-    private Vector3 gizmosDir;
     
     public override void Enter()
     {
@@ -81,7 +80,6 @@ public class Attack : BaseState
 
         #endregion
 
-        gizmosDir = direction;
 
         #region Attack
         if (playerController.inputControl.ButtonIsUp(InputController.Button.FIRE))

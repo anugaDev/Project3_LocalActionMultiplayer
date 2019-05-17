@@ -32,7 +32,7 @@ public class Dash : BaseState
     {
         Vector3 direction = playerController.inputControl.Direction.normalized;
         
-        playerController.gameObject.layer = playerController.jumpLayer;
+        if(direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
         playerTrigger.isTrigger = true;
@@ -107,13 +107,14 @@ public class Dash : BaseState
         StopAllCoroutines();
 
         catched = true;
-
         enemy.gameObject.layer = enemy.jumpLayer;
+
 
         enemy.ChangeState(enemy.caughtState);
 
         playerController.caughtPlayer = enemy;
         playerController.ChangeState(playerController.catchState);
+        
     }
 
     private void RepositionEnemy(PlayerController enemy)
