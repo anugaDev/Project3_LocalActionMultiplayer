@@ -16,26 +16,27 @@ public class PlayerSelectionPanel : MonoBehaviour
     public Image parentPanel;
     public Text pressToAssignText;
 
-    public MeshRenderer dummyMesh;
-    public MeshRenderer maskMesh;
+    public SkinnedMeshRenderer dummyMesh;
+    public SkinnedMeshRenderer maskMesh;
 
-    public Material dummyMat;
-    public Material maskMat;
+    public Material[] playerTextures;
+    public Material[] maskTextures;
 
-    public int[] materialPositions;
+    public Material playerMaterial;
+    public Material maskMaterial;
 
     public GameObject buttonPanel;
     public GameObject readyPanel;
 
     public GameObject playerVisualComponent;
 
-    public void Recolor(MeshRenderer[] meshes)
+    public void Recolor(int index)
     {
-        dummyMesh.material = meshes[0].material;
-        maskMesh.material = meshes[1].material;
+        dummyMesh.material = playerTextures[index];
+        maskMesh.material = maskTextures[index];
 
-        dummyMat = meshes[0].material;
-        maskMat = meshes[1].material;
+        playerMaterial = dummyMesh.sharedMaterial;
+        maskMaterial = maskMesh.sharedMaterial;
     }
 
     public void AssignController(int controllerNumber)

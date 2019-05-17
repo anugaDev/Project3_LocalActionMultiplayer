@@ -38,8 +38,8 @@ public class _GameManager : MonoBehaviour
         GameObject player = Instantiate(playerBasicPrefab);
 
         player.GetComponent<InputController>().controllerNumber = playerInfo.controllerNumber;
-        player.GetComponent<PlayerController>().playerMesh.material = playerInfo.dummyMat;
-        player.GetComponent<PlayerController>().maskMesh.material = playerInfo.maskMat;
+        player.GetComponent<PlayerController>().playerMesh.material = playerInfo.playerMaterial;
+        player.GetComponent<PlayerController>().maskMesh.material = playerInfo.maskMaterial;
         player.GetComponent<PlayerController>().enabled = false;
 
         _LevelManager.instance.players.Add(player.GetComponent<PlayerController>());

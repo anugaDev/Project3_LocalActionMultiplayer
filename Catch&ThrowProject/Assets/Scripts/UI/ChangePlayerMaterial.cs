@@ -42,7 +42,7 @@ public class ChangePlayerMaterial : MonoBehaviour
         if (Input.GetButtonDown(right + playerPanel.controllerNumber)) playerPanel.Recolor(GetMesh(InputDirection.Right));
     }
 
-    private MeshRenderer[] GetMesh(InputDirection? direction)
+    private int GetMesh(InputDirection? direction)
     {
         switch (direction)
         {
@@ -56,11 +56,6 @@ public class ChangePlayerMaterial : MonoBehaviour
                 break;
         }
 
-        MeshRenderer[] presets = new MeshRenderer[2];
-
-        presets[0] = dummyPresets[currentIndex];
-        presets[1] = maskPresets[currentIndex];
-
-        return presets;
+        return currentIndex;
     }
 }
