@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BaseState : MonoBehaviour
 {
     [SerializeField] protected PlayerController playerController;
+    [SerializeField] protected string animationBool;
     [SerializeField] protected string animationTrigger;
 
     public virtual void Enter() { }
