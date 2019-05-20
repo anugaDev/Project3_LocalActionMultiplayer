@@ -100,9 +100,6 @@ public class Catch : BaseState
                                         playerController.inputControl.Direction.y,
                                         0).normalized;
 
-        if (playerController.inputControl.keyboardAndMouse)
-            direction = playerController.inputControl.PlayerToMouseDirection();
-
         ThrowDirection = playerController.inputControl.Direction;
 
         float playerRotation = transform.rotation.eulerAngles.y == 0 ? 1 : -1;
