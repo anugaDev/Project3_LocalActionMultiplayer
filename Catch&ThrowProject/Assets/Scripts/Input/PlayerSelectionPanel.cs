@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerSelectionPanel : MonoBehaviour
 {
-    public GameObject playerPrefab;
-
     public bool HasPlayer = false;
     public bool GameStarting = false;
 
@@ -27,8 +25,6 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public GameObject buttonPanel;
     public GameObject readyPanel;
-
-    public GameObject playerVisualComponent;
 
     public void Recolor(int index)
     {

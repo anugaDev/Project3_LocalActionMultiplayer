@@ -38,6 +38,7 @@ public class _GameManager : MonoBehaviour
         GameObject player = Instantiate(playerBasicPrefab);
 
         player.GetComponent<InputController>().controllerNumber = playerInfo.controllerNumber;
+        player.GetComponent<InputController>().keyboardAndMouse = playerInfo.controllerNumber == 5 ? true : false;
         player.GetComponent<PlayerController>().playerMesh.material = playerInfo.playerMaterial;
         player.GetComponent<PlayerController>().maskMesh.material = playerInfo.maskMaterial;
         player.GetComponent<PlayerController>().enabled = false;
