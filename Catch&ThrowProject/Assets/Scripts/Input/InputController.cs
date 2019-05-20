@@ -30,6 +30,8 @@ public class InputController : MonoBehaviour
     public Vector2 Direction { get; private set; }
     public Vector2 RightDirection { get; private set; }
 
+    public bool keyboardAndMouse = false;
+
     public enum Button
     {
         JUMP,
@@ -58,11 +60,11 @@ public class InputController : MonoBehaviour
             Vertical = Input.GetAxis(verticalAxis);
             Direction = new Vector2(Horizontal, Vertical);
 
-            RightHorizontal = Input.GetAxis(rightHorizontalAxis);
-            RightVertical = Input.GetAxis(rightVerticalAxis);
-            RightDirection = new Vector2(RightHorizontal, RightVertical);
+            // RightHorizontal = Input.GetAxis(rightHorizontalAxis);
+            // RightVertical = Input.GetAxis(rightVerticalAxis);
+            // RightDirection = new Vector2(RightHorizontal, RightVertical);
 
-//            TriggerToButton();
+            //            TriggerToButton();
         }
     }
 
@@ -85,8 +87,8 @@ public class InputController : MonoBehaviour
         horizontalAxis = "Horizontal" + controllerNumber;
         verticalAxis = "Vertical" + controllerNumber;
 
-        rightHorizontalAxis = "RHorizontal" + controllerNumber;
-        rightVerticalAxis = "RVertical" + controllerNumber;
+        //  rightHorizontalAxis = "RHorizontal" + controllerNumber;
+        //  rightVerticalAxis = "RVertical" + controllerNumber;
 
         jumpButton = "Jump" + controllerNumber;
         dashButton = "Dash" + controllerNumber;
@@ -118,6 +120,7 @@ public class InputController : MonoBehaviour
 
         return false;
     }
+
     public bool ButtonIsUp(Button button)
     {
         switch (button)
@@ -128,5 +131,18 @@ public class InputController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public Vector2 PlayerToMouseDirection()
+    {
+        Vector3 playerPosition = transform.position;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector2 normalizedVector = new Vector2(0,0);
+
+        normalizedVector.x = mousePosition.x - playerPosition.x;
+        normalizedVector.y = mousePosition.y - playerPosition.y;
+
+        return normalizedVector.normalized;
     }
 }
