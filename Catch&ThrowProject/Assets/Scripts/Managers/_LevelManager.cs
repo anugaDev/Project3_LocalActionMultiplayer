@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class _LevelManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class _LevelManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject EndMenu;
     public GameObject playerPanelPrefab;
+
+    public GameObject countdownText;
 
     public bool testingScene;
 
@@ -111,14 +114,14 @@ public class _LevelManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             SpawnPlayer(players[i].gameObject, i);
+            players[i].enabled = false;
 
             cameraFollow.objectsToShow.Add(players[i].transform);
         }
 
         //Here you would wait until counter goes down or some visual effect
-        //StartCoroutine(StartCountdown()); -HALF IMPLEMENTED-
-
-        StartGame();
+        if (testingScene) StartGame();
+        else StartCoroutine(StartCountdown(3));
     }
 
     public void SpawnPlayer(GameObject player, int? position)
@@ -202,23 +205,29 @@ public class _LevelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartCountdown()
+    public IEnumerator StartCountdown(int secondsBeforeGame)
     {
-        //Show 3
+        Time.timeScale = 0;
 
-        yield return new WaitForSeconds(1);
+        countdownText.SetActive(true);
 
-        //Show 2
+        Text backgroundText = countdownText.GetComponent<Text>();
+        Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
 
-        yield return new WaitForSeconds(1);
+        for (int i = secondsBeforeGame; i > 0; i--)
+        {
+            backgroundText.text = i.ToString();
+            foregroundText.text = i.ToString();
 
-        //Show 1
+            yield return new WaitForSecondsRealtime(1);
+        }
 
-        yield return new WaitForSeconds(1);
+        backgroundText.text = "Blitz!";
+        foregroundText.text = "Blitz!";
 
-        //Show Blitz
+        yield return new WaitForSecondsRealtime(1);
 
-        yield return new WaitForSeconds(1);
+        countdownText.SetActive(false);
 
         StartGame();
     }

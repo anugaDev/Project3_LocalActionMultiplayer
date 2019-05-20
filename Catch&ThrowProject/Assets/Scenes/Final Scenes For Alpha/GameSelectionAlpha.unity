@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3087121a73b22f44ba6c8353948bc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayers: 4
+  maxPlayers: 5
   joinButton: Jump
   startGameButton: Start
   playerSelectionPanels:
