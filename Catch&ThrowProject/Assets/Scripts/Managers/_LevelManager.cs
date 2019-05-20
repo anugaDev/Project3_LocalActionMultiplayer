@@ -19,6 +19,9 @@ public class _LevelManager : MonoBehaviour
     public int StartingLifes = 10;
     public int MatchDuration = 120;
 
+    public bool matchByTime = false;
+    private float gameTimer = 0f;
+
     [Header("UI Elements")]
     public GameObject UI_Parent;
     public GameObject PauseMenu;
@@ -60,6 +63,21 @@ public class _LevelManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (matchByTime && matchState == MatchState.Playing)
+        {
+            gameTimer += Time.deltaTime;
+
+            if (gameTimer >= MatchDuration)
+            {
+                gameTimer = 0;
+
+                EndMatch();
+            }
+        }
+    }
+
     private void StartGame()
     {
         cameraFollow.enabled = true;
@@ -98,6 +116,7 @@ public class _LevelManager : MonoBehaviour
         }
 
         //Here you would wait until counter goes down or some visual effect
+        //StartCoroutine(StartCountdown()); -HALF IMPLEMENTED-
 
         StartGame();
     }
@@ -146,7 +165,7 @@ public class _LevelManager : MonoBehaviour
         player.health--;
         player.uiPanel.RemoveLife(player.health);
 
-        if (player.health == 0)
+        if (player.health == 0 && !matchByTime)
         {
             cameraFollow.objectsToShow.Remove(player.transform);
             player.gameObject.SetActive(false);
@@ -181,5 +200,26 @@ public class _LevelManager : MonoBehaviour
             players.Add(player.GetComponent<PlayerController>());
             if (!player.activeSelf) player.SetActive(true);
         }
+    }
+
+    public IEnumerator StartCountdown()
+    {
+        //Show 3
+
+        yield return new WaitForSeconds(1);
+
+        //Show 2
+
+        yield return new WaitForSeconds(1);
+
+        //Show 1
+
+        yield return new WaitForSeconds(1);
+
+        //Show Blitz
+
+        yield return new WaitForSeconds(1);
+
+        StartGame();
     }
 }
