@@ -14,7 +14,6 @@ public class Stun : BaseState
 
     public override void Enter()
     {
-        playerController.gameObject.layer = playerController.jumpLayer;
     }
 
     public override void Execute()

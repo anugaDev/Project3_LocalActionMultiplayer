@@ -56,6 +56,8 @@ public class Die : BaseState
 
     public void Respawn()
     {
+        playerController.gameObject.layer = playerController.normalLayer;
+        playerController.rigidbody.velocity = Vector3.zero;
         playerController.RespawnAmmo();
         playerController.isDead = false;
         _LevelManager.instance.SpawnPlayer(gameObject, null);
@@ -64,7 +66,6 @@ public class Die : BaseState
         rotation.y = transform.position.x > 0 ? 180 : 0;
         transform.rotation = Quaternion.Euler(rotation);
         playerModel.SetActive(true);
-        playerController.gameObject.layer = playerController.normalLayer;
         playerController.shield.ResetShield();
 
         playerController.ChangeState(playerController.idleState);

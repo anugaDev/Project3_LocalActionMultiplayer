@@ -81,12 +81,13 @@ public class Catch : BaseState
         if (-ThrowDirection.y >= 0)
         {
             playerController.gameObject.layer = caughtPlayer.jumpLayer;
-            print("onJumpLayer");
         }
 
         caughtPlayer.stunState.stunByTime = false;
-        caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
+        if(ThrowDirection.y > 0) caughtPlayer.gameObject.layer = caughtPlayer.jumpLayer;
         caughtPlayer.Impulse(ThrowDirection, force, true);
+        caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
+
 
         playerController.ChangeState(playerController.stunState);
         if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
