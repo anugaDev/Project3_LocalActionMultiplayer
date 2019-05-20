@@ -73,6 +73,10 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
+        caughtPlayer.StopCoroutine(caughtPlayer.resetKiller);
+        caughtPlayer.killer = playerController;
+        caughtPlayer.StartCoroutine(caughtPlayer.resetKiller);
+
         playerController.gameObject.layer = caughtPlayer.normalLayer;
         float force = Mathf.Max(throwForce * (1 - (timer / timeBeforeThrow)), minThrowForce);
 

@@ -16,6 +16,8 @@ public class _LevelManager : MonoBehaviour
 
     public DynamicCamera cameraFollow;
 
+    public PlayerVictoryConditions matchInfo = new PlayerVictoryConditions();
+
     [Header("Match Settings")]
     public int StartingLifes = 10;
     public int MatchDuration = 120;
@@ -66,7 +68,7 @@ public class _LevelManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (matchByTime && matchState == MatchState.Playing)
         {
@@ -115,11 +117,11 @@ public class _LevelManager : MonoBehaviour
         {
             SpawnPlayer(players[i].gameObject, i);
             players[i].enabled = false;
+            matchInfo.SetPlayer(players[i]);
 
             cameraFollow.objectsToShow.Add(players[i].transform);
         }
 
-        //Here you would wait until counter goes down or some visual effect
         if (testingScene) StartGame();
         else StartCoroutine(StartCountdown(3));
     }
@@ -168,19 +170,26 @@ public class _LevelManager : MonoBehaviour
         player.health--;
         player.uiPanel.RemoveLife(player.health);
 
-        if (player.health == 0 && !matchByTime)
+        if (player.health == 0)
         {
+            matchInfo.UpdateValues(player);
+
             cameraFollow.objectsToShow.Remove(player.transform);
             player.gameObject.SetActive(false);
 
-            int alivePlayers = 0;
-
-            for (int i = 0; i < players.Count; i++)
+            if (!matchByTime)
             {
-                if (players[i].health > 0) alivePlayers++;
-            }
+                int alivePlayers = 0;
 
-            if (alivePlayers == 1) EndMatch();
+                for (int i = 0; i < players.Count; i++)
+                {
+                    if (players[i].health > 0) alivePlayers++;
+                }
+
+                matchInfo.matchInfo[player].rank = alivePlayers++;
+
+                if (alivePlayers == 1) EndMatch();
+            }
         }
     }
 
@@ -188,8 +197,9 @@ public class _LevelManager : MonoBehaviour
     {
         matchState = MatchState.Ending;
 
+        if (matchByTime) matchInfo.SetRankingsByKills();
+
         EndMenu.SetActive(true);
-        //Implement the end of the game.
     }
 
     public void CheckTest()

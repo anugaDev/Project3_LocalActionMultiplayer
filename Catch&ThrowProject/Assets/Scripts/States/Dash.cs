@@ -30,9 +30,12 @@ public class Dash : BaseState
 
     [SerializeField] private ParticleSystem dashParticles;
 
+    private IEnumerator stopDash;
+
     public override void Enter()
     {
         Vector3 direction = playerController.inputControl.Direction;
+        
         if (playerController.inputControl.keyboardAndMouse)
             direction = playerController.inputControl.PlayerToMouseDirection();
         if (direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
@@ -41,11 +44,12 @@ public class Dash : BaseState
         playerTrigger.isTrigger = true;
 
 
-        playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
+        playerController.Impulse(direction == Vector3.zero ? transform.right : direction ,speed, false);
         actualDirection = direction;
 
         dashParticles.Play();
-        StartCoroutine(StopDash());
+        stopDash = StopDash();
+        StartCoroutine(stopDash);
     }
 
     private void Update()
@@ -67,7 +71,9 @@ public class Dash : BaseState
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity = new Vector3(playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
+        StopCoroutine(stopDash);
+        
+        playerController.rigidbody.velocity = new Vector3(playerController.CheckForGround() ? 0 : playerController.rigidbody.velocity.x,
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 
@@ -105,26 +111,26 @@ public class Dash : BaseState
 
         if (enemy.shield.shieldDestroyed)
         {
-            CatchPlayer(enemy);
-            return;
+            CatchPlayer(enemy);           
         }
-        //        else
-        //        {
-        //            playerController.stunState.stunByTime = true;
-        //
-        //            playerController.ChangeState(playerController.stunState);
-        //            playerController.Impulse(actualDirection,pushBackForce, true);
-        //
-        //        }
-        //
-        //        if (enemy.stateMachine.currentState == enemy.dashState)
-        //        {
-        //            enemy.stunState.stunByTime = true;
-        //
-        //            enemy.ChangeState(enemy.stunState);
-        //            enemy.Impulse(-actualDirection,pushBackForce, true);
-        //
-        //        }
+        else
+        {
+            print("HasShield");
+//            playerController.stunState.stunByTime = true;
+        
+            playerController.ChangeState(playerController.stunState);
+            playerController.rigidbody.velocity = Vector3.zero;
+            playerController.Impulse(-actualDirection,pushBackForce, true);
+
+            if (enemy.stateMachine.currentState != enemy.dashState) return;
+//            enemy.stunState.stunByTime = true;
+        
+            enemy.ChangeState(enemy.stunState);
+            enemy.Impulse(actualDirection,pushBackForce, true);
+
+        }
+        
+       
     }
 
     private void CatchPlayer(PlayerController enemy)

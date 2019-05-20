@@ -30,15 +30,11 @@ public class Stun : BaseState
             }
         }
         else
-        {
             if (playerController.rigidbody.velocity.magnitude <= threshHoldSpeed) playerController.ChangeState(playerController.fallState);
-            else
-            {
-                Vector3 breakVector = new Vector3(playerController.rigidbody.velocity.x > 0 ? -1 : 1, -1, 0);
+       
+        Vector3 breakVector = new Vector3(playerController.rigidbody.velocity.x > 0 ? -1 : 1, -1, 0);
 
-                playerController.rigidbody.velocity += breakVector * breakSpeed * Time.deltaTime;
-            }
-        }
+        playerController.rigidbody.velocity += breakVector * breakSpeed * Time.deltaTime;
     }
 
     public override void Exit()

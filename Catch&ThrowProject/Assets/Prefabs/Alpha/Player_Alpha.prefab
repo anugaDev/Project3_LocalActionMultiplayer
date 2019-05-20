@@ -336,7 +336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4205472215443825065}
   controllerNumber: 1
-  triggerDownThreshold: 0.5
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   rightHorizontalAxis: RHorizontal
@@ -345,6 +344,7 @@ MonoBehaviour:
   dashButton: Dash
   fireButton: Fire
   pauseButton: 
+  keyboardAndMouse: 0
 --- !u!114 &4205472215443825077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   meleeParticles: {fileID: 2943932454995581790, guid: 5291f570cac4ce24180fd294ced9f20c,
     type: 3}
   meleeDetectionAngle: 90
-  meleeDetectionDistance: 2
+  meleeDetectionDistance: 3.5
   meleeDetectionMask:
     serializedVersion: 2
     m_Bits: 3072
