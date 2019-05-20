@@ -29,7 +29,7 @@ public class Catch : BaseState
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.caughtPlayer.gameObject.layer = playerController.caughtPlayer.normalLayer;
 
-            
+
         directionMarker.SetActive(true);
 
         playerController.rigidbody.velocity = Vector3.zero;
@@ -89,7 +89,7 @@ public class Catch : BaseState
         caughtPlayer.Impulse(ThrowDirection, force, true);
 
         playerController.ChangeState(playerController.stunState);
-        if(!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
+        if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
     }
 
     private void PositionateMarker()
@@ -99,6 +99,9 @@ public class Catch : BaseState
         Vector3 direction = new Vector3(-playerController.inputControl.Direction.x,
                                         playerController.inputControl.Direction.y,
                                         0).normalized;
+
+        if (playerController.inputControl.keyboardAndMouse)
+            direction = playerController.inputControl.PlayerToMouseDirection();
 
         ThrowDirection = playerController.inputControl.Direction;
 

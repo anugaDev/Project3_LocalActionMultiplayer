@@ -66,8 +66,6 @@ public class Attack : BaseState
 
         #region Direction Affordance
 
-        if (playerController.inputControl.keyboardAndMouse) return;//Aim with Mouse Position 
-
         var actualDirection = (Vector3)playerController.inputControl.Direction;
         var direction = lastDir;
         if (actualDirection != Vector3.zero)

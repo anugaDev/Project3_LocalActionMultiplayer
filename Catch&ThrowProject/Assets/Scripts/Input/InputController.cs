@@ -26,6 +26,8 @@ public class InputController : MonoBehaviour
 
     public bool keyboardAndMouse = false;
 
+    private Camera mainCamera;
+
     public enum Button
     {
         JUMP,
@@ -38,15 +40,14 @@ public class InputController : MonoBehaviour
     {
         if (!player) player = GetComponent<PlayerController>();
 
+        mainCamera = Camera.main;
+
         AssignButtons();
     }
 
     private void Update()
     {
         SetMovementAxis();
-        
-        print(Direction);
-        
     }
 
     private void SetMovementAxis()
@@ -109,9 +110,8 @@ public class InputController : MonoBehaviour
 
     public Vector2 PlayerToMouseDirection()
     {
-        print("takingDir");
-        Vector3 playerPosition = transform.position;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 playerPosition = mainCamera.WorldToScreenPoint(transform.position);
+        Vector3 mousePosition = Input.mousePosition;
 
         Vector2 normalizedVector = new Vector2(0, 0);
 

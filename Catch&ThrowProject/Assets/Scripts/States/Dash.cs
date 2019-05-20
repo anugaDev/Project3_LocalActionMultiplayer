@@ -33,13 +33,14 @@ public class Dash : BaseState
     public override void Enter()
     {
         Vector3 direction = playerController.inputControl.Direction;
-        
-        if(direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
+        if (playerController.inputControl.keyboardAndMouse)
+            direction = playerController.inputControl.PlayerToMouseDirection();
+        if (direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
         available = false;
 
         playerTrigger.isTrigger = true;
 
-       
+
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
         actualDirection = direction;
 
@@ -51,40 +52,39 @@ public class Dash : BaseState
     {
         if (available || playerController.stateMachine.currentState == this) return;
 
-        if(released)timer += Time.deltaTime;
-        playerController.uiPanel.UpdateDashFill(timer,cooldown);
+        if (released) timer += Time.deltaTime;
+        playerController.uiPanel.UpdateDashFill(timer, cooldown);
 
         if (timer >= cooldown)
         {
-//            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
+            //            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
             available = true;
             timer = 0;
         }
     }
 
-    
+
 
     public override void Exit()
     {
-        playerController.rigidbody.velocity = new Vector3 (playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
+        playerController.rigidbody.velocity = new Vector3(playerController.onGround ? 0 : playerController.rigidbody.velocity.x,
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 
-        
-        if(!catched) playerController.gameObject.layer = playerController.normalLayer;
+
+        if (!catched) playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
         dashParticles.Stop();
 
         catched = false;
     }
+
     public void InstantDashReload()
     {
         timer = cooldown;
         available = true;
-        playerController.uiPanel.UpdateDashFill(timer,cooldown);
-
-
+        playerController.uiPanel.UpdateDashFill(timer, cooldown);
     }
 
     private IEnumerator StopDash()
@@ -108,23 +108,23 @@ public class Dash : BaseState
             CatchPlayer(enemy);
             return;
         }
-//        else
-//        {
-//            playerController.stunState.stunByTime = true;
-//
-//            playerController.ChangeState(playerController.stunState);
-//            playerController.Impulse(actualDirection,pushBackForce, true);
-//
-//        }
-//
-//        if (enemy.stateMachine.currentState == enemy.dashState)
-//        {
-//            enemy.stunState.stunByTime = true;
-//
-//            enemy.ChangeState(enemy.stunState);
-//            enemy.Impulse(-actualDirection,pushBackForce, true);
-//
-//        }
+        //        else
+        //        {
+        //            playerController.stunState.stunByTime = true;
+        //
+        //            playerController.ChangeState(playerController.stunState);
+        //            playerController.Impulse(actualDirection,pushBackForce, true);
+        //
+        //        }
+        //
+        //        if (enemy.stateMachine.currentState == enemy.dashState)
+        //        {
+        //            enemy.stunState.stunByTime = true;
+        //
+        //            enemy.ChangeState(enemy.stunState);
+        //            enemy.Impulse(-actualDirection,pushBackForce, true);
+        //
+        //        }
     }
 
     private void CatchPlayer(PlayerController enemy)
@@ -141,7 +141,7 @@ public class Dash : BaseState
 
         playerController.caughtPlayer = enemy;
         playerController.ChangeState(playerController.catchState);
-        
+
     }
 
     private void RepositionEnemy(PlayerController enemy)
