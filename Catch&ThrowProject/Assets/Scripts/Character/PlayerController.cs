@@ -67,6 +67,15 @@ public class PlayerController : MonoBehaviour
 
     public PlayerController caughtPlayer;
 
+    #region MyRegion
+
+    public PlayerController killer;
+
+    public float secondsToResetKiller = 4f;
+    public IEnumerator resetKiller;
+
+    #endregion
+
     private void Start()
     {
         recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
@@ -93,7 +102,7 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.FIRE) && attackState.reloaded && stateMachine.currentState != attackState) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available)
             {
-                if(!CheckForGround()) ChangeState(dashState);
+                if (!CheckForGround()) ChangeState(dashState);
                 else if (inputControl.Vertical > downPlatformThreshold) ChangeState(dashState);
             }
 
@@ -170,9 +179,10 @@ public class PlayerController : MonoBehaviour
 
         return onGround;
     }
+
     private void OnCollisionEnter(Collision other)
     {
-        if(stateMachine.currentState.Equals(dieState)) return;
+        if (stateMachine.currentState.Equals(dieState)) return;
         if (other.gameObject.CompareTag("Death Zone")) ChangeState(dieState);
         else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
@@ -255,6 +265,13 @@ public class PlayerController : MonoBehaviour
         uiPanel.SetAmmoFillActive(false);
         actualAmmo++;
         reloadAmmoinCourse = false;
+    }
+
+    private IEnumerator ResetKiller()
+    {
+        yield return new WaitForSeconds(secondsToResetKiller);
+
+        killer = null;
     }
 
     public void RespawnAmmo()
