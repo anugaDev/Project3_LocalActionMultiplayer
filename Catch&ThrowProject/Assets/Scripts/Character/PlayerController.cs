@@ -195,19 +195,21 @@ public class PlayerController : MonoBehaviour
         {
             shield.ImpactBlink();
             stunState.stunByTime = true;
+            if (CheckForGround()) hitDirection.y = 1;
+            Impulse(hitDirection,hitForce,true);
             ChangeState(stunState);
         }
     }
 
-    public void MeleeHit(float meleeDamage, Vector3 hitDirection, float hitForce)
+    public void MeleeHit(float meleeDamage, Vector3 hitDirection, float hitForce, PlayerController other)
     {
+        Impulse(hitDirection, hitForce, true);
+        ChangeState(stunState);
         shield.Hit(meleeDamage);
 
         if (stateMachine.currentState == dashState)
         {
-            Impulse(hitDirection, hitForce, true);
-            stunState.stunByTime = true;
-            ChangeState(stunState);
+            other.shield.ShieldRegenerate();
         }
     }
 

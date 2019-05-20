@@ -149,7 +149,7 @@ public class Attack : BaseState
     public void HitMelee(PlayerController enemyPlayer, Vector3 direction)
     {
         Instantiate(meleeParticles, enemyPlayer.transform.position, transform.rotation);
-        enemyPlayer.MeleeHit(meleeHitDamage, direction, hitForce);
+        enemyPlayer.MeleeHit(meleeHitDamage, direction, hitForce, playerController);
 
         AttackFinished();
     }
