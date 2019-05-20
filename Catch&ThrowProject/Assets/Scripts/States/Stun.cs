@@ -44,6 +44,7 @@ public class Stun : BaseState
 
     public override void Exit()
     {
+        timer = 0;
         playerController.CanMove = true;
         playerController.Invulnerable = false;
     }

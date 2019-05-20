@@ -25,6 +25,11 @@ public class Catch : BaseState
 
     public override void Enter()
     {
+
+        playerController.gameObject.layer = playerController.normalLayer;
+        playerController.caughtPlayer.gameObject.layer = playerController.caughtPlayer.normalLayer;
+
+            
         directionMarker.SetActive(true);
 
         playerController.rigidbody.velocity = Vector3.zero;
@@ -68,19 +73,23 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
+        playerController.gameObject.layer = caughtPlayer.normalLayer;
         float force = Mathf.Max(throwForce * (1 - (timer / timeBeforeThrow)), minThrowForce);
 
         if (ThrowDirection == Vector3.zero) ThrowDirection = transform.right;
 
-        if (ThrowDirection.y >= 0) playerController.gameObject.layer = caughtPlayer.jumpLayer;
-        else playerController.gameObject.layer = caughtPlayer.normalLayer;
+        if (-ThrowDirection.y >= 0)
+        {
+            playerController.gameObject.layer = caughtPlayer.jumpLayer;
+            print("onJumpLayer");
+        }
 
-        
+        caughtPlayer.stunState.stunByTime = false;
         caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
         caughtPlayer.Impulse(ThrowDirection, force, true);
 
         playerController.ChangeState(playerController.stunState);
-        playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
+        if(!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
     }
 
     private void PositionateMarker()

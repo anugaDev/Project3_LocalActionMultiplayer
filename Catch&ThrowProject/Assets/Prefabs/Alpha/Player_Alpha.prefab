@@ -49,6 +49,7 @@ MonoBehaviour:
   animationBool: 
   animationTrigger: 
   speed: 50
+  pushBackForce: 40
   duration: 0.1
   exitSpeedMultiplier: 0.5
   imageShakeForce: 0
@@ -5475,11 +5476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RUN
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: eefda62cf1023ec4db821f77bee171c9,
+    - target: {fileID: 5847889728140883532, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
-      propertyPath: m_Controller
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 9100000, guid: 37c71e80ba3768042a147fe2987b4c87, type: 2}
+      objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
     - target: {fileID: -4216859302048453862, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5535,11 +5536,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5847889728140883532, guid: eefda62cf1023ec4db821f77bee171c9,
+    - target: {fileID: -6057140222963153312, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
+      objectReference: {fileID: 9100000, guid: 37c71e80ba3768042a147fe2987b4c87, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefda62cf1023ec4db821f77bee171c9, type: 3}
 --- !u!1 &471227306420518994 stripped

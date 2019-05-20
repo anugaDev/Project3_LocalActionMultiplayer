@@ -72,10 +72,15 @@ public class Fall : BaseState
     {
         if (playerController.rigidbody.velocity.y < 0 && gameObject.layer == playerController.jumpLayer)
         {
-            if (!Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius, checkPlatformsLayerMask)
-                .Any())
+            if (IsNotCrossingPlatforms())
                 gameObject.layer = playerController.normalLayer;
         }
+    }
+
+    public bool IsNotCrossingPlatforms()
+    {
+        return !Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+                checkPlatformsLayerMask).Any();
     }
 
     public void ExecuteFallSpeed()

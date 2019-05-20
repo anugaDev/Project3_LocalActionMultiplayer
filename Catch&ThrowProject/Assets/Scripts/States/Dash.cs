@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Dash : BaseState
 {
     [SerializeField] private float speed;
+    [SerializeField] private float pushBackForce;
     [SerializeField] private float duration;
     [SerializeField] private float exitSpeedMultiplier = 0.10f;
     [SerializeField] private float imageShakeForce;
@@ -25,6 +26,7 @@ public class Dash : BaseState
 
     private float timer = 0;
     private GameUtilities gameUtils = new GameUtilities();
+    private Vector3 actualDirection;
 
     [SerializeField] private ParticleSystem dashParticles;
 
@@ -39,6 +41,7 @@ public class Dash : BaseState
 
        
         playerController.rigidbody.velocity = (direction == Vector3.zero ? transform.right : direction) * speed;
+        actualDirection = direction;
 
         dashParticles.Play();
         StartCoroutine(StopDash());
@@ -97,7 +100,31 @@ public class Dash : BaseState
 
         var enemy = other.GetComponentInParent<PlayerController>();
 
-        if (enemy && enemy.shield.shieldDestroyed) CatchPlayer(enemy);
+        if (!enemy) return;
+
+
+        if (enemy.shield.shieldDestroyed)
+        {
+            CatchPlayer(enemy);
+            return;
+        }
+//        else
+//        {
+//            playerController.stunState.stunByTime = true;
+//
+//            playerController.ChangeState(playerController.stunState);
+//            playerController.Impulse(actualDirection,pushBackForce, true);
+//
+//        }
+//
+//        if (enemy.stateMachine.currentState == enemy.dashState)
+//        {
+//            enemy.stunState.stunByTime = true;
+//
+//            enemy.ChangeState(enemy.stunState);
+//            enemy.Impulse(-actualDirection,pushBackForce, true);
+//
+//        }
     }
 
     private void CatchPlayer(PlayerController enemy)

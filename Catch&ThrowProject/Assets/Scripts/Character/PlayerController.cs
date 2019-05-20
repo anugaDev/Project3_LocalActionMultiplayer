@@ -184,6 +184,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             shield.ImpactBlink();
+            stunState.stunByTime = true;
             ChangeState(stunState);
         }
     }
@@ -195,6 +196,7 @@ public class PlayerController : MonoBehaviour
         if (stateMachine.currentState == dashState)
         {
             Impulse(hitDirection, hitForce, true);
+            stunState.stunByTime = true;
             ChangeState(stunState);
         }
     }
