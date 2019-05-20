@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 48233495}
   - component: {fileID: 48233494}
   m_Layer: 0
-  m_Name: polySurface132 (1)
+  m_Name: Box01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,6 +514,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6749987894548119754, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987896031618168, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894195111624, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987895455306306, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987895779039841, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894146134577, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
     - target: {fileID: 6749987895108133182, guid: b52177330911d9e4abc4dcc44083fe7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -569,6 +599,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 7.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6749987895750233365, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987895819800892, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894717859914, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
     - target: {fileID: 6749987894521266582, guid: b52177330911d9e4abc4dcc44083fe7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -584,6 +629,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 806
       objectReference: {fileID: 0}
+    - target: {fileID: 6749987896075486808, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
     - target: {fileID: 6749987895230651058, guid: b52177330911d9e4abc4dcc44083fe7f,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -593,6 +643,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987895820388191, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894064962634, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894467709952, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749987894873657996, guid: b52177330911d9e4abc4dcc44083fe7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Box01
       objectReference: {fileID: 0}
     - target: {fileID: 6749987894444984090, guid: b52177330911d9e4abc4dcc44083fe7f,
         type: 3}
@@ -2649,7 +2719,7 @@ GameObject:
   - component: {fileID: 883666565}
   - component: {fileID: 883666564}
   m_Layer: 0
-  m_Name: factory_building_2
+  m_Name: Box01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
