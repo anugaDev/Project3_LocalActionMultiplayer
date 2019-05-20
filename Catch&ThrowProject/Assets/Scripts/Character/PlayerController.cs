@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         stateMachine.ChangeState(idleState);
         spawnPosition = transform.position;
         levelManager = _LevelManager.instance;
+        resetKiller = ResetKiller();
     }
 
     private void Update()
