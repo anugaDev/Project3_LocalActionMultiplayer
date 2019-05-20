@@ -32,7 +32,7 @@ public class Dash : BaseState
 
     public override void Enter()
     {
-        Vector3 direction = playerController.inputControl.Direction.normalized;
+        Vector3 direction = playerController.inputControl.Direction;
         
         if(direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
         available = false;

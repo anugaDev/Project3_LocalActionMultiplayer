@@ -44,6 +44,9 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         SetMovementAxis();
+        
+        print(Direction);
+        
     }
 
     private void SetMovementAxis()
@@ -52,7 +55,8 @@ public class InputController : MonoBehaviour
         {
             Horizontal = Input.GetAxis(horizontalAxis);
             Vertical = Input.GetAxis(verticalAxis);
-            Direction = new Vector2(Horizontal, Vertical);
+            if (!keyboardAndMouse) Direction = new Vector2(Horizontal, Vertical).normalized;
+            else Direction = PlayerToMouseDirection();
         }
     }
 
@@ -105,6 +109,7 @@ public class InputController : MonoBehaviour
 
     public Vector2 PlayerToMouseDirection()
     {
+        print("takingDir");
         Vector3 playerPosition = transform.position;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
