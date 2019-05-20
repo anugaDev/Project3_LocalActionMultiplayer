@@ -108,30 +108,32 @@ public class Dash : BaseState
 
         if (!enemy) return;
 
-
         if (enemy.shield.shieldDestroyed)
         {
             CatchPlayer(enemy);           
         }
         else
         {
-            print("HasShield");
+            var collideDirection = actualDirection;
+//          var hitPoint = other.ClosestPoint(transform.position);
+//          collideDirection = hitPoint - transform.position;
+              
 //            playerController.stunState.stunByTime = true;
         
             playerController.ChangeState(playerController.stunState);
             playerController.rigidbody.velocity = Vector3.zero;
-            playerController.Impulse(-actualDirection,pushBackForce, true);
+            var groundDir = Vector3.up;
+            groundDir.x = (-collideDirection.x);
+            playerController.Impulse(playerController.CheckForGround() ? groundDir : -collideDirection ,pushBackForce, true);
 
             if (enemy.stateMachine.currentState != enemy.dashState) return;
 //            enemy.stunState.stunByTime = true;
         
             enemy.ChangeState(enemy.stunState);
-            enemy.Impulse(actualDirection,pushBackForce, true);
+            enemy.Impulse(collideDirection,pushBackForce, true);
 
         }
-        
-       
-    }
+}
 
     private void CatchPlayer(PlayerController enemy)
     {

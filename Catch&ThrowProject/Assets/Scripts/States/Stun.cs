@@ -30,7 +30,7 @@ public class Stun : BaseState
             }
         }
         else
-            if (playerController.rigidbody.velocity.magnitude <= threshHoldSpeed) playerController.ChangeState(playerController.fallState);
+            if (playerController.rigidbody.velocity.magnitude <= threshHoldSpeed || playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
        
         Vector3 breakVector = new Vector3(playerController.rigidbody.velocity.x > 0 ? -1 : 1, -1, 0);
 

@@ -312,7 +312,7 @@ MonoBehaviour:
     m_Bits: 4097
   fallingSpeedThreshold: 50
   downPlatformThreshold: -0.5
-  initialAmmo: 3
+  initialAmmo: 5
   timeForAmmo: 5
   maxAmmo: 3
   jumpMade: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   meleeHitDamage: 100
-  hitForce: 50
+  hitForce: 35
   playerColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8854126468993262086
 MonoBehaviour:
