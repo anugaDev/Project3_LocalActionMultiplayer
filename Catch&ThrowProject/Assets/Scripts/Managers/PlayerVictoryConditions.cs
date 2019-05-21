@@ -22,15 +22,15 @@ public class PlayerVictoryConditions
     {
         for (int i = 1; i <= _LevelManager.instance.players.Count; i++)
         {
-            var kills = 0;
-            var playerToRank = new PlayerController();
+            int kills = 0;
+            PlayerController playerToRank = _LevelManager.instance.players[0];
 
-            foreach (KeyValuePair<PlayerController, PlayerMatchInfo> player in matchInfo)
+            foreach (PlayerController player in _LevelManager.instance.players)
             {
-                if (player.Value.kills > kills && player.Value.rank == 0)
+                if (matchInfo[player].kills >= kills && matchInfo[player].rank == 0)
                 {
-                    playerToRank = player.Key;
-                    kills = player.Value.kills;
+                    playerToRank = player;
+                    kills = matchInfo[player].kills;
                 }
             }
 
@@ -41,7 +41,7 @@ public class PlayerVictoryConditions
     public void UpdateValues(PlayerController player)
     {
         matchInfo[player].deaths++;
-
+        Debug.Log(matchInfo[player].deaths);
         if (player.killer) matchInfo[player.killer].kills++;
         else matchInfo[player].suicides++;
     }

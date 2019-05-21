@@ -488,6 +488,8 @@ MonoBehaviour:
   availableSkins:
   - {fileID: 11400000, guid: c34bee8a2c10ace48ad13cbed3e2d988, type: 2}
   - {fileID: 11400000, guid: 49d23dcdf2040ed4aba1324fc081c17c, type: 2}
+  - {fileID: 11400000, guid: 34cb6117c7322984ab9a156d26e37815, type: 2}
+  - {fileID: 11400000, guid: 242e0f935ab5f51408a49c8b9316c4f2, type: 2}
   playerSkin: {fileID: 0}
   buttonPanel: {fileID: 7162697793559449686}
   readyPanel: {fileID: 6465935035861437068}

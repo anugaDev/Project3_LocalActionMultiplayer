@@ -172,11 +172,10 @@ public class _LevelManager : MonoBehaviour
 
         player.health--;
         player.uiPanel.RemoveLife(player.health);
+        matchInfo.UpdateValues(player);
 
         if (player.health == 0)
         {
-            matchInfo.UpdateValues(player);
-
             cameraFollow.objectsToShow.Remove(player.transform);
             player.gameObject.SetActive(false);
 
@@ -219,7 +218,6 @@ public class _LevelManager : MonoBehaviour
 
         foreach (PlayerController player in players)
         {
-            print(matchInfo.matchInfo[player].rank);
             ranking[matchInfo.matchInfo[player].rank - 1] = matchInfo.matchInfo[player];
         }
 

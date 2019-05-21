@@ -13,9 +13,9 @@ public class VictoryPanel : MonoBehaviour
 
     public void SetValues(PlayerMatchInfo player)
     {
-        rank.text = "Rank" + player.rank;
-        kills.text = "Kills" + player.kills;
-        deaths.text = "Deaths" + player.deaths;
-        suicides.text = "Suicides" + player.suicides;
+        rank.text = "Rank: " + player.rank;
+        kills.text = "Kills: " + player.kills;
+        deaths.text = "Deaths: " + player.deaths;
+        suicides.text = "Suicides: " + player.suicides;
     }
 }
