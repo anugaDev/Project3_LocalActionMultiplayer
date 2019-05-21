@@ -6,8 +6,6 @@ public class ChangePlayerMaterial : MonoBehaviour
 {
     public PlayerSelectionPanel playerPanel;
 
-    public List<MeshRenderer> dummyPresets;
-    public List<MeshRenderer> maskPresets;
     public int currentIndex;
 
     public string SubmitButton;
@@ -47,11 +45,11 @@ public class ChangePlayerMaterial : MonoBehaviour
         switch (direction)
         {
             case InputDirection.Left:
-                if (currentIndex == 0) currentIndex = dummyPresets.Count - 1;
+                if (currentIndex == 0) currentIndex = playerPanel.availableSkins.Count - 1;
                 else currentIndex--;
                 break;
             case InputDirection.Right:
-                if (currentIndex == dummyPresets.Count - 1) currentIndex = 0;
+                if (currentIndex == playerPanel.availableSkins.Count - 1) currentIndex = 0;
                 else currentIndex++;
                 break;
         }

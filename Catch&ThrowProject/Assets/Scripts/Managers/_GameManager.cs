@@ -39,8 +39,7 @@ public class _GameManager : MonoBehaviour
 
         player.GetComponent<InputController>().controllerNumber = playerInfo.controllerNumber;
         player.GetComponent<InputController>().keyboardAndMouse = playerInfo.controllerNumber == 5 ? true : false;
-        player.GetComponent<PlayerController>().playerMesh.material = playerInfo.playerMaterial;
-        player.GetComponent<PlayerController>().maskMesh.material = playerInfo.maskMaterial;
+        player.GetComponent<PlayerController>().SetSkin(playerInfo.playerSkin);
         player.GetComponent<PlayerController>().enabled = false;
 
         _LevelManager.instance.players.Add(player.GetComponent<PlayerController>());

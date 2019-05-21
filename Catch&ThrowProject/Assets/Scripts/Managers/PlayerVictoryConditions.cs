@@ -6,14 +6,6 @@ public class PlayerVictoryConditions
 {
     public Dictionary<PlayerController, PlayerMatchInfo> matchInfo = new Dictionary<PlayerController, PlayerMatchInfo>();
 
-    public class PlayerMatchInfo
-    {
-        public int rank = 0;
-        public int kills;
-        public int deaths;
-        public int suicides;
-    }
-
     public void SetPlayer(PlayerController player)
     {
         PlayerMatchInfo newPlayerInfo = new PlayerMatchInfo();
@@ -21,6 +13,7 @@ public class PlayerVictoryConditions
         newPlayerInfo.kills = 0;
         newPlayerInfo.deaths = 0;
         newPlayerInfo.suicides = 0;
+        newPlayerInfo.skin = player.playerSkin;
 
         matchInfo.Add(player, newPlayerInfo);
     }
@@ -52,4 +45,14 @@ public class PlayerVictoryConditions
         if (player.killer) matchInfo[player.killer].kills++;
         else matchInfo[player].suicides++;
     }
+}
+
+public class PlayerMatchInfo
+{
+    public int rank = 0;
+    public int kills;
+    public int deaths;
+    public int suicides;
+
+    public Skin skin;
 }

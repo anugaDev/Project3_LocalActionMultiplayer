@@ -14,7 +14,10 @@ public class AssignGamepadToPlayer : MonoBehaviour
 
     void Start()
     {
-
+        foreach (Skin skin in playerSelectionPanels[0].availableSkins)
+        {
+            skin.used = false;
+        }
     }
 
     void Update()
@@ -25,8 +28,6 @@ public class AssignGamepadToPlayer : MonoBehaviour
             {
                 AddPlayerController(i);
             }
-
-            // if (Input.GetKeyDown(KeyCode.Return) && !IsControllerAssigned(5)) AddPlayerController((5));
 
             if (Input.GetButtonDown(startGameButton + i))
             {

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public SkinnedMeshRenderer playerMesh;
     public SkinnedMeshRenderer maskMesh;
 
+    public Skin playerSkin;
+
     [Header("Classes")]
     public Shield shield;
     public InputController inputControl;
@@ -197,7 +199,7 @@ public class PlayerController : MonoBehaviour
             shield.ImpactBlink();
             stunState.stunByTime = true;
             if (CheckForGround()) hitDirection.y = 1;
-            Impulse(hitDirection,hitForce,true);
+            Impulse(hitDirection, hitForce, true);
             ChangeState(stunState);
         }
     }
@@ -279,5 +281,13 @@ public class PlayerController : MonoBehaviour
     {
         actualAmmo = initialAmmo;
         StopReloading();
+    }
+
+    public void SetSkin(Skin skin)
+    {
+        playerSkin = skin;
+
+        playerMesh.material.mainTexture = playerSkin.playerTexture;
+        maskMesh.material.mainTexture = playerSkin.maskTexture;
     }
 }

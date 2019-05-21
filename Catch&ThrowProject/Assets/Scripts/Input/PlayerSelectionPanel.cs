@@ -17,22 +17,18 @@ public class PlayerSelectionPanel : MonoBehaviour
     public SkinnedMeshRenderer dummyMesh;
     public SkinnedMeshRenderer maskMesh;
 
-    public Material[] playerTextures;
-    public Material[] maskTextures;
-
-    public Material playerMaterial;
-    public Material maskMaterial;
+    public List<Skin> availableSkins;
+    public Skin playerSkin;
 
     public GameObject buttonPanel;
     public GameObject readyPanel;
 
     public void Recolor(int index)
     {
-        dummyMesh.material = playerTextures[index];
-        maskMesh.material = maskTextures[index];
+        playerSkin = availableSkins[index];
 
-        playerMaterial = dummyMesh.sharedMaterial;
-        maskMaterial = maskMesh.sharedMaterial;
+        dummyMesh.material.mainTexture = playerSkin.playerTexture;
+        maskMesh.material.mainTexture = playerSkin.maskTexture;
     }
 
     public void AssignController(int controllerNumber)
@@ -48,6 +44,13 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public void ReadyCheck(bool ready)
     {
+        if (playerSkin.used && ready)
+        {
+            print("Skin already chosen");
+            return;
+        }
+
+        playerSkin.used = ready;
         buttonPanel.SetActive(!ready);
         readyPanel.SetActive(ready);
     }

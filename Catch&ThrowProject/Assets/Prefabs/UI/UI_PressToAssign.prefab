@@ -478,7 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bd83ace5cc48c4882e1028f2fdb23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
   HasPlayer: 0
   GameStarting: 0
   controllerNumber: 0
@@ -486,15 +485,12 @@ MonoBehaviour:
   pressToAssignText: {fileID: 8708954398068944221}
   dummyMesh: {fileID: 4640705012804337214}
   maskMesh: {fileID: 6647890255102771137}
-  playerTextures:
-  - {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
-  - {fileID: 2100000, guid: 57acafe9dbc0c3747b0973d2b9ff291f, type: 2}
-  maskTextures:
-  - {fileID: 2100000, guid: c281378d206b85642ac27be64ea64c71, type: 2}
-  - {fileID: 2100000, guid: c4f63ec7d1752944ba66838b39272d65, type: 2}
+  availableSkins:
+  - {fileID: 11400000, guid: c34bee8a2c10ace48ad13cbed3e2d988, type: 2}
+  - {fileID: 11400000, guid: 49d23dcdf2040ed4aba1324fc081c17c, type: 2}
+  playerSkin: {fileID: 0}
   buttonPanel: {fileID: 7162697793559449686}
   readyPanel: {fileID: 6465935035861437068}
-  playerVisualComponent: {fileID: 0}
 --- !u!114 &3550450693091035010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,12 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPanel: {fileID: 4674392306541373116}
-  dummyPresets:
-  - {fileID: 0}
-  - {fileID: 0}
-  maskPresets:
-  - {fileID: 0}
-  - {fileID: 0}
   currentIndex: 0
   SubmitButton: Jump
   CancelButton: Dash
@@ -768,11 +758,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RUN
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: eefda62cf1023ec4db821f77bee171c9,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 37c71e80ba3768042a147fe2987b4c87, type: 2}
     - target: {fileID: -4216859302048453862, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,6 +828,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: eefda62cf1023ec4db821f77bee171c9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 37c71e80ba3768042a147fe2987b4c87, type: 2}
     - target: {fileID: 3429889974318402935, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_LocalRotation.x

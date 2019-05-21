@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class _LevelManager : MonoBehaviour
@@ -49,6 +50,8 @@ public class _LevelManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         if (instance != this) Destroy(this);
+
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
@@ -186,9 +189,17 @@ public class _LevelManager : MonoBehaviour
                     if (players[i].health > 0) alivePlayers++;
                 }
 
-                matchInfo.matchInfo[player].rank = alivePlayers++;
+                matchInfo.matchInfo[player].rank = alivePlayers + 1;
 
-                if (alivePlayers == 1) EndMatch();
+                if (alivePlayers == 1)
+                {
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        if (players[i].health > 0) matchInfo.matchInfo[players[i]].rank = 1;
+                    }
+
+                    EndMatch();
+                }
             }
         }
     }
@@ -199,7 +210,20 @@ public class _LevelManager : MonoBehaviour
 
         if (matchByTime) matchInfo.SetRankingsByKills();
 
-        EndMenu.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public PlayerMatchInfo[] PassRanking()
+    {
+        PlayerMatchInfo[] ranking = new PlayerMatchInfo[players.Count];
+
+        foreach (PlayerController player in players)
+        {
+            print(matchInfo.matchInfo[player].rank);
+            ranking[matchInfo.matchInfo[player].rank - 1] = matchInfo.matchInfo[player];
+        }
+
+        return ranking;
     }
 
     public void CheckTest()
