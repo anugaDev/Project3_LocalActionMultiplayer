@@ -27,7 +27,7 @@ public class MashButton : BaseState
         if (playerController.inputControl.ButtonDown(InputController.Button.DASH))
         {
             actualMashedTimes++;
-            scaledMashAffordance.localScale = Vector3.one * actualMashedTimes;
+            scaledMashAffordance.localScale = Vector3.one * (actualMashedTimes/timesToMash);
 
         }
         
