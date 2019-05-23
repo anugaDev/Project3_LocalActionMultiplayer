@@ -760,6 +760,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RUN
       objectReference: {fileID: 0}
+    - target: {fileID: 5847889728140883532, guid: eefda62cf1023ec4db821f77bee171c9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
     - target: {fileID: -4216859302048453862, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -830,6 +835,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5549266870462576563, guid: eefda62cf1023ec4db821f77bee171c9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c281378d206b85642ac27be64ea64c71, type: 2}
     - target: {fileID: -6057140222963153312, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_Controller

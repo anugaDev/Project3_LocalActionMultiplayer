@@ -24,7 +24,7 @@ public class ChangePlayerMaterial : MonoBehaviour
     {
         currentIndex = 0;
 
-        playerPanel.Recolor(GetMesh(null));
+        playerPanel.Recolor(currentIndex);
     }
 
     private void Update()
