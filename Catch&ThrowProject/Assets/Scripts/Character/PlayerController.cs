@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
     public DoubleJump doubleJumpState;
     public Fall fallState;
     public Attack attackState;
-    public DropOnPlatform DropOnPlatformState;
+    public DropOnPlatform dropOnPlatformState;
+    public MashButton mashButtonState;
 
     public Dash dashState;
     public Catch catchState;
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
             if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
                 if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < downPlatformThreshold)
                 {
-                    ChangeState(DropOnPlatformState);
+                    ChangeState(dropOnPlatformState);
                     return;
                 }
             if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);

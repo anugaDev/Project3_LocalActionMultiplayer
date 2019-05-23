@@ -76,9 +76,15 @@ public class Attack : BaseState
 
         directionAffordance.position = transform.position + direction * directionAffordanceDistance;
 
-        var rotationAffordanceZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        var rotationAffordanceZ = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
         var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
         directionAffordance.rotation = rotationAffordance;
+        
+//        loat AngleRad = Mathf.Atan2(Target.transform.position.y - Entity.transform.position.y, Target.transform.position.x - Entity.transform.position.x);
+//        // Get Angle in Degrees
+//        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+//        // Rotate Object
+//        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 
         #endregion
 

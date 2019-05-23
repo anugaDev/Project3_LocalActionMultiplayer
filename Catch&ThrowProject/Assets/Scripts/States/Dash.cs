@@ -110,7 +110,14 @@ public class Dash : BaseState
 
         if (enemy.shield.shieldDestroyed)
         {
-            CatchPlayer(enemy);           
+            if (playerController.shield.shieldDestroyed)
+            {
+                playerController.ChangeState(playerController.mashButtonState);
+            }
+            else
+             CatchPlayer(enemy);           
+
+                
         }
         else
         {

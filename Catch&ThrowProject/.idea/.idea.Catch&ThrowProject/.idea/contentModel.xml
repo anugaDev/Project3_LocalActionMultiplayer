@@ -23,6 +23,9 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Skin.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
             <e p="DynamicCamera.cs" t="Include" />
@@ -48,6 +51,7 @@
           <e p="Managers" t="Include">
             <e p="_GameManager.cs" t="Include" />
             <e p="_LevelManager.cs" t="Include" />
+            <e p="PlayerVictoryConditions.cs" t="Include" />
           </e>
           <e p="Spawner" t="Include">
             <e p="Spawner.cs" t="Include" />
@@ -64,6 +68,7 @@
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
+            <e p="MashButton.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
             <e p="Stun.cs" t="Include" />
             <e p="Walk.cs" t="Include" />
@@ -82,6 +87,7 @@
         <e p="Shaders" t="Include">
           <e p="NewSurfaceShader.shader" t="Include" />
         </e>
+        <e p="VictoryPanel.cs" t="Include" />
       </e>
       <e p="Catch&amp;ThrowProject.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
