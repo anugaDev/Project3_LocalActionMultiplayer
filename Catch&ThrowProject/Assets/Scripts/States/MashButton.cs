@@ -15,6 +15,7 @@ public class MashButton : BaseState
     // Start is called before the first frame update
     public override void Enter()
     {
+        playerController.rigidbody.velocity = Vector3.zero;
         actualMashedTimes = 0;
         StartCoroutine(CountForFail(failTime));
         mashAffordance.gameObject.SetActive(true);
