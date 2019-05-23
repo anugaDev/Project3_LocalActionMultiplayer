@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MashButton : BaseState
 {
+    [SerializeField] private Transform mashAffordance;
+    [SerializeField] private Transform scaledMashAffordance;
     [SerializeField] private int timesToMash = 10;
     [SerializeField] private float failTime = 10f;
     private float actualMashedTimes;
-    private IEnumerator countFail;
 
     
     
@@ -15,14 +16,19 @@ public class MashButton : BaseState
     public override void Enter()
     {
         actualMashedTimes = 0;
-        countFail = CountForFail(failTime);
-        StartCoroutine(countFail);
+        StartCoroutine(CountForFail(failTime));
+        mashAffordance.gameObject.SetActive(true);
+        scaledMashAffordance.localScale = Vector3.one * actualMashedTimes;
     }
 
     public override void Execute()
     {
         if (playerController.inputControl.ButtonDown(InputController.Button.DASH))
+        {
             actualMashedTimes++;
+            scaledMashAffordance.localScale = Vector3.one * actualMashedTimes;
+
+        }
         
         if (actualMashedTimes >= timesToMash)
         {
@@ -34,7 +40,8 @@ public class MashButton : BaseState
 
     public override void Exit()
     {
-        StopCoroutine(countFail);
+        mashAffordance.gameObject.SetActive(false);
+        StopAllCoroutines();
     }
 
     IEnumerator CountForFail(float time)
