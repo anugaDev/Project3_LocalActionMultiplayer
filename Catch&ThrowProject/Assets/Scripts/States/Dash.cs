@@ -110,7 +110,7 @@ public class Dash : BaseState
 
         if (enemy.shield.shieldDestroyed)
         {
-            if (playerController.shield.shieldDestroyed)
+            if (playerController.shield.shieldDestroyed && enemy.stateMachine.currentState == enemy.dashState)
             {
                 MashWithPlayer(enemy);
             }
@@ -163,6 +163,9 @@ public class Dash : BaseState
     {
         RepositionEnemy(enemy);
         StopAllCoroutines();
+
+        playerController.caughtPlayer = enemy;
+        enemy.caughtPlayer = playerController;
 
         playerController.ChangeState(playerController.mashButtonState);
         enemy.ChangeState(enemy.mashButtonState);

@@ -396,6 +396,8 @@ MonoBehaviour:
     m_Bits: 4097
   fallingSpeedThreshold: 50
   downPlatformThreshold: -0.5
+  deathZoneTouchForce: 35
+  bounceUpOnDeathZoneThreshold: 0.5
   initialAmmo: 5
   timeForAmmo: 5
   maxAmmo: 3
@@ -494,7 +496,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
-  jumpingSpeed: 25
+  jumpingSpeed: 30
   commingFromJump: 0
 --- !u!114 &4205472215443825078
 MonoBehaviour:
@@ -512,7 +514,7 @@ MonoBehaviour:
   animationBool: 
   animationTrigger: 
   pressingFallingSpeed: 100
-  notPressingFallingSpeed: 200
+  notPressingFallingSpeed: 225
   glideSpeed: 15
   fallPressedMultiply: 2
   multiplyFallThreshold: 1.1

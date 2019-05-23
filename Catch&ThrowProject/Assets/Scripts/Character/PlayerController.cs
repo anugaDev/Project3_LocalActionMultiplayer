@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float downPlatformThreshold;
+    [SerializeField] private float deathZoneTouchForce = 20f;
+    [SerializeField] private float bounceUpOnDeathZoneThreshold;
 
     public int actualAmmo { get; private set; } = 3;
     [SerializeField] private int initialAmmo;
@@ -187,11 +189,30 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (stateMachine.currentState.Equals(dieState)) return;
-        if (other.gameObject.CompareTag("Death Zone")) ChangeState(dieState);
+        if (other.gameObject.CompareTag("Death Zone")) HitByDeathZone(other);
         else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
     }
 
+    private void HitByDeathZone(Collision deathZone)
+    {
+        if (shield.shieldDestroyed)
+        {
+            ChangeState(dieState);
+
+        }
+        else
+        {
+            var direction = (deathZone.contacts[0].point -transform.position).normalized;
+            direction.z = 0;
+            if (direction.y > 0 && direction.y > bounceUpOnDeathZoneThreshold)
+                direction.y = Mathf.Abs(direction.y);
+            
+            Impulse(-direction,deathZoneTouchForce, true);
+            shield.DestroyShield();
+            ChangeState(stunState);
+        }
+    }
     public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
     {
         if (!shield.shieldDestroyed) shield.Hit(damage);
@@ -201,7 +222,7 @@ public class PlayerController : MonoBehaviour
             stunState.stunByTime = true;
             if (CheckForGround()) hitDirection.y = 1;
             Impulse(hitDirection, hitForce, true);
-            ChangeState(stunState);
+            ChangeState(idleState);
         }
     }
 
