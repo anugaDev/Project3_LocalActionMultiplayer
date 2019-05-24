@@ -229,13 +229,18 @@ public class PlayerController : MonoBehaviour
     public void MeleeHit(float meleeDamage, Vector3 hitDirection, float hitForce, PlayerController other)
     {
         Impulse(hitDirection, hitForce, true);
-        ChangeState(stunState);
-        shield.Hit(meleeDamage);
 
         if (stateMachine.currentState == dashState)
         {
-            other.shield.ShieldRegenerate();
+            ChangeState(stunState);
         }
+        else
+        {
+            shield.Hit(meleeDamage);
+        }
+
+        other.stunState.stunByTime = true;
+        other.ChangeState(stunState);
     }
 
     public bool PlayerHasAmmo()
@@ -243,11 +248,16 @@ public class PlayerController : MonoBehaviour
         return actualAmmo > 0;
     }
 
+    public bool AmmoIsMax()
+    {
+        return actualAmmo >= maxAmmo;
+    }
+
     public void ResupplyAmmo(int ammo)
     {
         if (actualAmmo >= maxAmmo) return;
         actualAmmo += ammo;
-        if (actualAmmo >= maxAmmo) StopReloading();
+        if (AmmoIsMax()) StopReloading();
     }
 
     private void CallForReload()
@@ -270,7 +280,7 @@ public class PlayerController : MonoBehaviour
         if (actualAmmo < 0) actualAmmo = 0;
     }
 
-    public bool CheckForRecoverAmmo()
+    private bool CheckForRecoverAmmo()
     {
         if (reloadAmmoinCourse) return false;
         return actualAmmo < maxAmmo;

@@ -50,6 +50,7 @@ public class Projectile : MonoBehaviour
             if (!nailed) player.ProjectileHit(direction,hitForce,damage);
             else
             {
+                if (player.AmmoIsMax()) return;
                 player.ResupplyAmmo(1);
 
             }
