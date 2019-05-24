@@ -9,6 +9,7 @@ TagManager:
   - Cross Zone
   - Projectile
   - ShieldItem
+  - Immediate Death Zone
   layers:
   - Default
   - TransparentFX
