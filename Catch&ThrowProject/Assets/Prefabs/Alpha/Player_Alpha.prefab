@@ -571,8 +571,8 @@ MonoBehaviour:
   animationBool: 
   animationTrigger: 
   timeBeforeThrow: 3
-  throwForce: 75
-  minThrowForce: 25
+  throwForce: 80
+  minThrowForce: 30
   reactionForceMultiplier: 0.5
   directionMarker: {fileID: 4233683649420559247}
   directionMarkerDistance: 4
