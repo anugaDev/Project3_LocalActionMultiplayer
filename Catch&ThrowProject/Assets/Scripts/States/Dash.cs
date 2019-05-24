@@ -108,6 +108,8 @@ public class Dash : BaseState
 
         if (!enemy) return;
 
+        if (enemy.Invulnerable) return;
+
         if (enemy.shield.shieldDestroyed)
         {
             if (playerController.shield.shieldDestroyed && enemy.stateMachine.currentState == enemy.dashState)
@@ -154,8 +156,12 @@ public class Dash : BaseState
 
         enemy.ChangeState(enemy.caughtState);
 
+        playerController.Invulnerable = true;
+        enemy.Invulnerable = true;
+
         playerController.caughtPlayer = enemy;
         playerController.ChangeState(playerController.catchState);
+        
 
     }
 
@@ -166,6 +172,9 @@ public class Dash : BaseState
 
         playerController.caughtPlayer = enemy;
         enemy.caughtPlayer = playerController;
+        
+        playerController.Invulnerable = true;
+        enemy.Invulnerable = true;
 
         playerController.ChangeState(playerController.mashButtonState);
         enemy.ChangeState(enemy.mashButtonState);

@@ -6,7 +6,6 @@ public class Caught : BaseState
 {
     public override void Enter()
     {
-        playerController.Invulnerable = true;
         playerController.CanMove = false;
     }
 

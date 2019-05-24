@@ -35,7 +35,6 @@ public class Catch : BaseState
         playerController.rigidbody.velocity = Vector3.zero;
 
         playerController.dashState.released = false;
-        playerController.Invulnerable = true;
         playerController.CanMove = false;
 
         _LevelManager.instance.cameraFollow.CatchMode = true;
