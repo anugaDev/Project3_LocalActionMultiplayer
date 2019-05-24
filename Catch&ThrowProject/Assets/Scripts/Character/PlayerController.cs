@@ -255,7 +255,6 @@ public class PlayerController : MonoBehaviour
 
     public void ResupplyAmmo(int ammo)
     {
-        if (actualAmmo >= maxAmmo) return;
         actualAmmo += ammo;
         if (AmmoIsMax()) StopReloading();
     }
