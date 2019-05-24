@@ -239,8 +239,6 @@ public class _LevelManager : MonoBehaviour
 
     public IEnumerator StartCountdown(int secondsBeforeGame)
     {
-        Time.timeScale = 0;
-
         countdownText.SetActive(true);
 
         Text backgroundText = countdownText.GetComponent<Text>();
