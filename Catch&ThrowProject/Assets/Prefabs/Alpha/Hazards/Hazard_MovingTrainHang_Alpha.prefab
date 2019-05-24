@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43d104e07f2370a41930e9c89bb356c2, type: 2}
+  - {fileID: 2100000, guid: fc7ab4cb64b1987429e1a0c9f2a54a91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,8 +89,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 47.751167, y: 77.48886, z: 705.60004}
-  m_Center: {x: 8.492091, y: 38.74443, z: -93.37087}
+  m_Size: {x: 47.751167, y: 61, z: 705.60004}
+  m_Center: {x: 8.492091, y: 30.8, z: -93.37087}
 --- !u!1 &1349645031
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +291,50 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1469209011397987945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4222257480571948128}
+  - component: {fileID: 6250661539202387573}
+  m_Layer: 0
+  m_Name: Front
+  m_TagString: Immediate Death Zone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4222257480571948128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469209011397987945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.5, y: 30.6, z: 260.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1205635084300466908}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6250661539202387573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469209011397987945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.2, y: 60.5, z: 13.3}
+  m_Center: {x: 0.5000001, y: 0.005911176, z: -5.5750565e-16}
 --- !u!111 &1707461328
 Animation:
   m_ObjectHideFlags: 0
@@ -318,8 +362,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 47.751167, y: 77.48886, z: 705.60004}
-  m_Center: {x: 8.492091, y: 38.74443, z: -93.37075}
+  m_Size: {x: 47.751167, y: 61, z: 705.60004}
+  m_Center: {x: 8.492091, y: 30.8, z: -93.37075}
 --- !u!1 &8935989501909455227
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +507,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 43d104e07f2370a41930e9c89bb356c2, type: 2}
+      objectReference: {fileID: 2100000, guid: fc7ab4cb64b1987429e1a0c9f2a54a91, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1311ab43dc936134d8bfc06aba9d77d2, type: 3}
 --- !u!1 &2801273467011123407 stripped

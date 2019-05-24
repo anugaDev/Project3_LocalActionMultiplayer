@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float fallingSpeedThreshold;
     [SerializeField] private float downPlatformThreshold;
-    [SerializeField] private float deathZoneTouchForce = 20f;
+    [SerializeField] private float deathZoneTouchForceDown = 10f;
+    [SerializeField] private float deathZoneTouchForceUp = 50f;
     [SerializeField] private float bounceUpOnDeathZoneThreshold;
 
     public int actualAmmo { get; private set; } = 3;
@@ -190,6 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stateMachine.currentState.Equals(dieState)) return;
         if (other.gameObject.CompareTag("Death Zone")) HitByDeathZone(other);
+        if(other.gameObject.CompareTag("Immediate Death Zone")) ChangeState(dieState);
         else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
     }
@@ -205,10 +207,11 @@ public class PlayerController : MonoBehaviour
         {
             var direction = (deathZone.contacts[0].point -transform.position).normalized;
             direction.z = 0;
+            var force = Mathf.Sign(direction.y) < 0 ? deathZoneTouchForceUp : deathZoneTouchForceDown;
             if (direction.y > 0 && direction.y > bounceUpOnDeathZoneThreshold)
                 direction.y = Mathf.Abs(direction.y);
             
-            Impulse(-direction,deathZoneTouchForce, true);
+            Impulse(-direction,force, true);
             shield.DestroyShield();
             ChangeState(stunState);
         }
@@ -300,6 +303,12 @@ public class PlayerController : MonoBehaviour
         actualAmmo++;
         reloadAmmoinCourse = false;
     }
+    public void RespawnAmmo()
+    {
+        actualAmmo = initialAmmo;
+        StopReloading();
+    }
+
 
     private IEnumerator ResetKiller()
     {
@@ -308,12 +317,7 @@ public class PlayerController : MonoBehaviour
         killer = null;
     }
 
-    public void RespawnAmmo()
-    {
-        actualAmmo = initialAmmo;
-        StopReloading();
-    }
-
+   
     public void SetSkin(Skin skin)
     {
         playerSkin = skin;

@@ -7,6 +7,7 @@ public class Caught : BaseState
     public override void Enter()
     {
         playerController.CanMove = false;
+        playerController.dashState.released = false;
     }
 
     public override void Execute()
@@ -17,6 +18,6 @@ public class Caught : BaseState
     public override void Exit()
     {
         gameObject.layer = playerController.normalLayer;
-
+        playerController.CanMove = true;
     }
 }

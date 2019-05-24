@@ -29,6 +29,7 @@ public class Dash : BaseState
     private Vector3 actualDirection;
 
     [SerializeField] private ParticleSystem dashParticles;
+    [SerializeField] private ParticleSystem walkTrail;
 
     private IEnumerator stopDash;
 
@@ -48,12 +49,17 @@ public class Dash : BaseState
         actualDirection = direction;
 
         dashParticles.Play();
+        walkTrail.Stop();
+
         stopDash = StopDash();
         StartCoroutine(stopDash);
+
     }
 
     private void Update()
     {
+        if(available && !walkTrail.isPlaying)walkTrail.Play();
+
         if (available || playerController.stateMachine.currentState == this) return;
 
         if (released) timer += Time.deltaTime;
@@ -61,10 +67,10 @@ public class Dash : BaseState
 
         if (timer >= cooldown)
         {
-            //            StartCoroutine(gameUtils.ShakeObject(imageShakeTime, cooldownVisual.transform, imageShakeForce));
             available = true;
             timer = 0;
         }
+       
     }
 
 
@@ -167,6 +173,7 @@ public class Dash : BaseState
 
     private void MashWithPlayer(PlayerController enemy)
     {
+        
         RepositionEnemy(enemy);
         StopAllCoroutines();
 
