@@ -23,6 +23,9 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Skin.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
             <e p="DynamicCamera.cs" t="Include" />
