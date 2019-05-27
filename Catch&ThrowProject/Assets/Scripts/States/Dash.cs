@@ -29,14 +29,14 @@ public class Dash : BaseState
     private Vector3 actualDirection;
 
     [SerializeField] private ParticleSystem dashParticles;
-    [SerializeField] private ParticleSystem walkTrail;
+    [SerializeField] public TrailRenderer walkTrail;
 
     private IEnumerator stopDash;
 
     public override void Enter()
     {
         Vector3 direction = playerController.inputControl.Direction;
-        
+
         if (playerController.inputControl.keyboardAndMouse)
             direction = playerController.inputControl.PlayerToMouseDirection();
         if (direction.y > 0) playerController.gameObject.layer = playerController.jumpLayer;
@@ -45,11 +45,11 @@ public class Dash : BaseState
         playerTrigger.isTrigger = true;
 
 
-        playerController.Impulse(direction == Vector3.zero ? transform.right : direction ,speed, false);
+        playerController.Impulse(direction == Vector3.zero ? transform.right : direction, speed, false);
         actualDirection = direction;
 
         dashParticles.Play();
-        walkTrail.Stop();
+        walkTrail.enabled = true;
 
         stopDash = StopDash();
         StartCoroutine(stopDash);
@@ -58,7 +58,7 @@ public class Dash : BaseState
 
     private void Update()
     {
-        if(available && !walkTrail.isPlaying)walkTrail.Play();
+        walkTrail.enabled = available;
 
         if (available || playerController.stateMachine.currentState == this) return;
 
@@ -70,7 +70,6 @@ public class Dash : BaseState
             available = true;
             timer = 0;
         }
-       
     }
 
 
@@ -78,7 +77,7 @@ public class Dash : BaseState
     public override void Exit()
     {
         StopCoroutine(stopDash);
-        
+
         playerController.rigidbody.velocity = new Vector3(playerController.CheckForGround() ? 0 : playerController.rigidbody.velocity.x,
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
@@ -123,32 +122,32 @@ public class Dash : BaseState
                 MashWithPlayer(enemy);
             }
             else
-             CatchPlayer(enemy);           
+                CatchPlayer(enemy);
 
-                
+
         }
         else
         {
             var collideDirection = actualDirection;
-//          var hitPoint = other.ClosestPoint(transform.position);
-//          collideDirection = hitPoint - transform.position;
-              
-//            playerController.stunState.stunByTime = true;
-        
+            //          var hitPoint = other.ClosestPoint(transform.position);
+            //          collideDirection = hitPoint - transform.position;
+
+            //            playerController.stunState.stunByTime = true;
+
             playerController.ChangeState(playerController.stunState);
             playerController.rigidbody.velocity = Vector3.zero;
             var groundDir = Vector3.up;
             groundDir.x = (-collideDirection.x);
-            playerController.Impulse(playerController.CheckForGround() ? groundDir : -collideDirection ,pushBackForce, true);
+            playerController.Impulse(playerController.CheckForGround() ? groundDir : -collideDirection, pushBackForce, true);
 
             if (enemy.stateMachine.currentState != enemy.dashState) return;
-//            enemy.stunState.stunByTime = true;
-        
+            //            enemy.stunState.stunByTime = true;
+
             enemy.ChangeState(enemy.stunState);
-            enemy.Impulse(collideDirection,pushBackForce, true);
+            enemy.Impulse(collideDirection, pushBackForce, true);
 
         }
-}
+    }
 
     private void CatchPlayer(PlayerController enemy)
     {
@@ -167,19 +166,19 @@ public class Dash : BaseState
 
         playerController.caughtPlayer = enemy;
         playerController.ChangeState(playerController.catchState);
-        
+
 
     }
 
     private void MashWithPlayer(PlayerController enemy)
     {
-        
+
         RepositionEnemy(enemy);
         StopAllCoroutines();
 
         playerController.caughtPlayer = enemy;
         enemy.caughtPlayer = playerController;
-        
+
         playerController.Invulnerable = true;
         enemy.Invulnerable = true;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Resources;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -322,7 +323,7 @@ public class PlayerController : MonoBehaviour
     public void SetSkin(Skin skin)
     {
         playerSkin = skin;
-
+        dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
     }

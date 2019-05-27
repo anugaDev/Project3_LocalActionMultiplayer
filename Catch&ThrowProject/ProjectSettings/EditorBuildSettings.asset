@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes For Alpha/GameSelectionAlpha.unity
     guid: 3a79b0f06a0ecfc4bae7557471f01b4a
   - enabled: 1
-    path: Assets/Scenes/Final Scenes For Alpha/Train Station Level Small Alpha.unity
-    guid: 03e098b319dd3d740aa93474f16328fd
+    path: Assets/Scenes/Beta Scenes/Main Level Beta.unity
+    guid: ee2bf41158b1adf4789d98da4e0222f5
   - enabled: 1
     path: Assets/Scenes/Final Scenes For Alpha/VictoryScreen.unity
     guid: 577c72fe2c8fd48449dc8d11e7e27a3f

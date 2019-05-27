@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu]
-public class Skin : ScriptableObject
+namespace Assets.Resources
 {
-    public Texture playerTexture;
-    public Texture maskTexture;
+    [CreateAssetMenu]
+    public class Skin : ScriptableObject
+    {
+        public Texture playerTexture;
+        public Texture maskTexture;
 
-    public bool used;
+        public Color mainColor;
+
+        public bool used;
+    }
 }
