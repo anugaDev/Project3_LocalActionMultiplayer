@@ -10,7 +10,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private float damage;
     [SerializeField] private float hitForce;
-    [SerializeField] private SphereCollider impactCollider;
+    
+    [SerializeField] private Collider impactCollider;
+    [SerializeField] private float detectionRadius;
+    
     [SerializeField] private PlayerController originPlayer;
     [SerializeField] private float timeBeforeAutoDestroy;
     [SerializeField] private float timeToIgnorePlayer = 0.2f;
@@ -53,12 +56,13 @@ public class Projectile : MonoBehaviour
         else gameObject.layer = downLayer;
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            var player = other.GetComponent<PlayerController>();
-
+            print("Player");
+            var player = other.gameObject.GetComponent<PlayerController>();
 
             if (!nailed)
             {
@@ -84,7 +88,9 @@ public class Projectile : MonoBehaviour
         
         else if(other.gameObject.CompareTag("Death Zone"))
         {
-            direction = UnityEngine.Vector3.Reflect(direction,other.ClosestPointOnBounds(transform.position).normalized);
+            var newDir =  UnityEngine.Vector3.Reflect(direction,other.transform.position.normalized);
+            newDir.z = 0;
+            direction = newDir;
         }
         
         else if(other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(transform);
@@ -102,11 +108,12 @@ public class Projectile : MonoBehaviour
     {
         projectileOutline.OutlineColor = neutralTakeColor;
         rigidbody.velocity = UnityEngine.Vector3.zero;
+        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         nailed = true;
         animation.Stop();
 
         var index = 0;
-        while (Physics.OverlapSphere(transform.position, impactCollider.radius,
+        while (Physics.OverlapSphere(transform.position, detectionRadius,
             LayerMask.GetMask("Default")).Any())
         {
             transform.position -= direction;

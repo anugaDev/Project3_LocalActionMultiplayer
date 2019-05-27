@@ -6,8 +6,12 @@ public class DoubleJump : BaseState
 {
     [SerializeField] private float jumpingSpeed;
     [HideInInspector] public bool commingFromJump;
+
+    public GameObject jumpParticles;
+
     public override void Enter()
     {
+        Instantiate(jumpParticles, position: transform.position - Vector3.up, Quaternion.identity);
         if(!playerController.jumpMade)
             SetJumpForce();
 
