@@ -64,7 +64,6 @@ public class Projectile : MonoBehaviour
             print("Player");
             var player = other.gameObject.GetComponent<PlayerController>();
 
-
             if (!nailed)
             {
                 if (player == originPlayer)
