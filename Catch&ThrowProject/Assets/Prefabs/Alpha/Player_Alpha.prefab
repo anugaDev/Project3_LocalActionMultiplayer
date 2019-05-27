@@ -10533,6 +10533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 9601605... Animator
@@ -10545,6 +10546,8 @@ PrefabInstance:
 >>>>>>> parent of 9601605... Animator
 =======
 >>>>>>> parent of 9601605... Animator
+=======
+>>>>>>> parent of 5576af3... PlayerAnimator
     - target: {fileID: -4216859302048453862, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10607,15 +10610,21 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 37c71e80ba3768042a147fe2987b4c87, type: 2}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 5576af3... PlayerAnimator
     - target: {fileID: 5847889728140883532, guid: eefda62cf1023ec4db821f77bee171c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 9601605... Animator
 =======
 >>>>>>> parent of 9601605... Animator
+=======
+>>>>>>> parent of 5576af3... PlayerAnimator
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefda62cf1023ec4db821f77bee171c9, type: 3}
 --- !u!1 &471227306420518994 stripped
