@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Resources;
 using UnityEngine;
 
 public class AssignGamepadToPlayer : MonoBehaviour
