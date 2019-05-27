@@ -13,8 +13,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private SphereCollider impactCollider;
     [SerializeField] private PlayerController originPlayer;
     [SerializeField] private float timeBeforeAutoDestroy;
+    [SerializeField] private float timeToIgnorePlayer = 0.2f;
     [SerializeField] private Animation animation;
-    private UnityEngine.Vector3 direction;
     [SerializeField] private Outline projectileOutline;
 
     [SerializeField] private Color neutralTakeColor = Color.white;
@@ -25,12 +25,25 @@ public class Projectile : MonoBehaviour
     [SerializeField] private int UpLayer;
     [SerializeField] private int downLayer;
     
+    private UnityEngine.Vector3 direction;
+    private bool offPlayerZone = false;
+    
     private void Update()
     {
-        if (!nailed) rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
+        if (!nailed)
+        {
+            rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
+            
+            if(offPlayerZone)
+                Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,originPlayer.AmmoIsMax());
+
+        }
+        
     }
     public void SetBullet( UnityEngine.Vector3  newDirection, float speed, PlayerController originplayer, Color playerColor)
     {
+        StartCoroutine(StopIgnoringAfterTime());
+        StartCoroutine(DestroyAfterTime());
         direction = newDirection;
         projectileSpeed = speed;
         originPlayer = originplayer;
@@ -46,25 +59,43 @@ public class Projectile : MonoBehaviour
         {
             var player = other.GetComponent<PlayerController>();
 
-            
-            if (!nailed) player.ProjectileHit(direction,hitForce,damage);
+
+            if (!nailed)
+            {
+                if (player == originPlayer)
+                {
+                    player.ResupplyAmmo(1);
+                }
+                else
+                {
+                    player.ProjectileHit(direction,hitForce,damage);
+                }
+            }
             else
             {
                 if (player.AmmoIsMax()) return;
                 player.ResupplyAmmo(1);
 
             }
+            
             Destroy(gameObject);
-
+            
         }
         
-        else if(other.gameObject.CompareTag("Death Zone")) Destroy(gameObject);
+        else if(other.gameObject.CompareTag("Death Zone"))
+        {
+            direction = UnityEngine.Vector3.Reflect(direction,other.ClosestPointOnBounds(transform.position).normalized);
+        }
         
         else if(other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(transform);
-        
-        Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
-        Nail();
+
+        else
+        {
+            print("nail");
+            Nail(); 
+        }
+
     }
 
     private void Nail()
@@ -80,6 +111,8 @@ public class Projectile : MonoBehaviour
         {
             transform.position -= direction;
         }
+        Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
+
     }
 
     private IEnumerator DestroyAfterTime()
@@ -87,6 +120,13 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeAutoDestroy);
         
         Destroy(gameObject);
+    }
+    private IEnumerator StopIgnoringAfterTime()
+    {
+        yield return new WaitForSeconds(timeToIgnorePlayer);
+
+        offPlayerZone = true;
+
     }
 
     private void OnDestroy()

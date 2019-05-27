@@ -116,7 +116,8 @@ MonoBehaviour:
   hitForce: 20
   impactCollider: {fileID: 4665147726333283526}
   originPlayer: {fileID: 0}
-  timeBeforeAutoDestroy: 0
+  timeBeforeAutoDestroy: 20
+  timeToIgnorePlayer: 1
   animation: {fileID: 7398689144624960443}
   projectileOutline: {fileID: 5665831157426599893}
   neutralTakeColor: {r: 0, g: 0, b: 0, a: 0}

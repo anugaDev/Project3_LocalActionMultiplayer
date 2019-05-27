@@ -14,7 +14,6 @@ public class Die : BaseState
         CameraUtilities.instance.ShakeCamera(cameraShakeTime, cameraShakeForce);
         GetKilled();
         playerController.isDead = true;
-//        playerController.rigidbody.isKinematic = true;
         playerController.normalCollider.enabled = false;
 
         _LevelManager.instance.OnPlayerKilled(playerController);
@@ -33,7 +32,6 @@ public class Die : BaseState
             playerModel.SetActive(true);
         }
 
-//        playerController.rigidbody.isKinematic = false;
         playerController.normalCollider.enabled = true;
         playerController.shield.ResetShield();
     }
@@ -70,4 +68,5 @@ public class Die : BaseState
 
         playerController.ChangeState(playerController.idleState);
     }
+    
 }
