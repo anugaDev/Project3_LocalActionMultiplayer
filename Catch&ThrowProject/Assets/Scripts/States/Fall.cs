@@ -39,7 +39,6 @@ public class Fall : BaseState
         }
 
         fallMultiply = 1;
-        base.Enter();
     }
 
     
@@ -103,8 +102,6 @@ public class Fall : BaseState
 
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = false;
-        
-        base.Exit();
     }
     private float ManageFallSpeed()
     {
