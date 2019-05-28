@@ -25,10 +25,10 @@ public class Catch : BaseState
 
     public override void Enter()
     {
+        base.Enter();
 
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.caughtPlayer.gameObject.layer = playerController.caughtPlayer.normalLayer;
-
 
         directionMarker.SetActive(true);
 
@@ -68,6 +68,8 @@ public class Catch : BaseState
         directionMarker.SetActive(false);
 
         _LevelManager.instance.cameraFollow.CatchMode = false;
+
+        base.Exit();
     }
 
     private void ThrowPlayer(PlayerController caughtPlayer)

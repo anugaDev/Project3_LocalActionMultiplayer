@@ -22,6 +22,8 @@ public class Fall : BaseState
 
     public override void Enter()
     {
+        base.Enter();
+
         firstEnter = Time.frameCount;
         gameObject.layer = playerController.jumpLayer;
         groundHit = false;
@@ -41,13 +43,13 @@ public class Fall : BaseState
         fallMultiply = 1;
     }
 
-    
+
     public override void Execute()
     {
         #region StateUpdate
 
         CheckForCrossingPlatforms();
-        
+
         ExecuteFallSpeed();
         playerController.HorizontalMove(glideSpeed);
 
@@ -90,11 +92,13 @@ public class Fall : BaseState
         fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
 
         playerController.VerticalMove(Vector3.down, actualFallingSpeed * fallMultiply);
-        
+
     }
 
     public override void Exit()
     {
+        base.Exit();
+
         if (!groundHit) return;
 
         var velocity = playerController.rigidbody.velocity;
@@ -103,6 +107,7 @@ public class Fall : BaseState
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = false;
     }
+
     private float ManageFallSpeed()
     {
         var speed = notPressingFallingSpeed;
@@ -121,8 +126,8 @@ public class Fall : BaseState
         return speed;
     }
 
-//    private void OnDrawGizmos()
-//    {
-//        Gizmos.DrawSphere(transform.position, playerController.sphereCollisionRadius);
-//    }
+    //    private void OnDrawGizmos()
+    //    {
+    //        Gizmos.DrawSphere(transform.position, playerController.sphereCollisionRadius);
+    //    }
 }

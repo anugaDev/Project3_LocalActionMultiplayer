@@ -84,13 +84,14 @@ public class Dash : BaseState
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 
-
         if (!catched) playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
         dashParticles.Stop();
 
         catched = false;
+
+        base.Exit();
     }
 
     public void InstantDashReload()

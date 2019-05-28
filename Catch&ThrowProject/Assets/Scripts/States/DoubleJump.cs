@@ -12,27 +12,21 @@ public class DoubleJump : BaseState
     public override void Enter()
     {
         Instantiate(jumpParticles, transform.position - Vector3.up, Quaternion.identity);
-        if(!playerController.jumpMade)
-            SetJumpForce();
+
+        if (!playerController.jumpMade) SetJumpForce();
 
         else
         {
             playerController.ChangeState(playerController.fallState);
             return;
         }
+
         base.Enter();
-
-    }
-    public override void Execute() { }
-
-    public override void Exit()
-    {
-        
     }
 
     public void SetJumpForce()
     {
-        playerController.Impulse(Vector3.up,jumpingSpeed,false);
+        playerController.Impulse(Vector3.up, jumpingSpeed, false);
         playerController.jumpMade = true;
         commingFromJump = true;
         playerController.ChangeState(playerController.fallState);

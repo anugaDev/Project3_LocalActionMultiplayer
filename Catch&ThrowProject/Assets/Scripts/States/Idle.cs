@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Idle : BaseState
 {
-    public override void Enter() { }
-
     public override void Execute()
     {
         if (Mathf.Abs(playerController.inputControl.Horizontal) > 0) playerController.ChangeState(playerController.walkState);
@@ -14,6 +12,4 @@ public class Idle : BaseState
         if (!playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
         else playerController.jumpMade = false;
     }
-
-    public override void Exit() { }
 }
