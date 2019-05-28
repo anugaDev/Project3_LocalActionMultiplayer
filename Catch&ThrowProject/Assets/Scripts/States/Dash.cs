@@ -49,7 +49,7 @@ public class Dash : BaseState
         actualDirection = direction;
 
         dashParticles.Play();
-        walkTrail.enabled = true;
+        ChangeTrail(true);
 
         stopDash = StopDash();
         StartCoroutine(stopDash);
@@ -60,7 +60,7 @@ public class Dash : BaseState
 
     private void Update()
     {
-        walkTrail.enabled = available;
+        ChangeTrail(available);
 
         if (available || playerController.stateMachine.currentState == this) return;
 
@@ -195,5 +195,11 @@ public class Dash : BaseState
         Vector3 directionBetweenPlayers = (transform.position - enemy.transform.position).normalized;
 
         enemy.transform.position = transform.position + (directionBetweenPlayers * .5f);
+    }
+
+    public void ChangeTrail(bool change)
+    {
+        walkTrail.enabled = change;
+
     }
 }

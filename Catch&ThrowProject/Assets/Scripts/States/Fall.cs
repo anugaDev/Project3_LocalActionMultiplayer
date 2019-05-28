@@ -19,6 +19,14 @@ public class Fall : BaseState
     private float actualFallingSpeed;
     private float fallMultiply;
     private float firstEnter;
+    
+    [FMODUnity.EventRef] public string landSound;
+    private FMOD.Studio.EventInstance soundEventLand;
+
+    private void Start()
+    {
+        soundEventLand = FMODUnity.RuntimeManager.CreateInstance(landSound);
+    }
 
     public override void Enter()
     {
@@ -60,8 +68,8 @@ public class Fall : BaseState
 
         if (playerController.CheckForGround())
         {
-            playerController.ChangeState(playerController.idleState);
             groundHit = true;
+            playerController.ChangeState(playerController.idleState);
         }
 
         if (playerController.inputControl.ButtonDown(InputController.Button.JUMP) && !playerController.jumpMade && Time.frameCount != firstEnter)
@@ -106,6 +114,8 @@ public class Fall : BaseState
 
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = false;
+
+        soundEventLand.start();
     }
 
     private float ManageFallSpeed()

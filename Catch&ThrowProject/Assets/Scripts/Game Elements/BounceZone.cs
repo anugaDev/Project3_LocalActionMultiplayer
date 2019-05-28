@@ -8,6 +8,8 @@ public class BounceZone : MonoBehaviour
 
     public void BounceObject(Rigidbody rigidbody, PlayerController player)
     {
+        if (rigidbody.velocity.y >= bounceForce) return;
+        
         var velocity = rigidbody.velocity;
         velocity.y = bounceForce;
         rigidbody.velocity = velocity;

@@ -41,6 +41,7 @@ public class Die : BaseState
         _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
         playerController.shield.DestroyShield();
         playerModel.SetActive(false);
+        playerController.dashState.available = false;
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);
     }
@@ -65,6 +66,8 @@ public class Die : BaseState
         transform.rotation = Quaternion.Euler(rotation);
         playerModel.SetActive(true);
         playerController.shield.ResetShield();
+        playerController.dashState.available = true;
+
 
         playerController.ChangeState(playerController.idleState);
     }

@@ -9,15 +9,20 @@ public abstract class BaseState : MonoBehaviour
     [SerializeField] protected string animationTrigger;
 
     [FMODUnity.EventRef] public string enterSound;
-    private FMOD.Studio.EventInstance soundEvent;
+    private FMOD.Studio.EventInstance soundEventEnter;
+    
+    [FMODUnity.EventRef] public string exitSound;
+    private FMOD.Studio.EventInstance soundEventExit;
+
 
     private void Start()
     {
-        if (enterSound != "") soundEvent = FMODUnity.RuntimeManager.CreateInstance(enterSound);
+        if (enterSound != "") soundEventEnter = FMODUnity.RuntimeManager.CreateInstance(enterSound);
+        if(exitSound != "") soundEventExit = FMODUnity.RuntimeManager.CreateInstance(exitSound);
     }
     public virtual void Enter()
     {
-        if (enterSound != "") soundEvent.start();
+        if (enterSound != "") soundEventEnter.start();
         if (animationBool != "") playerController.animator.SetBool(animationBool, true);
         if (animationTrigger != "") playerController.animator.SetTrigger(animationTrigger);
     }
@@ -25,6 +30,7 @@ public abstract class BaseState : MonoBehaviour
 
     public virtual void Exit()
     {
+        if (exitSound !="") soundEventExit.start();
         if (animationBool != "") playerController.animator.SetBool(animationBool, false);
     }
 }
