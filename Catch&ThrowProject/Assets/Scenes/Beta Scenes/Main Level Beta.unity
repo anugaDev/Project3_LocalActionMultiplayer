@@ -6170,20 +6170,24 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 31.2
 =======
       value: 30.5
 >>>>>>> 08ba038e406832e77b9d509486eaa8c73fc45bc3
+=======
+      value: 34.8
+>>>>>>> parent of 303ee88... x
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3be6fed7801c743872da3f1cbc4e8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.7
+      value: -10.62
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3be6fed7801c743872da3f1cbc4e8e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3be6fed7801c743872da3f1cbc4e8e,
         type: 3}
@@ -6233,11 +6237,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7b3be6fed7801c743872da3f1cbc4e8e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3be6fed7801c743872da3f1cbc4e8e,
         type: 3}
       propertyPath: m_LocalScale.z
+<<<<<<< HEAD
 <<<<<<< HEAD
       value: 1.544364
 =======
@@ -6248,6 +6253,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TUNNEL
 >>>>>>> 08ba038e406832e77b9d509486eaa8c73fc45bc3
+=======
+      value: 2
+>>>>>>> parent of 303ee88... x
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3be6fed7801c743872da3f1cbc4e8e, type: 3}
@@ -9792,11 +9800,15 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
 <<<<<<< HEAD
   m_LocalPosition: {x: -36.34, y: 23, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 10, y: 50, z: 9.2457}
 =======
   m_LocalPosition: {x: -36.34, y: 5.82, z: 0}
   m_LocalScale: {x: 10, y: 12.631456, z: 9}
 >>>>>>> 08ba038e406832e77b9d509486eaa8c73fc45bc3
+=======
+  m_LocalScale: {x: 10, y: 50, z: 9}
+>>>>>>> parent of 303ee88... x
   m_Children: []
   m_Father: {fileID: 1584943670}
   m_RootOrder: 3
