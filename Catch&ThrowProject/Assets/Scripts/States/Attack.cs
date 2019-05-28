@@ -40,6 +40,9 @@ public class Attack : BaseState
         directionAffordance.gameObject.SetActive(true);
         lastDir = transform.right.normalized;
 
+        playerController.ammo.enabled = true;
+        playerController.ammo.text = playerController.actualAmmo.ToString();
+
         //        if (playerController.onGround) playerController.rigidbody.velocity = Vector3.zero;
         //        playerController.rigidbody.velocity = Vector3.zero;
         //        else playerController.ChangeState(playerController.idleState);
@@ -76,15 +79,15 @@ public class Attack : BaseState
 
         directionAffordance.position = transform.position + direction * directionAffordanceDistance;
 
-        var rotationAffordanceZ = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+        var rotationAffordanceZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
         directionAffordance.rotation = rotationAffordance;
-        
-//        loat AngleRad = Mathf.Atan2(Target.transform.position.y - Entity.transform.position.y, Target.transform.position.x - Entity.transform.position.x);
-//        // Get Angle in Degrees
-//        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-//        // Rotate Object
-//        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
+        //        loat AngleRad = Mathf.Atan2(Target.transform.position.y - Entity.transform.position.y, Target.transform.position.x - Entity.transform.position.x);
+        //        // Get Angle in Degrees
+        //        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+        //        // Rotate Object
+        //        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 
         #endregion
 
@@ -129,10 +132,14 @@ public class Attack : BaseState
         return playerReturn;
 
     }
+
     public override void Exit()
     {
+        playerController.ammo.enabled = false;
+
         directionAffordance.gameObject.SetActive(false);
     }
+
     public void ShootProjectile(Vector2 direction)
     {
 
@@ -141,7 +148,7 @@ public class Attack : BaseState
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), Quaternion.identity);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
-        projectileClass.SetBullet(direction, speed, playerController, Color.red);
+        projectileClass.SetBullet(direction, speed, playerController, playerController.playerSkin == null ? Color.red : playerController.playerSkin.mainColor);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);
 
         var force = Vector3.up * shootRecoilForce;
@@ -164,7 +171,6 @@ public class Attack : BaseState
     {
         AttackFinished();
     }
-
 
     public void AttackFinished()
     {

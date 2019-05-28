@@ -11,6 +11,8 @@ public class Jump : BaseState
     {
         if (playerController.onGround) SetJumpForce();
         else playerController.ChangeState(playerController.fallState);
+        
+        base.Enter();
     }
 
     public override void Execute() { }
