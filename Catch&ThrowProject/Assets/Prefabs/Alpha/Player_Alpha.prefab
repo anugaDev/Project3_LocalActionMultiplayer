@@ -739,7 +739,7 @@ MonoBehaviour:
   threshHoldSpeed: 25
   breakSpeed: 100
   stunByTime: 0
-  stunTime: 1.5
+  stunTime: 0.5
 --- !u!114 &85762693
 MonoBehaviour:
   m_ObjectHideFlags: 0
