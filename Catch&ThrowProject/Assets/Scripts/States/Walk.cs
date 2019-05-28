@@ -6,11 +6,6 @@ public class Walk : BaseState
 {
     [SerializeField] private float walkSpeed;
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
     public override void Execute()
     {
         #region Stateupdate
@@ -25,10 +20,5 @@ public class Walk : BaseState
         if (playerController.rigidbody.velocity.magnitude <= 0.1f) playerController.ChangeState(playerController.idleState);
 
         #endregion
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 }
