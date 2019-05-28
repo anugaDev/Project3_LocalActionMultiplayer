@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Resources;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -82,6 +83,8 @@ public class PlayerController : MonoBehaviour
     public float secondsToResetKiller = 4f;
     public IEnumerator resetKiller;
 
+    public Text ammo;
+
     #endregion
 
     private void Start()
@@ -142,6 +145,7 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(horizontal) > 0)
         {
             transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+            ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
 
             if (!impulseImpacts) velocity.x = speed * horizontal;
             else velocity.x += horizontal * speed * Time.deltaTime;
@@ -193,7 +197,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stateMachine.currentState.Equals(dieState)) return;
         if (other.gameObject.CompareTag("Death Zone")) HitByDeathZone(other);
-        if(other.gameObject.CompareTag("Immediate Death Zone")) ChangeState(dieState);
+        if (other.gameObject.CompareTag("Immediate Death Zone")) ChangeState(dieState);
         else if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
     }
@@ -207,17 +211,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            var direction = (deathZone.contacts[0].point -transform.position).normalized;
+            var direction = (deathZone.contacts[0].point - transform.position).normalized;
             direction.z = 0;
             var force = Mathf.Sign(direction.y) < 0 ? deathZoneTouchForceUp : deathZoneTouchForceDown;
             if (direction.y > 0 && direction.y > bounceUpOnDeathZoneThreshold)
                 direction.y = Mathf.Abs(direction.y);
-            
-            Impulse(-direction,force, true);
+
+            Impulse(-direction, force, true);
             shield.DestroyShield();
             ChangeState(stunState);
         }
     }
+
     public void ProjectileHit(Vector3 hitDirection, float hitForce, float damage)
     {
         if (!shield.shieldDestroyed) shield.Hit(damage);
@@ -261,7 +266,19 @@ public class PlayerController : MonoBehaviour
     public void ResupplyAmmo(int ammo)
     {
         actualAmmo += ammo;
+        this.ammo.text = actualAmmo.ToString();
+        this.ammo.enabled = true;
+
+        StartCoroutine(DeactivateAmmoText());
+
         if (AmmoIsMax()) StopReloading();
+    }
+
+    private IEnumerator DeactivateAmmoText()
+    {
+        yield return new WaitForSeconds(1);
+        if (stateMachine.currentState != attackState)
+            this.ammo.enabled = false;
     }
 
     private void CallForReload()
@@ -305,12 +322,12 @@ public class PlayerController : MonoBehaviour
         actualAmmo++;
         reloadAmmoinCourse = false;
     }
+
     public void RespawnAmmo()
     {
         actualAmmo = initialAmmo;
         StopReloading();
     }
-
 
     private IEnumerator ResetKiller()
     {
@@ -319,7 +336,6 @@ public class PlayerController : MonoBehaviour
         killer = null;
     }
 
-   
     public void SetSkin(Skin skin)
     {
         playerSkin = skin;

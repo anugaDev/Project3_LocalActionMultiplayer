@@ -25,6 +25,7 @@ public class _LevelManager : MonoBehaviour
 
     public bool matchByTime = false;
     private float gameTimer = 0f;
+    public Text remainingTime;
 
     [Header("UI Elements")]
     public GameObject UI_Parent;
@@ -75,9 +76,10 @@ public class _LevelManager : MonoBehaviour
     {
         if (matchByTime && matchState == MatchState.Playing)
         {
-            gameTimer += Time.deltaTime;
+            gameTimer -= Time.deltaTime;
+            remainingTime.text = ((int)gameTimer).ToString();
 
-            if (gameTimer >= MatchDuration)
+            if (gameTimer <= 0)
             {
                 gameTimer = 0;
 
@@ -88,6 +90,12 @@ public class _LevelManager : MonoBehaviour
 
     private void StartGame()
     {
+        if (matchByTime)
+        {
+            gameTimer = MatchDuration;
+            remainingTime.enabled = true;
+        }
+
         cameraFollow.enabled = true;
 
         for (int i = 0; i < players.Count; i++)

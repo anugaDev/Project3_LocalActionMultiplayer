@@ -45,15 +45,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   players: []
   UI_Input: {fileID: 0}
   cameraFollow: {fileID: 0}
-  StartingLifes: 10
-  MatchDuration: 120
+  StartingLifes: 3
+  MatchDuration: 25
+  matchByTime: 0
+  remainingTime: {fileID: 0}
   UI_Parent: {fileID: 0}
   PauseMenu: {fileID: 0}
   EndMenu: {fileID: 0}
   playerPanelPrefab: {fileID: 3629993852905356329, guid: e55337b2625d29f49be35cfc2b2ce9b7,
     type: 3}
+  countdownText: {fileID: 0}
   testingScene: 1
-  matchState: 1
+  matchState: 0
