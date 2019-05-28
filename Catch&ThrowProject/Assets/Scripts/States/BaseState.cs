@@ -7,10 +7,17 @@ public abstract class BaseState : MonoBehaviour
     [SerializeField] protected PlayerController playerController;
     [SerializeField] protected string animationBool;
     [SerializeField] protected string animationTrigger;
-    
 
+    [FMODUnity.EventRef] public string enterSound;
+    private FMOD.Studio.EventInstance soundEvent;
+
+    private void Start()
+    {
+        if (enterSound != "") soundEvent = FMODUnity.RuntimeManager.CreateInstance(enterSound);
+    }
     public virtual void Enter()
     {
+        if (enterSound != "") soundEvent.start();
         if (animationBool != "") playerController.animator.SetBool(animationBool, true);
         if (animationTrigger != "") playerController.animator.SetTrigger(animationTrigger);
     }

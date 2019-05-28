@@ -141,7 +141,7 @@ public class Attack : BaseState
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), Quaternion.identity);
         var projectileClass = projectileInstance.GetComponent<Projectile>();
-        projectileClass.SetBullet(direction, speed, playerController, Color.red);
+        projectileClass.SetBullet(direction, speed, playerController, playerController.playerSkin == null ? Color.red : playerController.playerSkin.mainColor);
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), projectileInstance.GetComponent<Collider>(), true);
 
         var force = Vector3.up * shootRecoilForce;

@@ -50,6 +50,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: event:/MOVEMENT/dash
   speed: 50
   pushBackForce: 40
   duration: 0.1
@@ -576,6 +577,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
 --- !u!114 &4205472215443825076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +593,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: Running
   animationTrigger: 
+  enterSound: 
   walkSpeed: 15
 --- !u!114 &4205472215443825079
 MonoBehaviour:
@@ -607,6 +610,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: event:/MOVEMENT/jump
   jumpingSpeed: 36
   commingFromJump: 0
 --- !u!114 &5970475171054597876
@@ -624,6 +628,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: event:/MOVEMENT/double_jump
   jumpingSpeed: 30
   commingFromJump: 0
   jumpParticles: {fileID: 8600829907300297786, guid: db20b911e9039cb4da27197e64d67fe7,
@@ -643,6 +648,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   pressingFallingSpeed: 100
   notPressingFallingSpeed: 225
   glideSpeed: 15
@@ -666,6 +672,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
     type: 3}
   reloadTime: 0.6
@@ -700,6 +707,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   timeBeforeThrow: 3
   throwForce: 80
   minThrowForce: 30
@@ -721,6 +729,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
 --- !u!114 &2846430671447116553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +745,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   threshHoldSpeed: 25
   breakSpeed: 100
   stunByTime: 0
@@ -755,6 +765,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   playerModel: {fileID: 471227306420518994}
   cameraShakeForce: 0.46
   cameraShakeTime: 0.33
@@ -773,6 +784,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   checkPlatformDistance: 1
   timeToSwitchFall: 0.05
   checkPlatformMask:
@@ -793,6 +805,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
+  enterSound: 
   mashAffordance: {fileID: 4777235582443195717}
   scaledMashAffordance: {fileID: 475047808028496863}
   timesToMash: 10

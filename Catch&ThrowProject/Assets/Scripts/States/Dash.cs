@@ -53,6 +53,8 @@ public class Dash : BaseState
 
         stopDash = StopDash();
         StartCoroutine(stopDash);
+        
+        base.Enter();
 
     }
 
