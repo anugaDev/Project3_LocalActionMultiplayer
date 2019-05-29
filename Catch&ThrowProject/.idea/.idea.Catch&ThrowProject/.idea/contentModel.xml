@@ -119,6 +119,7 @@
           </e>
           <e p="EndGame.cs" t="Include" />
           <e p="Game Elements" t="Include">
+            <e p="AmmoItem.cs" t="Include" />
             <e p="BounceZone.cs" t="Include" />
             <e p="CrossZone.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
