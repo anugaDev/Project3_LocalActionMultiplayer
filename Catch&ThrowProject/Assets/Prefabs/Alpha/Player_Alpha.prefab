@@ -687,9 +687,8 @@ MonoBehaviour:
   deathZoneTouchForceDown: 10
   deathZoneTouchForceUp: 55
   bounceUpOnDeathZoneThreshold: 0.5
-  initialAmmo: 5
-  timeForAmmo: 5
-  maxAmmo: 3
+  initialAmmo: 3
+  maxAmmo: 7
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0

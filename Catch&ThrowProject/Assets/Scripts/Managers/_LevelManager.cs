@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class _LevelManager : MonoBehaviour
 {
@@ -27,11 +28,19 @@ public class _LevelManager : MonoBehaviour
     private float gameTimer = 0f;
     public Text remainingTime;
 
+    [Header("Ammo Count Settings")]
+    [SerializeField] private GameObject ammoItem;
+    [HideInInspector] public float scatteredAmmo;
+    private float playersInitialAmmo;
+    private float matchAmmo;
+
     [Header("UI Elements")]
     public GameObject UI_Parent;
     public GameObject PauseMenu;
     public GameObject EndMenu;
     public GameObject playerPanelPrefab;
+
+   
 
     public GameObject countdownText;
 
@@ -86,6 +95,7 @@ public class _LevelManager : MonoBehaviour
                 EndMatch();
             }
         }
+        CheckForAmmoSpawn();
     }
 
     private void StartGame()
@@ -98,6 +108,7 @@ public class _LevelManager : MonoBehaviour
 
         cameraFollow.enabled = true;
 
+        playersInitialAmmo = players[0].GetInitialAmmo();
         for (int i = 0; i < players.Count; i++)
         {
             players[i].health = StartingLifes;
@@ -268,5 +279,29 @@ public class _LevelManager : MonoBehaviour
         countdownText.SetActive(false);
 
         StartGame();
+    }
+
+    private void CheckForAmmoSpawn()
+    {
+        matchAmmo = 0;
+        foreach (var player in players)
+        {
+            matchAmmo += player.actualAmmo;
+        }
+
+        matchAmmo += scatteredAmmo;
+        
+//        print(matchAmmo);
+        
+        if (matchAmmo < (players.Count * playersInitialAmmo))
+        {
+            SpawnAmmo();
+        }
+    }
+
+    private void SpawnAmmo()
+    {
+        Instantiate(ammoItem, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
+        scatteredAmmo += 1;
     }
 }

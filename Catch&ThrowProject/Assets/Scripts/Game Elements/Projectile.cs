@@ -27,9 +27,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileDownThreshold = -0.1f;
     [SerializeField] private int UpLayer;
     [SerializeField] private int downLayer;
+
+    private bool offPlayerZone = false;
     
     private UnityEngine.Vector3 direction;
-    private bool offPlayerZone = false;
     
     private void Update()
     {
@@ -38,15 +39,17 @@ public class Projectile : MonoBehaviour
             rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
             
             if(offPlayerZone)
-                Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,originPlayer.AmmoIsMax());
+                if(!nailed)
+                    Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,originPlayer.AmmoIsMax());
 
         }
         
     }
     public void SetBullet( UnityEngine.Vector3  newDirection, float speed, PlayerController originplayer, Color playerColor)
     {
-        StartCoroutine(StopIgnoringAfterTime());
         StartCoroutine(DestroyAfterTime());
+        StartCoroutine(WaitForExitOriginZone());
+        
         direction = newDirection;
         projectileSpeed = speed;
         originPlayer = originplayer;
@@ -54,6 +57,9 @@ public class Projectile : MonoBehaviour
 
         if (direction.y >= projectileDownThreshold) gameObject.layer = UpLayer;
         else gameObject.layer = downLayer;
+        
+        _LevelManager.instance.scatteredAmmo += 1;
+
     }
 
     
@@ -61,14 +67,14 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("Player");
             var player = other.gameObject.GetComponent<PlayerController>();
 
             if (!nailed)
             {
                 if (player == originPlayer)
                 {
-                    player.ResupplyAmmo(1);
+                    if(offPlayerZone && !player.AmmoIsMax())
+                        player.ResupplyAmmo(1);
                 }
                 else
                 {
@@ -77,7 +83,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                if (player.AmmoIsMax()) return;
+//                if (player.AmmoIsMax()) return;
                 player.ResupplyAmmo(1);
 
             }
@@ -98,7 +104,6 @@ public class Projectile : MonoBehaviour
 
         else
         {
-            print("nail");
             Nail(); 
         }
 
@@ -120,6 +125,7 @@ public class Projectile : MonoBehaviour
         }
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
+
     }
 
     private IEnumerator DestroyAfterTime()
@@ -128,7 +134,7 @@ public class Projectile : MonoBehaviour
         
         Destroy(gameObject);
     }
-    private IEnumerator StopIgnoringAfterTime()
+    private IEnumerator WaitForExitOriginZone()
     {
         yield return new WaitForSeconds(timeToIgnorePlayer);
 
@@ -136,8 +142,9 @@ public class Projectile : MonoBehaviour
 
     }
 
+
     private void OnDestroy()
     {
-        
+       _LevelManager.instance.scatteredAmmo -= 1;
     }
 }
