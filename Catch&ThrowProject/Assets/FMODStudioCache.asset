@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Curro\Unity\Project3\TrueRep\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636948281002335630
+  lastModified: 636948302045246103
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -42,7 +42,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 590
+  Length: 567
 --- !u!114 &-4734881991574371779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636948281002385499
+  lastModified: 636948302045295968
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -138,7 +138,7 @@ MonoBehaviour:
   - {fileID: -8975965755975213500}
   StringsBanks:
   - {fileID: -2259010253822576608}
-  stringsBankWriteTime: 636948281002385499
+  stringsBankWriteTime: 636948302045295968
   cacheVersion: 3
 --- !u!114 &1617219876521541047
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 723
+  Length: 600
 --- !u!114 &5407271828848065011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 2040
+  Length: 1940
 --- !u!114 &5967589229110282290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1200
+  Length: 1030
 --- !u!114 &8703508124736631685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,4 +319,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 429
+  Length: 275
