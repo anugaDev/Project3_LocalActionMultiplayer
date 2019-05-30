@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Adrian\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Adrian\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.1686519280.00" t="ExcludeRecursive" />
-    <e p="E:\Curro\Unity\Project3\TrueRep\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
+    <e p="C:\Users\Adrian\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.-325789079.00" t="ExcludeRecursive" />
+    <e p="E:\Curro\Unity\Project3\DefRep\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -149,6 +149,7 @@
             <e p="Die.cs" t="Include" />
             <e p="DoubleJump.cs" t="Include" />
             <e p="DropOnPlatform.cs" t="Include" />
+            <e p="Duck.cs" t="Include" />
             <e p="Fall.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="Jump.cs" t="Include" />
@@ -168,6 +169,7 @@
             <e p="GameUtilities.cs" t="Include" />
           </e>
         </e>
+        <e p="SelectGameMode.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="NewSurfaceShader.shader" t="Include" />
         </e>

@@ -14,16 +14,14 @@ public class AmmoItem : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        print("enter");
         if (!other.gameObject.CompareTag("Player")) return;
         var player= other.gameObject.GetComponent<PlayerController>();
 
-        print("playerReload");
         if (player.AmmoIsMax()) return;
             TakeAmmo(player);
     }
     private void OnDestroy()
     {
-        _LevelManager.instance.scatteredAmmo -= 1;
+        _LevelManager.instance.scatteredAmmo --;
     }
 }
