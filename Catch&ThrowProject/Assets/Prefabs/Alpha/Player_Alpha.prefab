@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 4205472215443825079}
   - component: {fileID: 5970475171054597876}
   - component: {fileID: 4205472215443825078}
+  - component: {fileID: 8528970866292978446}
   - component: {fileID: 4205472215443825073}
   - component: {fileID: 8854126468993262086}
   - component: {fileID: 3966379602459133179}
@@ -668,6 +669,7 @@ MonoBehaviour:
   doubleJumpState: {fileID: 5970475171054597876}
   fallState: {fileID: 4205472215443825078}
   attackState: {fileID: 4205472215443825073}
+  duckState: {fileID: 8528970866292978446}
   dropOnPlatformState: {fileID: -4765620264934939727}
   mashButtonState: {fileID: 3303198742169511455}
   dashState: {fileID: 309804493}
@@ -824,6 +826,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   landSound: event:/MOVEMENT/land
+--- !u!114 &8528970866292978446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205472215443825064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ec035ac2b0def48b338fbf605083b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4205472215443825065}
+  animationBool: Duck
+  animationTrigger: 
+  enterSound: 
+  exitSound: 
 --- !u!114 &4205472215443825073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6089,6 +6108,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4205472215443825069}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 475e33afbaecd68419635f6c7a5ca8a9,
+        type: 3}
+      propertyPath: m_Name
+      value: CharacterFBX
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 475e33afbaecd68419635f6c7a5ca8a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6143,11 +6167,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 475e33afbaecd68419635f6c7a5ca8a9,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterFBX
       objectReference: {fileID: 0}
     - target: {fileID: 5549266870462576563, guid: 475e33afbaecd68419635f6c7a5ca8a9,
         type: 3}

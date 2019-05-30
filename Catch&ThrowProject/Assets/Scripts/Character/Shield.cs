@@ -91,7 +91,13 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
-        //StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerController.uiPanel.transform, shakePortraitForce));
+        if(actualBlinking != null) StopCoroutine(actualBlinking);
+        
+        actualBlinking = gameUtilities.Blink(playerModel, timeBetweenBlinking, blinkingTime);
+
+        StartCoroutine(actualBlinking);
+        
+//        StartCoroutine(gameUtilities.ShakeObject(shakePortraitTime, playerController.uiPanel.transform, shakePortraitForce));
 
         actualHealth = 0;
         shieldDestroyed = true;

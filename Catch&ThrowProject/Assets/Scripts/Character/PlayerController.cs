@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public DoubleJump doubleJumpState;
     public Fall fallState;
     public Attack attackState;
+    public Duck duckState;
     public DropOnPlatform dropOnPlatformState;
     public MashButton mashButtonState;
 
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
             stateMachine.currentState == fallState || stateMachine.currentState == attackState)
         {
             if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
-                if (inputControl.ButtonDown(InputController.Button.JUMP) && inputControl.Vertical < downPlatformThreshold)
+                if (BellowDropThreshold() && inputControl.ButtonDown(InputController.Button.JUMP))
                 {
                     ChangeState(dropOnPlatformState);
                     return;
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available)
             {
                 if (!CheckForGround()) ChangeState(dashState);
-                else if (inputControl.Vertical > downPlatformThreshold) ChangeState(dashState);
+                else if (inputControl.Direction.y > downPlatformThreshold) ChangeState(dashState);
             }
 
         }
@@ -136,6 +137,11 @@ public class PlayerController : MonoBehaviour
     public void ChangeState(BaseState newState)
     {
         stateMachine.ChangeState(newState);
+    }
+
+    public bool BellowDropThreshold()
+    {
+        return inputControl.Vertical < downPlatformThreshold;
     }
 
     public void HorizontalMove(float speed)
