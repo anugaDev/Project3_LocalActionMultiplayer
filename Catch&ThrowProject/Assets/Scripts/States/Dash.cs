@@ -47,7 +47,7 @@ public class Dash : BaseState
 
         playerController.Impulse(direction == Vector3.zero ? transform.right : direction, speed, false);
         actualDirection = direction;
-        
+
         playerController.OrientatePlayer(actualDirection.x);
 
         dashParticles.Play();
@@ -55,7 +55,7 @@ public class Dash : BaseState
 
         stopDash = StopDash();
         StartCoroutine(stopDash);
-        
+
         base.Enter();
 
     }
@@ -200,6 +200,6 @@ public class Dash : BaseState
     public void ChangeTrail(bool change)
     {
         walkTrail.enabled = change;
-
+        walkTrail.transform.localPosition = new Vector3(0, 0, playerController.inputControl.Horizontal < 0 ? -0.5f : 0.5f);
     }
 }
