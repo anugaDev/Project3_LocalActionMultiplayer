@@ -879,6 +879,8 @@ MonoBehaviour:
   meleeHitDamage: 100
   hitForce: 35
   playerColor: {r: 0, g: 0, b: 0, a: 0}
+  meleeSound: event:/ATTACK/mele_hit
+  throwSound: event:/ATTACK/mele_air
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,12 +27,28 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileDownThreshold = -0.1f;
     [SerializeField] private int UpLayer;
     [SerializeField] private int downLayer;
+    
+    [Header("sound")]
+    
+    [FMODUnity.EventRef] public string thrownSound;
+    private FMOD.Studio.EventInstance thrownEventSound;
+    [FMODUnity.EventRef] public string wallHitSound;
+    [FMODUnity.EventRef] public string playerHitSound;
+    
 
     private bool offPlayerZone = false;
     
     private UnityEngine.Vector3 direction;
-    
+
+    private void Awake()
+    {
+        thrownEventSound = FMODUnity.RuntimeManager.CreateInstance(thrownSound);
+
+
+    }
+
     private void Update()
+    
     {
         if (!nailed)
         {
@@ -60,11 +76,15 @@ public class Projectile : MonoBehaviour
         
         _LevelManager.instance.scatteredAmmo += 1;
 
+        thrownEventSound.start();
+
     }
 
     
     private void OnTriggerEnter(Collider other)
     {
+        thrownEventSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        
         if (other.gameObject.CompareTag("Player"))
         {
             var player = other.gameObject.GetComponent<PlayerController>();
@@ -78,6 +98,7 @@ public class Projectile : MonoBehaviour
                 }
                 else
                 {
+                    FMODUnity.RuntimeManager.PlayOneShot(playerHitSound);
                     player.ProjectileHit(direction,hitForce,damage);
                 }
             }
@@ -104,7 +125,8 @@ public class Projectile : MonoBehaviour
 
         else
         {
-            Nail(); 
+            FMODUnity.RuntimeManager.PlayOneShot(wallHitSound);
+            Nail();
         }
 
     }

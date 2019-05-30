@@ -34,6 +34,19 @@ public class Attack : BaseState
 
     [SerializeField] private Color playerColor;
 
+    [Header(("Attack Sound"))]
+    
+    [FMODUnity.EventRef] public string meleeSound;
+    private FMOD.Studio.EventInstance meleeEventSound;
+    [FMODUnity.EventRef] public string throwSound;
+    private FMOD.Studio.EventInstance throwSoundEvent;
+
+    private void Start()
+    {
+        meleeEventSound = FMODUnity.RuntimeManager.CreateInstance(meleeSound);
+        throwSoundEvent = FMODUnity.RuntimeManager.CreateInstance(throwSound);
+
+    }
 
     public override void Enter()
     {
@@ -161,12 +174,15 @@ public class Attack : BaseState
 
         playerController.animator.speed = 1;
 
+        throwSoundEvent.start();
     }
 
     public void HitMelee(PlayerController enemyPlayer, Vector3 direction)
     {
         Instantiate(meleeParticles, enemyPlayer.transform.position, transform.rotation);
         enemyPlayer.MeleeHit(meleeHitDamage, direction, hitForce, playerController);
+
+        meleeEventSound.start();
 
         AttackFinished();
     }
