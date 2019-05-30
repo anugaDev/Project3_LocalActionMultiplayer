@@ -37,6 +37,8 @@ public class Attack : BaseState
 
     public override void Enter()
     {
+        base.Enter();
+        playerController.animator.speed = 0;
         directionAffordance.gameObject.SetActive(true);
         lastDir = transform.right.normalized;
 
@@ -82,6 +84,9 @@ public class Attack : BaseState
         var rotationAffordanceZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var rotationAffordance = Quaternion.Euler(0, 0, rotationAffordanceZ);
         directionAffordance.rotation = rotationAffordance;
+
+        float animationDirection = Vector3.Dot(transform.up, (directionAffordance.position - transform.position).normalized);
+        playerController.animator.SetFloat("ThrowDirection", animationDirection);
 
         //        loat AngleRad = Mathf.Atan2(Target.transform.position.y - Entity.transform.position.y, Target.transform.position.x - Entity.transform.position.x);
         //        // Get Angle in Degrees
@@ -135,6 +140,8 @@ public class Attack : BaseState
 
     public override void Exit()
     {
+        playerController.animator.speed = 1;
+
         playerController.ammo.enabled = false;
 
         directionAffordance.gameObject.SetActive(false);
@@ -142,8 +149,6 @@ public class Attack : BaseState
 
     public void ShootProjectile(Vector2 direction)
     {
-
-
         var speed = projectileSpeed;
 
         var projectileInstance = Instantiate(projectile, transform.position + (shootOffset * (Vector3)direction), Quaternion.identity);
@@ -157,6 +162,9 @@ public class Attack : BaseState
         playerController.ConsumeAmmo(1);
 
         AttackFinished();
+
+        playerController.animator.speed = 1;
+
     }
 
     public void HitMelee(PlayerController enemyPlayer, Vector3 direction)

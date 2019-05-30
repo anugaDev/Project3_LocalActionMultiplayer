@@ -23,6 +23,8 @@ public class Catch : BaseState
 
     private Vector3 ThrowDirection;
 
+    public Transform handPosition;
+
     public override void Enter()
     {
         base.Enter();
@@ -42,6 +44,7 @@ public class Catch : BaseState
 
     public override void Execute()
     {
+        playerController.caughtPlayer.transform.position = handPosition.position;
         PositionateMarker();
         StopCatch();
 
@@ -89,13 +92,15 @@ public class Catch : BaseState
         }
 
         caughtPlayer.stunState.stunByTime = false;
-        if(ThrowDirection.y > 0) caughtPlayer.gameObject.layer = caughtPlayer.jumpLayer;
+        if (ThrowDirection.y > 0) caughtPlayer.gameObject.layer = caughtPlayer.jumpLayer;
         caughtPlayer.Impulse(ThrowDirection, force, true);
         caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
 
 
         playerController.ChangeState(playerController.stunState);
         if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
+
+        playerController.animator.SetTrigger("ThrowPlayer");
     }
 
     private void PositionateMarker()

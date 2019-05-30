@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
     public int actualAmmo { get; private set; } = 3;
     [SerializeField] private int initialAmmo;
     public int maxAmmo;
-//    [SerializeField] private float timeForAmmo;
-//    private IEnumerator recoverAmmo;
+    //    [SerializeField] private float timeForAmmo;
+    //    private IEnumerator recoverAmmo;
 
 
     [HideInInspector] public bool jumpMade;
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-//        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
+        //        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
         actualAmmo = initialAmmo;
         stateMachine.ChangeState(idleState);
         spawnPosition = transform.position;
@@ -129,8 +129,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         uiPanel.UpdateAmmoText(actualAmmo);
-//        if (!CheckForRecoverAmmo()) return;
-//        CallForReload();
+        //        if (!CheckForRecoverAmmo()) return;
+        //        CallForReload();
     }
 
     public void ChangeState(BaseState newState)
@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
         var startingPos = transform.position;
 
-        Vector3 leftRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.min.x )) * collisionBoundariesMultiplier;
+        Vector3 leftRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.min.x)) * collisionBoundariesMultiplier;
         Vector3 rightRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.max.x)) * collisionBoundariesMultiplier;
 
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
@@ -193,7 +193,7 @@ public class PlayerController : MonoBehaviour
 
         return onGround;
     }
-    
+
     private void OnCollisionEnter(Collision other)
     {
         if (stateMachine.currentState.Equals(dieState)) return;
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this); 
+        if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
     }
 
     private void HitByDeathZone(Collision deathZone)
@@ -274,9 +274,9 @@ public class PlayerController : MonoBehaviour
         this.ammo.text = actualAmmo.ToString();
         this.ammo.enabled = true;
 
-//        StartCoroutine(DeactivateAmmoText());
+        StartCoroutine(DeactivateAmmoText());
 
-//        if (AmmoIsMax()) StopReloading();
+        if (AmmoIsMax()) StopReloading();
     }
 
     private IEnumerator DeactivateAmmoText()
@@ -289,13 +289,13 @@ public class PlayerController : MonoBehaviour
     private void CallForReload()
     {
         reloadAmmoinCourse = true;
-//        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
-//        StartCoroutine(recoverAmmo);
+        //        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
+        //        StartCoroutine(recoverAmmo);
     }
 
     private void StopReloading()
     {
-//        StopCoroutine(recoverAmmo);
+        //        StopCoroutine(recoverAmmo);
         uiPanel.SetAmmoFillActive(false);
         reloadAmmoinCourse = false;
     }
@@ -306,27 +306,27 @@ public class PlayerController : MonoBehaviour
         if (actualAmmo < 0) actualAmmo = 0;
     }
 
-//    private bool CheckForRecoverAmmo()
-//    {
-//        if (reloadAmmoinCourse) return false;
-////        return actualAmmo < maxAmmo;
-//    }
+    //    private bool CheckForRecoverAmmo()
+    //    {
+    //        if (reloadAmmoinCourse) return false;
+    ////        return actualAmmo < maxAmmo;
+    //    }
 
-//    private IEnumerator RecoverAmmoOverTime(float time)
-//    {
-//        var actualTime = 0f;
-//        uiPanel.SetAmmoFillActive(true);
-//        while (actualTime < time)
-//        {
-//            actualTime += Time.deltaTime;
-//            uiPanel.UpdateAmmoFill(actualTime, time);
-//            yield return null;
-//
-//        }
-//        uiPanel.SetAmmoFillActive(false);
-//        actualAmmo++;
-//        reloadAmmoinCourse = false;
-//    }
+    //    private IEnumerator RecoverAmmoOverTime(float time)
+    //    {
+    //        var actualTime = 0f;
+    //        uiPanel.SetAmmoFillActive(true);
+    //        while (actualTime < time)
+    //        {
+    //            actualTime += Time.deltaTime;
+    //            uiPanel.UpdateAmmoFill(actualTime, time);
+    //            yield return null;
+    //
+    //        }
+    //        uiPanel.SetAmmoFillActive(false);
+    //        actualAmmo++;
+    //        reloadAmmoinCourse = false;
+    //    }
 
     public void RespawnAmmo()
     {
@@ -353,5 +353,5 @@ public class PlayerController : MonoBehaviour
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
     }
-    
+
 }
