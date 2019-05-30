@@ -214,11 +214,12 @@ MonoBehaviour:
   - {fileID: -370332632395114048}
   - {fileID: 3392725661426394918}
   - {fileID: -453466076732535763}
+  - {fileID: 8810342273188816135}
   MasterBanks:
   - {fileID: 8477739096009975502}
   StringsBanks:
   - {fileID: 1569357984745589087}
-  stringsBankWriteTime: 636948420634920805
+  stringsBankWriteTime: 636948442408171226
   cacheVersion: 3
 --- !u!114 &921624849665510472
 MonoBehaviour:
@@ -256,11 +257,11 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636948420634920805
+  lastModified: 636948442408171226
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1318
+    Value: 1354
   Exists: 1
 --- !u!114 &1572600150844627367
 MonoBehaviour:
@@ -391,9 +392,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Curro\Unity\Project3\DefRep\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636948420634870929
+  lastModified: 636948442408121479
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 323968
+    Value: 330464
   Exists: 1
+--- !u!114 &8810342273188816135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Projectile/shoot_bounce
+  m_EditorClassIdentifier: 
+  Path: event:/Projectile/shoot_bounce
+  guid: be657e15f5af9043829c84fb18be8884
+  Banks:
+  - {fileID: 8477739096009975502}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 634
