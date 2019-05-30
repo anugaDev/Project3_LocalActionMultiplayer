@@ -29,7 +29,6 @@ public class Die : BaseState
         if (delegateRespawn == null)
         {
             StopCoroutine(delegateRespawn);
-            playerModel.SetActive(true);
         }
 
         playerController.normalCollider.enabled = true;
@@ -40,6 +39,7 @@ public class Die : BaseState
     {
         _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
         playerController.shield.DestroyShield();
+        playerController.shield.StopAllCoroutines();
         playerModel.SetActive(false);
         playerController.dashState.available = false;
         delegateRespawn = GetRespawn(1);
@@ -65,11 +65,12 @@ public class Die : BaseState
         rotation.y = transform.position.x > 0 ? 180 : 0;
         transform.rotation = Quaternion.Euler(rotation);
         playerModel.SetActive(true);
+
         playerController.shield.ResetShield();
         playerController.dashState.available = true;
 
 
         playerController.ChangeState(playerController.idleState);
     }
-    
+
 }

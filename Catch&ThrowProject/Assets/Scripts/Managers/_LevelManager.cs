@@ -262,7 +262,7 @@ public class _LevelManager : MonoBehaviour
 
         Text backgroundText = countdownText.GetComponent<Text>();
         Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
-
+        /*
         for (int i = secondsBeforeGame; i > 0; i--)
         {
             backgroundText.text = i.ToString();
@@ -270,6 +270,17 @@ public class _LevelManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(1);
         }
+        */
+        backgroundText.text = "Ready";
+        foregroundText.text = "Ready";
+
+        yield return new WaitForSecondsRealtime(1);
+
+        backgroundText.text = "Set";
+        foregroundText.text = "Set";
+
+        yield return new WaitForSecondsRealtime(1);
+
 
         backgroundText.text = "Blitz!";
         foregroundText.text = "Blitz!";
