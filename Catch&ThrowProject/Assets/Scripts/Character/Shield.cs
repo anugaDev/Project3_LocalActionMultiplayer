@@ -26,6 +26,12 @@ public class Shield : MonoBehaviour
 
     [HideInInspector] public bool shieldDestroyed;
 
+    [Header("Sound")]
+    [FMODUnity.EventRef] public string upShield;
+    [FMODUnity.EventRef] public string downShield;
+    
+    
+    
     private float actualHealth;
 
     public IEnumerator actualBlinking;
@@ -71,6 +77,7 @@ public class Shield : MonoBehaviour
 
     public void ShieldRegenerate()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(upShield);
         shieldDestroyed = false;
         shieldSprite.enabled = true;
         shieldSprite.color = lowShieldColor;
@@ -89,6 +96,8 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(downShield);
+
         if(actualBlinking != null) StopCoroutine(actualBlinking);
         
         actualBlinking = gameUtilities.Blink(playerModel, timeBetweenBlinking, blinkingTime);
