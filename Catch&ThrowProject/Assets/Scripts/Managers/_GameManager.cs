@@ -14,10 +14,12 @@ public class _GameManager : MonoBehaviour
     public int SceneToLoadNumber = -1;
     public int lastScene;
 
+    public bool gameByTime = false;
+
     private void Awake()
     {
         if (instance == null) instance = this;
-        if (instance != this) Destroy(this);
+        if (instance != this) Destroy(gameObject);
 
         DontDestroyOnLoad(this);
 
@@ -73,5 +75,11 @@ public class _GameManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadNextScene()
+    {
+        if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

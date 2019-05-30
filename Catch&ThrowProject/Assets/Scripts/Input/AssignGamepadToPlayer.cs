@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Resources;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AssignGamepadToPlayer : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class AssignGamepadToPlayer : MonoBehaviour
             {
                 if (CanStartGame())
                 {
-                    _GameManager.instance.SceneToLoadNumber = 2;
+                    _GameManager.instance.SceneToLoadNumber = SceneManager.GetActiveScene().buildIndex + 1;
                     _GameManager.instance.LoadNewGame();
                 }
             }

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes For Alpha/MainMenu.unity
     guid: 3a86fe5509382194d95b90bf2799e6c9
   - enabled: 1
+    path: Assets/Scenes/Beta Scenes/GameModeSelection.unity
+    guid: 8b760c41979befe44930f258acf8442d
+  - enabled: 1
     path: Assets/Scenes/Final Scenes For Alpha/GameSelectionAlpha.unity
     guid: 3a79b0f06a0ecfc4bae7557471f01b4a
   - enabled: 1

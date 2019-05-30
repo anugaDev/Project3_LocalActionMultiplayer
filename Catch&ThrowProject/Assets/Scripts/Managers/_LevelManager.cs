@@ -40,7 +40,7 @@ public class _LevelManager : MonoBehaviour
     public GameObject EndMenu;
     public GameObject playerPanelPrefab;
 
-   
+
 
     public GameObject countdownText;
 
@@ -62,6 +62,8 @@ public class _LevelManager : MonoBehaviour
         if (instance != this) Destroy(this);
 
         DontDestroyOnLoad(this);
+
+       if(_GameManager.instance!=null) matchByTime = _GameManager.instance.gameByTime;
     }
 
     private void Start()
@@ -290,9 +292,9 @@ public class _LevelManager : MonoBehaviour
         }
 
         matchAmmo += scatteredAmmo;
-        
-//        print(matchAmmo);
-        
+
+        //        print(matchAmmo);
+
         if (matchAmmo < (players.Count * playersInitialAmmo))
         {
             SpawnAmmo();
