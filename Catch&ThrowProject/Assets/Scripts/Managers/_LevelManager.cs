@@ -37,10 +37,7 @@ public class _LevelManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject UI_Parent;
     public GameObject PauseMenu;
-    public GameObject EndMenu;
     public GameObject playerPanelPrefab;
-
-
 
     public GameObject countdownText;
 
@@ -63,7 +60,7 @@ public class _LevelManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-       if(_GameManager.instance!=null) matchByTime = _GameManager.instance.gameByTime;
+        if (_GameManager.instance != null) matchByTime = _GameManager.instance.gameByTime;
     }
 
     private void Start()
@@ -114,7 +111,8 @@ public class _LevelManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].health = StartingLifes;
-            players[i].uiPanel = Instantiate(playerPanelPrefab, parent: UI_Parent.transform).GetComponent<UpdatePlayerPanel>();
+            players[i].uiPanel = Instantiate(players[i].playerSkin.UI_Player, UI_Parent.transform).GetComponent<UpdatePlayerPanel>();
+            players[i].uiPanel.SetUpPanel(matchByTime);
             players[i].uiPanel.RemoveLife(players[i].health);
             players[i].enabled = true;
         }

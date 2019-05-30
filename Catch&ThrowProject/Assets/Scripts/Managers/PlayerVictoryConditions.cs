@@ -42,8 +42,12 @@ public class PlayerVictoryConditions
     public void UpdateValues(PlayerController player)
     {
         matchInfo[player].deaths++;
-        Debug.Log(matchInfo[player].deaths);
-        if (player.killer) matchInfo[player.killer].kills++;
+
+        if (player.killer)
+        {
+            matchInfo[player.killer].kills++;
+            player.killer.uiPanel.UpdateKills(matchInfo[player.killer].kills);
+        }
         else matchInfo[player].suicides++;
     }
 }

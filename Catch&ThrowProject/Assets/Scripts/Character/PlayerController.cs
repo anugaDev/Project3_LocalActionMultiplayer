@@ -127,13 +127,6 @@ public class PlayerController : MonoBehaviour
         stateMachine.ExecuteState();
     }
 
-    private void FixedUpdate()
-    {
-        uiPanel.UpdateAmmoText(actualAmmo);
-        //        if (!CheckForRecoverAmmo()) return;
-        //        CallForReload();
-    }
-
     public void ChangeState(BaseState newState)
     {
         stateMachine.ChangeState(newState);
@@ -306,8 +299,6 @@ public class PlayerController : MonoBehaviour
 
     private void StopReloading()
     {
-        //        StopCoroutine(recoverAmmo);
-        uiPanel.SetAmmoFillActive(false);
         reloadAmmoinCourse = false;
     }
 

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTexture: {fileID: 2800000, guid: 2ee338130ad9ec04c840da2847150561, type: 3}
   maskTexture: {fileID: 2800000, guid: e54084e4b62aa804a8fba73b0a23addd, type: 3}
+  UI_Player: {fileID: 6287633926413835437, guid: 7ce9d55f934e9cd4d8802ff3b79b1a05,
+    type: 3}
   mainColor: {r: 1, g: 0.97981787, b: 0, a: 1}
   used: 0

@@ -46,8 +46,6 @@ public class Shield : MonoBehaviour
 
         if (shieldSprite.enabled)
             shieldSprite.color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
-
-        if (playerController.uiPanel) playerController.uiPanel.UpdateShieldFill(actualHealth, maxHealth);
     }
 
     public void Hit(float damage)
