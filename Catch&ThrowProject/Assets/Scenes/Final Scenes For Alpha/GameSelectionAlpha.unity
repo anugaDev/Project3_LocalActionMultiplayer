@@ -407,7 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  playerBasicPrefab: {fileID: 0}
+  playerBasicPrefab: {fileID: 4205472215443825064, guid: 21263b536f790fe4dbbc6a033a3011a7,
+    type: 3}
   SceneToLoadNumber: -1
   lastScene: 0
   gameByTime: 0

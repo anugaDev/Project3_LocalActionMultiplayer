@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skin
   playerTexture: {fileID: 2800000, guid: 8bdb519f1e486004c8d4b57c87b880e1, type: 3}
   maskTexture: {fileID: 2800000, guid: 1ce1182d18b45584da2d430763d766c2, type: 3}
+  UI_Player: {fileID: 6287633926413835437, guid: 74a21f32c55227540afc1f3b7aaa5376,
+    type: 3}
   mainColor: {r: 0, g: 0.81803536, b: 1, a: 1}
   used: 1

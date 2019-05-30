@@ -67,7 +67,6 @@ public class Dash : BaseState
         if (available || playerController.stateMachine.currentState == this) return;
 
         if (released) timer += Time.deltaTime;
-        playerController.uiPanel.UpdateDashFill(timer, cooldown);
 
         if (timer >= cooldown)
         {
@@ -98,7 +97,6 @@ public class Dash : BaseState
     {
         timer = cooldown;
         available = true;
-        playerController.uiPanel.UpdateDashFill(timer, cooldown);
     }
 
     private IEnumerator StopDash()

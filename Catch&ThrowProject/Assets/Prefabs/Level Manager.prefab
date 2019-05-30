@@ -56,15 +56,14 @@ MonoBehaviour:
   UI_Input: {fileID: 0}
   cameraFollow: {fileID: 0}
   StartingLifes: 3
-  MatchDuration: 25
-  matchByTime: 0
+  MatchDuration: 100
+  matchByTime: 1
   remainingTime: {fileID: 0}
   ammoItem: {fileID: 6569685431690109089, guid: 718b3cbeed11f264099e916681d8d2ab,
     type: 3}
   scatteredAmmo: 0
   UI_Parent: {fileID: 0}
   PauseMenu: {fileID: 0}
-  EndMenu: {fileID: 0}
   playerPanelPrefab: {fileID: 3629993852905356329, guid: e55337b2625d29f49be35cfc2b2ce9b7,
     type: 3}
   countdownText: {fileID: 0}

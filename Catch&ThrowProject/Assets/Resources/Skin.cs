@@ -8,6 +8,8 @@ namespace Assets.Resources
         public Texture playerTexture;
         public Texture maskTexture;
 
+        public GameObject UI_Player;
+
         public Color mainColor;
 
         public bool used;

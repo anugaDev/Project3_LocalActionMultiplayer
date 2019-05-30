@@ -6,52 +6,31 @@ using UnityEngine.UI;
 public class UpdatePlayerPanel : MonoBehaviour
 {
     [Header("Images")]
-    [SerializeField] private Image shieldBar;
-    [SerializeField] private Image DashFill;
-    [SerializeField] private Image AmmoFill;
     [SerializeField] private Image[] lifes;
 
     [Header("Text")]
-    [SerializeField] private Text ammo;
-    [SerializeField] private Text remainingLives;
+    [SerializeField] private Text kills;
 
-    public void UpdateDashFill(float actual, float max)
+    public void SetUpPanel(bool gameByTime)
     {
-        UpdateFill(DashFill, actual, max);
+        kills.text = "0";
+        kills.enabled = gameByTime;
+
+        for (int i = 0; i < lifes.Length; i++)
+        {
+            lifes[i].enabled = !gameByTime;
+        }
     }
 
-    public void UpdateShieldFill(float actual, float max)
+    public void UpdateKills(int actualKills)
     {
-        UpdateFill(shieldBar, actual, max);
-    }
-
-    public void UpdateAmmoFill(float actual, float max)
-    {
-        UpdateFill(AmmoFill, actual, max);
-    }
-
-    public void SetAmmoFillActive(bool isActive)
-    {
-        AmmoFill.gameObject.SetActive(isActive);
-    }
-
-    public void UpdateAmmoText(float actualAmmo)
-    {
-        ammo.text = "Ammo : " + actualAmmo;
-    }
-
-    public void UpdateLivesText(float actualLives)
-    {
-        remainingLives.text = actualLives.ToString();
-    }
-
-    private void UpdateFill(Image fillImage, float actual, float max)
-    {
-        if (fillImage) fillImage.fillAmount = actual / max;
+        kills.text = actualKills.ToString();
     }
 
     public void RemoveLife(int actualHealth)
     {
+        if (_LevelManager.instance.matchByTime) return;
+
         for (int i = lifes.Length - 1; i >= actualHealth; i--)
         {
             if (lifes[i]) lifes[i].enabled = false;
