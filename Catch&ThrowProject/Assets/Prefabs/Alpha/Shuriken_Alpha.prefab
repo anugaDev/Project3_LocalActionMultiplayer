@@ -127,6 +127,9 @@ MonoBehaviour:
   projectileDownThreshold: -0.1
   UpLayer: 13
   downLayer: 15
+  thrownSound: event:/Projectile/shoot_shot
+  wallHitSound: event:/Projectile/shoot_wall
+  playerHitSound: event:/Projectile/shoot_Hit
 --- !u!96 &142194903734923936
 TrailRenderer:
   serializedVersion: 2
