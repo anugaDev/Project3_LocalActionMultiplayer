@@ -21,8 +21,8 @@ public class DynamicCamera : MonoBehaviour
     public Transform downLeftBound;
     public Transform upRightBound;
 
-    public float horizontalBoundryThreshold = 5;
-    public float verticalBoundryThreshold = 5;
+    public float minY = -5.5f;
+    public float maxY = 10f;
 
     private Vector3 velocity;
 
@@ -53,6 +53,7 @@ public class DynamicCamera : MonoBehaviour
         desiredPosition = CenterOfMass(objectsToShow);
         desiredPosition.z = transform.position.z;
         desiredPosition += offset;
+        desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
 
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, positionDamping);
     }
