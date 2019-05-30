@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
     [FMODUnity.EventRef] public string thrownSound;
     private FMOD.Studio.EventInstance thrownEventSound;
     [FMODUnity.EventRef] public string wallHitSound;
+    [FMODUnity.EventRef] public string bounceSound;
     [FMODUnity.EventRef] public string playerHitSound;
     
 
@@ -115,6 +116,7 @@ public class Projectile : MonoBehaviour
         
         else if(other.gameObject.CompareTag("Death Zone"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot(bounceSound);
             var newDir =  UnityEngine.Vector3.Reflect(direction,other.transform.position.normalized);
             newDir.z = 0;
             direction = newDir;

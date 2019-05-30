@@ -129,6 +129,7 @@ MonoBehaviour:
   downLayer: 15
   thrownSound: event:/Projectile/shoot_shot
   wallHitSound: event:/Projectile/shoot_wall
+  bounceSound: event:/Projectile/shoot_bounce
   playerHitSound: event:/Projectile/shoot_Hit
 --- !u!96 &142194903734923936
 TrailRenderer:
