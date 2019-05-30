@@ -11,6 +11,16 @@ public class EndGame : MonoBehaviour
 
     public List<VictoryPanel> victoryPanels;
 
+    public string StartButton = "Start";
+
+    void Update()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if (Input.GetButtonDown(StartButton + i)) GoEnd();
+        }
+    }
+
     void Start()
     {
         if (!_LevelManager.instance) return;
