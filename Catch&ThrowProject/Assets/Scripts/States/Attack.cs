@@ -45,9 +45,6 @@ public class Attack : BaseState
         playerController.ammo.enabled = true;
         playerController.ammo.text = playerController.actualAmmo.ToString();
 
-        //        if (playerController.onGround) playerController.rigidbody.velocity = Vector3.zero;
-        //        playerController.rigidbody.velocity = Vector3.zero;
-        //        else playerController.ChangeState(playerController.idleState);
     }
 
     public override void Execute()
@@ -78,6 +75,7 @@ public class Attack : BaseState
             direction = actualDirection;
             lastDir = actualDirection;
         }
+        
 
         directionAffordance.position = transform.position + direction * directionAffordanceDistance;
 
@@ -87,12 +85,10 @@ public class Attack : BaseState
 
         float animationDirection = Vector3.Dot(transform.up, (directionAffordance.position - transform.position).normalized);
         playerController.animator.SetFloat("ThrowDirection", animationDirection);
+        
+        playerController.OrientatePlayer(direction.x);
 
-        //        loat AngleRad = Mathf.Atan2(Target.transform.position.y - Entity.transform.position.y, Target.transform.position.x - Entity.transform.position.x);
-        //        // Get Angle in Degrees
-        //        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-        //        // Rotate Object
-        //        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
 
         #endregion
 

@@ -145,8 +145,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(horizontal) > 0)
         {
-            transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
-            ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+            OrientatePlayer(horizontal);
 
             if (!impulseImpacts) velocity.x = speed * horizontal;
             else velocity.x += horizontal * speed * Time.deltaTime;
@@ -158,6 +157,12 @@ public class PlayerController : MonoBehaviour
         }
 
         rigidbody.velocity = velocity;
+    }
+
+    public void OrientatePlayer(float horizontal)
+    {
+        transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+        ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
     }
 
     public void VerticalMove(Vector3 direction, float force)

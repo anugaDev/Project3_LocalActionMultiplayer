@@ -47,6 +47,8 @@ public class Dash : BaseState
 
         playerController.Impulse(direction == Vector3.zero ? transform.right : direction, speed, false);
         actualDirection = direction;
+        
+        playerController.OrientatePlayer(actualDirection.x);
 
         dashParticles.Play();
         ChangeTrail(true);
@@ -73,8 +75,6 @@ public class Dash : BaseState
             timer = 0;
         }
     }
-
-
 
     public override void Exit()
     {
