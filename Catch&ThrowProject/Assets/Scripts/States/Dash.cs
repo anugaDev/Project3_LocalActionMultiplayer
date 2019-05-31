@@ -28,7 +28,7 @@ public class Dash : BaseState
     private GameUtilities gameUtils = new GameUtilities();
     private Vector3 actualDirection;
 
-    [SerializeField] private ParticleSystem dashParticles;
+    [SerializeField] public TrailRenderer dashTrail;
     [SerializeField] public TrailRenderer walkTrail;
 
     private IEnumerator stopDash;
@@ -50,7 +50,7 @@ public class Dash : BaseState
 
         playerController.OrientatePlayer(actualDirection.x);
 
-        dashParticles.Play();
+        dashTrail.enabled = true;
         ChangeTrail(true);
 
         stopDash = StopDash();
@@ -86,7 +86,7 @@ public class Dash : BaseState
         if (!catched) playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
-        dashParticles.Stop();
+        dashTrail.enabled = false;
 
         catched = false;
 
