@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/run
   guid: 4bc3cee9a841c943b57c51943cfa935f
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -23,6 +23,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-6445542907061128170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Angels\Documents\GitHub\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636948350695724804
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 282848
+  Exists: 1
 --- !u!114 &-6431624017420838808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +58,7 @@ MonoBehaviour:
   Path: event:/ATTACK/mele_hit
   guid: 438158246560ab42b0cd679fc3961474
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -61,7 +81,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/dash
   guid: 0eac42a6e6b2c546a19238d7ab278387
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -107,7 +127,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/land
   guid: 9bae7942eda92d46ba653ee6a2a3674b
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -130,7 +150,7 @@ MonoBehaviour:
   Path: event:/REACTION/dead
   guid: a91104baa79b4f419cb6abcca500b6c4
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -153,7 +173,7 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_shot
   guid: f12ff77587dfa549b8a9687b2e5bfd35
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -176,7 +196,7 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_Hit
   guid: db5c23357fa5e24490adead79776c7d9
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -198,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1569357984745589087}
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   EditorEvents:
   - {fileID: -3631626483665078919}
   - {fileID: 1572600150844627367}
@@ -206,20 +226,17 @@ MonoBehaviour:
   - {fileID: -6431624017420838808}
   - {fileID: -8036378370355975930}
   - {fileID: 3059476483290207671}
-  - {fileID: -2183509404199794085}
-  - {fileID: 7865469228804241742}
   - {fileID: -1667140068360339337}
   - {fileID: -1046580061982438625}
   - {fileID: 921624849665510472}
   - {fileID: -370332632395114048}
   - {fileID: 3392725661426394918}
   - {fileID: -453466076732535763}
-  - {fileID: 8810342273188816135}
   MasterBanks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   StringsBanks:
   - {fileID: 1569357984745589087}
-  stringsBankWriteTime: 636948442408171226
+  stringsBankWriteTime: 636948350695754718
   cacheVersion: 3
 --- !u!114 &921624849665510472
 MonoBehaviour:
@@ -236,7 +253,7 @@ MonoBehaviour:
   Path: event:/REACTION/Throw
   guid: d0d2e8f95254b648ad36ea995e610973
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -257,11 +274,11 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636948442408171226
+  lastModified: 636948350695754718
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1354
+    Value: 1222
   Exists: 1
 --- !u!114 &1572600150844627367
 MonoBehaviour:
@@ -278,7 +295,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/double_jump
   guid: 12a66318a991f1459ccf1d3bad514be5
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -301,7 +318,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/jump
   guid: 61cf27907dda004c8cf7497b7e6e9113
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -324,7 +341,7 @@ MonoBehaviour:
   Path: event:/ATTACK/mele_air
   guid: e4e0c739d5492c4ba8f1165d627283b1
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -347,7 +364,7 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_wall
   guid: 135dd129cca0d8468d8e70d12ff1a007
   Banks:
-  - {fileID: 8477739096009975502}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
