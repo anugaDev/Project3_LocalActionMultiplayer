@@ -24,6 +24,18 @@
           </e>
         </e>
         <e p="Imports" t="Include">
+          <e p="ForceFieldFX-master" t="Include">
+            <e p="ForceFieldFX" t="Include">
+              <e p="Assets" t="Include">
+                <e p="Shader" t="Include">
+                  <e p="ShieldFX.shader" t="Include" />
+                </e>
+              </e>
+              <e p="ProjectSettings" t="Include">
+                <e p="ProjectVersion.txt" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="Outline" t="Include">
             <e p="Outline.cs" t="Include" />
             <e p="Outline.shader" t="Include" />
