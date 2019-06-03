@@ -94,6 +94,7 @@ public class _LevelManager : MonoBehaviour
                 EndMatch();
             }
         }
+
         CheckForAmmoSpawn();
     }
 
@@ -195,11 +196,11 @@ public class _LevelManager : MonoBehaviour
 
         if (player.health == 0)
         {
-            cameraFollow.objectsToShow.Remove(player.transform);
-            player.gameObject.SetActive(false);
-
             if (!matchByTime)
             {
+                cameraFollow.objectsToShow.Remove(player.transform);
+                player.gameObject.SetActive(false);
+
                 int alivePlayers = 0;
 
                 for (int i = 0; i < players.Count; i++)

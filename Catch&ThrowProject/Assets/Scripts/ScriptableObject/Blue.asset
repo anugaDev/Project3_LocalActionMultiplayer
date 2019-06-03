@@ -17,4 +17,4 @@ MonoBehaviour:
   UI_Player: {fileID: 6287633926413835437, guid: 74a21f32c55227540afc1f3b7aaa5376,
     type: 3}
   mainColor: {r: 0, g: 0.81803536, b: 1, a: 1}
-  used: 1
+  used: 0
