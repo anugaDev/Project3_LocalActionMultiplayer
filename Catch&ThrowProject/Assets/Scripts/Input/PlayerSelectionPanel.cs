@@ -11,9 +11,11 @@ public class PlayerSelectionPanel : MonoBehaviour
     public bool GameStarting = false;
 
     public int controllerNumber;
+    public int playerNumber;
 
     public Image parentPanel;
     public Text pressToAssignText;
+    public Text playerNumberText;
 
     public SkinnedMeshRenderer dummyMesh;
     public SkinnedMeshRenderer maskMesh;
@@ -34,6 +36,7 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public void AssignController(int controllerNumber)
     {
+        playerNumberText.text = "P" + playerNumber;
         parentPanel.enabled = false;
         pressToAssignText.enabled = false;
 
@@ -56,5 +59,6 @@ public class PlayerSelectionPanel : MonoBehaviour
         playerSkin.used = ready;
         buttonPanel.SetActive(!ready);
         readyPanel.SetActive(ready);
+        readyPanel.GetComponent<Image>().color = playerSkin.mainColor;
     }
 }
