@@ -50,12 +50,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   players: []
   UI_Input: {fileID: 0}
   cameraFollow: {fileID: 0}
   StartingLifes: 3
   MatchDuration: 100
-  matchByTime: 0
+  matchByTime: 1
   remainingTime: {fileID: 0}
   ammoItem: {fileID: 6569685431690109089, guid: 718b3cbeed11f264099e916681d8d2ab,
     type: 3}
