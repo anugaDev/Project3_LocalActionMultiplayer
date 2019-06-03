@@ -94,6 +94,7 @@ public class _LevelManager : MonoBehaviour
                 EndMatch();
             }
         }
+
         CheckForAmmoSpawn();
     }
 
@@ -195,11 +196,11 @@ public class _LevelManager : MonoBehaviour
 
         if (player.health == 0)
         {
-            cameraFollow.objectsToShow.Remove(player.transform);
-            player.gameObject.SetActive(false);
-
             if (!matchByTime)
             {
+                cameraFollow.objectsToShow.Remove(player.transform);
+                player.gameObject.SetActive(false);
+
                 int alivePlayers = 0;
 
                 for (int i = 0; i < players.Count; i++)
@@ -262,7 +263,7 @@ public class _LevelManager : MonoBehaviour
 
         Text backgroundText = countdownText.GetComponent<Text>();
         Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
-        /*
+
         for (int i = secondsBeforeGame; i > 0; i--)
         {
             backgroundText.text = i.ToString();
@@ -270,17 +271,6 @@ public class _LevelManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(1);
         }
-        */
-        backgroundText.text = "Ready";
-        foregroundText.text = "Ready";
-
-        yield return new WaitForSecondsRealtime(1);
-
-        backgroundText.text = "Set";
-        foregroundText.text = "Set";
-
-        yield return new WaitForSecondsRealtime(1);
-
 
         backgroundText.text = "Blitz!";
         foregroundText.text = "Blitz!";
