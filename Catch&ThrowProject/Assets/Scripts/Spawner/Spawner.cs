@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
 
     private GameObject lastSpawnedObject = null;
 
+    public List<GameObject> spawners;
+
     private float timer = 0f;
 
     void Update()
@@ -20,7 +22,7 @@ public class Spawner : MonoBehaviour
 
             if (timer >= timeToSpawn)
             {
-                lastSpawnedObject = Instantiate(objectToSpawn);
+                lastSpawnedObject = Instantiate(objectToSpawn, spawners[Random.Range(0, spawners.Count)].transform.position, Quaternion.identity);
 
                 timer = 0f;
             }
