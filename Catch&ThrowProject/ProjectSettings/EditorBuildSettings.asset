@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Final Scenes For Alpha/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 3a86fe5509382194d95b90bf2799e6c9
   - enabled: 1
-    path: Assets/Scenes/Beta Scenes/GameModeSelection.unity
+    path: Assets/Scenes/GameModeSelection.unity
     guid: 8b760c41979befe44930f258acf8442d
   - enabled: 1
-    path: Assets/Scenes/Final Scenes For Alpha/GameSelectionAlpha.unity
+    path: Assets/Scenes/Old/GameSelectionAlpha.unity
     guid: 3a79b0f06a0ecfc4bae7557471f01b4a
   - enabled: 1
-    path: Assets/Scenes/Beta Scenes/New Main Level.unity
+    path: Assets/Scenes/Gold Level.unity
     guid: b070418c5d302134fbd3590da8fe5b30
   - enabled: 0
-    path: Assets/Scenes/Beta Scenes/Main Level Beta.unity
+    path: Assets/Scenes/Old/Main Level Beta.unity
     guid: ee2bf41158b1adf4789d98da4e0222f5
   - enabled: 1
-    path: Assets/Scenes/Final Scenes For Alpha/VictoryScreen.unity
+    path: Assets/Scenes/VictoryScreen.unity
     guid: 577c72fe2c8fd48449dc8d11e7e27a3f
   m_configObjects: {}
