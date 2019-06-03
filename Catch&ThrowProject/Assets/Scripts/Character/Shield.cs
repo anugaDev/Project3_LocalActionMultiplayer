@@ -18,7 +18,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float blinkingTime;
     [SerializeField] private float timeBetweenBlinking;
 
-    [SerializeField] private SpriteRenderer shieldSprite;
+    [SerializeField] private MeshRenderer shieldMesh;
     [SerializeField] private Transform playerModel;
 
     [SerializeField] private Color lowShieldColor;
@@ -37,6 +37,7 @@ public class Shield : MonoBehaviour
     public IEnumerator actualBlinking;
 
     private GameUtilities gameUtilities = new GameUtilities();
+    private static readonly int MainColor = Shader.PropertyToID("_MainColor");
 
     private void Start()
     {
@@ -50,8 +51,11 @@ public class Shield : MonoBehaviour
 
         if (shieldDestroyed && actualHealth > lowHealthThreshold) ShieldRegenerate();
 
-        if (shieldSprite.enabled)
-            shieldSprite.color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
+        if (shieldMesh.enabled)
+        {            
+            var color = actualHealth > lowHealthThreshold ? shieldStableColor : lowShieldColor;
+            shieldMesh.material.SetColor(MainColor, color);
+        }
     }
 
     public void Hit(float damage)
@@ -59,7 +63,12 @@ public class Shield : MonoBehaviour
         actualHealth -= damage;
 
         if (actualHealth <= 0) DestroyShield();
-        else shieldSprite.color = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
+        else
+        {
+            
+            var color = actualHealth < lowHealthThreshold ? lowShieldColor : shieldStableColor;
+            shieldMesh.material.SetColor(MainColor, color);
+        }
 
         if (actualBlinking != null) StopCoroutine(actualBlinking);
 
@@ -70,8 +79,8 @@ public class Shield : MonoBehaviour
     {
 
         actualHealth = defaultHealth;
-        shieldSprite.enabled = true;
-        shieldSprite.color = shieldStableColor;
+        shieldMesh.enabled = true;
+        shieldMesh.material.SetColor(MainColor, shieldStableColor);
         shieldDestroyed = false;
     }
 
@@ -79,8 +88,9 @@ public class Shield : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(upShield);
         shieldDestroyed = false;
-        shieldSprite.enabled = true;
-        shieldSprite.color = lowShieldColor;
+        shieldMesh.enabled = true;
+//        shieldMesh.material.color = lowShieldColor;
+        shieldMesh.material.SetColor(MainColor,lowShieldColor);
     }
 
     public void ShieldResupply(float quantity)
@@ -109,7 +119,7 @@ public class Shield : MonoBehaviour
         actualHealth = 0;
         shieldDestroyed = true;
 
-        shieldSprite.enabled = false;
+        shieldMesh.enabled = false;
     }
 
     public void ImpactBlink()
