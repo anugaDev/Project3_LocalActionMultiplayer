@@ -45,6 +45,8 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public void ReadyCheck(bool ready)
     {
+        if (!ready && !readyPanel.activeSelf) return;
+
         if (playerSkin.used && ready)
         {
             print("Skin already chosen");
