@@ -69,7 +69,7 @@ Material:
     - _Float2: 3
     - _Fresnel: 200
     - _FresnelIntensity: 61
-    - _FresnelWidth: 0.89
+    - _FresnelWidth: 0.53
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -86,7 +86,7 @@ Material:
     - _RimPower: 51
     - _RimWidth: 0.82
     - _ScrollSpeed: 2
-    - _ScrollSpeedU: 5.27
+    - _ScrollSpeedU: 0
     - _ScrollSpeedV: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
