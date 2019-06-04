@@ -33,7 +33,7 @@ public class Fall : BaseState
         base.Enter();
 
         firstEnter = Time.frameCount;
-        gameObject.layer = playerController.jumpLayer;
+        if(IsNotCrossingPlatforms()) gameObject.layer = playerController.jumpLayer;
         groundHit = false;
 
         if (playerController.inputControl.ButtonIsPressed(InputController.Button.JUMP) &&

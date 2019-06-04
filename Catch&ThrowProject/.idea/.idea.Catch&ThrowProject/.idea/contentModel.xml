@@ -149,6 +149,7 @@
             <e p="_LevelManager.cs" t="Include" />
             <e p="PlayerVictoryConditions.cs" t="Include" />
           </e>
+          <e p="SelectGameMode.cs" t="Include" />
           <e p="Spawner" t="Include">
             <e p="Spawner.cs" t="Include" />
           </e>
@@ -180,12 +181,11 @@
             <e p="CameraUtilities.cs" t="Include" />
             <e p="GameUtilities.cs" t="Include" />
           </e>
+          <e p="VictoryPanel.cs" t="Include" />
         </e>
-        <e p="SelectGameMode.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="NewSurfaceShader.shader" t="Include" />
         </e>
-        <e p="VictoryPanel.cs" t="Include" />
       </e>
       <e p="Catch&amp;ThrowProject.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
