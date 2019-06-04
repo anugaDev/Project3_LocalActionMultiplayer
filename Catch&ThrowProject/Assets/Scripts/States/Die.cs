@@ -40,6 +40,7 @@ public class Die : BaseState
     {
         _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
         playerController.shield.DestroyShield();
+        playerController.shield.StopAllCoroutines();
         playerModel.SetActive(false);
         playerController.dashState.available = false;
         delegateRespawn = GetRespawn(1);
