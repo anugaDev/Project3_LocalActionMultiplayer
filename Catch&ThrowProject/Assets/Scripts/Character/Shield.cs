@@ -20,6 +20,7 @@ public class Shield : MonoBehaviour
 
     [SerializeField] private MeshRenderer shieldMesh;
     [SerializeField] private Transform playerModel;
+    [SerializeField] private ParticleSystem destroyParticleSystem;
 
     [SerializeField] private Color lowShieldColor;
     [SerializeField] private Color shieldStableColor;
@@ -106,6 +107,7 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
+        destroyParticleSystem.Play();
         FMODUnity.RuntimeManager.PlayOneShot(downShield);
 
         if(actualBlinking != null) StopCoroutine(actualBlinking);
