@@ -86,6 +86,8 @@ public class Catch : BaseState
 
         if (ThrowDirection == Vector3.zero) ThrowDirection = transform.right;
 
+        if (playerController.CheckForGround() && ThrowDirection.y < 0) ThrowDirection.y += 1;
+
         if (-ThrowDirection.y >= 0)
         {
             playerController.gameObject.layer = caughtPlayer.jumpLayer;
