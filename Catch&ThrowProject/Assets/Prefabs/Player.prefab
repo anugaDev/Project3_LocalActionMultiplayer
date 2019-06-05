@@ -679,8 +679,7 @@ MonoBehaviour:
   dieState: {fileID: 85762693}
   jumpLayer: 11
   normalLayer: 10
-  sphereCollisionRadius: 0.92
-  distanceToGround: 1
+  distanceToGround: 1.1
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
@@ -825,7 +824,9 @@ MonoBehaviour:
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
+  sphereCollisionRadius: 0.96
   landSound: event:/MOVEMENT/land
+  showDetectionRadius: 1
 --- !u!114 &8528970866292978446
 MonoBehaviour:
   m_ObjectHideFlags: 0

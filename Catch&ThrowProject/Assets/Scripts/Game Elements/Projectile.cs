@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     
     [SerializeField] private Collider impactCollider;
     [SerializeField] private float detectionRadius;
+    [SerializeField] private bool showDetectionRadius;
     
     [SerializeField] private PlayerController originPlayer;
     [SerializeField] private float timeBeforeAutoDestroy;
@@ -133,6 +134,11 @@ public class Projectile : MonoBehaviour
 
     }
 
+    private void OnDrawGizmos()
+    {
+        if(showDetectionRadius)Gizmos.DrawSphere(transform.position,detectionRadius);
+    }
+
     private void Nail()
     {
         trail.enabled = false;
@@ -140,16 +146,23 @@ public class Projectile : MonoBehaviour
         rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         nailed = true;
         animation.Stop();
-
-        var index = 0;
-        while (Physics.OverlapSphere(transform.position, detectionRadius,
-            LayerMask.GetMask("Default")).Any())
-        {
-            transform.position -= direction;
-        }
+      
+        Reposition();
+        
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
 
+    }
+
+    private void Reposition()
+    {
+        var index = 0;
+        while (Physics.OverlapSphere(transform.position, detectionRadius,
+            LayerMask.GetMask("Default")).Any() && !Physics.OverlapSphere(
+                   impactCollider.ClosestPoint(transform.position + (direction * detectionRadius )), 0.1f,LayerMask.GetMask("Default")).Any())
+        {
+            transform.position -= direction;
+        }
     }
 
     private IEnumerator DestroyAfterTime()

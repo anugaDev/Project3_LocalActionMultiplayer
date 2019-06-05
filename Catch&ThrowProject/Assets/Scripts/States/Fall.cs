@@ -12,6 +12,8 @@ public class Fall : BaseState
     [SerializeField] private float multiplyFallThreshold;
 
     [SerializeField] private LayerMask checkPlatformsLayerMask;
+    [SerializeField] private float sphereCollisionRadius = 0.92f;
+
 
     private bool stopPressing;
     private bool groundHit;
@@ -22,6 +24,10 @@ public class Fall : BaseState
     
     [FMODUnity.EventRef] public string landSound;
     private FMOD.Studio.EventInstance soundEventLand;
+
+    [Header("Gizmos")] 
+    
+    [SerializeField] private bool showDetectionRadius;
 
     private void Start()
     {
@@ -89,7 +95,7 @@ public class Fall : BaseState
 
     public bool IsNotCrossingPlatforms()
     {
-        return !Physics.OverlapSphere(transform.position, playerController.sphereCollisionRadius,
+        return !Physics.OverlapSphere(transform.position, sphereCollisionRadius,
                 checkPlatformsLayerMask).Any();
     }
 
@@ -136,8 +142,9 @@ public class Fall : BaseState
         return speed;
     }
 
-    //    private void OnDrawGizmos()
-    //    {
-    //        Gizmos.DrawSphere(transform.position, playerController.sphereCollisionRadius);
-    //    }
+    private void OnDrawGizmos()
+    {
+        
+        if(showDetectionRadius) Gizmos.DrawSphere(transform.position, sphereCollisionRadius);
+    }
 }

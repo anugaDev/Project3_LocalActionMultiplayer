@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7398689144624960443}
   - component: {fileID: 1970175373955887664}
   m_Layer: 13
-  m_Name: Shuriken_Alpha
+  m_Name: Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,8 @@ MonoBehaviour:
   damage: 25
   hitForce: 20
   impactCollider: {fileID: 1970175373955887664}
-  detectionRadius: 0.7
+  detectionRadius: 0.53
+  showDetectionRadius: 0
   originPlayer: {fileID: 0}
   timeBeforeAutoDestroy: 20
   timeToIgnorePlayer: 1
