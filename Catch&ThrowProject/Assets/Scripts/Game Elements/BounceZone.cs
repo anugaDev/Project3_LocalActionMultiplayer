@@ -14,6 +14,8 @@ public class BounceZone : MonoBehaviour
         velocity.y = bounceForce;
         rigidbody.velocity = velocity;
 
+        player.jumpMade = false;
+
         if (player != null) player.jumpState.commingFromJump = false;
     }
 }
