@@ -106,7 +106,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-//                if (player.AmmoIsMax()) return;
+                if (player.AmmoIsMax()) return;
                 player.ResupplyAmmo(1);
 
             }
