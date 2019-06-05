@@ -679,7 +679,7 @@ MonoBehaviour:
   dieState: {fileID: 85762693}
   jumpLayer: 11
   normalLayer: 10
-  distanceToGround: 1.1
+  distanceToGround: 1.05
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
@@ -981,7 +981,7 @@ MonoBehaviour:
   animationTrigger: 
   enterSound: 
   exitSound: 
-  checkPlatformDistance: 1
+  checkPlatformDistance: 1.1
   timeToSwitchFall: 0.05
   checkPlatformMask:
     serializedVersion: 2
