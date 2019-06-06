@@ -23,7 +23,6 @@ public class _LevelManager : MonoBehaviour
     [Header("Match Settings")]
     public int StartingLifes = 10;
     public int MatchDuration = 120;
-    public float ammoSpawnTime = 4f;
 
     public bool matchByTime = false;
     private float gameTimer = 0f;
@@ -297,14 +296,13 @@ public class _LevelManager : MonoBehaviour
 
         if (matchAmmo < (players.Count * playersInitialAmmo))
         {
-            SpawnAmmo(ammoSpawnTime);
+            SpawnAmmo();
         }
     }
 
-    private IEnumerator SpawnAmmo(float time)
+    private void SpawnAmmo()
     {
-        scatteredAmmo += 1;
-        yield return new WaitForSeconds(time);
         Instantiate(ammoItem, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
+        scatteredAmmo += 1;
     }
 }

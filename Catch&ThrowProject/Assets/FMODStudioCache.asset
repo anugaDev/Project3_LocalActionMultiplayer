@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/run
   guid: 4bc3cee9a841c943b57c51943cfa935f
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -23,29 +23,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
---- !u!114 &-6875375073785506222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/HUD/sheild_down
-  m_EditorClassIdentifier: 
-  Path: event:/HUD/sheild_down
-  guid: 7d81b48c3425b04eb13dd54fed369e8c
-  Banks:
-  - {fileID: 2333707725004273995}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2220
 --- !u!114 &-6445542907061128170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +58,7 @@ MonoBehaviour:
   Path: event:/ATTACK/mele_hit
   guid: 438158246560ab42b0cd679fc3961474
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -104,7 +81,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/dash
   guid: 0eac42a6e6b2c546a19238d7ab278387
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -150,7 +127,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/land
   guid: 9bae7942eda92d46ba653ee6a2a3674b
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -173,7 +150,7 @@ MonoBehaviour:
   Path: event:/REACTION/dead
   guid: a91104baa79b4f419cb6abcca500b6c4
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -196,7 +173,7 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_shot
   guid: f12ff77587dfa549b8a9687b2e5bfd35
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -219,7 +196,7 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_Hit
   guid: db5c23357fa5e24490adead79776c7d9
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -241,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1569357984745589087}
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   EditorEvents:
   - {fileID: -3631626483665078919}
   - {fileID: 1572600150844627367}
@@ -255,14 +232,11 @@ MonoBehaviour:
   - {fileID: -370332632395114048}
   - {fileID: 3392725661426394918}
   - {fileID: -453466076732535763}
-  - {fileID: 1462568092909990800}
-  - {fileID: -6875375073785506222}
-  - {fileID: 8117150987477209123}
   MasterBanks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   StringsBanks:
   - {fileID: 1569357984745589087}
-  stringsBankWriteTime: 636948447383654564
+  stringsBankWriteTime: 636948350695754718
   cacheVersion: 3
 --- !u!114 &921624849665510472
 MonoBehaviour:
@@ -279,7 +253,7 @@ MonoBehaviour:
   Path: event:/REACTION/Throw
   guid: d0d2e8f95254b648ad36ea995e610973
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -287,29 +261,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 600
---- !u!114 &1462568092909990800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/HUD/shield_up
-  m_EditorClassIdentifier: 
-  Path: event:/HUD/shield_up
-  guid: 77d530247feca64aa5719fa75739ab78
-  Banks:
-  - {fileID: 2333707725004273995}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 315
 --- !u!114 &1569357984745589087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,11 +274,11 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636948447383654564
+  lastModified: 636948350695754718
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1354
+    Value: 1222
   Exists: 1
 --- !u!114 &1572600150844627367
 MonoBehaviour:
@@ -344,7 +295,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/double_jump
   guid: 12a66318a991f1459ccf1d3bad514be5
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -352,26 +303,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 305
---- !u!114 &2333707725004273995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master Bank.bank
-  m_EditorClassIdentifier: 
-  Path: E:\Curro\Unity\Project3\DefRep\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
-    Bank.bank
-  lastModified: 636948447383604719
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 326112
-  Exists: 1
 --- !u!114 &3059476483290207671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +318,7 @@ MonoBehaviour:
   Path: event:/MOVEMENT/jump
   guid: 61cf27907dda004c8cf7497b7e6e9113
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -410,7 +341,7 @@ MonoBehaviour:
   Path: event:/ATTACK/mele_air
   guid: e4e0c739d5492c4ba8f1165d627283b1
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -433,14 +364,14 @@ MonoBehaviour:
   Path: event:/Projectile/shoot_wall
   guid: 135dd129cca0d8468d8e70d12ff1a007
   Banks:
-  - {fileID: 2333707725004273995}
+  - {fileID: -6445542907061128170}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 634
+  Length: 1030
 --- !u!114 &7865469228804241742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,29 +395,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2220
---- !u!114 &8117150987477209123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Projectile/shoot_bounce
-  m_EditorClassIdentifier: 
-  Path: event:/Projectile/shoot_bounce
-  guid: be657e15f5af9043829c84fb18be8884
-  Banks:
-  - {fileID: 2333707725004273995}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 342
 --- !u!114 &8477739096009975502
 MonoBehaviour:
   m_ObjectHideFlags: 0

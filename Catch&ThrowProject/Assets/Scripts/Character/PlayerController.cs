@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public int jumpLayer;
     public int normalLayer;
 
+    public float sphereCollisionRadius;
+
     [SerializeField] private float distanceToGround;
     [SerializeField] private LayerMask groundDetectionCollisions;
     [SerializeField] private float fallingSpeedThreshold;

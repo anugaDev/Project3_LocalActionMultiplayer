@@ -83,13 +83,7 @@ public class Dash : BaseState
                                                           playerController.rigidbody.velocity.y * verticalSpeedDecayMultiplier,
                                                           0);
 
-        if (!catched)
-        {
-            if (playerController.gameObject.layer == playerController.jumpLayer && playerController.fallState.IsNotCrossingPlatforms())               
-            {
-                playerController.gameObject.layer = playerController.normalLayer;
-            }
-        }
+        if (!catched) playerController.gameObject.layer = playerController.normalLayer;
         playerTrigger.isTrigger = catched ? true : false;
 
         dashParticles.Stop();
