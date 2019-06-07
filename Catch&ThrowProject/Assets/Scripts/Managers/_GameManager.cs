@@ -16,6 +16,8 @@ public class _GameManager : MonoBehaviour
 
     public bool gameByTime = false;
 
+    public Animation SceneTransition;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -26,8 +28,12 @@ public class _GameManager : MonoBehaviour
         SceneManager.sceneLoaded += StartGame;
     }
 
-    public void LoadNewGame()
+    public IEnumerator LoadNewGame()
     {
+        SceneTransition.Play(SceneTransition.clip.name);
+
+        yield return new WaitForSeconds(SceneTransition.clip.length);
+
         lastScene = SceneManager.GetActiveScene().buildIndex;
 
         SceneManager.LoadSceneAsync(SceneToLoadNumber);
@@ -77,9 +83,20 @@ public class _GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadNextScene()
+    public IEnumerator LoadNextScene()
     {
+        SceneTransition.Play(SceneTransition.clip.name);
+
+        yield return new WaitForSeconds(SceneTransition.clip.length);
+
         if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void SetGameMode(bool killHoarder)
+    {
+        gameByTime = killHoarder;
+
+        StartCoroutine(LoadNextScene());
     }
 }

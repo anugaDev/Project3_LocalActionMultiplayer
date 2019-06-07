@@ -36,7 +36,7 @@ public class AssignGamepadToPlayer : MonoBehaviour
                 if (CanStartGame())
                 {
                     _GameManager.instance.SceneToLoadNumber = SceneManager.GetActiveScene().buildIndex + 1;
-                    _GameManager.instance.LoadNewGame();
+                    _GameManager.instance.StartCoroutine(_GameManager.instance.LoadNewGame());
                 }
             }
         }
