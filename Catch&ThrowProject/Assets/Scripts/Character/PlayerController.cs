@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (stateMachine.currentState.Equals(dieState)) return;
+        if (stateMachine.currentState == dieState) return;
         if (other.gameObject.CompareTag("Death Zone")) HitByDeathZone(other);
         if (other.gameObject.CompareTag("Immediate Death Zone")) ChangeState(dieState);
         else if (other.gameObject.CompareTag("Cross Zone")) other.gameObject.GetComponent<CrossZone>().ObjectCross(this.transform);
@@ -409,6 +409,7 @@ public class PlayerController : MonoBehaviour
         dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
+        playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor);
     }
 
 }

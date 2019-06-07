@@ -155,6 +155,7 @@ MonoBehaviour:
   SceneToLoadNumber: -1
   lastScene: 0
   gameByTime: 0
+  SceneTransition: {fileID: 0}
 --- !u!4 &199476578
 Transform:
   m_ObjectHideFlags: 0
@@ -1420,7 +1421,7 @@ PrefabInstance:
     - target: {fileID: 8758028821657756886, guid: 9374718cb998f4a4ba223cfdd708da84,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8758028821657756887, guid: 9374718cb998f4a4ba223cfdd708da84,
         type: 3}
@@ -1605,6 +1606,36 @@ PrefabInstance:
     - target: {fileID: 8758028822988180194, guid: 9374718cb998f4a4ba223cfdd708da84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758028821657756884, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758028821657756884, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758028821657756884, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198099157889450508, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198099157889450508, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198099157889450508, guid: 9374718cb998f4a4ba223cfdd708da84,
+        type: 3}
+      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
