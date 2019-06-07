@@ -354,6 +354,7 @@ public class PlayerController : MonoBehaviour
         dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
+        playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor);
     }
 
 }
