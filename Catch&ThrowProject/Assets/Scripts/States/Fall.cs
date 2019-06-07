@@ -11,6 +11,12 @@ public class Fall : BaseState
     [SerializeField] private float fallPressedMultiply;
     [SerializeField] private float multiplyFallThreshold;
 
+
+    [SerializeField] private float FallRotation = -10f;
+    [SerializeField] private float FallRotationSpeed = 60f;
+
+    private Transform playerFBX;
+
     [SerializeField] private LayerMask checkPlatformsLayerMask;
 
     private bool stopPressing;
@@ -19,7 +25,7 @@ public class Fall : BaseState
     private float actualFallingSpeed;
     private float fallMultiply;
     private float firstEnter;
-    
+
     [FMODUnity.EventRef] public string landSound;
     private FMOD.Studio.EventInstance soundEventLand;
 
@@ -51,7 +57,6 @@ public class Fall : BaseState
         fallMultiply = 1;
     }
 
-
     public override void Execute()
     {
         #region StateUpdate
@@ -61,6 +66,7 @@ public class Fall : BaseState
         ExecuteFallSpeed();
         playerController.HorizontalMove(glideSpeed);
 
+        UpdatePlayerRotation();
 
         #endregion
 
@@ -76,6 +82,20 @@ public class Fall : BaseState
             playerController.ChangeState(playerController.doubleJumpState);
 
         #endregion
+    }
+
+    private void UpdatePlayerRotation()
+    {
+        if (!playerFBX) playerFBX = playerController.playerMesh.transform.parent;
+
+        var actualRotation = playerFBX.rotation.eulerAngles;
+
+        bool goingUp = playerController.rigidbody.velocity.y > 0;
+        actualRotation.z = (goingUp ? -FallRotation : 0);
+
+        float rotationSpeed = FallRotationSpeed * Time.deltaTime;
+
+        playerFBX.rotation = Quaternion.RotateTowards(playerFBX.rotation, Quaternion.Euler(actualRotation), rotationSpeed);
     }
 
     public void CheckForCrossingPlatforms()
@@ -114,6 +134,9 @@ public class Fall : BaseState
 
         playerController.rigidbody.velocity = velocity;
         playerController.jumpMade = false;
+
+        playerController.playerMesh.transform.parent.rotation = Quaternion.Euler(0, playerController.playerMesh.transform.parent.rotation.eulerAngles.y, 0);
+
 
         soundEventLand.start();
     }
