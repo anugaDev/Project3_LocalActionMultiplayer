@@ -677,6 +677,10 @@ MonoBehaviour:
   caughtState: {fileID: 3966379602459133179}
   stunState: {fileID: 2846430671447116553}
   dieState: {fileID: 85762693}
+  topHorizontalSpeed: 20
+  zeroThresholdClamp: 5
+  groundFriction: 100
+  airFriction: 80
   jumpLayer: 11
   normalLayer: 10
   sphereCollisionRadius: 0.92
@@ -691,7 +695,7 @@ MonoBehaviour:
   bounceUpOnDeathZoneThreshold: 0.5
   collisionBoundariesMultiplier: 0.75
   initialAmmo: 3
-  maxAmmo: 7
+  maxAmmo: 3
   jumpMade: 0
   impulseImpacts: 0
   onGround: 0
@@ -724,7 +728,7 @@ MonoBehaviour:
   dashButton: Dash
   fireButton: Fire
   pauseButton: 
-  keyboardAndMouse: 1
+  keyboardAndMouse: 0
 --- !u!114 &4205472215443825077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +763,7 @@ MonoBehaviour:
   animationTrigger: 
   enterSound: 
   exitSound: 
-  walkSpeed: 15
+  walkAcceleration: 85
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,9 +823,11 @@ MonoBehaviour:
   exitSound: 
   pressingFallingSpeed: 100
   notPressingFallingSpeed: 225
-  glideSpeed: 15
+  glideAcceleration: 70
   fallPressedMultiply: 2
   multiplyFallThreshold: 1.1
+  FallRotation: -10
+  FallRotationSpeed: 60
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -872,7 +878,7 @@ MonoBehaviour:
   meleeParticles: {fileID: 2943932454995581790, guid: 5291f570cac4ce24180fd294ced9f20c,
     type: 3}
   meleeDetectionAngle: 90
-  meleeDetectionDistance: 3.5
+  meleeDetectionDistance: 2
   meleeDetectionMask:
     serializedVersion: 2
     m_Bits: 3072
@@ -1064,8 +1070,8 @@ MonoBehaviour:
   timeBetweenBlinking: 0.02
   shieldMesh: {fileID: 859813798304295653}
   playerModel: {fileID: 2753790170560318489}
-  lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.5882353}
-  shieldStableColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.15686275}
+  shieldStableColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   shieldDestroyed: 0
   upShield: event:/HUD/shield_up
   downShield: event:/HUD/sheild_down
@@ -6177,9 +6183,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c281378d206b85642ac27be64ea64c71, type: 2}
     - target: {fileID: 5847889728140883532, guid: 475e33afbaecd68419635f6c7a5ca8a9,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847889728140883532, guid: 475e33afbaecd68419635f6c7a5ca8a9,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4dbf879d1427b0c4884e7ee608ceeb08, type: 2}
+    - target: {fileID: 5847889728140883532, guid: 475e33afbaecd68419635f6c7a5ca8a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4dcff38c4c58624ebf541cb3cf8825f, type: 2}
     - target: {fileID: -6057140222963153312, guid: 475e33afbaecd68419635f6c7a5ca8a9,
         type: 3}
       propertyPath: m_Controller

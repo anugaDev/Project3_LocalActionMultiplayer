@@ -40,6 +40,13 @@ public class PlayerController : MonoBehaviour
 
     public Die dieState;
 
+    [Header("Speed Settings")] [SerializeField]
+    private float topHorizontalSpeed;
+    [SerializeField] private float zeroThresholdClamp;
+    [SerializeField] private float groundFriction;
+    [SerializeField] private float airFriction;
+
+
     [Header(("Other data"))]
     public int jumpLayer;
     public int normalLayer;
@@ -58,8 +65,6 @@ public class PlayerController : MonoBehaviour
     public int actualAmmo { get; private set; } = 3;
     [SerializeField] private int initialAmmo;
     public int maxAmmo;
-    //    [SerializeField] private float timeForAmmo;
-    //    private IEnumerator recoverAmmo;
 
 
     [HideInInspector] public bool jumpMade;
@@ -144,19 +149,69 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(horizontal) > 0)
         {
+            horizontal = 1 * Mathf.Sign(horizontal);
+
             OrientatePlayer(horizontal);
 
-            if (!impulseImpacts) velocity.x = speed * horizontal;
-            else velocity.x += horizontal * speed * Time.deltaTime;
+            if (Mathf.Sign(horizontal) != Mathf.Sign(velocity.x) && velocity.x != 0)
+                velocity.x = 0;
+            
+            velocity.x += horizontal * speed * Time.deltaTime;
+
+            if (!impulseImpacts)
+            {
+                velocity.x = Mathf.Clamp(velocity.x, -topHorizontalSpeed, topHorizontalSpeed);
+            }
+            
         }
         else
         {
-            if (!CheckForGround() && impulseImpacts) { }
-            else { velocity.x = speed * horizontal; }
+            var sign = Mathf.Sign(velocity.x);
+            var actualVelocity = Mathf.Abs(velocity.x);
+            
+            if (!CheckForGround())
+            {
+                if (!impulseImpacts)
+                {
+                    actualVelocity -= airFriction * Time.deltaTime;
+                }
+            }
+            else
+            {
+                actualVelocity -= groundFriction * Time.deltaTime;
+            }
+    
+            if (actualVelocity < zeroThresholdClamp) 
+                actualVelocity = 0;
+            
+               
+            
+            velocity.x = actualVelocity * sign;
         }
 
         rigidbody.velocity = velocity;
     }
+    
+//    public void HorizontalMove(float speed)
+//    {
+//        var horizontal = inputControl.Horizontal;
+//        var velocity = rigidbody.velocity;
+//
+//        if (Mathf.Abs(horizontal) > 0)
+//        {
+//            OrientatePlayer(horizontal);
+//
+//            if (!impulseImpacts) velocity.x = speed * horizontal;
+//            else velocity.x += horizontal * speed * Time.deltaTime;
+//        }
+//        else
+//        {
+//            if (!CheckForGround() && impulseImpacts) { }
+//            else { velocity.x = speed * horizontal; }
+//        }
+//
+//        rigidbody.velocity = velocity;
+//    }
 
     public void OrientatePlayer(float horizontal)
     {
@@ -354,6 +409,7 @@ public class PlayerController : MonoBehaviour
         dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
+        playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor);
     }
 
 }
