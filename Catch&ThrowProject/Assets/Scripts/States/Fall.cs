@@ -7,7 +7,7 @@ public class Fall : BaseState
 {
     [SerializeField] private float pressingFallingSpeed;
     [SerializeField] private float notPressingFallingSpeed;
-    [SerializeField] private float glideSpeed;
+    [SerializeField] private float glideAcceleration;
     [SerializeField] private float fallPressedMultiply;
     [SerializeField] private float multiplyFallThreshold;
 
@@ -59,7 +59,7 @@ public class Fall : BaseState
         CheckForCrossingPlatforms();
 
         ExecuteFallSpeed();
-        playerController.HorizontalMove(glideSpeed);
+        playerController.HorizontalMove(glideAcceleration);
 
 
         #endregion

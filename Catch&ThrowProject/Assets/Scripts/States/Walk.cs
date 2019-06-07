@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Walk : BaseState
 {
-    [SerializeField] private float walkSpeed;
+    [SerializeField] private float walkAcceleration;
 
     public override void Execute()
     {
         #region Stateupdate
 
-        playerController.HorizontalMove(walkSpeed);
+        playerController.HorizontalMove(walkAcceleration);
 
         #endregion
 

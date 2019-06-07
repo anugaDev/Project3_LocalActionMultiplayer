@@ -21,7 +21,9 @@ public class Jump : BaseState
 
     public void SetJumpForce()
     {
+        var xVelocity = playerController.rigidbody.velocity.x;
         playerController.Impulse(Vector3.up,jumpingSpeed,false);
+        playerController.rigidbody.velocity += Vector3.right * xVelocity;
         commingFromJump = true;
         playerController.ChangeState(playerController.fallState);
     }
