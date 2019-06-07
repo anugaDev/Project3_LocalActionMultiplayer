@@ -677,6 +677,10 @@ MonoBehaviour:
   caughtState: {fileID: 3966379602459133179}
   stunState: {fileID: 2846430671447116553}
   dieState: {fileID: 85762693}
+  topHorizontalSpeed: 20
+  zeroThresholdClamp: 5
+  groundFriction: 100
+  airFriction: 80
   jumpLayer: 11
   normalLayer: 10
   sphereCollisionRadius: 0.92
@@ -759,7 +763,7 @@ MonoBehaviour:
   animationTrigger: 
   enterSound: 
   exitSound: 
-  walkSpeed: 15
+  walkAcceleration: 85
 --- !u!114 &4205472215443825079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,7 +823,7 @@ MonoBehaviour:
   exitSound: 
   pressingFallingSpeed: 100
   notPressingFallingSpeed: 225
-  glideSpeed: 15
+  glideAcceleration: 70
   fallPressedMultiply: 2
   multiplyFallThreshold: 1.1
   FallRotation: -10
