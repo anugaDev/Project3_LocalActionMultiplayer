@@ -133,7 +133,7 @@ public class Projectile : MonoBehaviour
         else
         {
             FMODUnity.RuntimeManager.PlayOneShot(wallHitSound);
-            Nail();
+            Nail(other.GetComponent<Collider>());
             Instantiate(impactParticles, transform.position, Quaternion.identity);
 
         }
@@ -141,7 +141,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-    private void Nail()
+    private void Nail(Collider col)
     {
         trail.enabled = false;
         rigidbody.velocity = UnityEngine.Vector3.zero;
@@ -155,6 +155,9 @@ public class Projectile : MonoBehaviour
         {
             transform.position -= direction;
         }
+        transform.position = col.ClosestPointOnBounds(transform.position);
+        
+        
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
 
