@@ -146,6 +146,10 @@ public class PlayerController : MonoBehaviour
         var horizontal = inputControl.Horizontal;
         var velocity = rigidbody.velocity;
 
+        if (!impulseImpacts)
+        {
+            velocity.x = Mathf.Clamp(velocity.x, -topHorizontalSpeed, topHorizontalSpeed);
+        }
         if (Mathf.Abs(horizontal) > 0)
         {
             horizontal = 1 * Mathf.Sign(horizontal);
@@ -157,10 +161,7 @@ public class PlayerController : MonoBehaviour
             
             velocity.x += horizontal * speed * Time.deltaTime;
 
-            if (!impulseImpacts)
-            {
-                velocity.x = Mathf.Clamp(velocity.x, -topHorizontalSpeed, topHorizontalSpeed);
-            }
+            
             
         }
         else
@@ -191,27 +192,6 @@ public class PlayerController : MonoBehaviour
         rigidbody.velocity = velocity;
     }
     
-//    public void HorizontalMove(float speed)
-//    {
-//        var horizontal = inputControl.Horizontal;
-//        var velocity = rigidbody.velocity;
-//
-//        if (Mathf.Abs(horizontal) > 0)
-//        {
-//            OrientatePlayer(horizontal);
-//
-//            if (!impulseImpacts) velocity.x = speed * horizontal;
-//            else velocity.x += horizontal * speed * Time.deltaTime;
-//        }
-//        else
-//        {
-//            if (!CheckForGround() && impulseImpacts) { }
-//            else { velocity.x = speed * horizontal; }
-//        }
-//
-//        rigidbody.velocity = velocity;
-//    }
-
     public void OrientatePlayer(float horizontal)
     {
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
