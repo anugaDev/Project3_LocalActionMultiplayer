@@ -868,11 +868,10 @@ MonoBehaviour:
   exitSound: 
   projectile: {fileID: 636614215799889603, guid: c4abcbb2fa445c248a06f1592da51f71,
     type: 3}
-  reloadTime: 0.6
+  timeAfterMelee: 0.2
   projectileSpeed: 3000
   shootOffset: 1
   shootRecoilForce: 5
-  reloaded: 1
   directionAffordance: {fileID: 355854188}
   directionAffordanceDistance: 3
   meleeParticles: {fileID: 2943932454995581790, guid: 5291f570cac4ce24180fd294ced9f20c,

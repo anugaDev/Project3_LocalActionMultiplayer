@@ -8,15 +8,12 @@ public class Attack : BaseState
 
     [Header("Shoot: ")]
 
-    [SerializeField] private float reloadTime;
+    [SerializeField] private float timeAfterMelee;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float shootOffset;
     [SerializeField] private float shootRecoilForce;
 
-    [HideInInspector] public bool reloaded = true;
-
     [Header("Direction: ")]
-
 
     public Transform directionAffordance;
     [SerializeField] private float directionAffordanceDistance;
@@ -139,8 +136,6 @@ public class Attack : BaseState
             else if ((controller.transform.position - transform.position).magnitude <
                      (playerReturn.transform.position - transform.position).magnitude)
                 playerReturn = controller;
-
-
         }
 
         return playerReturn;
@@ -154,6 +149,8 @@ public class Attack : BaseState
         playerController.ammo.enabled = false;
 
         directionAffordance.gameObject.SetActive(false);
+        
+        StopAllCoroutines();
     }
 
     public void ShootProjectile(Vector2 direction)
@@ -184,7 +181,15 @@ public class Attack : BaseState
 
         meleeEventSound.start();
 
+        StartCoroutine(WaitAttackToEnd(timeAfterMelee));
+    }
+
+    private IEnumerator WaitAttackToEnd(float time)
+    {
+        yield return new WaitForSeconds(time);
+        
         AttackFinished();
+        
     }
 
     private void ActionWithoutAmmo()
@@ -197,12 +202,5 @@ public class Attack : BaseState
         playerController.ChangeState(playerController.idleState);
     }
 
-    private IEnumerator Reload(float time)
-    {
-        reloaded = false;
-
-        yield return new WaitForSeconds(time);
-
-        reloaded = true;
-    }
+   
 }
