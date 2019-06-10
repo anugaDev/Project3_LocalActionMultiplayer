@@ -9,9 +9,11 @@ public class Catch : BaseState
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private float minThrowForce = 1f;
     [SerializeField] private float reactionForceMultiplier = 0.25f;
+    [SerializeField] private float upThrowThreshold = 0.8f;
+    [SerializeField] private float minusUpForce = 10f;
 
     [SerializeField] private GameObject directionMarker;
-    [SerializeField] private float directionMarkerDistance = 5f;
+    
 
     private float timer = 0f;
 
@@ -90,6 +92,9 @@ public class Catch : BaseState
         {
             playerController.gameObject.layer = caughtPlayer.jumpLayer;
         }
+
+        if (ThrowDirection.y > upThrowThreshold)
+            force -= minusUpForce;
 
         caughtPlayer.stunState.stunByTime = false;
         if (ThrowDirection.y > 0) caughtPlayer.gameObject.layer = caughtPlayer.jumpLayer;
