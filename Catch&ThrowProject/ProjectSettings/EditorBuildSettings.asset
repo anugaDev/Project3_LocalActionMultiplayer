@@ -5,24 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: 3a86fe5509382194d95b90bf2799e6c9
   - enabled: 1
-    path: Assets/Scenes/MainMenu Backup.unity
+    path: Assets/Scenes/MainMenuFinal.unity
     guid: b3a211152e40e2a4cae2d6434427f29a
-  - enabled: 0
-    path: Assets/Scenes/GameModeSelection.unity
-    guid: 8b760c41979befe44930f258acf8442d
   - enabled: 1
     path: Assets/Scenes/Character Selection.unity
     guid: 3a79b0f06a0ecfc4bae7557471f01b4a
   - enabled: 1
     path: Assets/Scenes/Gold Level.unity
     guid: b070418c5d302134fbd3590da8fe5b30
-  - enabled: 0
-    path: Assets/Scenes/Old/Main Level Beta.unity
-    guid: ee2bf41158b1adf4789d98da4e0222f5
   - enabled: 1
     path: Assets/Scenes/VictoryScreen.unity
     guid: 577c72fe2c8fd48449dc8d11e7e27a3f

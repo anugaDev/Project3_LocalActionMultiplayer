@@ -198,6 +198,14 @@ public class Dash : BaseState
     public void ChangeTrail(bool change)
     {
         walkTrail.enabled = change;
-        walkTrail.transform.localPosition = new Vector3(0, 0, playerController.inputControl.Horizontal < 0 ? -0.5f : 0.5f);
+
+        var localPosition = playerController.inputControl.Horizontal < 0 ? -0.5f : 0.5f;
+        var changed = localPosition != walkTrail.transform.localPosition.z;
+
+        if (changed) walkTrail.time = 0;
+
+        walkTrail.transform.localPosition = new Vector3(0, 0, localPosition);
+
+        if (changed) walkTrail.time = .3f;
     }
 }
