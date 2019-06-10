@@ -96,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        //        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
         actualAmmo = initialAmmo;
         stateMachine.ChangeState(idleState);
         spawnPosition = transform.position;
