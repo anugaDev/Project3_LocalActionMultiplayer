@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7398689144624960443}
   - component: {fileID: 1970175373955887664}
   m_Layer: 13
-  m_Name: Shuriken_Alpha
+  m_Name: Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   projectileDownThreshold: -0.1
   UpLayer: 13
   downLayer: 15
+  impactParticles: {fileID: 3769954634488819735, guid: 6dacc8f7287f4ac49a5467504559954f,
+    type: 3}
   thrownSound: event:/Projectile/shoot_shot
   wallHitSound: event:/Projectile/shoot_wall
   bounceSound: event:/Projectile/shoot_bounce

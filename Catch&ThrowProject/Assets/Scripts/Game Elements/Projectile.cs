@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileDownThreshold = -0.1f;
     [SerializeField] private int UpLayer;
     [SerializeField] private int downLayer;
+
+    [SerializeField] private GameObject impactParticles;
     
     [Header("sound")]
     
@@ -101,6 +103,7 @@ public class Projectile : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShot(playerHitSound);
                     player.ProjectileHit(direction,hitForce,damage);
+                    Instantiate(impactParticles, transform.position, Quaternion.identity);
                 }
             }
             else
@@ -116,6 +119,8 @@ public class Projectile : MonoBehaviour
         
         else if(other.gameObject.CompareTag("Death Zone"))
         {
+            Instantiate(impactParticles, transform.position, Quaternion.identity);
+
             FMODUnity.RuntimeManager.PlayOneShot(bounceSound);
             var newDir =  UnityEngine.Vector3.Reflect(direction,other.transform.position.normalized);
             newDir.z = 0;
@@ -129,7 +134,10 @@ public class Projectile : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot(wallHitSound);
             Nail();
+            Instantiate(impactParticles, transform.position, Quaternion.identity);
+
         }
+
 
     }
 
