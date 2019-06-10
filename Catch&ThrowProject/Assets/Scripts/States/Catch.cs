@@ -96,7 +96,7 @@ public class Catch : BaseState
         if (ThrowDirection.y > upThrowThreshold)
         {
             force -= minusUpForce;
-            if (force < 0) force = 0;
+            if (force < minThrowForce) force = minThrowForce;
 
         }
 
