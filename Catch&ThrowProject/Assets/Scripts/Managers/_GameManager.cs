@@ -43,15 +43,15 @@ public class _GameManager : MonoBehaviour
 
     private void CreatePlayer(PlayerSelectionPanel playerInfo)
     {
-        GameObject player = Instantiate(playerBasicPrefab);
+        PlayerController player = Instantiate(playerBasicPrefab).GetComponent<PlayerController>();
 
-        player.GetComponent<InputController>().controllerNumber = playerInfo.controllerNumber;
-        player.GetComponent<InputController>().keyboardAndMouse = playerInfo.controllerNumber == 5 ? true : false;
-        player.GetComponent<PlayerController>().SetSkin(playerInfo.playerSkin);
-        player.GetComponent<PlayerController>().enabled = false;
-        player.GetComponent<PlayerController>().playerNumber = playerInfo.playerNumber;
+        player.inputControl.controllerNumber = playerInfo.controllerNumber;
+        player.inputControl.keyboardAndMouse = playerInfo.controllerNumber == 5;
+        player.playerNumber = playerInfo.playerNumber;
+        player.SetSkin(playerInfo.playerSkin);
+        player.enabled = false;
 
-        _LevelManager.instance.players.Add(player.GetComponent<PlayerController>());
+        _LevelManager.instance.players.Add(player);
     }
 
     public void StartGame(Scene scene, LoadSceneMode mode)
