@@ -1263,7 +1263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653305578}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 745, y: 633, z: -1403.8}
+  m_LocalPosition: {x: 745, y: 633, z: -1376.1}
   m_LocalScale: {x: 14.139513, y: 1.2074733, z: 6.0373664}
   m_Children: []
   m_Father: {fileID: 6749987894122795952}
@@ -14373,11 +14373,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Death Zone
       objectReference: {fileID: 0}
-    - target: {fileID: -5377525951863490466, guid: dcfb7ae514ce8c44b8c7dc1075cb8242,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e03b62eac675d64469a5c77498b3c26a, type: 2}
     - target: {fileID: -4216859302048453862, guid: dcfb7ae514ce8c44b8c7dc1075cb8242,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14448,6 +14443,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15.296342
       objectReference: {fileID: 0}
+    - target: {fileID: -5377525951863490466, guid: dcfb7ae514ce8c44b8c7dc1075cb8242,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e03b62eac675d64469a5c77498b3c26a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfb7ae514ce8c44b8c7dc1075cb8242, type: 3}
 --- !u!1 &2596998366893126589 stripped

@@ -155,7 +155,7 @@ public class Projectile : MonoBehaviour
         {
             transform.position -= direction;
         }
-        transform.position = col.ClosestPointOnBounds(transform.position);
+        transform.position = col.ClosestPointOnBounds(transform.position) - (direction * detectionRadius);
         
         
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);

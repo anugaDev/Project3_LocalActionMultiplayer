@@ -9,6 +9,7 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AssignToGameManger.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="FMODMigrationUtil.cs" t="Include" />
         </e>
@@ -51,6 +52,11 @@
               </e>
             </e>
           </e>
+        </e>
+        <e p="OutlineEffect" t="Include">
+          <e p="Readme.txt" t="Include" />
+          <e p="VerticesOutline_Always.shader" t="Include" />
+          <e p="VerticesOutline_Normal.shader" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -125,6 +131,7 @@
             <e p="DynamicCamera.cs" t="Include" />
           </e>
           <e p="Character" t="Include">
+            <e p="AmmoSystem.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="Shield.cs" t="Include" />
           </e>
@@ -141,6 +148,7 @@
             <e p="AssignGamepadToPlayer.cs" t="Include" />
             <e p="InputController.cs" t="Include" />
             <e p="PlayerSelectionPanel.cs" t="Include" />
+            <e p="TriggerToButton.cs" t="Include" />
           </e>
           <e p="MainMenu.cs" t="Include" />
           <e p="Managers" t="Include">
@@ -183,6 +191,7 @@
           <e p="VictoryPanel.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
+          <e p="Distort.shader" t="Include" />
           <e p="NewSurfaceShader.shader" t="Include" />
         </e>
       </e>
