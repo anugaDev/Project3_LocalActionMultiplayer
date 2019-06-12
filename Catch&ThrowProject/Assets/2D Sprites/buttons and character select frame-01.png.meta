@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: fb72a52569c14364892a27d69dce4643
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5087682684552751375
+    second: buttons and character select frame-01_0
+  - first:
+      213: 3791987669231897861
+    second: buttons and character select frame-01_1
+  - first:
+      213: 6416970982176732163
+    second: buttons and character select frame-01_2
+  - first:
+      213: -921331436939946988
+    second: buttons and character select frame-01_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,11 +94,95 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: buttons and character select frame-01_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 931
+        width: 517
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c75bffccacb3645b5f955a0432414f
+      internalID: 5087682684552751375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons and character select frame-01_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 758
+        width: 681
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8e2a1cedcddae40b366b70120a881f
+      internalID: 3791987669231897861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons and character select frame-01_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 584
+        width: 363
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ca7ce266ac69e4bbd9024ccd8034d7
+      internalID: 6416970982176732163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons and character select frame-01_3
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 52
+        width: 405
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ac7fe6e1a03be4e920071753bbef15
+      internalID: -921331436939946988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e877616fa71d30b4a85b38e2436e2646
     internalID: 0
     vertices: []
     indices: 
