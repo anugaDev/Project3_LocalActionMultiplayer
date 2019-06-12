@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public Die dieState;
 
-    [Header("Speed Settings")] [SerializeField]
+    [Header("Speed Settings")]
+    [SerializeField]
     private float topHorizontalSpeed;
     [SerializeField] private float zeroThresholdClamp;
     [SerializeField] private float groundFriction;
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerController caughtPlayer;
 
+    public int playerNumber;
 
     #region MyRegion
 
@@ -158,17 +160,17 @@ public class PlayerController : MonoBehaviour
 
             if (Mathf.Sign(horizontal) != Mathf.Sign(velocity.x) && velocity.x != 0)
                 velocity.x = 0;
-            
+
             velocity.x += horizontal * speed * Time.deltaTime;
 
-            
-            
+
+
         }
         else
         {
             var sign = Mathf.Sign(velocity.x);
             var actualVelocity = Mathf.Abs(velocity.x);
-            
+
             if (!CheckForGround())
             {
                 if (!impulseImpacts)
@@ -180,18 +182,18 @@ public class PlayerController : MonoBehaviour
             {
                 actualVelocity -= groundFriction * Time.deltaTime;
             }
-    
-            if (actualVelocity < zeroThresholdClamp) 
+
+            if (actualVelocity < zeroThresholdClamp)
                 actualVelocity = 0;
-            
-               
-            
+
+
+
             velocity.x = actualVelocity * sign;
         }
 
         rigidbody.velocity = velocity;
     }
-    
+
     public void OrientatePlayer(float horizontal)
     {
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
@@ -388,7 +390,7 @@ public class PlayerController : MonoBehaviour
         dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
-        playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor);
+        //playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor); //Uncomment if you want Outline the same color as Character
     }
 
 }

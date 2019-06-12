@@ -479,6 +479,7 @@ MonoBehaviour:
   - {fileID: 7717303297811924288}
   - {fileID: 1564532714606004221}
   kills: {fileID: 7694164559997008577}
+  PlayerNumber: {fileID: 2639840443238860060}
 --- !u!1 &7621803065489791326
 GameObject:
   m_ObjectHideFlags: 0

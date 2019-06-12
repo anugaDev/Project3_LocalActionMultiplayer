@@ -10,9 +10,11 @@ public class UpdatePlayerPanel : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private Text kills;
+    [SerializeField] private Text PlayerNumber;
 
-    public void SetUpPanel(bool gameByTime)
+    public void SetUpPanel(bool gameByTime, int playerNumber)
     {
+        PlayerNumber.text = "P" + playerNumber;
         kills.text = "0";
         kills.enabled = gameByTime;
 
