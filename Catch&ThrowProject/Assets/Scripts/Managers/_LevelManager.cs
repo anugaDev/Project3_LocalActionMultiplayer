@@ -28,6 +28,9 @@ public class _LevelManager : MonoBehaviour
     private float gameTimer = 0f;
     public Text remainingTime;
 
+    public int timeToChangeScene=5;
+    public float focusPlayerZoom = 20; 
+
     [Header("Ammo Count Settings")]
     [SerializeField] private GameObject ammoItem;
     [HideInInspector] public float scatteredAmmo;
@@ -230,10 +233,10 @@ public class _LevelManager : MonoBehaviour
 
         cameraFollow.objectsToShow.Clear();
         cameraFollow.objectsToShow.Add(matchInfo.GetWinner().transform);
-        cameraFollow.minZoom = 20;
+        cameraFollow.minZoom = focusPlayerZoom;
         cameraFollow.positionDamping = 0f;
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(timeToChangeScene);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
