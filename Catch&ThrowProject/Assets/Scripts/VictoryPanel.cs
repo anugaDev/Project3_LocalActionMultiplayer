@@ -21,10 +21,10 @@ public class VictoryPanel : MonoBehaviour
         deaths.text = "Deaths: " + player.deaths;
         suicides.text = "Suicides: " + player.suicides;
 
-        rank.color = player.skin.mainColor;
-        kills.color = player.skin.mainColor;
-        deaths.color = player.skin.mainColor;
-        suicides.color = player.skin.mainColor;
+        //rank.color = player.skin.mainColor;
+        //kills.color = player.skin.mainColor;
+        //deaths.color = player.skin.mainColor;
+        //suicides.color = player.skin.mainColor;
 
         border.color = player.skin.mainColor;
         background.color = player.skin.mainColor - new Color(0, 0, 0, 0.5f);
