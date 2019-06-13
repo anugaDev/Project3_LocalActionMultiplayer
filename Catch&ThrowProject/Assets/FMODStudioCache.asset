@@ -23,6 +23,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 342
+--- !u!114 &-8700454760816112434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Projectile/shoot_bounce
+  m_EditorClassIdentifier: 
+  Path: event:/Projectile/shoot_bounce
+  guid: be657e15f5af9043829c84fb18be8884
+  Banks:
+  - {fileID: -3196335599087612950}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 342
 --- !u!114 &-8036378370355975930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,7 +63,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -108,7 +131,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -176,7 +199,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -184,6 +207,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 349
+--- !u!114 &-3196335599087612950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: E:\Universidad\Project\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636948447383604719
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 326112
+  Exists: 1
 --- !u!114 &-2183509404199794085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +287,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -269,7 +312,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -294,7 +337,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -319,7 +362,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -341,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1569357984745589087}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   EditorEvents:
   - {fileID: -3631626483665078919}
   - {fileID: 1572600150844627367}
@@ -356,7 +399,7 @@ MonoBehaviour:
   - {fileID: 3392725661426394918}
   - {fileID: -453466076732535763}
   MasterBanks:
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   StringsBanks:
   - {fileID: 1569357984745589087}
   stringsBankWriteTime: 636948350695754718
@@ -403,7 +446,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 282848
-  Exists: 1
+  Exists: 0
 --- !u!114 &921624849665510472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +464,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -465,7 +508,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -490,7 +533,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -515,7 +558,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -563,7 +606,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5069938634599033289}
   - {fileID: 7358775940606643532}
-  - {fileID: 839783176025940514}
+  - {fileID: 6882677012027624238}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -571,6 +614,49 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1030
+--- !u!114 &5211573010221092855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HUD/sheild_down
+  m_EditorClassIdentifier: 
+  Path: event:/HUD/sheild_down
+  guid: 7d81b48c3425b04eb13dd54fed369e8c
+  Banks:
+  - {fileID: -3196335599087612950}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2220
+--- !u!114 &6882677012027624238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Nil\Desktop\PROJECT III\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636948350695724804
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 282848
+  Exists: 1
 --- !u!114 &7358775940606643532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +743,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 330464
   Exists: 1
+--- !u!114 &8539976008609344851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HUD/shield_up
+  m_EditorClassIdentifier: 
+  Path: event:/HUD/shield_up
+  guid: 77d530247feca64aa5719fa75739ab78
+  Banks:
+  - {fileID: -3196335599087612950}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 315
 --- !u!114 &8810342273188816135
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ public class _LevelManager : MonoBehaviour
     private float gameTimer = 0f;
     public Text remainingTime;
 
+    public int timeToChangeScene=5;
+    public float focusPlayerZoom = 20; 
+
     [Header("Ammo Count Settings")]
     [SerializeField] private GameObject ammoItem;
     [HideInInspector] public float scatteredAmmo;
@@ -90,7 +93,7 @@ public class _LevelManager : MonoBehaviour
             {
                 gameTimer = 0;
 
-                EndMatch();
+                StartCoroutine(EndMatch());
             }
         }
 
@@ -216,17 +219,24 @@ public class _LevelManager : MonoBehaviour
                         if (players[i].health > 0) matchInfo.matchInfo[players[i]].rank = 1;
                     }
 
-                    EndMatch();
+                    StartCoroutine(EndMatch());
                 }
             }
         }
     }
 
-    private void EndMatch()
+    private IEnumerator EndMatch()
     {
         matchState = MatchState.Ending;
 
         if (matchByTime) matchInfo.SetRankingsByKills();
+
+        cameraFollow.objectsToShow.Clear();
+        cameraFollow.objectsToShow.Add(matchInfo.GetWinner().transform);
+        cameraFollow.minZoom = focusPlayerZoom;
+        cameraFollow.positionDamping = 0f;
+
+        yield return new WaitForSeconds(timeToChangeScene);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
