@@ -60,7 +60,7 @@
     <object class="MarkerTrack" id="{28510cda-22a2-4385-b0c6-4802094e7b3b}"/>
     <object class="GroupTrack" id="{c33eae0a-1b27-44cd-a0af-4cb3032e55a4}">
         <relationship name="modules">
-            <destination>{8971cae7-20f6-40ef-90c9-48b154156624}</destination>
+            <destination>{84ad0520-22b5-4628-a2ba-0b3e57c0034e}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{4d0df033-8c0d-4149-a87b-e665ec547566}</destination>
@@ -68,7 +68,7 @@
     </object>
     <object class="Timeline" id="{fbb23051-073e-47c9-b027-5c4a7d1f6ac3}">
         <relationship name="modules">
-            <destination>{8971cae7-20f6-40ef-90c9-48b154156624}</destination>
+            <destination>{84ad0520-22b5-4628-a2ba-0b3e57c0034e}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{f59b2b03-fc56-47bd-aca3-7f1d75f03737}">
@@ -88,23 +88,20 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{24d4b6ed-5ea6-4380-bfd5-b2e2d6556d43}"/>
-    <object class="SingleSound" id="{8971cae7-20f6-40ef-90c9-48b154156624}">
+    <object class="SingleSound" id="{84ad0520-22b5-4628-a2ba-0b3e57c0034e}">
         <property name="length">
-            <value>0.56749999999999989</value>
+            <value>0.5379591836734694</value>
         </property>
         <property name="timelockedOffset">
-            <value>0.17249999999999999</value>
-        </property>
-        <property name="name">
-            <value>shoot_hit</value>
+            <value>0.20000000000000001</value>
         </property>
         <relationship name="audioFile">
-            <destination>{a7d95a0f-b728-46b9-8cf8-79d98d70f444}</destination>
+            <destination>{6b385abb-9044-41f4-88cc-e960dd9443df}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{4d0df033-8c0d-4149-a87b-e665ec547566}">
         <property name="volume">
-            <value>-25</value>
+            <value>-11.5</value>
         </property>
         <property name="name">
             <value>Audio 1</value>

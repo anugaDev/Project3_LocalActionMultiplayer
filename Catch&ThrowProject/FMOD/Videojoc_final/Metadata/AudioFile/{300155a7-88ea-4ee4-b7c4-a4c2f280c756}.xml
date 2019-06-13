@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{300155a7-88ea-4ee4-b7c4-a4c2f280c756}">
+        <property name="assetPath">
+            <value>Shield_down.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.71235827664399098</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c3b012f5-510e-4e91-ad7d-8c97c36d5050}</destination>
+        </relationship>
+    </object>
+</objects>
