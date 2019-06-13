@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EndGame : MonoBehaviour
@@ -49,6 +50,7 @@ public class EndGame : MonoBehaviour
     public void GoEnd()
     {
         Time.timeScale = 1;
-        _GameManager.instance.GoToMainMenu();
+        Destroy(_GameManager.instance.gameObject);
+        SceneManager.LoadScene(0);
     }
 }

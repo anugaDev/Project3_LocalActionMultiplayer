@@ -18,6 +18,8 @@ public class _GameManager : MonoBehaviour
 
     public Animation SceneTransition;
 
+    private bool subscribed = false;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -57,6 +59,8 @@ public class _GameManager : MonoBehaviour
     public void StartGame(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex != SceneToLoadNumber) return;
+
+        SceneManager.sceneLoaded -= StartGame;
 
         _LevelManager.instance.testingScene = false;
 
