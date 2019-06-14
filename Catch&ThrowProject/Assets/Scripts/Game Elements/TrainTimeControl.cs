@@ -25,8 +25,8 @@ public class TrainTimeControl : MonoBehaviour
         if (playOnStart) StartCoroutine(CountTimeForTrain(0, 0));
         else PreparePass();
         
-        bellsoundEvent = RuntimeManager.CreateInstance(bellSound);
-        trainSoundevent = RuntimeManager.CreateInstance(trainSound);
+//        bellsoundEvent = RuntimeManager.CreateInstance(bellSound);
+//        trainSoundevent = RuntimeManager.CreateInstance(trainSound);
         
 //        RuntimeManager.AttachInstanceToGameObject(bellsoundEvent,affordance.transform, affordance.GetComponent<Rigidbody>());
 //        RuntimeManager.AttachInstanceToGameObject(trainSoundevent,train.transform, train.GetComponent<Rigidbody>());
@@ -59,13 +59,13 @@ public class TrainTimeControl : MonoBehaviour
             {
                 affordance.gameObject.SetActive(true);
                 affordance.Play();
-                bellsoundEvent.start();
+//                bellsoundEvent.start();
             }
 
         }
 
         train.Play();
-        trainSoundevent.start();
+//        trainSoundevent.start();
         CameraUtilities.instance.ShakeCamera(train.clip.length, passShakeForce);
 
         while (train.isPlaying)
@@ -75,8 +75,8 @@ public class TrainTimeControl : MonoBehaviour
         affordance.Stop();
         affordance.gameObject.SetActive(false);
         train.Stop();
-        bellsoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        trainSoundevent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);      
+//        bellsoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+//        trainSoundevent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);      
         PreparePass();
     }
 }
