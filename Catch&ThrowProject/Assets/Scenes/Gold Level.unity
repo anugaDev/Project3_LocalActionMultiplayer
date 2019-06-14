@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1222,6 +1222,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2380734097182533990, guid: 4ecfed72ce27f5143a7a24920f95e60b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2486501092888635008, guid: 4ecfed72ce27f5143a7a24920f95e60b,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -1237,11 +1242,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 0bd11c29c16fb46448c526398fe47da4, type: 2}
-    - target: {fileID: 2380734097182533990, guid: 4ecfed72ce27f5143a7a24920f95e60b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecfed72ce27f5143a7a24920f95e60b, type: 3}
 --- !u!1 &246894669
@@ -10467,6 +10467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade In
       objectReference: {fileID: 0}
+    - target: {fileID: 1120036113814822944, guid: 6c26dc2cd462b684e9fdaacd1ab954d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1120036113814822945, guid: 6c26dc2cd462b684e9fdaacd1ab954d3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11969,6 +11974,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825901102342019505, guid: 9070c004a956ebf49b1d5ac30715f5ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825901102342019505, guid: 9070c004a956ebf49b1d5ac30715f5ee,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825901102342019505, guid: 9070c004a956ebf49b1d5ac30715f5ee,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f9aa729785073574999a592b304cfd17,
+        type: 3}
+    - target: {fileID: 3477870651188791076, guid: 9070c004a956ebf49b1d5ac30715f5ee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9070c004a956ebf49b1d5ac30715f5ee, type: 3}
