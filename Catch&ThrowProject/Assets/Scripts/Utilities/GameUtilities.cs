@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class GameUtilities
 {
+    public bool isShaking = false;
+
     public IEnumerator ShakeObject(float time, Transform objectToShake, float force)
     {
+        isShaking = true;
+
         var originalPos = objectToShake.position;
         var actualTime = 0f;
-        
+
         while (actualTime < time)
         {
             var randomUnity = Random.insideUnitSphere;
             randomUnity.z = 0;
             objectToShake.position = originalPos + (randomUnity * force);
             yield return null;
-            actualTime+= Time.deltaTime;
+            actualTime += Time.deltaTime;
         }
 
         objectToShake.position = originalPos;
+
+        isShaking = false;
     }
 
     public IEnumerator ScaleTime(float time)
@@ -38,5 +44,5 @@ public class GameUtilities
         }
 
         objectModel.gameObject.SetActive(true);
-    }    
+    }
 }
