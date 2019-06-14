@@ -30,6 +30,7 @@ public class _LevelManager : MonoBehaviour
     public bool matchByTime = false;
     private float gameTimer = 0f;
     public Text remainingTime;
+    public GameObject remainingTimeParent;
 
     public int timeToChangeScene = 3;
     public float focusPlayerZoom = 30;
@@ -109,6 +110,7 @@ public class _LevelManager : MonoBehaviour
         {
             gameTimer = MatchDuration;
             remainingTime.enabled = true;
+            remainingTimeParent.SetActive(true);
         }
 
         cameraFollow.enabled = true;
