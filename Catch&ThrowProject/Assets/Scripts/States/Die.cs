@@ -9,6 +9,7 @@ public class Die : BaseState
     [SerializeField] private float cameraShakeTime;
     [SerializeField] private GameObject deathParticles;
     [SerializeField] private GameObject spawnParticles;
+    [SerializeField] private float timeToRespawn = 1f;
     private IEnumerator delegateRespawn;
 
     public override void Enter()
@@ -49,7 +50,7 @@ public class Die : BaseState
         playerModel.SetActive(false);
         playerController.dashState.available = false;
         playerController.dashState.walkTrail.enabled = false;
-        delegateRespawn = GetRespawn(1);
+        delegateRespawn = GetRespawn(timeToRespawn);
         StartCoroutine(delegateRespawn);
     }
 
@@ -75,11 +76,17 @@ public class Die : BaseState
         playerModel.SetActive(true);
         playerController.shield.ResetShield();
         playerController.dashState.available = true;
-        playerController.dashState.walkTrail.enabled = true;
-
+        StartCoroutine(WaitFrameToActivate());
 
 
         playerController.ChangeState(playerController.idleState);
+    }
+
+    private IEnumerator WaitFrameToActivate()
+    {
+        yield return WaitFrameToActivate();
+        playerController.dashState.walkTrail.enabled = true;
+
     }
     
 }

@@ -51,4 +51,9 @@ public class MashButton : BaseState
         playerController.ChangeState(playerController.idleState);
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.idleState);
     }
+
+    public void RotateAffordance(float angle )
+    {
+        transform.localRotation = 
+    }
 }

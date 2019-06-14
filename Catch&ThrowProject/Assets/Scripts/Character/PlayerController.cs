@@ -162,9 +162,6 @@ public class PlayerController : MonoBehaviour
                 velocity.x = 0;
 
             velocity.x += horizontal * speed * Time.deltaTime;
-
-
-
         }
         else
         {
