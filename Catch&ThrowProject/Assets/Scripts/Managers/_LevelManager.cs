@@ -31,8 +31,8 @@ public class _LevelManager : MonoBehaviour
     private float gameTimer = 0f;
     public Text remainingTime;
 
-    public int timeToChangeScene=5;
-    public float focusPlayerZoom = 20; 
+    public int timeToChangeScene = 5;
+    public float focusPlayerZoom = 30;
 
     [Header("Ammo Count Settings")]
     [SerializeField] private GameObject ammoItem;
@@ -238,6 +238,9 @@ public class _LevelManager : MonoBehaviour
         cameraFollow.objectsToShow.Add(matchInfo.GetWinner().transform);
         cameraFollow.minZoom = focusPlayerZoom;
         cameraFollow.positionDamping = 0f;
+        matchInfo.GetWinner().gameObject.SetActive(true);
+        matchInfo.GetWinner().rigidbody.velocity = Vector3.zero;
+        matchInfo.GetWinner().rigidbody.isKinematic = true;
 
         yield return new WaitForSeconds(timeToChangeScene);
 
@@ -309,7 +312,7 @@ public class _LevelManager : MonoBehaviour
             StartCoroutine(SpawnAmmo(timeForAmmo));
         }
     }
-    
+
     private IEnumerator SpawnAmmo(float time)
     {
         scatteredAmmo += 1;
