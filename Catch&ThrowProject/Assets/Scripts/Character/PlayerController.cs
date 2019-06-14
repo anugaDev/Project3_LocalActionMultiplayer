@@ -275,7 +275,10 @@ public class PlayerController : MonoBehaviour
         {
             shield.ImpactBlink();
             stunState.stunByTime = true;
-            if (CheckForGround()) hitDirection.y = 1;
+            if (CheckForGround())
+            {
+                hitDirection = new Vector3(1 * Mathf.Sign(hitDirection.x),0.75f,0);
+            }
             Impulse(hitDirection, hitForce, true);
             ChangeState(idleState);
         }

@@ -7,6 +7,7 @@ public class Die : BaseState
     [SerializeField] private GameObject playerModel;
     [SerializeField] private float cameraShakeForce;
     [SerializeField] private float cameraShakeTime;
+    [SerializeField] private GameObject deathParticles;
     private IEnumerator delegateRespawn;
 
     public override void Enter()
@@ -17,6 +18,8 @@ public class Die : BaseState
         playerController.normalCollider.enabled = false;
 
         _LevelManager.instance.OnPlayerKilled(playerController);
+        
+        base.Enter();
     }
 
     public override void Execute()
@@ -39,6 +42,7 @@ public class Die : BaseState
     public void GetKilled()
     {
         _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         playerController.shield.DestroyShield();
         playerController.shield.StopAllCoroutines();
         playerModel.SetActive(false);

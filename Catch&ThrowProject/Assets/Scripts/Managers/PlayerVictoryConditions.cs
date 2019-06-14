@@ -39,6 +39,16 @@ public class PlayerVictoryConditions
         }
     }
 
+    public PlayerController GetWinner()
+    {
+        foreach (var player in _LevelManager.instance.players)
+        {
+            if (matchInfo[player].rank == 1) return player;
+        }
+
+        return _LevelManager.instance.players[0];
+    }
+
     public void UpdateValues(PlayerController player)
     {
         matchInfo[player].deaths++;

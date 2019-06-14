@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{1bbfcc57-4178-4e9f-af85-50bd26e631f8}">
+        <property name="assetPath">
+            <value>Sin título 1-222552__zagi2__koto-loop-2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>7.9747392290249435</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{3926e84b-7776-4a5f-b082-029a3bf716f1}</destination>
+        </relationship>
+    </object>
+</objects>

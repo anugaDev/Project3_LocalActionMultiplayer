@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{fcf2c124-39b5-45db-b543-9fd1c0de6d82}">
         <property name="name">
-            <value>Ens Game. wav.1</value>
+            <value>GameEnd</value>
         </property>
         <property name="outputFormat">
             <value>1</value>
@@ -31,6 +31,9 @@
         <relationship name="timeline">
             <destination>{b4815e3a-a040-4997-94c7-a8b2f2c0393a}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{a62b3ed8-a372-4b13-a80d-1a0f29da64fd}</destination>
+        </relationship>
     </object>
     <object class="EventMixer" id="{ed7aa719-d1db-4276-ad90-c755f52a8f10}">
         <relationship name="masterBus">
@@ -57,7 +60,7 @@
     <object class="MarkerTrack" id="{d19aa487-6270-4002-879b-64be3c0855f9}"/>
     <object class="GroupTrack" id="{a25aa4cd-a8e5-4a2a-9926-f637c98f4e7c}">
         <relationship name="modules">
-            <destination>{215f6170-5935-47f7-8111-c63a3c92a407}</destination>
+            <destination>{f54fa03b-769d-4473-8838-855229a9853e}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{ae5df79e-dc89-465e-adb4-a9630ff47381}</destination>
@@ -65,7 +68,7 @@
     </object>
     <object class="Timeline" id="{b4815e3a-a040-4997-94c7-a8b2f2c0393a}">
         <relationship name="modules">
-            <destination>{215f6170-5935-47f7-8111-c63a3c92a407}</destination>
+            <destination>{f54fa03b-769d-4473-8838-855229a9853e}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{18357c3b-cd0d-42f2-aa7d-7b6d23da9d96}">
@@ -85,12 +88,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{69b9ff0c-10e0-4036-83aa-dab6608706cb}"/>
-    <object class="SingleSound" id="{215f6170-5935-47f7-8111-c63a3c92a407}">
+    <object class="SingleSound" id="{f54fa03b-769d-4473-8838-855229a9853e}">
         <property name="length">
-            <value>6.4045124716553286</value>
+            <value>4.1334467120181406</value>
         </property>
         <relationship name="audioFile">
-            <destination>{d0ca84c5-b689-47d0-aa18-51f47c70db39}</destination>
+            <destination>{31f895a7-b81f-4467-9144-e7f7c4f503ee}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{ae5df79e-dc89-465e-adb4-a9630ff47381}">

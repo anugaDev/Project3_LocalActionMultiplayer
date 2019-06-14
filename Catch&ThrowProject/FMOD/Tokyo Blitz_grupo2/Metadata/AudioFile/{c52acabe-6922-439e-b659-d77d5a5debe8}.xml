@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{c52acabe-6922-439e-b659-d77d5a5debe8}">
+        <property name="assetPath">
+            <value>Jump Sound Effect_01.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.5440816326530612</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{3926e84b-7776-4a5f-b082-029a3bf716f1}</destination>
+        </relationship>
+    </object>
+</objects>

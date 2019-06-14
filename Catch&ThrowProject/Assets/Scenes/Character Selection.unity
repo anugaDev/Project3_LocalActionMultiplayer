@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44950128, g: 0.4964959, b: 0.5591459, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950122, g: 0.49649578, b: 0.55914605, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -308,12 +308,12 @@ PrefabInstance:
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 625
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
@@ -383,12 +383,12 @@ PrefabInstance:
     - target: {fileID: 735071353816645203, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.199997
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 45254005296767428, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.199997
+      value: -30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
@@ -539,12 +539,12 @@ PrefabInstance:
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 625
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
@@ -610,16 +610,6 @@ PrefabInstance:
         type: 3}
       propertyPath: maskPresets.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 735071353816645203, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 45254005296767428, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.199997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
@@ -850,12 +840,12 @@ PrefabInstance:
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 625
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
@@ -925,12 +915,12 @@ PrefabInstance:
     - target: {fileID: 735071353816645203, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.199997
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 45254005296767428, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.199997
+      value: -30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
@@ -988,7 +978,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 2000
-  field of view: 60
+  field of view: 10
   orthographic: 0
   orthographic size: 15
   m_Depth: 1
@@ -1014,7 +1004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584560532}
   m_LocalRotation: {x: 0.2030645, y: -0, z: -0, w: 0.97916543}
-  m_LocalPosition: {x: -4.8, y: 57.7, z: 15.2}
+  m_LocalPosition: {x: -4.8, y: 120.44, z: -129.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1414,11 +1404,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressToAssign
       objectReference: {fileID: 0}
-    - target: {fileID: 4674392306541373116, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1487,12 +1472,12 @@ PrefabInstance:
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 600
+      value: 625
       objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
@@ -1523,11 +1508,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674392306541373114, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}

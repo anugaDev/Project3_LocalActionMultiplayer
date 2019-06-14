@@ -31,6 +31,9 @@
         <relationship name="timeline">
             <destination>{763b7dd1-5bde-437c-82d7-6955b770d08c}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{a62b3ed8-a372-4b13-a80d-1a0f29da64fd}</destination>
+        </relationship>
     </object>
     <object class="EventMixer" id="{28dcbff9-b5b8-4f7d-a06e-26443a3bb817}">
         <relationship name="masterBus">
@@ -57,7 +60,7 @@
     <object class="MarkerTrack" id="{9e77f879-3092-445b-8e38-b382daf2123f}"/>
     <object class="GroupTrack" id="{c07e17aa-7bdd-4aa5-825b-c7b0a57bd3e2}">
         <relationship name="modules">
-            <destination>{c4c7cec3-e476-43b2-bba2-6dd58fd35bfc}</destination>
+            <destination>{a309baba-37be-46f3-b9d0-eccca93be563}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{6709f765-2bd9-47f5-b355-4ae7356e10fc}</destination>
@@ -65,7 +68,7 @@
     </object>
     <object class="Timeline" id="{763b7dd1-5bde-437c-82d7-6955b770d08c}">
         <relationship name="modules">
-            <destination>{c4c7cec3-e476-43b2-bba2-6dd58fd35bfc}</destination>
+            <destination>{a309baba-37be-46f3-b9d0-eccca93be563}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{1daa40df-8420-4c81-b02c-0c3f1414a43b}">
@@ -85,15 +88,18 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5d0c3eab-f32d-409a-9040-cd5364baf279}"/>
-    <object class="SingleSound" id="{c4c7cec3-e476-43b2-bba2-6dd58fd35bfc}">
+    <object class="SingleSound" id="{a309baba-37be-46f3-b9d0-eccca93be563}">
         <property name="length">
-            <value>0.95201814058956913</value>
+            <value>0.31074829931972792</value>
         </property>
         <relationship name="audioFile">
             <destination>{623cdd80-508a-4ec8-aaed-13eea6b42297}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{6709f765-2bd9-47f5-b355-4ae7356e10fc}">
+        <property name="volume">
+            <value>-14</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>

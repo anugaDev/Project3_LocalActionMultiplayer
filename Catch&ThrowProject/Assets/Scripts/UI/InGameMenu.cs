@@ -10,11 +10,15 @@ public class InGameMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        Input.ResetInputAxes();
         _LevelManager.instance.ResumeGame();
     }
 
     public void ExitGame()
     {
+        Destroy(_LevelManager.instance.gameObject);
+        if (_GameManager.instance) Destroy(_GameManager.instance.gameObject);
+        Time.timeScale = 1;
         SceneManager.LoadScene(MainMenuSceneIndex);
     }
 

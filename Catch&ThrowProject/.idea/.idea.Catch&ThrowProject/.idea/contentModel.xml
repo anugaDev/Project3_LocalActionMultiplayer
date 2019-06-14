@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Adrian\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Adrian\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.-325789079.00" t="ExcludeRecursive" />
-    <e p="E:\Curro\Unity\Project3\DefRep\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
+    <e p="C:\Users\Adrian-PC\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adrian-PC\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.1605008111.00" t="ExcludeRecursive" />
+    <e p="E:\Curro\Proyectos\Unity\Repositorios\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -49,6 +49,42 @@
                   <e p="OutlineFill.shader" t="Include" />
                   <e p="OutlineMask.shader" t="Include" />
                 </e>
+              </e>
+            </e>
+          </e>
+          <e p="ParticlePack" t="Include">
+            <e p="EffectExamples" t="Include">
+              <e p="Misc Effects" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SpawnEffect.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="Respawn.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Shared" t="Include">
+              <e p="Ramps" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="RampAssetEditor.cs" t="Include" />
+                </e>
+                <e p="Runtime" t="Include">
+                  <e p="RampAsset.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="AdjustTimeScale.cs" t="Include" />
+                <e p="ProximityActivate.cs" t="Include" />
+                <e p="SimpleCameraController.cs" t="Include" />
+                <e p="SimpleCharacterMotor.cs" t="Include" />
+              </e>
+            </e>
+            <e p="TutorialInfo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ReadmeEditor.cs" t="Include" />
+                </e>
+                <e p="Readme.cs" t="Include" />
               </e>
             </e>
           </e>

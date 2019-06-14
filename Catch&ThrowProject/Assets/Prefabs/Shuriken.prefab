@@ -114,7 +114,7 @@ MonoBehaviour:
   projectileSpeed: 5
   rigidbody: {fileID: 636614215799889609}
   damage: 25
-  hitForce: 20
+  hitForce: 50
   impactCollider: {fileID: 1970175373955887664}
   detectionRadius: 0.7
   originPlayer: {fileID: 0}
