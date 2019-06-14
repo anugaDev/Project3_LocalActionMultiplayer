@@ -14,6 +14,8 @@ public class UpdatePlayerPanel : MonoBehaviour
 
     public void SetUpPanel(bool gameByTime, int playerNumber)
     {
+        if (playerNumber == 1) PlayerNumber.transform.localScale = new Vector3(.8f, .8f, .8f);
+
         PlayerNumber.text = "P" + playerNumber;
         kills.text = "0";
         kills.enabled = gameByTime;

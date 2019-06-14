@@ -26,6 +26,7 @@ public class _LevelManager : MonoBehaviour
     public int MatchDuration = 120;
     [SerializeField] private float timeForAmmo;
 
+    public bool endlessGame = false;
     public bool matchByTime = false;
     private float gameTimer = 0f;
     public Text remainingTime;
@@ -200,7 +201,7 @@ public class _LevelManager : MonoBehaviour
 
         if (player.health == 0)
         {
-            if (!matchByTime)
+            if (!matchByTime && !endlessGame)
             {
                 cameraFollow.objectsToShow.Remove(player.transform);
                 player.gameObject.SetActive(false);

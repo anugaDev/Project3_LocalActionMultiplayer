@@ -60,11 +60,13 @@ public class PlayerSelectionPanel : MonoBehaviour
 
         if (playerSkin.used && ready)
         {
+            skinChosen.gameObject.SetActive(true);
+            skinChosen.Rewind();
+            skinChosen.Play();
+
             if (shake.isShaking) return;
 
-            skinChosen.gameObject.SetActive(true);
             StartCoroutine(shake.ShakeObject(.15f, transform.parent, 0.025f));
-            skinChosen.Play();
 
             return;
         }
