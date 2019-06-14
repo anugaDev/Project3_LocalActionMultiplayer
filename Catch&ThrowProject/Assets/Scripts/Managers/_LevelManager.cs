@@ -311,8 +311,8 @@ public class _LevelManager : MonoBehaviour
     
     private IEnumerator SpawnAmmo(float time)
     {
+        scatteredAmmo += 1;
         yield return new WaitForSeconds(time);
         Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
-        scatteredAmmo += 1;
     }
 }
