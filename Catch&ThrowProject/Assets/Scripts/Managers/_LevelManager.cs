@@ -48,6 +48,7 @@ public class _LevelManager : MonoBehaviour
     public GameObject countdownText;
 
     public bool testingScene;
+    public bool tutorialScene = false;
 
     public enum MatchState
     {
@@ -66,7 +67,10 @@ public class _LevelManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-        if (_GameManager.instance != null) matchByTime = _GameManager.instance.gameByTime;
+        if (_GameManager.instance != null)
+        {
+            if (!tutorialScene) matchByTime = _GameManager.instance.gameByTime;
+        }
     }
 
     private void Start()
@@ -83,6 +87,12 @@ public class _LevelManager : MonoBehaviour
 
             CheckTest();
             SetNewGame();
+        }
+
+        if (tutorialScene)
+        {
+            _GameManager.instance.SceneToLoadNumber++;
+            _GameManager.instance.playerControllers = players;
         }
     }
 
@@ -234,19 +244,29 @@ public class _LevelManager : MonoBehaviour
     {
         matchState = MatchState.Ending;
 
-        if (matchByTime) matchInfo.SetRankingsByKills();
+        if (tutorialScene)
+        {
+            _GameManager.instance.StartCoroutine(_GameManager.instance.LoadNewGame());
 
-        cameraFollow.objectsToShow.Clear();
-        cameraFollow.objectsToShow.Add(matchInfo.GetWinner().transform);
-        cameraFollow.minZoom = focusPlayerZoom;
-        cameraFollow.positionDamping = 0f;
-        matchInfo.GetWinner().gameObject.SetActive(true);
-        matchInfo.GetWinner().rigidbody.velocity = Vector3.zero;
-        matchInfo.GetWinner().rigidbody.isKinematic = true;
+            Destroy(gameObject);
+        }
+        else
+        {
+            _GameManager.instance.playerControllers.Clear();
+            if (matchByTime) matchInfo.SetRankingsByKills();
 
-        yield return new WaitForSeconds(timeToChangeScene);
+            cameraFollow.objectsToShow.Clear();
+            cameraFollow.objectsToShow.Add(matchInfo.GetWinner().transform);
+            cameraFollow.minZoom = focusPlayerZoom;
+            cameraFollow.positionDamping = 0f;
+            matchInfo.GetWinner().gameObject.SetActive(true);
+            matchInfo.GetWinner().rigidbody.velocity = Vector3.zero;
+            matchInfo.GetWinner().rigidbody.isKinematic = true;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            yield return new WaitForSeconds(timeToChangeScene);
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public PlayerMatchInfo[] PassRanking()

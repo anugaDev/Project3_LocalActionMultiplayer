@@ -9,6 +9,7 @@ public class _GameManager : MonoBehaviour
     public static _GameManager instance;
 
     public List<PlayerSelectionPanel> players;
+    public List<PlayerController> playerControllers;
     public GameObject playerBasicPrefab;
 
     public int SceneToLoadNumber = -1;
@@ -32,15 +33,15 @@ public class _GameManager : MonoBehaviour
 
     public IEnumerator LoadNewGame()
     {
-        SceneTransition.Play(SceneTransition.clip.name);
+        if (SceneTransition) SceneTransition.Play(SceneTransition.clip.name);
 
-        yield return new WaitForSeconds(SceneTransition.clip.length);
+        if (SceneTransition) yield return new WaitForSeconds(SceneTransition.clip.length);
 
         lastScene = SceneManager.GetActiveScene().buildIndex;
 
         SceneManager.LoadSceneAsync(SceneToLoadNumber);
 
-        foreach (PlayerSelectionPanel player in players) { player.GameStarting = true; }
+        if (players[0]) foreach (PlayerSelectionPanel player in players) { player.GameStarting = true; }
     }
 
     private void CreatePlayer(PlayerSelectionPanel playerInfo)
@@ -56,11 +57,24 @@ public class _GameManager : MonoBehaviour
         _LevelManager.instance.players.Add(player);
     }
 
+    private void CreatePlayer(PlayerController playerInfo)
+    {
+        PlayerController player = Instantiate(playerBasicPrefab).GetComponent<PlayerController>();
+
+        player.inputControl.controllerNumber = playerInfo.inputControl.controllerNumber;
+        player.inputControl.keyboardAndMouse = playerInfo.inputControl.keyboardAndMouse;
+        player.playerNumber = playerInfo.playerNumber;
+        player.SetSkin(playerInfo.playerSkin);
+        player.enabled = false;
+
+        _LevelManager.instance.players.Add(player);
+    }
+
     public void StartGame(Scene scene, LoadSceneMode mode)
     {
         if (scene.buildIndex != SceneToLoadNumber) return;
 
-        SceneManager.sceneLoaded -= StartGame;
+        if (!_LevelManager.instance.tutorialScene) SceneManager.sceneLoaded -= StartGame;
 
         _LevelManager.instance.testingScene = false;
 
@@ -78,7 +92,8 @@ public class _GameManager : MonoBehaviour
 
         _LevelManager.instance.players.Clear();
 
-        foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
+        if (playerControllers.Count == 0) foreach (PlayerSelectionPanel player in players) { CreatePlayer(player); }
+        else foreach (PlayerController player in playerControllers) { CreatePlayer(player); }
 
         _LevelManager.instance.SetNewGame();
     }
