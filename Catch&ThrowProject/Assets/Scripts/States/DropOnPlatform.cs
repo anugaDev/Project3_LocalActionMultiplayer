@@ -17,8 +17,10 @@ public class DropOnPlatform : BaseState
             checkTimeForExitDrop = ChangeToFall(timeToSwitchFall);
             StartCoroutine(checkTimeForExitDrop);
         }
+        else if(playerController.CheckForGround())
+            playerController.ChangeState(playerController.jumpState);
         else
-            playerController.ChangeState(playerController.idleState);
+            playerController.ChangeState(playerController.fallState);
         
     }
 
