@@ -198,6 +198,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+        dashState.walkTrail.transform.localPosition = new Vector3(0, 0, Mathf.Sign(horizontal) < 0 ? -0.5f : 0.5f);
     }
 
     public void VerticalMove(Vector3 direction, float force)
@@ -277,7 +278,7 @@ public class PlayerController : MonoBehaviour
             stunState.stunByTime = true;
             if (CheckForGround())
             {
-                hitDirection = new Vector3(1 * Mathf.Sign(hitDirection.x),0.75f,0);
+                hitDirection = new Vector3(1 * Mathf.Sign(hitDirection.x), 0.75f, 0);
             }
             Impulse(hitDirection, hitForce, true);
             ChangeState(idleState);
