@@ -8,6 +8,7 @@ public class Die : BaseState
     [SerializeField] private float cameraShakeForce;
     [SerializeField] private float cameraShakeTime;
     [SerializeField] private GameObject deathParticles;
+    [SerializeField] private GameObject spawnParticles;
     private IEnumerator delegateRespawn;
 
     public override void Enter()
@@ -61,6 +62,7 @@ public class Die : BaseState
 
     public void Respawn()
     {
+        Instantiate(spawnParticles, playerController.transform.position, Quaternion.identity);
         playerController.gameObject.layer = playerController.normalLayer;
         playerController.rigidbody.velocity = Vector3.zero;
         playerController.RespawnAmmo();
