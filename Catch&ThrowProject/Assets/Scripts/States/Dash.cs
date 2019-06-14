@@ -9,9 +9,7 @@ public class Dash : BaseState
     [SerializeField] private float speed;
     [SerializeField] private float pushBackForce;
     [SerializeField] private float duration;
-    [SerializeField] private float exitSpeedMultiplier = 0.10f;
-    [SerializeField] private float imageShakeForce;
-    [SerializeField] private float imageShakeTime;
+    
 
     [SerializeField] private float verticalSpeedDecayMultiplier = 0.75f;
 
@@ -25,7 +23,6 @@ public class Dash : BaseState
     public float cooldown = 1.5f;
 
     private float timer = 0;
-    private GameUtilities gameUtils = new GameUtilities();
     private Vector3 actualDirection;
 
     [SerializeField] private ParticleSystem dashParticles;
@@ -55,6 +52,8 @@ public class Dash : BaseState
         stopDash = StopDash();
         StartCoroutine(stopDash);
 
+        walkTrail.enabled = false;
+
         base.Enter();
 
     }
@@ -68,6 +67,7 @@ public class Dash : BaseState
         if (timer >= cooldown)
         {
             available = true;
+            walkTrail.enabled = true;
             timer = 0;
         }
     }

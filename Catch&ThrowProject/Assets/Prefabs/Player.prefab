@@ -832,7 +832,7 @@ MonoBehaviour:
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  landSound: event:/Movement/Land
+  landSound: event:/MOVEMENT/land
 --- !u!114 &8528970866292978446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +974,7 @@ MonoBehaviour:
     type: 3}
   spawnParticles: {fileID: 3160645692127252247, guid: 3f11ab4ed2a8a32479d465e7598cabdd,
     type: 3}
+  timeToRespawn: 1
 --- !u!114 &-4765620264934939727
 MonoBehaviour:
   m_ObjectHideFlags: 0

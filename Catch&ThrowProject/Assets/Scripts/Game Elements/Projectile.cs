@@ -20,15 +20,18 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Animation animation;
     [SerializeField] private TrailRenderer trail;
 
-    [SerializeField] private Color neutralTakeColor = Color.white;
-
-    [SerializeField]private bool nailed = false;
+    private bool nailed = false;
 
     [SerializeField] private float projectileDownThreshold = -0.1f;
     [SerializeField] private int UpLayer;
     [SerializeField] private int downLayer;
 
     [SerializeField] private GameObject impactParticles;
+
+    [Header("Nailed Detection")] [SerializeField]
+    private LayerMask nailedLayerMask;
+
+    [SerializeField] private float nailedDistance;
     
     [Header("sound")]
     
@@ -114,8 +117,10 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-//                if (player.AmmoIsMax()) return;
-                player.ResupplyAmmo(1);
+                if (player.AmmoIsMax()) return;
+                
+                if(!IsDirectionObstructed(player.transform, player.transform.position - transform.position, nailedDistance))
+                    player.ResupplyAmmo(1);
 
             }
             
@@ -167,6 +172,18 @@ public class Projectile : MonoBehaviour
         Physics.IgnoreCollision(impactCollider, originPlayer.normalCollider,false);
 
 
+    }
+    private bool IsDirectionObstructed(Transform detectedTransform, UnityEngine.Vector3 direction, float distance)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, direction , out hit, distance, nailedLayerMask))
+        {
+            if (detectedTransform != hit.transform)
+                return true;
+            
+        }
+
+        return false;
     }
 
     private IEnumerator DestroyAfterTime()
