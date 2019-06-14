@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         dashState.walkTrail.transform.localPosition = new Vector3(0, 0, Mathf.Sign(horizontal) < 0 ? -0.5f : 0.5f);
+        mashButtonState.RotateAffordance(Mathf.Sign(horizontal) < 0 ? 180 : 0);
     }
 
     public void VerticalMove(Vector3 direction, float force)
@@ -330,8 +331,7 @@ public class PlayerController : MonoBehaviour
     private void CallForReload()
     {
         reloadAmmoinCourse = true;
-        //        recoverAmmo = RecoverAmmoOverTime(timeForAmmo);
-        //        StartCoroutine(recoverAmmo);
+       
     }
 
     private void StopReloading()
@@ -344,28 +344,6 @@ public class PlayerController : MonoBehaviour
         actualAmmo -= ammo;
         if (actualAmmo < 0) actualAmmo = 0;
     }
-
-    //    private bool CheckForRecoverAmmo()
-    //    {
-    //        if (reloadAmmoinCourse) return false;
-    ////        return actualAmmo < maxAmmo;
-    //    }
-
-    //    private IEnumerator RecoverAmmoOverTime(float time)
-    //    {
-    //        var actualTime = 0f;
-    //        uiPanel.SetAmmoFillActive(true);
-    //        while (actualTime < time)
-    //        {
-    //            actualTime += Time.deltaTime;
-    //            uiPanel.UpdateAmmoFill(actualTime, time);
-    //            yield return null;
-    //
-    //        }
-    //        uiPanel.SetAmmoFillActive(false);
-    //        actualAmmo++;
-    //        reloadAmmoinCourse = false;
-    //    }
 
     public void RespawnAmmo()
     {

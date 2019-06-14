@@ -54,6 +54,6 @@ public class MashButton : BaseState
 
     public void RotateAffordance(float angle )
     {
-        transform.localRotation = 
+        mashAffordance.localRotation = Quaternion.Euler( Vector3.up * angle);
     }
 }
