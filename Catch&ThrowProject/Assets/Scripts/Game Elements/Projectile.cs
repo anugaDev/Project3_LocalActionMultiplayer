@@ -87,8 +87,14 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         thrownEventSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        if (other.gameObject.CompareTag("DestroyProjectiles"))
+        {
+            Destroy(gameObject);
+
+        }
         
-        if (other.gameObject.CompareTag("Player"))
+        else if (other.gameObject.CompareTag("Player"))
         {
             var player = other.gameObject.GetComponent<PlayerController>();
 

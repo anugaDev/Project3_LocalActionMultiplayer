@@ -47,6 +47,7 @@ public class Die : BaseState
         playerController.shield.StopAllCoroutines();
         playerModel.SetActive(false);
         playerController.dashState.available = false;
+        playerController.dashState.walkTrail.enabled = false;
         delegateRespawn = GetRespawn(1);
         StartCoroutine(delegateRespawn);
     }
@@ -72,6 +73,8 @@ public class Die : BaseState
         playerModel.SetActive(true);
         playerController.shield.ResetShield();
         playerController.dashState.available = true;
+        playerController.dashState.walkTrail.enabled = true;
+
 
 
         playerController.ChangeState(playerController.idleState);

@@ -12,6 +12,7 @@ public class _LevelManager : MonoBehaviour
     public static _LevelManager instance;
 
     public List<Transform> spawnPoints;
+    public List<Transform> ammoSpawnPoints;
     public List<PlayerController> players;
 
     public StandaloneInputModule UI_Input;
@@ -311,7 +312,7 @@ public class _LevelManager : MonoBehaviour
 
     private void SpawnAmmo()
     {
-        Instantiate(ammoItem, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
+        Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
         scatteredAmmo += 1;
     }
 }
