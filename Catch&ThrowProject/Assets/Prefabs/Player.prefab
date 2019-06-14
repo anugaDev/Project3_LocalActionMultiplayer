@@ -972,6 +972,8 @@ MonoBehaviour:
   cameraShakeTime: 0.33
   deathParticles: {fileID: 2943932454995581790, guid: 3f5f7283583ef6b4797e0faa795ab242,
     type: 3}
+  spawnParticles: {fileID: 3160645692127252247, guid: 3f11ab4ed2a8a32479d465e7598cabdd,
+    type: 3}
 --- !u!114 &-4765620264934939727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6053,7 +6055,7 @@ ParticleSystem:
 --- !u!199 &6140137325465922741
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
