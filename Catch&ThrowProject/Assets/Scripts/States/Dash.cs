@@ -51,7 +51,6 @@ public class Dash : BaseState
         playerController.OrientatePlayer(actualDirection.x);
 
         dashParticles.Play();
-        ChangeTrail(true);
 
         stopDash = StopDash();
         StartCoroutine(stopDash);
@@ -62,8 +61,6 @@ public class Dash : BaseState
 
     private void Update()
     {
-        ChangeTrail(available);
-
         if (available || playerController.stateMachine.currentState == this) return;
 
         if (released) timer += Time.deltaTime;
@@ -193,19 +190,5 @@ public class Dash : BaseState
         Vector3 directionBetweenPlayers = (transform.position - enemy.transform.position).normalized;
 
         enemy.transform.position = transform.position + (directionBetweenPlayers * .5f);
-    }
-
-    public void ChangeTrail(bool change)
-    {
-        walkTrail.enabled = change;
-
-        var localPosition = playerController.inputControl.Horizontal < 0 ? -0.5f : 0.5f;
-        var changed = localPosition != walkTrail.transform.localPosition.z;
-
-        if (changed) walkTrail.time = 0;
-
-        walkTrail.transform.localPosition = new Vector3(0, 0, localPosition);
-
-        if (changed) walkTrail.time = .3f;
     }
 }
