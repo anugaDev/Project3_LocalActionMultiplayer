@@ -76,15 +76,16 @@ public class Die : BaseState
         playerModel.SetActive(true);
         playerController.shield.ResetShield();
         playerController.dashState.available = true;
-        StartCoroutine(WaitFrameToActivate());
-
 
         playerController.ChangeState(playerController.idleState);
+        
+        StartCoroutine(WaitFrameToActivate());
+
     }
 
     private IEnumerator WaitFrameToActivate()
     {
-        yield return WaitFrameToActivate();
+        yield return null;
         playerController.dashState.walkTrail.enabled = true;
 
     }
