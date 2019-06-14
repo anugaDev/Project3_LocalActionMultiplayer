@@ -31,7 +31,7 @@ public class _LevelManager : MonoBehaviour
     private float gameTimer = 0f;
     public Text remainingTime;
 
-    public int timeToChangeScene = 5;
+    public int timeToChangeScene = 3;
     public float focusPlayerZoom = 30;
 
     [Header("Ammo Count Settings")]
