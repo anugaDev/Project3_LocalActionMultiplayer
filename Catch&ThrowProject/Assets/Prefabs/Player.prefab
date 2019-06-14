@@ -55,9 +55,6 @@ MonoBehaviour:
   speed: 50
   pushBackForce: 40
   duration: 0.1
-  exitSpeedMultiplier: 0.5
-  imageShakeForce: 0
-  imageShakeTime: 0
   verticalSpeedDecayMultiplier: 0.75
   playerTrigger: {fileID: 101204162}
   catched: 0
@@ -885,8 +882,8 @@ MonoBehaviour:
   meleeHitDamage: 100
   hitForce: 35
   playerColor: {r: 0, g: 0, b: 0, a: 0}
-  meleeSound: event:/Attack/Melee hit
-  throwSound: event:/Attack/Melee air
+  meleeSound: event:/ATTACK/mele_hit
+  throwSound: event:/ATTACK/mele_air
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0
