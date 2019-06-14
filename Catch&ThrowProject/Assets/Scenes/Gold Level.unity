@@ -5505,7 +5505,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1078047689}
-  - component: {fileID: 1078047690}
   m_Layer: 0
   m_Name: 'Shuriken Spawn Points '
   m_TagString: Untagged
@@ -5537,32 +5536,6 @@ Transform:
   m_Father: {fileID: 138664176}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1078047690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078047688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50d3f87abb2e586489edefb99ee1ebda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 6569685431690109089, guid: 718b3cbeed11f264099e916681d8d2ab,
-    type: 3}
-  timeToSpawn: 15
-  spawners:
-  - {fileID: 311131789}
-  - {fileID: 1513324103}
-  - {fileID: 1965510420}
-  - {fileID: 977967217}
-  - {fileID: 1760985886}
-  - {fileID: 2019724511}
-  - {fileID: 805150638}
-  - {fileID: 1111111925}
-  - {fileID: 1150780417}
-  - {fileID: 1268649979}
 --- !u!1 &1089926394
 GameObject:
   m_ObjectHideFlags: 0
@@ -6981,6 +6954,8 @@ Transform:
   - {fileID: 1327774862}
   - {fileID: 529089813}
   - {fileID: 394705587}
+  - {fileID: 1871452885}
+  - {fileID: 1598768239}
   m_Father: {fileID: 138664176}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7879,6 +7854,50 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed800a8558ffeb144bd58b5087f87a4d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3660813c962d92479c541f91ee89934, type: 3}
+--- !u!1 &1598768238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598768239}
+  - component: {fileID: 1598768240}
+  m_Layer: 0
+  m_Name: Tunnel Shuriken Destroyer (3)
+  m_TagString: DestroyProjectiles
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1598768239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598768238}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 38, y: 16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1384866719}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1598768240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598768238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.2972794, y: 13.115597, z: 10}
+  m_Center: {x: -1.6486397, y: 2.116828, z: -0.04151821}
 --- !u!1 &1602076039
 GameObject:
   m_ObjectHideFlags: 0
@@ -8957,6 +8976,50 @@ Transform:
   m_Father: {fileID: 1324577549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -110, z: 0}
+--- !u!1 &1871452884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871452885}
+  - component: {fileID: 1871452886}
+  m_Layer: 0
+  m_Name: Tunnel Shuriken Destroyer (2)
+  m_TagString: DestroyProjectiles
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1871452885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871452884}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -38, y: 16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1384866719}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1871452886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871452884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.2972794, y: 13.115597, z: 10}
+  m_Center: {x: -1.6486397, y: 2.116828, z: -0.04151821}
 --- !u!1001 &1875753711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10708,6 +10771,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
         type: 3}
+      propertyPath: ammoSpawnPoints.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1246976650}
@@ -10776,6 +10844,56 @@ PrefabInstance:
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 1528276805}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 311131790}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1513324104}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1965510421}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 977967218}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1760985887}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 2019724512}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 805150639}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[7]
+      value: 
+      objectReference: {fileID: 1111111926}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[8]
+      value: 
+      objectReference: {fileID: 1150780418}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: ammoSpawnPoints.Array.data[9]
+      value: 
+      objectReference: {fileID: 1268649980}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2fa3c1fc4393c648b0ee044c3bac1bf, type: 3}
 --- !u!1001 &5710474666467588110
