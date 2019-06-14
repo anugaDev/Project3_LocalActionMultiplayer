@@ -50,7 +50,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: Dash
   animationTrigger: 
-  enterSound: event:/MOVEMENT/dash
+  enterSound: event:/Movement/Dash
   exitSound: 
   speed: 50
   pushBackForce: 40
@@ -703,6 +703,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   health: 0
   caughtPlayer: {fileID: 0}
+  playerNumber: 0
   killer: {fileID: 0}
   secondsToResetKiller: 4
   ammo: {fileID: 1327136806}
@@ -779,7 +780,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: Jump
-  enterSound: event:/MOVEMENT/jump
+  enterSound: event:/Movement/Jump
   exitSound: 
   jumpingSpeed: 36
   commingFromJump: 0
@@ -820,7 +821,7 @@ MonoBehaviour:
   animationBool: Falling
   animationTrigger: 
   enterSound: 
-  exitSound: 
+  exitSound: event:/MOVEMENT/land
   pressingFallingSpeed: 100
   notPressingFallingSpeed: 225
   glideAcceleration: 70
@@ -831,7 +832,7 @@ MonoBehaviour:
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  landSound: event:/MOVEMENT/land
+  landSound: event:/Movement/Land
 --- !u!114 &8528970866292978446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,8 +885,8 @@ MonoBehaviour:
   meleeHitDamage: 100
   hitForce: 35
   playerColor: {r: 0, g: 0, b: 0, a: 0}
-  meleeSound: event:/ATTACK/mele_hit
-  throwSound: event:/ATTACK/mele_air
+  meleeSound: event:/Attack/Melee hit
+  throwSound: event:/Attack/Melee air
 --- !u!114 &8854126468993262086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +902,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: Catch
   animationTrigger: 
-  enterSound: 
+  enterSound: event:/HUD/catch
   exitSound: 
   timeBeforeThrow: 3
   throwForce: 80
@@ -964,11 +965,13 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: 
   animationTrigger: 
-  enterSound: 
+  enterSound: event:/REACTION/dead
   exitSound: 
   playerModel: {fileID: 1183378290390547978}
   cameraShakeForce: 0.46
   cameraShakeTime: 0.33
+  deathParticles: {fileID: 2943932454995581790, guid: 3f5f7283583ef6b4797e0faa795ab242,
+    type: 3}
 --- !u!114 &-4765620264934939727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6050,7 +6053,7 @@ ParticleSystem:
 --- !u!199 &6140137325465922741
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

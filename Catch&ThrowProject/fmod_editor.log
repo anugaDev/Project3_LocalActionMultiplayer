@@ -7,17 +7,44 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000022B79C953D8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001FE9DD04058 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] SoundI::release                          :  (000001FEA930B428)
+[LOG] SoundI::release                          :     shoot_shot (000001FE9DAF9318)
+[LOG] SoundI::release                          :  (000001FEA9309A48)
+[LOG] SoundI::release                          :     dash (000001FE9DAF8478)
+[LOG] SoundI::release                          :  (000001FEA930DAF8)
+[LOG] SoundI::release                          :     dead (000001FE9DAF7438)
+[LOG] SoundI::release                          :  (000001FEA930F088)
+[LOG] SoundI::release                          :     double_jump (000001FE9DAF9B38)
+[LOG] SoundI::release                          :  (000001FEA930B598)
+[LOG] SoundI::release                          :     land_short (000001FE9DAF94B8)
+[LOG] SoundI::release                          :  (000001FEA930B2B8)
+[LOG] SoundI::release                          :     jump (000001FE9DAF82D8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.

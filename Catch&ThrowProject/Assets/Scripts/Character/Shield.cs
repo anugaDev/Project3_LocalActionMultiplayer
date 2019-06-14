@@ -89,7 +89,6 @@ public class Shield : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(upShield);
         shieldDestroyed = false;
         shieldMesh.enabled = true;
-//        shieldMesh.material.color = lowShieldColor;
         shieldMesh.material.SetColor(MainColor,lowShieldColor);
     }
 
@@ -106,7 +105,7 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(downShield);
+        if(!shieldDestroyed) FMODUnity.RuntimeManager.PlayOneShot(downShield);
 
         if(actualBlinking != null) StopCoroutine(actualBlinking);
         
