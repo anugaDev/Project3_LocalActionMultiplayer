@@ -105,26 +105,34 @@ public class Projectile : MonoBehaviour
             {
                 if (player == originPlayer)
                 {
-                    if(offPlayerZone && !player.AmmoIsMax())
+                    if (offPlayerZone && !player.AmmoIsMax())
+                    {
                         player.ResupplyAmmo(1);
+                        Destroy(gameObject);
+                    }
                 }
                 else
                 {
                     FMODUnity.RuntimeManager.PlayOneShot(playerHitSound);
                     player.ProjectileHit(direction,hitForce,damage);
                     Instantiate(impactParticles, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
                 }
             }
             else
             {
                 if (player.AmmoIsMax()) return;
-                
-                if(!IsDirectionObstructed(player.transform, player.transform.position - transform.position, nailedDistance))
+
+                if (!IsDirectionObstructed(player.transform, player.transform.position - transform.position,
+                    nailedDistance))
+                {
                     player.ResupplyAmmo(1);
+                    Destroy(gameObject);
+
+                }
 
             }
             
-            Destroy(gameObject);
             
         }
         

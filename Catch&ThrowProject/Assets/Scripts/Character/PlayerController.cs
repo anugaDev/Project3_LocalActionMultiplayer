@@ -220,10 +220,11 @@ public class PlayerController : MonoBehaviour
         if (gameObject.layer != normalLayer) return onGround = false;
 
         var startingPos = transform.position;
-
+        
         Vector3 leftRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.min.x)) * collisionBoundariesMultiplier;
         Vector3 rightRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.max.x)) * collisionBoundariesMultiplier;
 
+        
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
         onGround = !onGround ? Physics.Raycast(leftRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
         onGround = !onGround ? Physics.Raycast(rightRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
