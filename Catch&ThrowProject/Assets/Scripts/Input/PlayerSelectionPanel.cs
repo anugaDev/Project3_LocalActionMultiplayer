@@ -27,6 +27,10 @@ public class PlayerSelectionPanel : MonoBehaviour
     public GameObject buttonPanel;
     public GameObject readyPanel;
 
+    private GameUtilities shake = new GameUtilities();
+
+    public Animation skinChosen;
+
     public void Recolor(int index)
     {
         playerSkin = availableSkins[index];
@@ -52,11 +56,16 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public void ReadyCheck(bool ready)
     {
-        if (!ready && !readyPanel.activeSelf) return;
+        if (ready == readyPanel.activeSelf) return;
 
         if (playerSkin.used && ready)
         {
-            print("Skin already chosen");
+            if (shake.isShaking) return;
+
+            skinChosen.gameObject.SetActive(true);
+            StartCoroutine(shake.ShakeObject(.15f, transform.parent, 0.025f));
+            skinChosen.Play();
+
             return;
         }
 
