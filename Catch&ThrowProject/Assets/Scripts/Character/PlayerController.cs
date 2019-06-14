@@ -223,11 +223,31 @@ public class PlayerController : MonoBehaviour
         
         Vector3 leftRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.min.x)) * collisionBoundariesMultiplier;
         Vector3 rightRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.max.x)) * collisionBoundariesMultiplier;
-
         
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
         onGround = !onGround ? Physics.Raycast(leftRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
         onGround = !onGround ? Physics.Raycast(rightRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
+        
+        #region ItsPlatform
+
+        if (onGround)
+        {
+           
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down , out hit, distanceToGround, groundDetectionCollisions) ||
+                Physics.Raycast(leftRayPosition, Vector3.down , out hit, distanceToGround, groundDetectionCollisions)||
+                Physics.Raycast(rightRayPosition, Vector3.down , out hit, distanceToGround, groundDetectionCollisions))
+            {
+                if (hit.transform.CompareTag("Death Zone") || hit.transform.CompareTag("Bounce Zone"))
+                    return onGround = false;
+
+            } 
+        }
+        
+        
+        #endregion
+        
+        
 
         if (onGround) impulseImpacts = false;
 
@@ -246,7 +266,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bounce Zone")) other.gameObject.GetComponent<BounceZone>().BounceObject(rigidbody, this);
     }
-
     private void HitByDeathZone(Collision deathZone)
     {
         if (shield.shieldDestroyed)
