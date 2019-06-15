@@ -9,10 +9,10 @@ public abstract class BaseState : MonoBehaviour
     [SerializeField] protected string animationTrigger;
 
     [FMODUnity.EventRef] public string enterSound;
-    private FMOD.Studio.EventInstance soundEventEnter;
+    [HideInInspector] public FMOD.Studio.EventInstance soundEventEnter;
     
     [FMODUnity.EventRef] public string exitSound;
-    private FMOD.Studio.EventInstance soundEventExit;
+    [HideInInspector] public FMOD.Studio.EventInstance soundEventExit;
 
 
     private void Start()

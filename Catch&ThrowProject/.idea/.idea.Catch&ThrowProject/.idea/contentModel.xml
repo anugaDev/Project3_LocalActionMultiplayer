@@ -192,6 +192,7 @@
             <e p="_LevelManager.cs" t="Include" />
             <e p="PlayerVictoryConditions.cs" t="Include" />
           </e>
+          <e p="playButtonSounds.cs" t="Include" />
           <e p="ScriptableObject" t="Include">
             <e p="PlayerContainer.cs" t="Include" />
           </e>
