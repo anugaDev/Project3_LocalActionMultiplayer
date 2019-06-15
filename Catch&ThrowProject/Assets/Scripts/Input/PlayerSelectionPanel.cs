@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Resources;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -30,6 +31,8 @@ public class PlayerSelectionPanel : MonoBehaviour
     private GameUtilities shake = new GameUtilities();
 
     public Animation skinChosen;
+    
+    [FMODUnity.EventRef] public string startPanel;
 
     public void Recolor(int index)
     {
@@ -43,6 +46,8 @@ public class PlayerSelectionPanel : MonoBehaviour
 
     public void AssignController(int controllerNumber)
     {
+        RuntimeManager.PlayOneShot(startPanel);
+        
         playerNumberText.text = "P" + playerNumber;
         parentPanel.enabled = false;
         pressToAssignText.enabled = false;

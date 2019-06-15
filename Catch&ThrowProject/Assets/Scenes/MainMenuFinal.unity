@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 459757083}
   - component: {fileID: 459757082}
   - component: {fileID: 459757081}
+  - component: {fileID: 459757084}
   m_Layer: 5
   m_Name: Kill Hoarder
   m_TagString: Untagged
@@ -918,6 +919,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459757079}
   m_CullTransparentMesh: 0
+--- !u!114 &459757084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459757079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 459757081}
+  clickButton: event:/MENU/select
 --- !u!1 &475514564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1093,7 @@ GameObject:
   - component: {fileID: 587068305}
   - component: {fileID: 587068304}
   - component: {fileID: 587068303}
+  - component: {fileID: 587068306}
   m_Layer: 5
   m_Name: Last One Standing
   m_TagString: Untagged
@@ -1232,6 +1248,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587068301}
   m_CullTransparentMesh: 0
+--- !u!114 &587068306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587068301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 587068303}
+  clickButton: event:/MENU/select
 --- !u!1 &626626488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,6 +1433,7 @@ GameObject:
   - component: {fileID: 795090606}
   - component: {fileID: 795090605}
   - component: {fileID: 795090604}
+  - component: {fileID: 795090607}
   m_Layer: 5
   m_Name: New Game
   m_TagString: Untagged
@@ -1568,6 +1599,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795090602}
   m_CullTransparentMesh: 0
+--- !u!114 &795090607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795090602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 795090604}
+  clickButton: event:/MENU/select
 --- !u!1 &917194733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1625,7 @@ GameObject:
   - component: {fileID: 917194737}
   - component: {fileID: 917194736}
   - component: {fileID: 917194735}
+  - component: {fileID: 917194738}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1690,6 +1736,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917194733}
   m_CullTransparentMesh: 0
+--- !u!114 &917194738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917194733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 917194735}
+  clickButton: event:/MENU/select
 --- !u!1 &1064085055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1764,7 @@ GameObject:
   - component: {fileID: 1064085059}
   - component: {fileID: 1064085058}
   - component: {fileID: 1064085057}
+  - component: {fileID: 1064085056}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1711,6 +1772,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1064085056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064085055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!114 &1064085057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,6 +2115,7 @@ GameObject:
   - component: {fileID: 1274638071}
   - component: {fileID: 1274638070}
   - component: {fileID: 1274638069}
+  - component: {fileID: 1274638072}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -2162,6 +2237,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274638067}
   m_CullTransparentMesh: 0
+--- !u!114 &1274638072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274638067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 1274638069}
+  clickButton: event:/MENU/select
 --- !u!1 &1368457880
 GameObject:
   m_ObjectHideFlags: 0

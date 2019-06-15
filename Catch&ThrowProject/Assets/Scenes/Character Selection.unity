@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44950128, g: 0.4964959, b: 0.5591459, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950175, g: 0.49649674, b: 0.5591468, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -416,6 +416,11 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4674392306541373116, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: startPanel
+      value: event:/MENU/window
+      objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,6 +560,21 @@ PrefabInstance:
         type: 3}
       propertyPath: maskPresets.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: selectPlayer
+      value: event:/MENU/select
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: cancelPlayer
+      value: event:/MENU/window
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: changePlayer
+      value: event:/MENU/change
       objectReference: {fileID: 0}
     - target: {fileID: 735071353816645203, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
@@ -718,11 +738,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressToAssign (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4674392306541373116, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -828,45 +843,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
+    - target: {fileID: 4674392306541373114, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9997675
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9997675
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9997675
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: dummyPresets.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: maskPresets.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: dummyPresets.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: maskPresets.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392156883469751994, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
@@ -1106,6 +1086,11 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4674392306541373116, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: startPanel
+      value: event:/MENU/window
+      objectReference: {fileID: 0}
     - target: {fileID: 6185666612905837379, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1245,6 +1230,21 @@ PrefabInstance:
         type: 3}
       propertyPath: maskPresets.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: selectPlayer
+      value: event:/MENU/select
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: cancelPlayer
+      value: event:/MENU/window
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550450693091035010, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: changePlayer
+      value: event:/MENU/change
       objectReference: {fileID: 0}
     - target: {fileID: 735071353816645203, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}

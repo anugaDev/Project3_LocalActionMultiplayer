@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class ChangePlayerMaterial : MonoBehaviour
@@ -13,6 +14,10 @@ public class ChangePlayerMaterial : MonoBehaviour
 
     public string left;
     public string right;
+
+    [FMODUnity.EventRef] public string selectPlayer;
+    [FMODUnity.EventRef] public string cancelPlayer;
+    [FMODUnity.EventRef] public string changePlayer;
 
     public enum InputDirection
     {
@@ -31,8 +36,16 @@ public class ChangePlayerMaterial : MonoBehaviour
     {
         if (playerPanel.GameStarting) return;
 
-        if (Input.GetButtonDown(SubmitButton + playerPanel.controllerNumber)) playerPanel.ReadyCheck(true);
-        if (Input.GetButtonDown(CancelButton + playerPanel.controllerNumber)) playerPanel.ReadyCheck(false);
+        if (Input.GetButtonDown(SubmitButton + playerPanel.controllerNumber))
+        {
+            playerPanel.ReadyCheck(true);
+            RuntimeManager.PlayOneShot(selectPlayer);
+        }
+
+        if (Input.GetButtonDown(CancelButton + playerPanel.controllerNumber))
+        {
+            playerPanel.ReadyCheck(false);
+        }
 
         if (playerPanel.readyPanel.gameObject.activeSelf) return;
 
@@ -53,6 +66,8 @@ public class ChangePlayerMaterial : MonoBehaviour
                 else currentIndex++;
                 break;
         }
+        RuntimeManager.PlayOneShot(changePlayer);
+
 
         return currentIndex;
     }
