@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 4205472215443825065}
-  animationBool: Falling
+  animationBool: 
   animationTrigger: 
   enterSound: 
   exitSound: event:/MOVEMENT/land
@@ -905,6 +905,8 @@ MonoBehaviour:
   checkPlatformsLayerMask:
     serializedVersion: 2
     m_Bits: 4096
+  animationFallingBool: Falling
+  groundedBool: IsGrounded
   landSound: event:/MOVEMENT/land
 --- !u!114 &8528970866292978446
 MonoBehaviour:
