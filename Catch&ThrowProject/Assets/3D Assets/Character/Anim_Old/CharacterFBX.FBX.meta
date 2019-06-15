@@ -5,52 +5,52 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Idle
+    second: Old_Idle
   - first:
       74: 5522812681064789136
-    second: Run
+    second: Old_Run
   - first:
       74: 5917537482288442099
-    second: Fall
+    second: Old_Fall
   - first:
       74: 5539831331247536789
-    second: Jump
+    second: Old_Jump
   - first:
       74: 3715847999134586009
-    second: Throw Forward
+    second: Old_Throw Forward
   - first:
       74: 5196415597806322766
-    second: ThrowDown
+    second: Old_ThrowDown
   - first:
       74: -5443045641924669282
-    second: ThrowUp
+    second: Old_ThrowUp
   - first:
       74: 4786515938767310272
-    second: AirThrow Forward
+    second: Old_AirThrow Forward
   - first:
       74: -1085402628764826463
-    second: AirThrow Down
+    second: Old_AirThrow Down
   - first:
       74: 3929145712607128993
-    second: AirThrow Up
+    second: Old_AirThrow Up
   - first:
       74: -8444228808809566427
-    second: Dash
+    second: Old_Dash
   - first:
       74: -1065939042347025551
-    second: Catch
+    second: Old_Catch
   - first:
       74: 6569498529150986814
-    second: Caught
+    second: Old_Caught
   - first:
       74: -6185155371445809522
-    second: Throw
+    second: Old_Throw
   - first:
       74: -4841867061838556027
-    second: Thrown
+    second: Old_Thrown
   - first:
       74: -7620525796249749518
-    second: Duck
+    second: Old_Duck
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -80,7 +80,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Old_Idle
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
@@ -109,7 +109,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: Old_Run
       takeName: Take 001
       internalID: 5522812681064789136
       firstFrame: 40
@@ -138,7 +138,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fall
+      name: Old_Fall
       takeName: Take 001
       internalID: 5917537482288442099
       firstFrame: 72
@@ -167,7 +167,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Jump
+      name: Old_Jump
       takeName: Take 001
       internalID: 5539831331247536789
       firstFrame: 85
@@ -196,7 +196,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Throw Forward
+      name: Old_Throw Forward
       takeName: Take 001
       internalID: 3715847999134586009
       firstFrame: 102
@@ -225,7 +225,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ThrowDown
+      name: Old_ThrowDown
       takeName: Take 001
       internalID: 5196415597806322766
       firstFrame: 117
@@ -254,7 +254,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ThrowUp
+      name: Old_ThrowUp
       takeName: Take 001
       internalID: -5443045641924669282
       firstFrame: 132
@@ -283,7 +283,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AirThrow Forward
+      name: Old_AirThrow Forward
       takeName: Take 001
       internalID: 4786515938767310272
       firstFrame: 147
@@ -312,7 +312,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AirThrow Down
+      name: Old_AirThrow Down
       takeName: Take 001
       internalID: -1085402628764826463
       firstFrame: 161
@@ -341,7 +341,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AirThrow Up
+      name: Old_AirThrow Up
       takeName: Take 001
       internalID: 3929145712607128993
       firstFrame: 175
@@ -370,7 +370,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Dash
+      name: Old_Dash
       takeName: Take 001
       internalID: -8444228808809566427
       firstFrame: 190
@@ -399,7 +399,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Catch
+      name: Old_Catch
       takeName: Take 001
       internalID: -1065939042347025551
       firstFrame: 205
@@ -428,7 +428,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Caught
+      name: Old_Caught
       takeName: Take 001
       internalID: 6569498529150986814
       firstFrame: 215
@@ -457,7 +457,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Throw
+      name: Old_Throw
       takeName: Take 001
       internalID: -6185155371445809522
       firstFrame: 230
@@ -486,7 +486,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Thrown
+      name: Old_Thrown
       takeName: Take 001
       internalID: -4841867061838556027
       firstFrame: 240
@@ -515,7 +515,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Duck
+      name: Old_Duck
       takeName: Take 001
       internalID: -7620525796249749518
       firstFrame: 251
