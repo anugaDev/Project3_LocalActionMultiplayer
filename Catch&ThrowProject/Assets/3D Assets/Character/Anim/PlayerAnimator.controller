@@ -45,7 +45,7 @@ AnimatorStateMachine:
     m_Position: {x: 200, y: -480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7261187741128845200}
-    m_Position: {x: 210, y: 110, z: 0}
+    m_Position: {x: 220, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3047257611875427750}
     m_Position: {x: 600, y: 110, z: 0}
@@ -54,7 +54,7 @@ AnimatorStateMachine:
     m_Position: {x: 600, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8449914203828815216}
-    m_Position: {x: -50, y: 220, z: 0}
+    m_Position: {x: -40, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8769377652747032346}
     m_Position: {x: 620, y: -300, z: 0}
@@ -72,7 +72,7 @@ AnimatorStateMachine:
     m_Position: {x: 220, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8908130628750324186}
-    m_Position: {x: 370, y: -370, z: 0}
+    m_Position: {x: 360, y: -360, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 8900674883277031317}
@@ -659,6 +659,18 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Victory
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: IsGrounded
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Jumping
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
