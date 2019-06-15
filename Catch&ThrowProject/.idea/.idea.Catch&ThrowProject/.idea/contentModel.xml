@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Alan Elwood\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Alan Elwood\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.1769586418.00" t="ExcludeRecursive" />
-    <e p="D:\Universidad\Tokyo Blitz\Tokyo Blitz\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
+    <e p="C:\Users\Adrian-PC\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adrian-PC\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Catch&amp;ThrowProject.1605008111.00" t="ExcludeRecursive" />
+    <e p="E:\Curro\Proyectos\Unity\Repositorios\Project3_LocalActionMultiplayer\Catch&amp;ThrowProject" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -191,6 +191,9 @@
             <e p="_GameManager.cs" t="Include" />
             <e p="_LevelManager.cs" t="Include" />
             <e p="PlayerVictoryConditions.cs" t="Include" />
+          </e>
+          <e p="ScriptableObject" t="Include">
+            <e p="PlayerContainer.cs" t="Include" />
           </e>
           <e p="SelectGameMode.cs" t="Include" />
           <e p="Spawner" t="Include">

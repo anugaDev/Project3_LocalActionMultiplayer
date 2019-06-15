@@ -58,7 +58,7 @@ public class Projectile : MonoBehaviour
     {
         if (!nailed)
         {
-            rigidbody.velocity = direction * projectileSpeed * Time.deltaTime;
+            rigidbody.velocity = direction * projectileSpeed;
             
             if(offPlayerZone)
                 if(!nailed)
