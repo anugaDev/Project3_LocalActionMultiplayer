@@ -16,12 +16,13 @@ public class Catch : BaseState
     
 
     private float timer = 0f;
+    
+    [Header("Affordance Settings")]
+    [SerializeField] private float maxSizeX = 4.5f;
+    [SerializeField] private float minSizeX = 1f;
 
-    private float maxSizeX = 4.5f;
-    private float minSizeX = 1f;
-
-    private float maxSizeY = 1.5f;
-    private float minSizeY = 1f;
+    [SerializeField] private float maxSizeY = 1.5f;
+    [SerializeField] private float minSizeY = 1f;
 
     private Vector3 ThrowDirection;
 
@@ -124,7 +125,7 @@ public class Catch : BaseState
 
         float playerRotation = transform.rotation.eulerAngles.y == 0 ? 1 : -1;
 
-        float angle = Vector3.SignedAngle(playerRotation * transform.right, direction, Vector3.back);
+        float angle = Vector3.SignedAngle(playerRotation * -transform.right, direction, Vector3.back);
 
         directionMarker.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
