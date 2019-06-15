@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6785827830689228085}
   - component: {fileID: 3470109740650443930}
   m_Layer: 14
-  m_Name: ShieldItem_Prototype
+  m_Name: ShieldItem
   m_TagString: ShieldItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6569685431690109089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3200574, y: 0.62744796, z: -0.7128906}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 6563588844558436155}
   m_Father: {fileID: 0}

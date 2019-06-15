@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 475e33afbaecd68419635f6c7a5ca8a9
+guid: e50a97a4d942abb44b58d325159527fe
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
@@ -10,44 +10,50 @@ ModelImporter:
       74: 5522812681064789136
     second: Run
   - first:
-      74: 5917537482288442099
-    second: Fall
-  - first:
       74: 5539831331247536789
     second: Jump
   - first:
-      74: 3715847999134586009
-    second: Throw Forward
+      74: 5917537482288442099
+    second: Fall
   - first:
-      74: 5196415597806322766
-    second: ThrowDown
+      74: -7964479876825929445
+    second: Throw Shuriken
   - first:
-      74: -5443045641924669282
-    second: ThrowUp
+      74: 842443150961166416
+    second: Throw Shuriken Down
   - first:
-      74: 4786515938767310272
-    second: AirThrow Forward
+      74: -3148109909845823039
+    second: Throw Shuriken Up
   - first:
-      74: -1085402628764826463
-    second: AirThrow Down
+      74: 4103888109349464175
+    second: Airborne Shuriken
   - first:
-      74: 3929145712607128993
-    second: AirThrow Up
+      74: 5471844887100345014
+    second: Airborne Shuriken Down
+  - first:
+      74: -2227900485837166037
+    second: Airborne Shuriken Up
   - first:
       74: -8444228808809566427
     second: Dash
   - first:
-      74: -1065939042347025551
-    second: Catch
+      74: -80447148294539233
+    second: Throw Enemy
   - first:
-      74: 6569498529150986814
-    second: Caught
+      74: -2563172266090208638
+    second: Thrown By Enemy
   - first:
-      74: -6185155371445809522
-    second: Throw
+      74: 4663947430373344883
+    second: Catch Enemy
   - first:
-      74: -4841867061838556027
-    second: Thrown
+      74: 2639190860994788900
+    second: Caught By Enemy
+  - first:
+      74: -3045413452791751027
+    second: Victory Jump
+  - first:
+      74: -1656217751986750952
+    second: Victory Idle
   - first:
       74: -7620525796249749518
     second: Duck
@@ -113,36 +119,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 5522812681064789136
       firstFrame: 40
-      lastFrame: 54
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Fall
-      takeName: Take 001
-      internalID: 5917537482288442099
-      firstFrame: 72
-      lastFrame: 82
+      lastFrame: 56
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -170,8 +147,66 @@ ModelImporter:
       name: Jump
       takeName: Take 001
       internalID: 5539831331247536789
-      firstFrame: 85
-      lastFrame: 97
+      firstFrame: 61
+      lastFrame: 66
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Fall
+      takeName: Take 001
+      internalID: 5917537482288442099
+      firstFrame: 71
+      lastFrame: 76
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Throw Shuriken
+      takeName: Take 001
+      internalID: -7964479876825929445
+      firstFrame: 81
+      lastFrame: 91
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -196,11 +231,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Throw Forward
+      name: Throw Shuriken Down
       takeName: Take 001
-      internalID: 3715847999134586009
-      firstFrame: 102
-      lastFrame: 112
+      internalID: 842443150961166416
+      firstFrame: 96
+      lastFrame: 101
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -225,11 +260,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ThrowDown
+      name: Throw Shuriken Up
       takeName: Take 001
-      internalID: 5196415597806322766
-      firstFrame: 117
-      lastFrame: 127
+      internalID: -3148109909845823039
+      firstFrame: 106
+      lastFrame: 111
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -254,11 +289,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ThrowUp
+      name: Airborne Shuriken
       takeName: Take 001
-      internalID: -5443045641924669282
-      firstFrame: 132
-      lastFrame: 142
+      internalID: 4103888109349464175
+      firstFrame: 116
+      lastFrame: 125
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -283,11 +318,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AirThrow Forward
+      name: Airborne Shuriken Down
       takeName: Take 001
-      internalID: 4786515938767310272
-      firstFrame: 147
-      lastFrame: 156
+      internalID: 5471844887100345014
+      firstFrame: 130
+      lastFrame: 135
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -312,40 +347,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: AirThrow Down
+      name: Airborne Shuriken Up
       takeName: Take 001
-      internalID: -1085402628764826463
-      firstFrame: 161
-      lastFrame: 170
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: AirThrow Up
-      takeName: Take 001
-      internalID: 3929145712607128993
-      firstFrame: 175
-      lastFrame: 184
+      internalID: -2227900485837166037
+      firstFrame: 140
+      lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -373,16 +379,132 @@ ModelImporter:
       name: Dash
       takeName: Take 001
       internalID: -8444228808809566427
+      firstFrame: 150
+      lastFrame: 155
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Throw Enemy
+      takeName: Take 001
+      internalID: -80447148294539233
+      firstFrame: 160
+      lastFrame: 165
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Thrown By Enemy
+      takeName: Take 001
+      internalID: -2563172266090208638
+      firstFrame: 170
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Catch Enemy
+      takeName: Take 001
+      internalID: 4663947430373344883
+      firstFrame: 180
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Caught By Enemy
+      takeName: Take 001
+      internalID: 2639190860994788900
       firstFrame: 190
-      lastFrame: 199
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 1
+      loopTime: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -399,11 +521,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Catch
+      name: Victory Jump
       takeName: Take 001
-      internalID: -1065939042347025551
+      internalID: -3045413452791751027
       firstFrame: 205
-      lastFrame: 209
+      lastFrame: 250
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -428,76 +550,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Caught
+      name: Victory Idle
       takeName: Take 001
-      internalID: 6569498529150986814
-      firstFrame: 215
-      lastFrame: 224
+      internalID: -1656217751986750952
+      firstFrame: 255
+      lastFrame: 315
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Throw
-      takeName: Take 001
-      internalID: -6185155371445809522
-      firstFrame: 230
-      lastFrame: 234
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Thrown
-      takeName: Take 001
-      internalID: -4841867061838556027
-      firstFrame: 240
-      lastFrame: 244
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -518,15 +582,15 @@ ModelImporter:
       name: Duck
       takeName: Take 001
       internalID: -7620525796249749518
-      firstFrame: 251
-      lastFrame: 254
+      firstFrame: 320
+      lastFrame: 325
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
