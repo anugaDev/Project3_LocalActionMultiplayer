@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.432
+    value: 0.396
   smoothness:
     overrideState: 0
     value: 0.2
@@ -161,13 +161,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 3
   threshold:
     overrideState: 0
     value: 20
   softKnee:
     overrideState: 1
-    value: 0.544
+    value: 0.5
   clamp:
     overrideState: 0
     value: 100
@@ -179,7 +179,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.5019609, g: 0.23652606, b: 0, a: 1}
+    value: {r: 0.6037736, g: 0.28301883, b: 0, a: 1}
   fastMode:
     overrideState: 0
     value: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -257,7 +257,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: 0.05
   size:
     overrideState: 1
     value: 0.3
@@ -403,7 +403,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -10
+    value: -14
   tint:
     overrideState: 0
     value: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: -10
+    value: -16
   brightness:
     overrideState: 0
     value: 0
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1682,8 +1682,8 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.1
   fastMode:
     overrideState: 0
     value: 0
