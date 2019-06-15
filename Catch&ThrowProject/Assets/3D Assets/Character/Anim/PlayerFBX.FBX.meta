@@ -11,10 +11,10 @@ ModelImporter:
     second: Run
   - first:
       74: 5539831331247536789
-    second: Jump
+    second: Fall
   - first:
       74: 5917537482288442099
-    second: Fall
+    second: Jump
   - first:
       74: -7964479876825929445
     second: Throw Shuriken
@@ -144,7 +144,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Jump
+      name: Fall
       takeName: Take 001
       internalID: 5539831331247536789
       firstFrame: 61
@@ -173,7 +173,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fall
+      name: Jump
       takeName: Take 001
       internalID: 5917537482288442099
       firstFrame: 71
