@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Fall : BaseState
 {
+   
+
+
     [SerializeField] private float pressingFallingSpeed;
     [SerializeField] private float notPressingFallingSpeed;
     [SerializeField] private float glideAcceleration;
@@ -19,6 +22,10 @@ public class Fall : BaseState
 
     [SerializeField] private LayerMask checkPlatformsLayerMask;
 
+    [Header("Animation Bools")]
+    [SerializeField] private string animationFallingBool;
+    [SerializeField] private string groundedBool;
+    
     private bool stopPressing;
     private bool groundHit;
 
@@ -36,6 +43,9 @@ public class Fall : BaseState
 
     public override void Enter()
     {
+        playerController.animator.SetBool(groundedBool, false);
+
+
         base.Enter();
 
         firstEnter = Time.frameCount;
@@ -115,6 +125,7 @@ public class Fall : BaseState
 
     public void ExecuteFallSpeed()
     {
+        playerController.animator.SetBool(animationFallingBool, playerController.rigidbody.velocity.y < 0 ? true : false);
         actualFallingSpeed = ManageFallSpeed();
 
         fallMultiply = playerController.inputControl.Vertical < -multiplyFallThreshold ? fallPressedMultiply : 1;
@@ -129,6 +140,7 @@ public class Fall : BaseState
 
         if (!groundHit) return;
 
+        playerController.animator.SetBool(groundedBool, true);
         var velocity = playerController.rigidbody.velocity;
         velocity.y = 0;
 
@@ -136,6 +148,8 @@ public class Fall : BaseState
         playerController.jumpMade = false;
 
         playerController.playerMesh.transform.parent.rotation = Quaternion.Euler(0, playerController.playerMesh.transform.parent.rotation.eulerAngles.y, 0);
+
+        playerController.animator.SetBool(animationFallingBool, false);
 
 
         soundEventLand.start();
