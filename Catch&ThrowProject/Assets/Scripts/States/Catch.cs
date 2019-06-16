@@ -85,6 +85,8 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
+        playerController.animator.SetTrigger("ThrowPlayer");
+
         RuntimeManager.PlayOneShot(throwSound);
         caughtPlayer.StopCoroutine(caughtPlayer.resetKiller);
         caughtPlayer.killer = playerController;
@@ -116,7 +118,6 @@ public class Catch : BaseState
         playerController.ChangeState(playerController.stunState);
         if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
 
-        playerController.animator.SetTrigger("ThrowPlayer");
     }
 
     private void PositionateMarker()
