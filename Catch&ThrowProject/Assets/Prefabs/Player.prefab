@@ -63,6 +63,8 @@ MonoBehaviour:
   cooldown: 1.5
   dashParticles: {fileID: 4620263144431498961}
   walkTrail: {fileID: 1836453254}
+  onCooldown: event:/HUD/cooldown_can't
+  cooldownCompleted: event:/HUD/cooldown
 --- !u!54 &309804495
 Rigidbody:
   m_ObjectHideFlags: 0

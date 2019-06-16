@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,10 @@ public class Dash : BaseState
 
     [SerializeField] private ParticleSystem dashParticles;
     [SerializeField] public TrailRenderer walkTrail;
+    
+    [FMODUnity.EventRef] public string onCooldown;
+    [FMODUnity.EventRef] public string cooldownCompleted;
+
 
     private IEnumerator stopDash;
 
@@ -67,6 +72,7 @@ public class Dash : BaseState
         if (timer >= cooldown)
         {
             available = true;
+            RuntimeManager.PlayOneShot(cooldownCompleted);
             walkTrail.enabled = true;
             timer = 0;
         }
@@ -127,11 +133,7 @@ public class Dash : BaseState
         else
         {
             var collideDirection = actualDirection;
-            //          var hitPoint = other.ClosestPoint(transform.position);
-            //          collideDirection = hitPoint - transform.position;
-
-            //            playerController.stunState.stunByTime = true;
-
+        
             playerController.ChangeState(playerController.stunState);
             playerController.rigidbody.velocity = Vector3.zero;
             var groundDir = Vector3.up;
@@ -139,7 +141,6 @@ public class Dash : BaseState
             playerController.Impulse(playerController.CheckForGround() ? groundDir : -collideDirection, pushBackForce, true);
 
             if (enemy.stateMachine.currentState != enemy.dashState) return;
-            //            enemy.stunState.stunByTime = true;
 
             enemy.ChangeState(enemy.stunState);
             enemy.Impulse(collideDirection, pushBackForce, true);
@@ -190,5 +191,10 @@ public class Dash : BaseState
         Vector3 directionBetweenPlayers = (transform.position - enemy.transform.position).normalized;
 
         enemy.transform.position = transform.position + (directionBetweenPlayers * .5f);
+    }
+
+    public void PlayCooldownSound()
+    {
+        RuntimeManager.PlayOneShot(onCooldown);
     }
 }
