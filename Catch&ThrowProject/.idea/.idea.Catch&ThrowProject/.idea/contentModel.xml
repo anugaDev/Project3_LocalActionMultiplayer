@@ -192,7 +192,7 @@
             <e p="_LevelManager.cs" t="Include" />
             <e p="PlayerVictoryConditions.cs" t="Include" />
           </e>
-          <e p="playButtonSounds.cs" t="Include" />
+          <e p="PlayButtonSounds.cs" t="Include" />
           <e p="ScriptableObject" t="Include">
             <e p="PlayerContainer.cs" t="Include" />
           </e>
@@ -234,6 +234,7 @@
           <e p="Distort.shader" t="Include" />
           <e p="NewSurfaceShader.shader" t="Include" />
         </e>
+        <e p="Step.cs" t="Include" />
       </e>
       <e p="Catch&amp;ThrowProject.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

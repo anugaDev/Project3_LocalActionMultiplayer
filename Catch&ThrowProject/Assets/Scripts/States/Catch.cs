@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class Catch : BaseState
@@ -14,6 +15,7 @@ public class Catch : BaseState
 
     [SerializeField] private GameObject directionMarker;
     
+    [FMODUnity.EventRef] public string throwSound;
 
     private float timer = 0f;
     
@@ -80,6 +82,7 @@ public class Catch : BaseState
 
     private void ThrowPlayer(PlayerController caughtPlayer)
     {
+        RuntimeManager.PlayOneShot(throwSound);
         caughtPlayer.StopCoroutine(caughtPlayer.resetKiller);
         caughtPlayer.killer = playerController;
         caughtPlayer.StartCoroutine(caughtPlayer.resetKiller);

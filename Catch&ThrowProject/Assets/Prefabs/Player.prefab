@@ -978,7 +978,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: Catch
   animationTrigger: 
-  enterSound: event:/HUD/catch
+  enterSound: event:/ATTACK/mele_air
   exitSound: 
   timeBeforeThrow: 3
   throwForce: 80
@@ -987,6 +987,7 @@ MonoBehaviour:
   upThrowThreshold: 0.8
   minusUpForce: 10
   directionMarker: {fileID: 4233683649420559247}
+  throwSound: event:/REACTION/Throw
   maxSizeX: 2
   minSizeX: 0
   maxSizeY: 2
