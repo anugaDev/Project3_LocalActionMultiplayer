@@ -1034,11 +1034,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2478080744952639101, guid: b52177330911d9e4abc4dcc44083fe7f,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 212.74
-      objectReference: {fileID: 0}
     - target: {fileID: 6749987894122795959, guid: b52177330911d9e4abc4dcc44083fe7f,
         type: 3}
       propertyPath: m_Name
@@ -1456,35 +1451,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632536718}
   m_CullTransparentMesh: 0
---- !u!1 &686661956 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6749987894122795959, guid: b52177330911d9e4abc4dcc44083fe7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 485160400}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &686661957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686661956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &795090602
 GameObject:
   m_ObjectHideFlags: 0
