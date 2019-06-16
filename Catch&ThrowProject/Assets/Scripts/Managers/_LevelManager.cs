@@ -315,15 +315,10 @@ public class _LevelManager : MonoBehaviour
     {
         if (!tutorialScene)
         {
-            print("playDammed");
             if(startSound != "") RuntimeManager.PlayOneShot(startSound);
             startingAnimation.Play();
             
             yield return new WaitForSeconds(startingAnimation.clip.length);
-           
-
-//            yield return new WaitForSecondsRealtime(1);
-
 
         }
         
