@@ -21,6 +21,5 @@ public class Caught : BaseState
         base.Exit();
         gameObject.layer = playerController.normalLayer;
         playerController.CanMove = true;
-        playerController.dashState.released = true;
     }
 }

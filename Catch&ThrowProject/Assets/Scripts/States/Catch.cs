@@ -70,8 +70,11 @@ public class Catch : BaseState
         playerController.dashState.released = true;
         playerController.Invulnerable = false;
         playerController.CanMove = true;
+        playerController.caughtPlayer.Invulnerable = false;
+        playerController.caughtPlayer.dashState.released = true;
         playerController.caughtPlayer = null;
         playerController.dashState.playerTrigger.isTrigger = false;
+
 
         directionMarker.SetActive(false);
 
