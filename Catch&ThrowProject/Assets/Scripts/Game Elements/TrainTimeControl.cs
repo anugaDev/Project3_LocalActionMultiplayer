@@ -23,19 +23,11 @@ public class TrainTimeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (playOnStart) StartCoroutine(CountTimeForTrain(0, 0));
-        else PreparePass();
-        
         bellsoundEvent = RuntimeManager.CreateInstance(bellSound);
         trainSoundevent = RuntimeManager.CreateInstance(trainSound);
-
-//        trainSoundevent.set3DAttributes();
-
-//        RuntimeManager.AttachInstanceToGameObject(bellsoundEvent,affordance.transform, affordance.GetComponent<Rigidbody>());
-//        RuntimeManager.AttachInstanceToGameObject(trainSoundevent,train.transform, train.GetComponent<Rigidbody>());
-
-
-
+        
+        if (playOnStart) StartCoroutine(CountTimeForTrain(0, 0));
+        else PreparePass();
     }
 
     // Update is called once per frame
@@ -79,7 +71,6 @@ public class TrainTimeControl : MonoBehaviour
         }
         affordance.Stop();
         affordance.gameObject.SetActive(false);
-        train.Stop();
         bellsoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         trainSoundevent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);      
         PreparePass();

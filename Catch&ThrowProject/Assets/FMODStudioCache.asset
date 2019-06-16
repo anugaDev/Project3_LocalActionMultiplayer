@@ -1980,6 +1980,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 168
+--- !u!114 &-3372778977658352880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainBellRight
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainBellRight
+  guid: cf000dc03f65b64ea4fd12dae4192ea8
+  Banks: []
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 45109
 --- !u!114 &-3336071958480174637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2039,11 +2061,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Curro\Proyectos\Unity\Repositorios\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636962570418088141
+  lastModified: 636962579959747119
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4865024
+    Value: 4905152
   Exists: 1
 --- !u!114 &-3196335599087612950
 MonoBehaviour:
@@ -2289,6 +2311,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 891
+--- !u!114 &-2452497759372051495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainLayout
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainLayout
+  guid: 30be88abf5fbad4dbace8a2b3dc54bbc
+  Banks:
+  - {fileID: -3277381489544414694}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 47827
 --- !u!114 &-2301105179109721840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,6 +3240,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3781
+--- !u!114 &-604508267322258618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainBellRight (2)
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainBellRight (2)
+  guid: 1df8972b34889a4aaad8f160f7546f98
+  Banks:
+  - {fileID: -3277381489544414694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 45109
 --- !u!114 &-596831163593143586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3255,8 +3323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/ENVIROMENT/trainBell
   guid: cf000dc03f65b64ea4fd12dae4192ea8
-  Banks:
-  - {fileID: -3277381489544414694}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -3681,7 +3748,6 @@ MonoBehaviour:
   - {fileID: -1708905274106178255}
   - {fileID: -4450605901407233984}
   - {fileID: 4967563368752221349}
-  - {fileID: 3833250740638658920}
   - {fileID: 6694196415567376114}
   - {fileID: -5160115435244378942}
   - {fileID: 2501827426939287561}
@@ -3695,21 +3761,24 @@ MonoBehaviour:
   - {fileID: 4991271456853908619}
   - {fileID: 8420295396722552531}
   - {fileID: 7919866600245917418}
-  - {fileID: 6418557691522352919}
   - {fileID: 9086483295057420837}
   - {fileID: -9122910410684514755}
   - {fileID: -596831163593143586}
-  - {fileID: -551854427189311906}
   - {fileID: 6627255077174539427}
   - {fileID: -6940233743724168255}
   - {fileID: 3822916153594415350}
   - {fileID: 3152325300806970600}
   - {fileID: -7777679645292764995}
+  - {fileID: -604508267322258618}
+  - {fileID: -2452497759372051495}
+  - {fileID: 5471337738724334403}
+  - {fileID: 2427446767605640665}
+  - {fileID: 3496023223935961558}
   MasterBanks:
   - {fileID: -3277381489544414694}
   StringsBanks:
   - {fileID: 1850126333934689274}
-  stringsBankWriteTime: 636962570418158113
+  stringsBankWriteTime: 636962579959797112
   cacheVersion: 3
 --- !u!114 &78717273297871243
 MonoBehaviour:
@@ -4353,11 +4422,11 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636962570418158113
+  lastModified: 636962579959797112
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2440
+    Value: 2544
   Exists: 1
 --- !u!114 &1880627862790184427
 MonoBehaviour:
@@ -4588,6 +4657,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 275
+--- !u!114 &2427446767605640665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainBellLeft (2)
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainBellLeft (2)
+  guid: af57e4193100234f8f596377d5ee72be
+  Banks:
+  - {fileID: -3277381489544414694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 45109
 --- !u!114 &2501827426939287561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5091,6 +5183,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 391
+--- !u!114 &3496023223935961558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainInGameRight
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainInGameRight
+  guid: fe505f30ada144429a808b8fd9cb970a
+  Banks:
+  - {fileID: -3277381489544414694}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3796
 --- !u!114 &3635713207821280132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,8 +5335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/ENVIROMENT/trainLayout
   guid: 30be88abf5fbad4dbace8a2b3dc54bbc
-  Banks:
-  - {fileID: -3277381489544414694}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -5790,6 +5904,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1383
+--- !u!114 &5471337738724334403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIROMENT/TrainInGameLeft
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIROMENT/TrainInGameLeft
+  guid: 9260eaa28e21c9488ba5c0c82e5a20f2
+  Banks:
+  - {fileID: -3277381489544414694}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3796
 --- !u!114 &5676649488580206576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,8 +6142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/ENVIROMENT/trainBack
   guid: b4765f8f6318644e911183331947f73b
-  Banks:
-  - {fileID: -3277381489544414694}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
