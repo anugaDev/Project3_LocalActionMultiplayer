@@ -27,6 +27,7 @@ public class _LevelManager : MonoBehaviour
     public int MatchDuration = 120;
     [SerializeField] private float timeForAmmo;
 
+    public float timeBeforeMatch =3f;
     public bool endlessGame = false;
     public bool matchByTime = false;
     private float gameTimer = 0f;
@@ -176,7 +177,7 @@ public class _LevelManager : MonoBehaviour
         }
 
         if (testingScene) StartGame();
-        else StartCoroutine(StartCountdown(3));
+        else StartCoroutine(StartCountdown(tutorialScene ? 0 : timeBeforeMatch));
     }
 
     public void SpawnPlayer(GameObject player, int? position)
@@ -309,29 +310,33 @@ public class _LevelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartCountdown(int secondsBeforeGame)
+    public IEnumerator StartCountdown(float secondsBeforeGame)
     {
-        if(startSound != "") RuntimeManager.PlayOneShot(startSound);
-        countdownText.SetActive(true);
-
-        Text backgroundText = countdownText.GetComponent<Text>();
-        Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
-
-        for (int i = secondsBeforeGame; i > 0; i--)
+        if (!tutorialScene)
         {
-            backgroundText.text = i.ToString();
-            foregroundText.text = i.ToString();
+            if(startSound != "") RuntimeManager.PlayOneShot(startSound);
+            countdownText.SetActive(true);
+
+            Text backgroundText = countdownText.GetComponent<Text>();
+            Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
+
+            for (var i = secondsBeforeGame; i > 0; i--)
+            {
+                backgroundText.text = i.ToString();
+                foregroundText.text = i.ToString();
+
+                yield return new WaitForSecondsRealtime(1);
+            }
+
+            backgroundText.text = "Blitz!";
+            foregroundText.text = "Blitz!";
 
             yield return new WaitForSecondsRealtime(1);
+
+            countdownText.SetActive(false);
+
         }
-
-        backgroundText.text = "Blitz!";
-        foregroundText.text = "Blitz!";
-
-        yield return new WaitForSecondsRealtime(1);
-
-        countdownText.SetActive(false);
-
+        
         StartGame();
     }
 
