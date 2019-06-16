@@ -35,16 +35,20 @@ public class EndGame : MonoBehaviour
 
     private void SetVictoryScreen()
     {
-        players = new List<GameObject>();
-
         for (int i = 0; i < ranking.Length; i++)
         {
             victoryPanels[i].SetValues(ranking[i]);
-            //Do animation
             victoryPanels[i].player.SetSkin(ranking[i].skin);
-
             victoryPanels[i].gameObject.SetActive(true);
         }
+
+        StartCoroutine(StartAnimation());
+    }
+
+    IEnumerator StartAnimation()
+    {
+        yield return new WaitForSeconds(1);
+        victoryPanels[0].player.animator.SetBool("Victory", true);
     }
 
     public void GoEnd()
