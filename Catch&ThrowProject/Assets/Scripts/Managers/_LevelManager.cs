@@ -32,6 +32,7 @@ public class _LevelManager : MonoBehaviour
     public bool matchByTime = false;
     private float gameTimer = 0f;
     public Text remainingTime;
+    public Text remainingTimeBg;
     public GameObject remainingTimeParent;
 
     [SerializeField] private Animation startingAnimation;
@@ -116,6 +117,7 @@ public class _LevelManager : MonoBehaviour
         {
             gameTimer -= Time.deltaTime;
             remainingTime.text = ((int)gameTimer).ToString();
+            remainingTimeBg.text = ((int)gameTimer).ToString();
 
             if (gameTimer <= 0)
             {
@@ -136,6 +138,7 @@ public class _LevelManager : MonoBehaviour
             gameTimer = MatchDuration;
             remainingTime.enabled = true;
             remainingTimeParent.SetActive(true);
+            remainingTimeBg.enabled = true;
         }
 
         cameraFollow.enabled = true;
