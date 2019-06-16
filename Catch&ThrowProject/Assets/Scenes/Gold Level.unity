@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7020,9 +7020,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392140703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!4 &1392140708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4849470131426728170, guid: b4eca68219b00d248aa1ee5e7afa99c5,
@@ -8440,6 +8441,35 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: cd766f9d130f60d4cbe99b23abf71438, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3660813c962d92479c541f91ee89934, type: 3}
+--- !u!1 &1697995789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6749987894122795959, guid: b52177330911d9e4abc4dcc44083fe7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 160516837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697995790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697995789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ENVIROMENT/CityLoop
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!4 &1717639758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e2c52967bfaab6845be3878a00e9677a,
@@ -10828,13 +10858,23 @@ PrefabInstance:
     - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
         type: 3}
       propertyPath: endlessGame
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
         type: 3}
       propertyPath: remainingTimeParent
       value: 
       objectReference: {fileID: 4471219480959063110}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: levelMusic
+      value: event:/MUSIC/Blitz!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331339829254466500, guid: b2fa3c1fc4393c648b0ee044c3bac1bf,
+        type: 3}
+      propertyPath: endingSound
+      value: event:/MENU/GameEnd
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2fa3c1fc4393c648b0ee044c3bac1bf, type: 3}
 --- !u!1001 &5710474666467588110

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -49,6 +50,14 @@ public class _LevelManager : MonoBehaviour
 
     public bool testingScene;
     public bool tutorialScene = false;
+    
+    [Header("Level Sound")]
+    
+    [FMODUnity.EventRef] public string levelMusic;
+    [HideInInspector] public FMOD.Studio.EventInstance musicEvent;
+    
+    [FMODUnity.EventRef] public string endingSound;
+    
 
     public enum MatchState
     {
@@ -71,6 +80,8 @@ public class _LevelManager : MonoBehaviour
         {
             if (!tutorialScene) matchByTime = _GameManager.instance.gameByTime;
         }
+        
+        if (levelMusic != "") musicEvent = FMODUnity.RuntimeManager.CreateInstance(levelMusic);
     }
 
     private void Start()
@@ -116,6 +127,7 @@ public class _LevelManager : MonoBehaviour
 
     private void StartGame()
     {
+        musicEvent.start();
         if (matchByTime)
         {
             gameTimer = MatchDuration;
@@ -252,6 +264,8 @@ public class _LevelManager : MonoBehaviour
         }
         else
         {
+            musicEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            RuntimeManager.PlayOneShot(endingSound);
             _GameManager.instance.playerControllers.Clear();
             if (matchByTime) matchInfo.SetRankingsByKills();
 
