@@ -62,6 +62,7 @@ public class _LevelManager : MonoBehaviour
 
     [FMODUnity.EventRef] public string endingSound;
 
+    private FMOD.Studio.Bus MasterBus;
 
     public enum MatchState
     {
@@ -225,7 +226,7 @@ public class _LevelManager : MonoBehaviour
     {
         if (player.health == 0) return;
 
-        player.health--;
+        if(!matchByTime) player.health--;
         player.uiPanel.RemoveLife(player.health);
         matchInfo.UpdateValues(player);
 
@@ -289,6 +290,8 @@ public class _LevelManager : MonoBehaviour
 
             yield return new WaitForSeconds(_GameManager.instance.SceneTransition.clip.length);
 
+            MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
