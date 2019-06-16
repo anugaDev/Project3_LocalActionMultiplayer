@@ -27,7 +27,7 @@ public class _LevelManager : MonoBehaviour
     public int MatchDuration = 120;
     [SerializeField] private float timeForAmmo;
 
-    public float timeBeforeMatch =3f;
+    public float timeBeforeMatch = 3f;
     public bool endlessGame = false;
     public bool matchByTime = false;
     private float gameTimer = 0f;
@@ -52,15 +52,15 @@ public class _LevelManager : MonoBehaviour
 
     public bool testingScene;
     public bool tutorialScene = false;
-    
+
     [Header("Level Sound")]
-    
+
     [FMODUnity.EventRef] public string startSound;
     [FMODUnity.EventRef] public string levelMusic;
     [HideInInspector] public FMOD.Studio.EventInstance musicEvent;
-    
+
     [FMODUnity.EventRef] public string endingSound;
-    
+
 
     public enum MatchState
     {
@@ -83,7 +83,7 @@ public class _LevelManager : MonoBehaviour
         {
             if (!tutorialScene) matchByTime = _GameManager.instance.gameByTime;
         }
-        
+
         if (levelMusic != "") musicEvent = FMODUnity.RuntimeManager.CreateInstance(levelMusic);
     }
 
@@ -282,6 +282,10 @@ public class _LevelManager : MonoBehaviour
 
             yield return new WaitForSeconds(timeToChangeScene);
 
+            _GameManager.instance.SceneTransition.Play();
+
+            yield return new WaitForSeconds(_GameManager.instance.SceneTransition.clip.length);
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
@@ -313,15 +317,17 @@ public class _LevelManager : MonoBehaviour
 
     public IEnumerator StartCountdown(float secondsBeforeGame)
     {
+        yield return new WaitForSeconds(.5f);
+
         if (!tutorialScene)
         {
-            if(startSound != "") RuntimeManager.PlayOneShot(startSound);
+            if (startSound != "") RuntimeManager.PlayOneShot(startSound);
             startingAnimation.Play();
-            
+
             yield return new WaitForSeconds(startingAnimation.clip.length);
 
         }
-        
+
         StartGame();
     }
 
