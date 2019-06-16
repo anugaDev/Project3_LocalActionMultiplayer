@@ -1079,7 +1079,7 @@ MonoBehaviour:
   exitSound: 
   timeBeforeThrow: 3
   throwForce: 80
-  minThrowForce: 30
+  minThrowForce: 55
   reactionForceMultiplier: 0.5
   upThrowThreshold: 0.8
   minusUpForce: 10
@@ -6311,7 +6311,7 @@ ParticleSystem:
 --- !u!199 &6140137325465922741
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
