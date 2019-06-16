@@ -20,7 +20,7 @@ public class Die : BaseState
         playerController.normalCollider.enabled = false;
 
         _LevelManager.instance.OnPlayerKilled(playerController);
-        
+
         base.Enter();
     }
 
@@ -44,7 +44,8 @@ public class Die : BaseState
     public void GetKilled()
     {
         _LevelManager.instance.cameraFollow.objectsToShow.Remove(this.transform);
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        particles.startColor = playerController.playerSkin.mainColor;
         playerController.shield.DestroyShield();
         playerController.shield.StopAllCoroutines();
         playerModel.SetActive(false);
@@ -78,7 +79,7 @@ public class Die : BaseState
         playerController.dashState.available = true;
 
         playerController.ChangeState(playerController.idleState);
-        
+
         StartCoroutine(WaitFrameToActivate());
 
     }
@@ -89,5 +90,5 @@ public class Die : BaseState
         playerController.dashState.walkTrail.enabled = true;
 
     }
-    
+
 }
