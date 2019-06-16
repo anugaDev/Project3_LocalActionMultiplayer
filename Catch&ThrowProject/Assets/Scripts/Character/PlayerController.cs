@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
             stateMachine.currentState == fallState || stateMachine.currentState == attackState || stateMachine.currentState == duckState)
         {
             if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
-                if (BellowDropThreshold() && stateMachine.currentState != duckState)
+                if (BellowDropThreshold() && CheckForGround() && stateMachine.currentState != duckState)
                 {
                     ChangeState(duckState);
                     return;
