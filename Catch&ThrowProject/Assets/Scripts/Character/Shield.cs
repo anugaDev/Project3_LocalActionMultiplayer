@@ -26,6 +26,8 @@ public class Shield : MonoBehaviour
 
     [HideInInspector] public bool shieldDestroyed;
 
+    [SerializeField] private GameObject destroyShieldParticles;
+
     [Header("Sound")]
     [FMODUnity.EventRef] public string upShield;
     [FMODUnity.EventRef] public string downShield;
@@ -105,6 +107,7 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
+        Instantiate(destroyShieldParticles, transform.position, Quaternion.identity);
         if(!shieldDestroyed) FMODUnity.RuntimeManager.PlayOneShot(downShield);
 
         if(actualBlinking != null) StopCoroutine(actualBlinking);

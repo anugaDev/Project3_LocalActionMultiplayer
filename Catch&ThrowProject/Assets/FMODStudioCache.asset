@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Curro\Proyectos\Unity\Repositorios\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636963162770244799
+  lastModified: 636963166722489560
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -4062,7 +4062,7 @@ MonoBehaviour:
   - {fileID: -8815671169857936405}
   StringsBanks:
   - {fileID: 1850126333934689274}
-  stringsBankWriteTime: 636963162770664666
+  stringsBankWriteTime: 636963166722549540
   cacheVersion: 3
 --- !u!114 &78717273297871243
 MonoBehaviour:
@@ -4774,7 +4774,7 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636963162770664666
+  lastModified: 636963166722549540
   LoadResult: 0
   FileSizes:
   - Name: Desktop
