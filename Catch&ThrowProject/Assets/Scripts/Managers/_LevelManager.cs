@@ -354,6 +354,6 @@ public class _LevelManager : MonoBehaviour
     {
         scatteredAmmo += 1;
         yield return new WaitForSeconds(time);
-        Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
+        Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position, Quaternion.identity);
     }
 }
