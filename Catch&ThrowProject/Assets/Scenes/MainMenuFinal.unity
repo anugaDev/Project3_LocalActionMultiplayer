@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 459757081}
-  clickButton: event:/MENU/select
+  clickButton: event:/MENU/selectMENU
 --- !u!114 &459757085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 459757081}
-  clickButton: event:/MENU/fadeIn
+  clickButton: event:/MENU/fadeInMENU
 --- !u!114 &459757086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 587068303}
-  clickButton: event:/MENU/select
+  clickButton: event:/MENU/selectMENU
 --- !u!114 &587068307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 587068303}
-  clickButton: event:/MENU/fadeIn
+  clickButton: event:/MENU/fadeInMENU
 --- !u!114 &587068308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 4, y: -1}
+  m_EffectDistance: {x: 4, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &795090602
 GameObject:
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 795090604}
-  clickButton: event:/MENU/select
+  clickButton: event:/MENU/selectMENU
 --- !u!1 &917194733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 917194735}
-  clickButton: event:/MENU/select
+  clickButton: event:/MENU/selectMENU
 --- !u!1 &1064085055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButton: {fileID: 1274638069}
-  clickButton: event:/MENU/select
+  clickButton: event:/MENU/selectMENU
 --- !u!1 &1368457880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 4, y: -1}
+  m_EffectDistance: {x: 4, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &1430842465
 GameObject:
