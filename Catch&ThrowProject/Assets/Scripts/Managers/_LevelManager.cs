@@ -34,6 +34,7 @@ public class _LevelManager : MonoBehaviour
     public Text remainingTime;
     public GameObject remainingTimeParent;
 
+    [SerializeField] private Animation startingAnimation;
     public int timeToChangeScene = 3;
     public float focusPlayerZoom = 30;
 
@@ -314,26 +315,15 @@ public class _LevelManager : MonoBehaviour
     {
         if (!tutorialScene)
         {
+            print("playDammed");
             if(startSound != "") RuntimeManager.PlayOneShot(startSound);
-            countdownText.SetActive(true);
+            startingAnimation.Play();
+            
+            yield return new WaitForSeconds(startingAnimation.clip.length);
+           
 
-            Text backgroundText = countdownText.GetComponent<Text>();
-            Text foregroundText = countdownText.transform.GetChild(0).GetComponent<Text>();
+//            yield return new WaitForSecondsRealtime(1);
 
-            for (var i = secondsBeforeGame; i > 0; i--)
-            {
-                backgroundText.text = i.ToString();
-                foregroundText.text = i.ToString();
-
-                yield return new WaitForSecondsRealtime(1);
-            }
-
-            backgroundText.text = "Blitz!";
-            foregroundText.text = "Blitz!";
-
-            yield return new WaitForSecondsRealtime(1);
-
-            countdownText.SetActive(false);
 
         }
         
