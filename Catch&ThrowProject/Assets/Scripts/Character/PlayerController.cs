@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody rigidbody;
-    public Collider normalCollider;
+    public CapsuleCollider normalCollider;
     public SkinnedMeshRenderer playerMesh;
     public SkinnedMeshRenderer maskMesh;
 
@@ -110,20 +110,20 @@ public class PlayerController : MonoBehaviour
         if (levelManager.matchState != _LevelManager.MatchState.Playing) return;
 
         if (stateMachine.currentState == idleState || stateMachine.currentState == walkState ||
-            stateMachine.currentState == fallState || stateMachine.currentState == attackState)
+            stateMachine.currentState == fallState || stateMachine.currentState == attackState || stateMachine.currentState == duckState)
         {
             if (stateMachine.currentState == idleState || stateMachine.currentState == walkState)
-                if (BellowDropThreshold() && inputControl.ButtonDown(InputController.Button.JUMP))
+                if (BellowDropThreshold() && stateMachine.currentState != duckState)
                 {
-                    ChangeState(dropOnPlatformState);
+                    ChangeState(duckState);
                     return;
                 }
-            if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState) ChangeState(jumpState);
+            if (inputControl.ButtonDown(InputController.Button.JUMP) && stateMachine.currentState != fallState && stateMachine.currentState != duckState) ChangeState(jumpState);
             if (inputControl.ButtonDown(InputController.Button.FIRE) && stateMachine.currentState != attackState) ChangeState(attackState);
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available)
             {
                 if (!CheckForGround()) ChangeState(dashState);
-                else if (inputControl.Direction.y > downPlatformThreshold) ChangeState(dashState);
+                else if (inputControl.Direction.y > downPlatformThreshold && stateMachine.currentState != duckState) ChangeState(dashState);
             }
 
         }

@@ -28,11 +28,13 @@ public class TrainTimeControl : MonoBehaviour
         
         bellsoundEvent = RuntimeManager.CreateInstance(bellSound);
         trainSoundevent = RuntimeManager.CreateInstance(trainSound);
-        
+
+//        trainSoundevent.set3DAttributes();
+
 //        RuntimeManager.AttachInstanceToGameObject(bellsoundEvent,affordance.transform, affordance.GetComponent<Rigidbody>());
 //        RuntimeManager.AttachInstanceToGameObject(trainSoundevent,train.transform, train.GetComponent<Rigidbody>());
 
-            
+
 
     }
 
