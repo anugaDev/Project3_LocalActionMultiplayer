@@ -431,6 +431,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6848112919832622980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183378290390547978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f159f0e49cdbe04383710b05c866363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steps:
+  - event:/MOVEMENT/Step1
+  - event:/MOVEMENT/Step2
+  - event:/MOVEMENT/Step3
 --- !u!1 &1788594799446635136
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +994,7 @@ MonoBehaviour:
   playerController: {fileID: 4205472215443825065}
   animationBool: Catch
   animationTrigger: 
-  enterSound: event:/HUD/catch
+  enterSound: event:/ATTACK/mele_air
   exitSound: 
   timeBeforeThrow: 3
   throwForce: 80
@@ -987,6 +1003,7 @@ MonoBehaviour:
   upThrowThreshold: 0.8
   minusUpForce: 10
   directionMarker: {fileID: 4233683649420559247}
+  throwSound: event:/REACTION/Throw
   maxSizeX: 2
   minSizeX: 0
   maxSizeY: 2
@@ -6476,6 +6493,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 475e33afbaecd68419635f6c7a5ca8a9, type: 3}
+--- !u!95 &5241466832415711587 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 475e33afbaecd68419635f6c7a5ca8a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7155614386746058499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2254758829392272605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -286160635979990050, guid: 475e33afbaecd68419635f6c7a5ca8a9,
@@ -6503,12 +6526,6 @@ GameObject:
 --- !u!4 &2753790170560318489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 475e33afbaecd68419635f6c7a5ca8a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7155614386746058499}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5241466832415711587 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 475e33afbaecd68419635f6c7a5ca8a9,
     type: 3}
   m_PrefabInstance: {fileID: 7155614386746058499}
   m_PrefabAsset: {fileID: 0}
