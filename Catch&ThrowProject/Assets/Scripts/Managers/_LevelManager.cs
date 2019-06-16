@@ -320,10 +320,6 @@ public class _LevelManager : MonoBehaviour
             startingAnimation.Play();
             
             yield return new WaitForSeconds(startingAnimation.clip.length);
-           
-
-//            yield return new WaitForSecondsRealtime(1);
-
 
         }
         
