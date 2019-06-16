@@ -4127,7 +4127,7 @@ MonoBehaviour:
   - {fileID: 8765164101620129511}
   StringsBanks:
   - {fileID: 1850126333934689274}
-  stringsBankWriteTime: 636963211640558787
+  stringsBankWriteTime: 636963242540931096
   cacheVersion: 3
 --- !u!114 &78717273297871243
 MonoBehaviour:
@@ -4839,7 +4839,7 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636963211640558787
+  lastModified: 636963242540931096
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -7663,7 +7663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Universidad\Project\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636963211640518806
+  lastModified: 636963242540841085
   LoadResult: 0
   FileSizes:
   - Name: Desktop
