@@ -11,8 +11,11 @@ public class DropOnPlatform : BaseState
  
     public override void Enter()
     {
+        print("enter");
+
         if (CheckIfPlatformBellow())
         {
+            print("Platform");
             playerController.gameObject.layer = playerController.jumpLayer;
             checkTimeForExitDrop = ChangeToFall(timeToSwitchFall);
             StartCoroutine(checkTimeForExitDrop);

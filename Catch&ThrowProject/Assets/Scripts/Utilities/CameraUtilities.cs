@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraUtilities : MonoBehaviour
 {
+    [SerializeField] private FMODUnity.StudioListener listener;
+    [SerializeField] private float trueCameraListenerRadius;
     public static CameraUtilities instance;
 
     [SerializeField] private float originalShakeForce;
@@ -18,6 +20,7 @@ public class CameraUtilities : MonoBehaviour
 
     private void Awake()
     {
+//        listener.
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
     }

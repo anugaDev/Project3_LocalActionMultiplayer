@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 459757082}
   - component: {fileID: 459757081}
   - component: {fileID: 459757084}
+  - component: {fileID: 459757085}
   m_Layer: 5
   m_Name: Kill Hoarder
   m_TagString: Untagged
@@ -933,6 +934,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuButton: {fileID: 459757081}
   clickButton: event:/MENU/select
+--- !u!114 &459757085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459757079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 459757081}
+  clickButton: event:/MENU/fadeIn
 --- !u!1 &475514564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1138,7 @@ GameObject:
   - component: {fileID: 587068304}
   - component: {fileID: 587068303}
   - component: {fileID: 587068306}
+  - component: {fileID: 587068307}
   m_Layer: 5
   m_Name: Last One Standing
   m_TagString: Untagged
@@ -1291,6 +1307,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuButton: {fileID: 587068303}
   clickButton: event:/MENU/select
+--- !u!114 &587068307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587068301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eb6cd88548b244b79710832f04c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 587068303}
+  clickButton: event:/MENU/fadeIn
 --- !u!1 &626626488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14878822f21d18740a0c55e49cd352bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listener: {fileID: 0}
+  trueCameraListenerRadius: 0
   originalShakeForce: 0
   sceneCamera: {fileID: 1064085061}
 --- !u!81 &1064085060
