@@ -245,7 +245,7 @@ public class _LevelManager : MonoBehaviour
 
                 matchInfo.matchInfo[player].rank = alivePlayers + 1;
 
-                if (alivePlayers == 1)
+                if (alivePlayers <= 1)
                 {
                     for (int i = 0; i < players.Count; i++)
                     {
