@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  playerControllers: []
   playerBasicPrefab: {fileID: 4205472215443825064, guid: 21263b536f790fe4dbbc6a033a3011a7,
     type: 3}
   SceneToLoadNumber: -1
@@ -1572,7 +1571,7 @@ PrefabInstance:
     - target: {fileID: 1120036113814822945, guid: 6c26dc2cd462b684e9fdaacd1ab954d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1120036113814822945, guid: 6c26dc2cd462b684e9fdaacd1ab954d3,
         type: 3}
@@ -1904,21 +1903,6 @@ PrefabInstance:
     - target: {fileID: 8758028822988180194, guid: 9374718cb998f4a4ba223cfdd708da84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8769847264541009103, guid: 9374718cb998f4a4ba223cfdd708da84,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8769847264541009103, guid: 9374718cb998f4a4ba223cfdd708da84,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8769847264541009103, guid: 9374718cb998f4a4ba223cfdd708da84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
