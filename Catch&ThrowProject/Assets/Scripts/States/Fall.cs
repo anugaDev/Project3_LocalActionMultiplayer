@@ -23,7 +23,7 @@ public class Fall : BaseState
     [SerializeField] private LayerMask checkPlatformsLayerMask;
 
     [Header("Animation Bools")]
-    [SerializeField] private string animationFallingBool;
+    [SerializeField] public string animationFallingBool;
     [SerializeField] public string groundedBool;
     
     private bool stopPressing;

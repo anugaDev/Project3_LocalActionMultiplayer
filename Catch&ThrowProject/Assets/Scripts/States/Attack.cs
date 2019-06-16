@@ -70,6 +70,8 @@ public class Attack : BaseState
         else
         {
             playerController.animator.SetBool(playerController.fallState.groundedBool, true);
+            playerController.animator.SetBool(playerController.fallState.animationFallingBool, false);
+
             var velocity = playerController.rigidbody.velocity;
             velocity.x = 0;
             playerController.rigidbody.velocity = velocity;
