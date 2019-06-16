@@ -123,7 +123,7 @@ public class Projectile : MonoBehaviour
             {
                 if (player.AmmoIsMax()) return;
 
-                if (!IsDirectionObstructed(player.transform, player.transform.position - transform.position,
+                if (!IsDirectionObstructed(player, player.transform.position - transform.position,
                     nailedDistance))
                 {
                     player.ResupplyAmmo(1);
@@ -181,12 +181,13 @@ public class Projectile : MonoBehaviour
 
 
     }
-    private bool IsDirectionObstructed(Transform detectedTransform, UnityEngine.Vector3 direction, float distance)
+    private bool IsDirectionObstructed(PlayerController player, UnityEngine.Vector3 direction, float distance)
     {
+        if (player.gameObject.layer == player.jumpLayer) return false;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction , out hit, distance, nailedLayerMask))
         {
-            if (detectedTransform != hit.transform)
+            if (player.transform != hit.transform)
                 return true;
             
         }
