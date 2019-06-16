@@ -20,6 +20,9 @@ public class _GameManager : MonoBehaviour
     public Animation SceneTransition;
 
     private bool subscribed = false;
+    
+    private FMOD.Studio.Bus MasterBus;
+
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class _GameManager : MonoBehaviour
 
     public IEnumerator LoadNewGame()
     {
+
         if (SceneTransition) SceneTransition.Play(SceneTransition.clip.name);
 
         if (SceneTransition) yield return new WaitForSeconds(SceneTransition.clip.length);

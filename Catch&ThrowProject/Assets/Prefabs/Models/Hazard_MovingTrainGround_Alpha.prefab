@@ -326,8 +326,8 @@ MonoBehaviour:
   train: {fileID: 8935989500186555841}
   affordance: {fileID: 1080517649}
   playOnStart: 1
-  bellSound: event:/ENVIROMENT/trainBell
-  trainSound: event:/ENVIROMENT/trainLayout
+  bellSound: event:/ENVIROMENT/TrainBellLeft (2)
+  trainSound: event:/ENVIROMENT/EsquerraTren
 --- !u!1001 &560312984
 PrefabInstance:
   m_ObjectHideFlags: 0
