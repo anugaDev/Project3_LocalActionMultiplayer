@@ -27,11 +27,12 @@ public class _LevelManager : MonoBehaviour
     public int MatchDuration = 120;
     [SerializeField] private float timeForAmmo;
 
-    public float timeBeforeMatch =3f;
+    public float timeBeforeMatch = 3f;
     public bool endlessGame = false;
     public bool matchByTime = false;
     private float gameTimer = 0f;
     public Text remainingTime;
+    public Text remainingTimeBg;
     public GameObject remainingTimeParent;
 
     [SerializeField] private Animation startingAnimation;
@@ -52,15 +53,15 @@ public class _LevelManager : MonoBehaviour
 
     public bool testingScene;
     public bool tutorialScene = false;
-    
+
     [Header("Level Sound")]
-    
+
     [FMODUnity.EventRef] public string startSound;
     [FMODUnity.EventRef] public string levelMusic;
     [HideInInspector] public FMOD.Studio.EventInstance musicEvent;
-    
+
     [FMODUnity.EventRef] public string endingSound;
-    
+
 
     public enum MatchState
     {
@@ -83,7 +84,7 @@ public class _LevelManager : MonoBehaviour
         {
             if (!tutorialScene) matchByTime = _GameManager.instance.gameByTime;
         }
-        
+
         if (levelMusic != "") musicEvent = FMODUnity.RuntimeManager.CreateInstance(levelMusic);
     }
 
@@ -116,6 +117,7 @@ public class _LevelManager : MonoBehaviour
         {
             gameTimer -= Time.deltaTime;
             remainingTime.text = ((int)gameTimer).ToString();
+            remainingTimeBg.text = ((int)gameTimer).ToString();
 
             if (gameTimer <= 0)
             {
@@ -136,6 +138,7 @@ public class _LevelManager : MonoBehaviour
             gameTimer = MatchDuration;
             remainingTime.enabled = true;
             remainingTimeParent.SetActive(true);
+            remainingTimeBg.enabled = true;
         }
 
         cameraFollow.enabled = true;
@@ -242,7 +245,7 @@ public class _LevelManager : MonoBehaviour
 
                 matchInfo.matchInfo[player].rank = alivePlayers + 1;
 
-                if (alivePlayers == 1)
+                if (alivePlayers <= 1)
                 {
                     for (int i = 0; i < players.Count; i++)
                     {
@@ -282,6 +285,10 @@ public class _LevelManager : MonoBehaviour
 
             yield return new WaitForSeconds(timeToChangeScene);
 
+            _GameManager.instance.SceneTransition.Play();
+
+            yield return new WaitForSeconds(_GameManager.instance.SceneTransition.clip.length);
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
@@ -313,15 +320,17 @@ public class _LevelManager : MonoBehaviour
 
     public IEnumerator StartCountdown(float secondsBeforeGame)
     {
+        yield return new WaitForSeconds(.5f);
+
         if (!tutorialScene)
         {
-            if(startSound != "") RuntimeManager.PlayOneShot(startSound);
+            if (startSound != "") RuntimeManager.PlayOneShot(startSound);
             startingAnimation.Play();
-            
+
             yield return new WaitForSeconds(startingAnimation.clip.length);
 
         }
-        
+
         StartGame();
     }
 
@@ -345,6 +354,6 @@ public class _LevelManager : MonoBehaviour
     {
         scatteredAmmo += 1;
         yield return new WaitForSeconds(time);
-        Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform);
+        Instantiate(ammoItem, ammoSpawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position, Quaternion.identity);
     }
 }

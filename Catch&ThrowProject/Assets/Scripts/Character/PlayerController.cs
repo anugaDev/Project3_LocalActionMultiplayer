@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator resetKiller;
 
     public Text ammo;
+    public Text ammoBG;
 
     #endregion
 
@@ -195,6 +196,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+        ammoBG.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         dashState.walkTrail.transform.localPosition = new Vector3(0, 0, Mathf.Sign(horizontal) < 0 ? -0.5f : 0.5f);
         mashButtonState.RotateAffordance(Mathf.Sign(horizontal) < 0 ? 180 : 0);
     }
@@ -220,34 +222,34 @@ public class PlayerController : MonoBehaviour
         if (gameObject.layer != normalLayer) return onGround = false;
 
         var startingPos = transform.position;
-        
+
         Vector3 leftRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.min.x)) * collisionBoundariesMultiplier;
         Vector3 rightRayPosition = startingPos + (Vector3.right * (transform.position.x - normalCollider.bounds.max.x)) * collisionBoundariesMultiplier;
-        
+
         onGround = Physics.Raycast(startingPos, Vector3.down, distanceToGround, groundDetectionCollisions);
         onGround = !onGround ? Physics.Raycast(leftRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
         onGround = !onGround ? Physics.Raycast(rightRayPosition, Vector3.down, distanceToGround, groundDetectionCollisions) : onGround;
-        
+
         #region ItsPlatform
 
         if (onGround)
         {
-           
+
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down , out hit, distanceToGround, groundDetectionCollisions) ||
-                Physics.Raycast(leftRayPosition, Vector3.down , out hit, distanceToGround, groundDetectionCollisions)||
-                Physics.Raycast(rightRayPosition, Vector3.down , out hit, distanceToGround, groundDetectionCollisions))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, distanceToGround, groundDetectionCollisions) ||
+                Physics.Raycast(leftRayPosition, Vector3.down, out hit, distanceToGround, groundDetectionCollisions) ||
+                Physics.Raycast(rightRayPosition, Vector3.down, out hit, distanceToGround, groundDetectionCollisions))
             {
                 if (hit.transform.CompareTag("Death Zone") || hit.transform.CompareTag("Bounce Zone"))
                     return onGround = false;
 
-            } 
+            }
         }
-        
-        
+
+
         #endregion
-        
-        
+
+
 
         if (onGround) impulseImpacts = false;
 
@@ -334,7 +336,9 @@ public class PlayerController : MonoBehaviour
     {
         actualAmmo += ammo;
         this.ammo.text = actualAmmo.ToString();
+        this.ammoBG.text = actualAmmo.ToString();
         this.ammo.enabled = true;
+        this.ammoBG.enabled = true;
 
         StartCoroutine(DeactivateAmmoText());
 
@@ -345,13 +349,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         if (stateMachine.currentState != attackState)
+        {
             this.ammo.enabled = false;
+            this.ammoBG.enabled = false;
+        }
     }
 
     private void CallForReload()
     {
         reloadAmmoinCourse = true;
-       
     }
 
     private void StopReloading()

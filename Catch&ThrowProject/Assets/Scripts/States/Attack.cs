@@ -53,7 +53,9 @@ public class Attack : BaseState
         lastDir = transform.right.normalized;
 
         playerController.ammo.enabled = true;
+        playerController.ammoBG.enabled = true;
         playerController.ammo.text = playerController.actualAmmo.ToString();
+        playerController.ammoBG.text = playerController.actualAmmo.ToString();
 
     }
 
@@ -150,6 +152,7 @@ public class Attack : BaseState
         playerController.animator.speed = 1;
 
         playerController.ammo.enabled = false;
+        playerController.ammoBG.enabled = false;
 
         directionAffordance.gameObject.SetActive(false);
         

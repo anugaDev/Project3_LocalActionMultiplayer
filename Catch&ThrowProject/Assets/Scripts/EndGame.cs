@@ -45,6 +45,15 @@ public class EndGame : MonoBehaviour
 
             victoryPanels[i].gameObject.SetActive(true);
         }
+
+        StartCoroutine(StartAnimation());
+    }
+
+
+    IEnumerator StartAnimation()
+    {
+        yield return new WaitForSeconds(1);
+        victoryPanels[0].player.animator.SetTrigger("Victory");
     }
 
     public void GoEnd()
