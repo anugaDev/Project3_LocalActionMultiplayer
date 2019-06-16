@@ -71,8 +71,8 @@ public class TrainTimeControl : MonoBehaviour
         }
         affordance.Stop();
         affordance.gameObject.SetActive(false);
-        bellsoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        trainSoundevent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);      
+        bellsoundEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        trainSoundevent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);      
         PreparePass();
     }
 }
