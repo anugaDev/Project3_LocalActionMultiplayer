@@ -57,7 +57,6 @@ public class Dash : BaseState
         stopDash = StopDash();
         StartCoroutine(stopDash);
 
-        walkTrail.enabled = false;
 
         base.Enter();
 
@@ -80,6 +79,8 @@ public class Dash : BaseState
 
     public override void Exit()
     {
+        walkTrail.enabled = false;
+
         StopCoroutine(stopDash);
 
         playerController.rigidbody.velocity = new Vector3(playerController.CheckForGround() ? 0 : playerController.rigidbody.velocity.x,
