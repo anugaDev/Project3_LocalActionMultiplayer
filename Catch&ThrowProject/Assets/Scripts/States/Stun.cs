@@ -14,10 +14,12 @@ public class Stun : BaseState
 
     public override void Enter()
     {
+        playerController.animator.SetBool("Idle", true);
     }
 
     public override void Execute()
     {
+        
         if (stunByTime)
         {
             timer += Time.deltaTime;
@@ -31,7 +33,7 @@ public class Stun : BaseState
         }
         else
             if (playerController.rigidbody.velocity.magnitude <= threshHoldSpeed || playerController.CheckForGround()) playerController.ChangeState(playerController.fallState);
-       
+
         Vector3 breakVector = new Vector3(playerController.rigidbody.velocity.x > 0 ? -1 : 1, -1, 0);
 
         playerController.rigidbody.velocity += breakVector * breakSpeed * Time.deltaTime;
