@@ -15,7 +15,34 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] SoundI::release                          :  (00000178379933A8)
+[LOG] SoundI::release                          :     dash (0000017878A0EB58)
+[LOG] SoundI::release                          :  (0000017837993F28)
+[LOG] SoundI::release                          :     double_jump (0000017878A0ECF8)
+[LOG] SoundI::release                          :  (0000017837992828)
+[LOG] SoundI::release                          :     mele_air (0000017878A0F378)
+[LOG] SoundI::release                          :  (0000017837993C48)
+[LOG] SoundI::release                          :     mele_hit (0000017878A10218)
+[LOG] SoundI::release                          :  (00000178379937F8)
+[LOG] SoundI::release                          :     land_short (0000017878A0E678)
+[LOG] SoundI::release                          :  (0000017837994098)
+[LOG] SoundI::release                          :     jump (0000017878A0FED8)
+[LOG] SoundI::release                          :  (0000017837993DB8)
+[LOG] SoundI::release                          :     dead (0000017878A0E818)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
