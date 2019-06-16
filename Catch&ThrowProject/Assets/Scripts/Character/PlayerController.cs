@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             if (inputControl.ButtonDown(InputController.Button.DASH) && dashState.available)
             {
                 if (!CheckForGround()) ChangeState(dashState);
-                else if (inputControl.Direction.y > downPlatformThreshold) ChangeState(dashState);
+                else if (inputControl.Direction.y > downPlatformThreshold && stateMachine.currentState != duckState) ChangeState(dashState);
             }
 
         }
