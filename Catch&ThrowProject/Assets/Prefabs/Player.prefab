@@ -853,7 +853,7 @@ MonoBehaviour:
   jumpLayer: 11
   normalLayer: 10
   sphereCollisionRadius: 0.92
-  distanceToGround: 1.05
+  distanceToGround: 1.09
   groundDetectionCollisions:
     serializedVersion: 2
     m_Bits: 4097
