@@ -107,8 +107,11 @@ public class Shield : MonoBehaviour
 
     public void DestroyShield()
     {
-        Instantiate(destroyShieldParticles, transform.position, Quaternion.identity);
-        if(!shieldDestroyed) FMODUnity.RuntimeManager.PlayOneShot(downShield);
+        if (!shieldDestroyed)
+        {
+            Instantiate(destroyShieldParticles, transform.position, Quaternion.identity);
+            FMODUnity.RuntimeManager.PlayOneShot(downShield);
+        }
 
         if(actualBlinking != null) StopCoroutine(actualBlinking);
         
