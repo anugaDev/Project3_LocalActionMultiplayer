@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: f4df45a50bad3d64fb30a9586424e6cd, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 82b1136b6c3e05e40ac495a3b278f32b, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -2186,6 +2186,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3538027189593752653, guid: a9120fb95b8057248b5029848f17c397,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5ed9efdac13f76b40bb25053d8bc43ad, type: 2}
     - target: {fileID: 4674392306541373114, guid: a9120fb95b8057248b5029848f17c397,
         type: 3}
       propertyPath: m_IsActive
@@ -2216,11 +2221,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 3538027189593752653, guid: a9120fb95b8057248b5029848f17c397,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5ed9efdac13f76b40bb25053d8bc43ad, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9120fb95b8057248b5029848f17c397, type: 3}
 --- !u!224 &6185666612905837379 stripped
