@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{33fdd711-a994-4293-906c-ee13d1def514}">
+        <property name="assetPath">
+            <value>390761__d00121058__fx-008-footstep-tile-r (1).wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.22952083333333334</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c3b012f5-510e-4e91-ad7d-8c97c36d5050}</destination>
+        </relationship>
+    </object>
+</objects>
