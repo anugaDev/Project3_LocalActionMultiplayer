@@ -1257,6 +1257,8 @@ MonoBehaviour:
   lowShieldColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.15686275}
   shieldStableColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   shieldDestroyed: 0
+  destroyShieldParticles: {fileID: 5768714562487478912, guid: 80aa27ef638ce564c91f9084022c3860,
+    type: 3}
   upShield: event:/HUD/shield_up
   downShield: event:/HUD/sheild_down
 --- !u!33 &2515049442398577901
