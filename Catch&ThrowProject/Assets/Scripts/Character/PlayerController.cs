@@ -126,6 +126,10 @@ public class PlayerController : MonoBehaviour
                 if (!CheckForGround()) ChangeState(dashState);
                 else if (inputControl.Direction.y > downPlatformThreshold && stateMachine.currentState != duckState) ChangeState(dashState);
             }
+            else if (inputControl.ButtonDown(InputController.Button.DASH) && !dashState.available)
+            {
+                dashState.PlayCooldownSound();
+            }
 
         }
 

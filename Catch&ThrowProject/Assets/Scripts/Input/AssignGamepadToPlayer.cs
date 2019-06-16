@@ -13,6 +13,8 @@ public class AssignGamepadToPlayer : MonoBehaviour
     public string startGameButton = "Start";
 
     public PlayerSelectionPanel[] playerSelectionPanels;
+    
+
 
     void Start()
     {

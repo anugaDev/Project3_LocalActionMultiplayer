@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{d809de33-1977-4392-962b-0a01fc75a4d3}">
+        <property name="assetPath">
+            <value>210188__augdog__hat-boing.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.4006802721088436</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c3b012f5-510e-4e91-ad7d-8c97c36d5050}</destination>
+        </relationship>
+    </object>
+</objects>

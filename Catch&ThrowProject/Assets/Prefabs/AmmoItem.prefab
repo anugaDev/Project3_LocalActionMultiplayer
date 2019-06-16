@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6785827830689228085}
   - component: {fileID: 2324004511097651945}
   m_Layer: 14
-  m_Name: AmmoItem_Prototype
+  m_Name: AmmoItem
   m_TagString: AmmoItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoResupply: 1
+  pickUpSound: event:/ENVIROMENT/pickUpShurikken
 --- !u!1001 &2290414872864309508
 PrefabInstance:
   m_ObjectHideFlags: 0
