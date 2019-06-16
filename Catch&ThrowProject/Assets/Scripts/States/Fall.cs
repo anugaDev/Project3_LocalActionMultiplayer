@@ -24,7 +24,7 @@ public class Fall : BaseState
 
     [Header("Animation Bools")]
     [SerializeField] private string animationFallingBool;
-    [SerializeField] private string groundedBool;
+    [SerializeField] public string groundedBool;
     
     private bool stopPressing;
     private bool groundHit;

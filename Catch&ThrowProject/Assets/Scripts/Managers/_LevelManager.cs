@@ -53,6 +53,7 @@ public class _LevelManager : MonoBehaviour
     
     [Header("Level Sound")]
     
+    [FMODUnity.EventRef] public string startSound;
     [FMODUnity.EventRef] public string levelMusic;
     [HideInInspector] public FMOD.Studio.EventInstance musicEvent;
     
@@ -310,6 +311,7 @@ public class _LevelManager : MonoBehaviour
 
     public IEnumerator StartCountdown(int secondsBeforeGame)
     {
+        if(startSound != "") RuntimeManager.PlayOneShot(startSound);
         countdownText.SetActive(true);
 
         Text backgroundText = countdownText.GetComponent<Text>();
