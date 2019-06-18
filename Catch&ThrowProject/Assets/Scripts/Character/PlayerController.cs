@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
 
     public Die dieState;
 
-    public ThrowParticles throwParticles;
-
     [Header("Speed Settings")]
     [SerializeField]
     private float topHorizontalSpeed;
