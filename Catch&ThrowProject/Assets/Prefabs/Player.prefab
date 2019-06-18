@@ -58,6 +58,7 @@ MonoBehaviour:
   verticalSpeedDecayMultiplier: 0.75
   playerTrigger: {fileID: 101204162}
   catched: 0
+  timeAfterDashThreshold: 0.25
   available: 1
   released: 1
   cooldown: 1.5

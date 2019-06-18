@@ -11,12 +11,14 @@ public class UpdatePlayerPanel : MonoBehaviour
     [Header("Text")]
     [SerializeField] private Text kills;
     [SerializeField] private Text PlayerNumber;
+    [SerializeField] private Text playerNumberWhite;
 
     public void SetUpPanel(bool gameByTime, int playerNumber)
     {
         if (playerNumber == 1) PlayerNumber.transform.localScale = new Vector3(.8f, .8f, .8f);
 
         PlayerNumber.text = "P" + playerNumber;
+        playerNumberWhite.text = "P" + playerNumber;
         kills.text = "0";
         kills.enabled = gameByTime;
 

@@ -19,10 +19,12 @@ public class BounceZone : MonoBehaviour
 
         RuntimeManager.PlayOneShot(bounceSound);
 
+        
         if (player != null)
         {
             player.jumpState.commingFromJump = false;
             player.jumpMade = false;
+            player.throwParticles.gameObject.SetActive(false);
         }
     }
 }
