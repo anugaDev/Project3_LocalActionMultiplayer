@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class MashButton : BaseState
@@ -12,7 +13,10 @@ public class MashButton : BaseState
     private float actualMashedTimes;
 
     
-    
+    [FMODUnity.EventRef] public string mashSucces;
+    [FMODUnity.EventRef] public string mashFail;
+
+
     // Start is called before the first frame update
     public override void Enter()
     {
@@ -34,6 +38,7 @@ public class MashButton : BaseState
         
         if (actualMashedTimes >= timesToMash)
         {
+            RuntimeManager.PlayOneShot(mashSucces);
             playerController.ChangeState(playerController.catchState);
             playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.caughtState);
         }
@@ -56,6 +61,7 @@ public class MashButton : BaseState
 
         playerController.ChangeState(playerController.fallState);
         playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
+        RuntimeManager.PlayOneShot(mashFail);
     }
 
     public void RotateAffordance(float angle )

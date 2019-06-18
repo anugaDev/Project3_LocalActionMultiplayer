@@ -356,6 +356,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-8325560922803963063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/REACTION/clashSucces
+  m_EditorClassIdentifier: 
+  Path: event:/REACTION/clashSucces
+  guid: 2cb21bea42d62c40a8bccd9975a3cdf1
+  Banks:
+  - {fileID: 2795867904489638764}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-8239450997821618826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3440,6 +3463,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-823148785692083958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/REACTION/failClash
+  m_EditorClassIdentifier: 
+  Path: event:/REACTION/failClash
+  guid: 702b128132fdf747bee9a9ed42cf2051
+  Banks:
+  - {fileID: 2795867904489638764}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 561
 --- !u!114 &-817714827902032506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3871,6 +3917,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 710
+--- !u!114 &-332226985145972009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/REACTION/clash
+  m_EditorClassIdentifier: 
+  Path: event:/REACTION/clash
+  guid: 5d82b8b1c1219a4ba9019fa3d46064ed
+  Banks:
+  - {fileID: 2795867904489638764}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2500
 --- !u!114 &-309205317021444611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4146,11 +4215,14 @@ MonoBehaviour:
   - {fileID: -6882394287884601353}
   - {fileID: -1876593583397487427}
   - {fileID: 7980047429183494198}
+  - {fileID: -8325560922803963063}
+  - {fileID: -332226985145972009}
+  - {fileID: -823148785692083958}
   MasterBanks:
   - {fileID: 2795867904489638764}
   StringsBanks:
   - {fileID: 1850126333934689274}
-  stringsBankWriteTime: 636963234963996129
+  stringsBankWriteTime: 636965027230623515
   cacheVersion: 3
 --- !u!114 &78717273297871243
 MonoBehaviour:
@@ -4862,11 +4934,11 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FMOD\Videojoc_final\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636963234963996129
+  lastModified: 636965027230623515
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 3088
+    Value: 3212
   Exists: 1
 --- !u!114 &1856587004409576549
 MonoBehaviour:
@@ -5359,11 +5431,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: E:\Curro\Proyectos\Unity\Repositorios\Project3_LocalActionMultiplayer\Catch&ThrowProject\FMOD\Videojoc_final\Build\Desktop\Master
     Bank.bank
-  lastModified: 636963234963956148
+  lastModified: 636965027230573541
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4949536
+    Value: 5059744
   Exists: 1
 --- !u!114 &2813936336878984352
 MonoBehaviour:

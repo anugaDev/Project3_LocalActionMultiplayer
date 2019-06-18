@@ -66,6 +66,7 @@ MonoBehaviour:
   walkTrail: {fileID: 1836453254}
   onCooldown: event:/HUD/cooldown_can't
   cooldownCompleted: event:/HUD/cooldown
+  clashSound: event:/REACTION/clash
 --- !u!54 &309804495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,8 @@ MonoBehaviour:
   timesToMash: 10
   failTime: 10
   backOutTimeForce: 20
+  mashSucces: event:/REACTION/clashSucces
+  mashFail: event:/REACTION/failClash
 --- !u!1 &4205472215937556507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2445,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 309804492}
     m_Modifications:
+    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
+        type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 793287492675897994, guid: 9173f739cdacd0f4db5ce66d72965cae,
         type: 3}
       propertyPath: m_Name
@@ -2450,7 +2473,7 @@ PrefabInstance:
     - target: {fileID: 793287492675897994, guid: 9173f739cdacd0f4db5ce66d72965cae,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 576642257524313311, guid: 9173f739cdacd0f4db5ce66d72965cae,
         type: 3}
@@ -2511,21 +2534,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4643
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
-        type: 3}
-      propertyPath: useRigidbodyForVelocity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523907611403726651, guid: 9173f739cdacd0f4db5ce66d72965cae,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9173f739cdacd0f4db5ce66d72965cae, type: 3}

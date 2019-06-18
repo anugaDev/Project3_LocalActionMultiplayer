@@ -29,11 +29,19 @@ public class Dash : BaseState
     private float timer = 0;
     private Vector3 actualDirection;
 
-    [SerializeField] private ParticleSystem dashParticles;
-    [SerializeField] public TrailRenderer walkTrail;
+    public ParticleSystem dashParticles;
+
+    [HideInInspector] public ParticleSystem.MainModule main;
+    public TrailRenderer walkTrail;
     
     [FMODUnity.EventRef] public string onCooldown;
     [FMODUnity.EventRef] public string cooldownCompleted;
+    [FMODUnity.EventRef] public string clashSound;
+
+    private void Awake()
+    {
+        main = dashParticles.main;
+    }
 
 
     private IEnumerator stopDash;
@@ -180,6 +188,7 @@ public class Dash : BaseState
         RepositionEnemy(enemy);
         StopAllCoroutines();
 
+        RuntimeManager.PlayOneShot(clashSound);
         playerController.caughtPlayer = enemy;
         enemy.caughtPlayer = playerController;
 

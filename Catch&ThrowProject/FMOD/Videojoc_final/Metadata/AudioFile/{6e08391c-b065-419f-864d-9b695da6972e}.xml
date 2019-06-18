@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{6e08391c-b065-419f-864d-9b695da6972e}">
+        <property name="assetPath">
+            <value>1 61-Cooldown.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>151.26126984126984</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c3b012f5-510e-4e91-ad7d-8c97c36d5050}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -400,6 +400,7 @@ public class PlayerController : MonoBehaviour
     {
         playerSkin = skin;
         dashState.walkTrail.material.color = skin.mainColor;
+        dashState.main.startColor = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
         catchState.ChangeArrowColor();
