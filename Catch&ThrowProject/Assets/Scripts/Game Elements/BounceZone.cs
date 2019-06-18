@@ -18,7 +18,11 @@ public class BounceZone : MonoBehaviour
         rigidbody.velocity = velocity;
 
         RuntimeManager.PlayOneShot(bounceSound);
-        
-        if (player != null) player.jumpState.commingFromJump = false;
+
+        if (player != null)
+        {
+            player.jumpState.commingFromJump = false;
+            player.jumpMade = false;
+        }
     }
 }
