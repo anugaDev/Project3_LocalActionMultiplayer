@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Catch : BaseState
 {
@@ -14,6 +15,7 @@ public class Catch : BaseState
     [SerializeField] private float minusUpForce = 10f;
 
     [SerializeField] private GameObject directionMarker;
+    [SerializeField] private Image filledMarker;
     
     [FMODUnity.EventRef] public string throwSound;
 
@@ -141,7 +143,7 @@ public class Catch : BaseState
     {
         timer += Time.deltaTime;
 
-        ResizeArrow();
+        ChangeArrow();
 
         if (timer >= timeBeforeThrow)
         {
@@ -151,11 +153,24 @@ public class Catch : BaseState
         }
     }
 
-    private void ResizeArrow()
+    private void ChangeArrow()
     {
-        float xSize = maxSizeX - ((maxSizeX - minSizeX) * (timer / timeBeforeThrow));
-        float ySize = maxSizeY - ((maxSizeY - minSizeY) * (timer / timeBeforeThrow));
+//        float xSize = maxSizeX - ((maxSizeX - minSizeX) * (timer / timeBeforeThrow));
+//        float ySize = maxSizeY - ((maxSizeY - minSizeY) * (timer / timeBeforeThrow));
+//
+//        directionMarker.transform.localScale = new Vector3(xSize, ySize, directionMarker.transform.localScale.z);
 
-        directionMarker.transform.localScale = new Vector3(xSize, ySize, directionMarker.transform.localScale.z);
+          filledMarker.fillAmount =1 - (timer / timeBeforeThrow);
     }
+
+    public void ChangeArrowColor()
+    {
+        filledMarker.color = playerController.playerSkin.mainColor;
+    }
+
+    public void OrientateArrow(Quaternion actualRot)
+    {
+        directionMarker.transform.localRotation = actualRot;
+    }
+    
 }

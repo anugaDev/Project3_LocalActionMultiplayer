@@ -8,6 +8,7 @@ public class MashButton : BaseState
     [SerializeField] private Transform scaledMashAffordance;
     [SerializeField] private int timesToMash = 10;
     [SerializeField] private float failTime = 10f;
+    [SerializeField] private float backOutTimeForce = 20f;
     private float actualMashedTimes;
 
     
@@ -48,8 +49,13 @@ public class MashButton : BaseState
     IEnumerator CountForFail(float time)
     {
         yield return new WaitForSeconds(time);
-        playerController.ChangeState(playerController.idleState);
-        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.idleState);
+        
+        var dir = (playerController.caughtPlayer.transform.position - playerController.transform.position).normalized;
+        playerController.Impulse(dir, backOutTimeForce, true);
+        playerController.caughtPlayer.Impulse(-dir, backOutTimeForce, true);
+
+        playerController.ChangeState(playerController.fallState);
+        playerController.caughtPlayer.ChangeState(playerController.caughtPlayer.fallState);
     }
 
     public void RotateAffordance(float angle )

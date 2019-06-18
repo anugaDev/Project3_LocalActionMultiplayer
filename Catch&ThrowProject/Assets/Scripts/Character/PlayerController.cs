@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         ammo.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
         ammoBG.transform.localRotation = Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0);
+        catchState.OrientateArrow(Quaternion.Euler(0, Mathf.Sign(horizontal) < 0 ? 180 : 0, 0));
         dashState.walkTrail.transform.localPosition = new Vector3(0, 0, Mathf.Sign(horizontal) < 0 ? -0.5f : 0.5f);
         mashButtonState.RotateAffordance(Mathf.Sign(horizontal) < 0 ? 180 : 0);
     }
@@ -399,6 +400,7 @@ public class PlayerController : MonoBehaviour
         dashState.walkTrail.material.color = skin.mainColor;
         playerMesh.material.mainTexture = playerSkin.playerTexture;
         maskMesh.material.mainTexture = playerSkin.maskTexture;
+        catchState.ChangeArrowColor();
         //playerMesh.materials[1].SetColor("_OutlineColor", skin.mainColor); //Uncomment if you want Outline the same color as Character
     }
 
