@@ -116,6 +116,8 @@ public class Catch : BaseState
         caughtPlayer.Impulse(ThrowDirection, force, true);
         caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
 
+        caughtPlayer.throwParticles.gameObject.SetActive(true);
+        caughtPlayer.throwParticles.transform.parent.up = -ThrowDirection;
 
         playerController.ChangeState(playerController.stunState);
         if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
