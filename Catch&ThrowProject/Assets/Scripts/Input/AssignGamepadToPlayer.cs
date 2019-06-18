@@ -13,8 +13,8 @@ public class AssignGamepadToPlayer : MonoBehaviour
     public string startGameButton = "Start";
 
     public PlayerSelectionPanel[] playerSelectionPanels;
-    
 
+    bool starting = false;
 
     void Start()
     {
@@ -35,8 +35,9 @@ public class AssignGamepadToPlayer : MonoBehaviour
 
             if (Input.GetButtonDown(startGameButton + i))
             {
-                if (CanStartGame())
+                if (CanStartGame() && !starting)
                 {
+                    starting = true;
                     _GameManager.instance.SceneToLoadNumber = SceneManager.GetActiveScene().buildIndex + 1;
                     _GameManager.instance.StartCoroutine(_GameManager.instance.LoadNewGame());
                 }
