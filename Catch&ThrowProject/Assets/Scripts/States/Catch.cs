@@ -14,11 +14,11 @@ public class Catch : BaseState
     [SerializeField] private float minusUpForce = 10f;
 
     [SerializeField] private GameObject directionMarker;
-    
+
     [FMODUnity.EventRef] public string throwSound;
 
     private float timer = 0f;
-    
+
     [Header("Affordance Settings")]
     [SerializeField] private float maxSizeX = 4.5f;
     [SerializeField] private float minSizeX = 1f;
@@ -113,7 +113,8 @@ public class Catch : BaseState
         if (ThrowDirection.y > 0) caughtPlayer.gameObject.layer = caughtPlayer.jumpLayer;
         caughtPlayer.Impulse(ThrowDirection, force, true);
         caughtPlayer.ChangeState(playerController.caughtPlayer.stunState);
-
+        caughtPlayer.throwParticles.gameObject.SetActive(true);
+        caughtPlayer.throwParticles.transform.parent.up = -ThrowDirection;
 
         playerController.ChangeState(playerController.stunState);
         if (!playerController.CheckForGround()) playerController.Impulse(-ThrowDirection, force * reactionForceMultiplier, false);
