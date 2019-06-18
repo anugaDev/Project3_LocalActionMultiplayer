@@ -18,6 +18,9 @@ public class Dash : BaseState
 
     [SerializeField] private bool catched = false;
 
+    [SerializeField] private float timeAfterDashThreshold;
+    private float lastDashTime;
+
     public bool available = true;
     public bool released = true;
 
@@ -46,6 +49,7 @@ public class Dash : BaseState
 
         playerTrigger.isTrigger = true;
 
+        lastDashTime = Time.timeSinceLevelLoad;
 
         playerController.Impulse(direction == Vector3.zero ? transform.right : direction, speed, false);
         actualDirection = direction;
@@ -122,7 +126,7 @@ public class Dash : BaseState
 
         if (enemy.shield.shieldDestroyed)
         {
-            if (playerController.shield.shieldDestroyed && enemy.stateMachine.currentState == enemy.dashState)
+            if (playerController.shield.shieldDestroyed && enemy.stateMachine.currentState == enemy.dashState || enemy.dashState.InsideMashTime())
             {
                 MashWithPlayer(enemy);
             }
@@ -197,5 +201,10 @@ public class Dash : BaseState
     public void PlayCooldownSound()
     {
         RuntimeManager.PlayOneShot(onCooldown);
+    }
+
+    public bool InsideMashTime()
+    {
+        return (Time.timeSinceLevelLoad - lastDashTime) <= timeAfterDashThreshold;
     }
 }
