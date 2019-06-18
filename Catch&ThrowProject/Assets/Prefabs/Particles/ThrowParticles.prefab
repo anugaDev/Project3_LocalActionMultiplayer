@@ -47,7 +47,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1364,7 +1364,7 @@ ParticleSystem:
     enabled: 1
     mode: 1
     timeMode: 2
-    fps: 30
+    fps: 5
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -1480,11 +1480,11 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -3929302403680592144, guid: 441c0cfbaf6ceee4d8ef3780a36abf8d,
+    - sprite: {fileID: 8251121821727262610, guid: 081c91d0a33390149bff6ff4034abdf9,
         type: 3}
-    - sprite: {fileID: -3127622200967956464, guid: 441c0cfbaf6ceee4d8ef3780a36abf8d,
+    - sprite: {fileID: -5550496207435966786, guid: 081c91d0a33390149bff6ff4034abdf9,
         type: 3}
-    - sprite: {fileID: 7138828788557438886, guid: 441c0cfbaf6ceee4d8ef3780a36abf8d,
+    - sprite: {fileID: 3255522507321815851, guid: 081c91d0a33390149bff6ff4034abdf9,
         type: 3}
     flipU: 0
     flipV: 0
