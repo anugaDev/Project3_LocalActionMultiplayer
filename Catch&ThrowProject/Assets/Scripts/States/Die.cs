@@ -51,6 +51,7 @@ public class Die : BaseState
         playerModel.SetActive(false);
         playerController.dashState.available = false;
         playerController.dashState.walkTrail.enabled = false;
+        playerController.throwParticles.gameObject.SetActive(false);
         delegateRespawn = GetRespawn(timeToRespawn);
         StartCoroutine(delegateRespawn);
     }
