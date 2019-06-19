@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MashButton : BaseState
 {
     [SerializeField] private Transform mashAffordance;
-    [SerializeField] private Transform scaledMashAffordance;
+    [SerializeField] private Image filledImage;
     [SerializeField] private int timesToMash = 10;
     [SerializeField] private float failTime = 10f;
     [SerializeField] private float backOutTimeForce = 20f;
@@ -24,7 +25,10 @@ public class MashButton : BaseState
         actualMashedTimes = 0;
         StartCoroutine(CountForFail(failTime));
         mashAffordance.gameObject.SetActive(true);
-        scaledMashAffordance.localScale = Vector3.one * actualMashedTimes;
+        
+        filledImage.fillAmount = 0;
+
+        
     }
 
     public override void Execute()
@@ -32,7 +36,7 @@ public class MashButton : BaseState
         if (playerController.inputControl.ButtonDown(InputController.Button.DASH))
         {
             actualMashedTimes++;
-            scaledMashAffordance.localScale = Vector3.one * (actualMashedTimes/timesToMash);
+            filledImage.fillAmount = actualMashedTimes / timesToMash;
 
         }
         
