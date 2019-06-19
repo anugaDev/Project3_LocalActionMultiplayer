@@ -1549,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1557846285665081785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1930,11 +1930,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6034499320684883234}
     m_Modifications:
-    - target: {fileID: 2940635190584708509, guid: 51eab7f106c43e84d9f0674956322628,
-        type: 3}
-      propertyPath: m_Name
-      value: ThrowParticles
-      objectReference: {fileID: 0}
     - target: {fileID: 6616754584411768561, guid: 51eab7f106c43e84d9f0674956322628,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1989,6 +1984,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2940635190584708509, guid: 51eab7f106c43e84d9f0674956322628,
+        type: 3}
+      propertyPath: m_Name
+      value: ThrowParticles
       objectReference: {fileID: 0}
     - target: {fileID: 1743471212885366570, guid: 51eab7f106c43e84d9f0674956322628,
         type: 3}
